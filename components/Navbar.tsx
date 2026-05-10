@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
@@ -67,6 +67,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const onDarkHero = pathname === "/";
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -74,6 +75,24 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close mega-menu when route actually changes (e.g. user clicked a link)
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  function openMenu() {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setMenuOpen(true);
+  }
+
+  function scheduleClose() {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => setMenuOpen(false), 180);
+  }
 
   // Over the dark hero AND not scrolled = light navbar text
   const lightMode = onDarkHero && !scrolled;
@@ -107,16 +126,14 @@ export default function Navbar() {
           <Logo size={34} variant={lightMode ? "light" : "dark"} />
         </Link>
 
-        <nav
-          className="hidden items-center gap-10 md:flex"
-          onMouseLeave={() => setMenuOpen(false)}
-        >
+        <nav className="hidden items-center gap-10 md:flex">
           {links.map((l) =>
             l.hasMenu ? (
               <div
                 key={l.href}
                 className="relative"
-                onMouseEnter={() => setMenuOpen(true)}
+                onMouseEnter={openMenu}
+                onMouseLeave={scheduleClose}
               >
                 <Link
                   href={l.href}
@@ -124,13 +141,21 @@ export default function Navbar() {
                 >
                   {l.label}
                 </Link>
+                {/* Invisible bridge so cursor can travel from link to dropdown
+                    without leaving any hover surface. */}
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-full h-3"
+                />
               </div>
             ) : (
               <Link
                 key={l.href}
                 href={l.href}
                 className={`text-sm transition ${linkColor}`}
-                onMouseEnter={() => setMenuOpen(false)}
+                onMouseEnter={() => {
+                  if (menuOpen) scheduleClose();
+                }}
               >
                 {l.label}
               </Link>
@@ -157,8 +182,8 @@ export default function Navbar() {
       {menuOpen && (
         <div
           className="absolute inset-x-0 top-full hidden border-y border-carbon-950/[0.08] bg-[rgb(252,251,249)] md:block"
-          onMouseEnter={() => setMenuOpen(true)}
-          onMouseLeave={() => setMenuOpen(false)}
+          onMouseEnter={openMenu}
+          onMouseLeave={scheduleClose}
         >
           <div className="container-x grid grid-cols-12 gap-8 py-10">
             <div className="col-span-12 lg:col-span-3">
