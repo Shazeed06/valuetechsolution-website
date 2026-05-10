@@ -75,9 +75,9 @@ body {
     @apply relative py-14 sm:py-20 lg:py-24;
   }
 
-  /* Page hero header rhythm — accounts for sticky 80px navbar */
+  /* Page hero header rhythm — accounts for sticky 80px navbar; visible in first viewport */
   .page-header {
-    @apply relative pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pt-44 lg:pb-20;
+    @apply relative pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-32 lg:pb-16;
   }
 
   .eyebrow {

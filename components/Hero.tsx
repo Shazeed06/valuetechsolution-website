@@ -90,9 +90,9 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative flex min-h-[100vh] flex-col pt-24 pb-12 sm:min-h-[96vh] lg:min-h-[92vh]">
+      <div className="relative flex min-h-[88vh] flex-col pt-20 pb-10 sm:min-h-[86vh] sm:pt-20 lg:min-h-[84vh] lg:pt-20 lg:pb-12">
         {/* Top eyebrow row */}
-        <div className="container-x flex flex-wrap items-center justify-between gap-4 pt-8">
+        <div className="container-x flex flex-wrap items-center justify-between gap-4 pt-2">
           <span className="inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.28em] text-white/65">
             <span className="h-px w-8 bg-white/45" />
             <span className="sm:hidden">VTS · AI Startup</span>
@@ -110,9 +110,9 @@ export default function Hero() {
         </div>
 
         {/* Mega headline block */}
-        <div className="container-x flex flex-1 flex-col justify-center pt-14 sm:pt-20">
+        <div className="container-x flex flex-1 flex-col justify-center pt-8 sm:pt-10">
           <SplitReveal trigger="load" stagger={0.13}>
-            <h1 className="font-display text-[3rem] font-bold leading-[0.92] tracking-[-0.045em] text-white sm:text-7xl lg:text-[8rem] lg:leading-[0.88]">
+            <h1 className="font-display text-[2.7rem] font-bold leading-[0.94] tracking-[-0.045em] text-white sm:text-6xl lg:text-[6.5rem] lg:leading-[0.9]">
               <Line>We delete</Line>
               <Line>
                 <span className="italic-accent text-white/65">boring work.</span>
@@ -121,8 +121,8 @@ export default function Hero() {
             </h1>
           </SplitReveal>
 
-          <div ref={subRef} className="mt-8 max-w-2xl sm:mt-12">
-            <p className="text-lg leading-relaxed text-white/70 sm:text-xl">
+          <div ref={subRef} className="mt-6 max-w-2xl sm:mt-8">
+            <p className="text-base leading-relaxed text-white/70 sm:text-lg">
               Value Tech Solution is an AI automation studio of engineers
               shipping production-grade agents on{" "}
               <span className="font-medium text-white">
@@ -136,7 +136,7 @@ export default function Hero() {
 
           <div
             ref={ctaRef}
-            className="mt-10 flex flex-wrap items-center gap-5 sm:mt-12"
+            className="mt-8 flex flex-wrap items-center gap-5 sm:mt-10"
           >
             <Link
               href="/contact"
@@ -165,7 +165,7 @@ export default function Hero() {
         {/* Bottom status bar */}
         <div
           ref={statusRef}
-          className="container-x mt-16 flex flex-col gap-5 border-t border-white/[0.08] pt-6 sm:mt-20 sm:flex-row sm:items-center sm:justify-between"
+          className="container-x mt-10 flex flex-col gap-5 border-t border-white/[0.08] pt-6 sm:mt-12 sm:flex-row sm:items-center sm:justify-between"
         >
           <div className="grid w-full grid-cols-1 gap-4 sm:flex sm:items-center sm:gap-8">
             <span className="flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.24em] text-white/65">
