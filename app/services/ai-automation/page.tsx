@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceDetail from "@/components/ServiceDetail";
 import AutomationShowcase from "@/components/AutomationShowcase";
+import AIArchitecture from "@/components/AIArchitecture";
 import AIAgents from "@/components/AIAgents";
 import AutomationPlatforms from "@/components/AutomationPlatforms";
 import IndustriesGrid from "@/components/IndustriesGrid";
@@ -217,6 +218,7 @@ export default function AIPage() {
         ]}
       />
 
+      <AIArchitecture />
       <AIAgents />
       <AutomationPlatforms />
       <IndustriesGrid />

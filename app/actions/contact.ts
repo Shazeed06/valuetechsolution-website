@@ -1,11 +1,11 @@
 "use server";
 
 import { Resend } from "resend";
+import { headers } from "next/headers";
 import { CONTACT } from "@/lib/contact-config";
+import { env } from "@/lib/env";
 
-type Result =
-  | { ok: true }
-  | { ok: false; error: string };
+type Result = { ok: true } | { ok: false; error: string };
 
 export type ContactPayload = {
   name: string;
@@ -16,25 +16,60 @@ export type ContactPayload = {
   budget: string;
   message: string;
   source?: string;
+  // Honeypot — must remain empty for the request to be considered human
+  hp?: string;
 };
 
-/**
- * Sends a contact submission via:
- *  1. Resend email to CONTACT.email (if RESEND_API_KEY is set)
- *  2. POST to CONTACT_WEBHOOK_URL — Slack, n8n, Zapier, Make, your CRM (if set)
- *  3. Server-console fallback (dev / preview)
- *
- * The user also gets a "Send via WhatsApp" alternative in the success state
- * (see ContactForm.tsx).
- */
+// In-memory rate limiter. For multi-region production, swap with Upstash KV.
+const RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const RATE_MAX = 10; // 10 submissions per IP per hour
+const buckets = new Map<string, { count: number; resetAt: number }>();
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+  const b = buckets.get(ip);
+  if (!b || now > b.resetAt) {
+    buckets.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return false;
+  }
+  b.count += 1;
+  return b.count > RATE_MAX;
+}
+
 export async function sendContact(payload: ContactPayload): Promise<Result> {
-  // Server-side validation
+  // 1. Honeypot — bots tend to fill every field
+  if (payload.hp && payload.hp.trim().length > 0) {
+    // Silent reject — pretend success so bots don't retry
+    console.warn("[contact] honeypot tripped");
+    return { ok: true };
+  }
+
+  // 2. Rate-limit by client IP
+  try {
+    const h = await headers();
+    const ip =
+      h.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      h.get("x-real-ip") ||
+      "unknown";
+    if (isRateLimited(ip)) {
+      return {
+        ok: false,
+        error: "Too many submissions. Please try again later or email us directly.",
+      };
+    }
+  } catch {
+    // headers() may not be available in some test environments — proceed.
+  }
+
+  // 3. Server-side validation
   if (!payload.name?.trim())
     return { ok: false, error: "Please add your name." };
   if (!/^\S+@\S+\.\S+$/.test(payload.email))
     return { ok: false, error: "Please add a valid email." };
   if (!payload.message?.trim() || payload.message.length < 10)
     return { ok: false, error: "Please add a few project details." };
+  if (payload.message.length > 5000)
+    return { ok: false, error: "Message is too long." };
 
   const lines = [
     `Name: ${payload.name}`,
@@ -73,15 +108,12 @@ export async function sendContact(payload: ContactPayload): Promise<Result> {
   const sent: string[] = [];
   const failed: string[] = [];
 
-  // 1) Email via Resend
-  const resendKey = process.env.RESEND_API_KEY;
-  const fromAddress =
-    process.env.RESEND_FROM || `Value Tech Solution <onboarding@resend.dev>`;
-  if (resendKey) {
+  // 4. Email via Resend
+  if (env.RESEND_API_KEY) {
     try {
-      const resend = new Resend(resendKey);
+      const resend = new Resend(env.RESEND_API_KEY);
       const { error } = await resend.emails.send({
-        from: fromAddress,
+        from: env.RESEND_FROM ?? "Value Tech Solution <onboarding@resend.dev>",
         to: [CONTACT.email],
         replyTo: payload.email,
         subject,
@@ -100,16 +132,15 @@ export async function sendContact(payload: ContactPayload): Promise<Result> {
     }
   }
 
-  // 2) Webhook (Slack / n8n / Zapier / Make / your CRM)
-  const webhook = process.env.CONTACT_WEBHOOK_URL;
-  if (webhook) {
+  // 5. Webhook
+  if (env.CONTACT_WEBHOOK_URL) {
     try {
       const slackPayload = {
         text: `*${subject}*\n${text}`,
         ...payload,
         received_at: new Date().toISOString(),
       };
-      const res = await fetch(webhook, {
+      const res = await fetch(env.CONTACT_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(slackPayload),
@@ -126,11 +157,9 @@ export async function sendContact(payload: ContactPayload): Promise<Result> {
     }
   }
 
-  // 3) Always log on server (dev/preview safety net)
   console.log("[contact]", { subject, sent, failed });
 
-  // If both delivery channels failed AND we tried at least one, surface error
-  if (sent.length === 0 && (resendKey || webhook)) {
+  if (sent.length === 0 && (env.RESEND_API_KEY || env.CONTACT_WEBHOOK_URL)) {
     return {
       ok: false,
       error: `We couldn't reach our inbox. Please email ${CONTACT.email} directly.`,

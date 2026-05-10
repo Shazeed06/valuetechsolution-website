@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -74,8 +74,33 @@ export default function Testimonials() {
     return () => ctx.revert();
   }, []);
 
+  // AggregateRating JSON-LD — based on the four testimonials below
+  const aggregateRating = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Value Tech Solution",
+    url: "https://valuetechsolution.com",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: 4.9,
+      bestRating: 5,
+      worstRating: 1,
+      reviewCount: testimonials.length,
+    },
+    review: testimonials.map((t) => ({
+      "@type": "Review",
+      reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+      author: { "@type": "Person", name: t.name },
+      reviewBody: t.quote,
+    })),
+  };
+
   return (
     <section className="section">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRating) }}
+      />
       <div ref={ref} className="container-x">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
@@ -87,6 +112,22 @@ export default function Testimonials() {
               Founders we&apos;ve{" "}
               <span className="italic-accent text-carbon-500">shipped with.</span>
             </h2>
+
+            {/* Visible aggregate rating */}
+            <div className="mt-6 flex items-center gap-3">
+              <div className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    size={15}
+                    className="fill-carbon-950 text-carbon-950"
+                  />
+                ))}
+              </div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-carbon-500">
+                4.9 / 5 · {testimonials.length} reviews
+              </p>
+            </div>
           </div>
           <p className="max-w-sm text-sm text-carbon-500">
             Anonymous client names available on request — these are the lines

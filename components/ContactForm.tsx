@@ -63,10 +63,12 @@ export default function ContactForm() {
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
+    const fd = new FormData(e.currentTarget);
     const payload = {
       ...form,
       service,
       budget,
+      hp: String(fd.get("vt_company_url") ?? ""),
       source:
         typeof window !== "undefined"
           ? document.referrer || "direct"
@@ -117,6 +119,31 @@ export default function ContactForm() {
       onSubmit={onSubmit}
       className="rounded-3xl border border-carbon-950/[0.08] bg-white p-7 shadow-ring sm:p-9"
     >
+      {/* Honeypot — visually hidden, off-screen. Bots fill it; humans don't. */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: 1,
+          height: 1,
+          overflow: "hidden",
+          opacity: 0,
+        }}
+      >
+        <label htmlFor="vt_company_url">
+          Company URL (leave blank)
+          <input
+            id="vt_company_url"
+            name="vt_company_url"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            defaultValue=""
+          />
+        </label>
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <Field
           label="Full name"

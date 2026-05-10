@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cases } from "@/lib/case-studies";
+import { posts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://valuetechsolution.com";
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/pricing", priority: 0.85, freq: "weekly" },
     { path: "/case-studies", priority: 0.8, freq: "weekly" },
     { path: "/portfolio", priority: 0.7, freq: "monthly" },
+    { path: "/team", priority: 0.7, freq: "monthly" },
     { path: "/blog", priority: 0.7, freq: "weekly" },
     { path: "/contact", priority: 0.6, freq: "monthly" },
     { path: "/privacy", priority: 0.3, freq: "monthly" },
@@ -39,5 +41,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...base_routes, ...case_routes];
+  // Only published blog posts go in sitemap. "Coming soon" placeholders are
+  // noindexed via per-page metadata.robots.
+  const blog_routes: MetadataRoute.Sitemap = posts
+    .filter((p) => p.published)
+    .map((p) => ({
+      url: `${base}/blog/${p.slug}`,
+      lastModified: p.publishedAt
+        ? new Date(p.publishedAt)
+        : new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    }));
+
+  return [...base_routes, ...case_routes, ...blog_routes];
 }

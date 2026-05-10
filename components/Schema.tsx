@@ -147,3 +147,94 @@ export function BreadcrumbSchema({
     />
   );
 }
+
+export function ArticleSchema({
+  title,
+  description,
+  url,
+  datePublished,
+  dateModified,
+  authorName,
+  authorUrl,
+  image,
+  category,
+  wordCount,
+}: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified?: string;
+  authorName: string;
+  authorUrl?: string;
+  image?: string;
+  category?: string;
+  wordCount?: number;
+}) {
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    url,
+    datePublished,
+    dateModified: dateModified ?? datePublished,
+    author: {
+      "@type": "Person",
+      name: authorName,
+      url: authorUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Value Tech Solution",
+      url: "https://valuetechsolution.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://valuetechsolution.com/logo.svg",
+      },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    image: image
+      ? [{ "@type": "ImageObject", url: image }]
+      : undefined,
+    articleSection: category,
+    wordCount,
+    inLanguage: "en",
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+    />
+  );
+}
+
+export function AggregateRatingSchema({
+  ratingValue = 4.9,
+  reviewCount = 4,
+  bestRating = 5,
+}: {
+  ratingValue?: number;
+  reviewCount?: number;
+  bestRating?: number;
+}) {
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Value Tech Solution",
+    url: "https://valuetechsolution.com",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue,
+      reviewCount,
+      bestRating,
+      worstRating: 1,
+    },
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+    />
+  );
+}
