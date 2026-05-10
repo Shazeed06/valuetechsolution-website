@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,150 +9,186 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const testimonials = [
+  {
+    n: "T.01",
+    quote:
+      "Their AI agent handles our entire lead routing and onboarding flow. We didn't hire two ops people we'd planned to — that's the whole story.",
+    name: "Daniel Okafor",
+    role: "Founder · Coastline Exports",
+    tag: "AI Automation",
+    metric: "26 hrs / week saved",
+    accent: "from-emerald-400/30 to-emerald-400/0",
+  },
+  {
+    n: "T.02",
+    quote:
+      "Senior team, sane process, no fluff. They flagged trade-offs we hadn't even thought to ask about and shipped on the date they promised.",
+    name: "Priya Subramanian",
+    role: "CTO · Lumen Health",
+    tag: "Web Development",
+    metric: "Lighthouse 99 in CI",
+    accent: "from-sky-400/30 to-sky-400/0",
+  },
+  {
+    n: "T.03",
+    quote:
+      "We came in expecting a Webflow rebuild. We left with a Next.js site, a content engine, and a measurable pipeline. Different studio, different outcome.",
+    name: "Aanya Mehta",
+    role: "Head of Growth · Forge AI",
+    tag: "SEO + Web",
+    metric: "+3.2× sign-up rate",
+    accent: "from-violet-400/30 to-violet-400/0",
+  },
+  {
+    n: "T.04",
+    quote:
+      "The n8n workflows they built quietly run our backoffice now. I forget they exist — which is the highest compliment I can pay an automation.",
+    name: "Rohan Iyer",
+    role: "Operations Lead · Mosaic Labs",
+    tag: "Automation",
+    metric: "42 hrs / week saved",
+    accent: "from-amber-400/30 to-amber-400/0",
+  },
+];
+
 export default function Testimonials() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const words = ref.current?.querySelectorAll("[data-w]") ?? [];
+      const cards = ref.current?.querySelectorAll("[data-card]") ?? [];
       gsap.fromTo(
-        words,
-        { opacity: 0.18 },
+        cards,
+        { y: 32, opacity: 0 },
         {
+          y: 0,
           opacity: 1,
-          stagger: 0.04,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ref.current,
-            start: "top 75%",
-            end: "bottom 60%",
-            scrub: 0.5,
-          },
+          duration: 0.8,
+          ease: "expo.out",
+          stagger: 0.1,
+          scrollTrigger: { trigger: ref.current, start: "top 80%", once: true },
         }
       );
-
-      gsap.from("[data-portrait]", {
-        opacity: 0,
-        scale: 1.04,
-        duration: 1.2,
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 80%",
-          once: true,
-        },
-      });
     });
     return () => ctx.revert();
   }, []);
 
-  const quote =
-    "Their AI agent handles our entire lead routing and onboarding flow. We didn't hire two ops people we'd planned to — that's the whole story.";
-  const words = quote.split(" ");
-
   return (
     <section className="section">
       <div ref={ref} className="container-x">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          {/* Portrait + meta */}
-          <div className="lg:col-span-5">
-            <div
-              data-portrait
-              className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-carbon-950/[0.08]"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1400&q=80"
-                alt="Founder portrait — Daniel Okafor"
-                fill
-                sizes="(min-width: 1024px) 42vw, 100vw"
-                className="object-cover grayscale contrast-110"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10"
-              />
-
-              {/* Top-left chip */}
-              <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 backdrop-blur">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-carbon-950 opacity-50" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-carbon-950" />
-                </span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-950">
-                  client · 2026
-                </span>
-              </div>
-
-              {/* Bottom name card */}
-              <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-md">
-                <div className="flex items-baseline justify-between">
-                  <p className="font-display text-xl font-bold text-white sm:text-2xl">
-                    Daniel Okafor
-                  </p>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/60">
-                    T.01
-                  </span>
-                </div>
-                <p className="mt-1 text-sm text-white/75">
-                  Founder · Coastline Exports
-                </p>
-                <div className="mt-4 flex items-center gap-2 border-t border-white/15 pt-3">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-white/55">
-                    engagement
-                  </p>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-white/85">
-                    AI lead-routing · 5 weeks
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Quote */}
-          <div className="flex flex-col justify-center lg:col-span-7">
+        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+          <div>
             <span className="eyebrow">
               <span className="h-px w-8 bg-carbon-500" />
-              (testimonial)
+              (testimonials)
             </span>
-
-            <Quote
-              size={36}
-              className="mt-8 text-carbon-950/30"
-              strokeWidth={1.5}
-            />
-
-            <p className="mt-6 font-display text-3xl font-medium leading-[1.18] tracking-[-0.025em] text-carbon-950 sm:text-4xl lg:text-[3rem] lg:leading-[1.12]">
-              <span className="italic-accent text-carbon-500">&ldquo;</span>
-              {words.map((w, i) => (
-                <span key={i} data-w className="inline-block">
-                  {w}
-                  {i < words.length - 1 ? " " : ""}
-                </span>
-              ))}
-              <span className="italic-accent text-carbon-500">&rdquo;</span>
-            </p>
-
-            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-carbon-950/[0.08] pt-8">
-              <Stat label="ops people not hired" value="2" />
-              <Stat label="hours saved / week" value="26" />
-              <Stat label="response time" value="4h → 47s" />
-            </div>
+            <h2 className="heading-lg gap-eyebrow-heading">
+              Founders we&apos;ve{" "}
+              <span className="italic-accent text-carbon-500">shipped with.</span>
+            </h2>
           </div>
+          <p className="max-w-sm text-sm text-carbon-500">
+            Anonymous client names available on request — these are the lines
+            we keep hearing back.
+          </p>
         </div>
+
+        <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-carbon-950/[0.08] bg-carbon-950/[0.08] sm:grid-cols-2">
+          {testimonials.map((t, i) => (
+            <article
+              key={t.n}
+              data-card
+              className={`group relative flex flex-col p-7 transition-colors duration-500 sm:p-10 ${
+                i % 3 === 0
+                  ? "bg-carbon-950 text-white hover:bg-carbon-700"
+                  : "bg-[rgb(252,251,249)] hover:bg-white"
+              }`}
+            >
+              {/* Accent glow on dark cards */}
+              {i % 3 === 0 && (
+                <div
+                  aria-hidden
+                  className={`pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-gradient-to-br ${t.accent} blur-3xl`}
+                />
+              )}
+
+              <div className="relative flex items-center justify-between">
+                <span
+                  className={`font-mono text-[10px] uppercase tracking-[0.28em] ${
+                    i % 3 === 0 ? "text-white/55" : "text-carbon-400"
+                  }`}
+                >
+                  {t.n} · {t.tag}
+                </span>
+                <Quote
+                  size={22}
+                  strokeWidth={1.5}
+                  className={i % 3 === 0 ? "text-white/30" : "text-carbon-950/25"}
+                />
+              </div>
+
+              <p
+                className={`relative mt-8 font-display text-xl font-medium leading-[1.32] tracking-[-0.015em] sm:text-2xl ${
+                  i % 3 === 0 ? "text-white/90" : "text-carbon-950"
+                }`}
+              >
+                <span
+                  className={`italic-accent ${
+                    i % 3 === 0 ? "text-white/55" : "text-carbon-500"
+                  }`}
+                >
+                  &ldquo;
+                </span>
+                {t.quote}
+                <span
+                  className={`italic-accent ${
+                    i % 3 === 0 ? "text-white/55" : "text-carbon-500"
+                  }`}
+                >
+                  &rdquo;
+                </span>
+              </p>
+
+              <div
+                className={`relative mt-auto flex items-end justify-between gap-4 border-t pt-5 ${
+                  i % 3 === 0 ? "border-white/15" : "border-carbon-950/[0.08]"
+                } mt-10`}
+              >
+                <div>
+                  <p
+                    className={`font-display text-base font-bold tracking-[-0.01em] sm:text-lg ${
+                      i % 3 === 0 ? "text-white" : "text-carbon-950"
+                    }`}
+                  >
+                    {t.name}
+                  </p>
+                  <p
+                    className={`mt-1 text-xs ${
+                      i % 3 === 0 ? "text-white/55" : "text-carbon-500"
+                    }`}
+                  >
+                    {t.role}
+                  </p>
+                </div>
+                <span
+                  className={`shrink-0 rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] ${
+                    i % 3 === 0
+                      ? "border-white/20 bg-white/5 text-white/85"
+                      : "border-carbon-950/15 bg-snow-50 text-carbon-700"
+                  }`}
+                >
+                  {t.metric}
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <p className="mt-10 text-center font-mono text-[11px] uppercase tracking-[0.24em] text-carbon-400">
+          ↳ NDAs and reference calls available on request
+        </p>
       </div>
     </section>
-  );
-}
-
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <p className="font-display text-2xl font-bold tracking-[-0.025em] text-carbon-950 sm:text-3xl">
-        {value}
-      </p>
-      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-500">
-        {label}
-      </p>
-    </div>
   );
 }

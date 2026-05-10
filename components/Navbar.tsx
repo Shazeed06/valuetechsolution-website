@@ -53,11 +53,11 @@ const platforms = [
 ];
 
 const links = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services", hasMenu: true },
   { href: "/portfolio", label: "Work" },
-  { href: "/team", label: "Team" },
-  { href: "/blog", label: "Notes" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -239,6 +239,13 @@ export default function Navbar() {
         <div className="border-t border-carbon-950/[0.08] bg-[rgb(252,251,249)] md:hidden">
           <div className="container-x flex flex-col gap-1 py-4">
             <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className="rounded-lg px-3 py-3 text-sm text-carbon-700 hover:bg-carbon-950/[0.04]"
+            >
+              Home
+            </Link>
+            <Link
               href="/about"
               onClick={() => setOpen(false)}
               className="rounded-lg px-3 py-3 text-sm text-carbon-700 hover:bg-carbon-950/[0.04]"
@@ -291,6 +298,13 @@ export default function Navbar() {
               className="rounded-lg px-3 py-3 text-sm text-carbon-700 hover:bg-carbon-950/[0.04]"
             >
               Work
+            </Link>
+            <Link
+              href="/blog"
+              onClick={() => setOpen(false)}
+              className="rounded-lg px-3 py-3 text-sm text-carbon-700 hover:bg-carbon-950/[0.04]"
+            >
+              Blog
             </Link>
             <Link
               href="/contact"

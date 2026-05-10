@@ -7,8 +7,8 @@ const cols = [
   {
     title: "Studio",
     links: [
+      { href: "/", label: "Home" },
       { href: "/about", label: "About" },
-      { href: "/team", label: "Team" },
       { href: "/case-studies", label: "Case studies" },
       { href: "/portfolio", label: "What we engineer" },
       { href: "/contact", label: "Contact" },
@@ -36,7 +36,7 @@ const cols = [
   {
     title: "Resources",
     links: [
-      { href: "/blog", label: "Field notes" },
+      { href: "/blog", label: "Blog" },
       { href: "/pricing", label: "Pricing" },
       { href: "/security", label: "Security" },
     ],
