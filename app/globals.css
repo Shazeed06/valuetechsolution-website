@@ -1,0 +1,135 @@
+@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=jetbrains-mono@400,500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 252 251 249;
+  --foreground: 12 12 12;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background: rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-family: "Cabinet Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv01", "cv02";
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+::selection {
+  background: rgb(12, 12, 12);
+  color: rgb(252, 251, 249);
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-10;
+  }
+
+  .gradient-text {
+    @apply text-carbon-950;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn bg-carbon-950 text-white hover:bg-carbon-700;
+  }
+
+  .btn-ghost {
+    @apply btn border border-carbon-950/20 bg-transparent text-carbon-950 hover:border-carbon-950 hover:bg-carbon-950 hover:text-white;
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-2 text-sm font-medium text-carbon-950 underline-offset-[6px] hover:underline;
+  }
+
+  .card {
+    @apply rounded-3xl border border-carbon-950/[0.07] bg-white/60 p-7 transition-all duration-500;
+  }
+
+  .card:hover {
+    @apply border-carbon-950/15 bg-white;
+  }
+
+  .card-flat {
+    @apply rounded-3xl border border-carbon-950/[0.07] p-7 transition-colors duration-500 hover:border-carbon-950/20;
+  }
+
+  .section {
+    @apply relative py-20 sm:py-28 lg:py-36;
+  }
+
+  /* Tighter rhythm for connector / strip sections (marquees, stickers, image dividers) */
+  .section-tight {
+    @apply relative py-14 sm:py-20 lg:py-24;
+  }
+
+  /* Page hero header rhythm — accounts for sticky 80px navbar */
+  .page-header {
+    @apply relative pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pt-44 lg:pb-20;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.28em] text-carbon-500;
+  }
+
+  /* Standard rhythm tokens */
+  .gap-eyebrow-heading {
+    @apply mt-6 sm:mt-8;
+  }
+  .gap-heading-desc {
+    @apply mt-5 sm:mt-6;
+  }
+  .gap-heading-grid {
+    @apply mt-12 sm:mt-16;
+  }
+
+  .heading-display {
+    @apply font-display font-bold leading-[0.92] tracking-[-0.045em] text-carbon-950;
+  }
+
+  .heading-xl {
+    @apply heading-display text-6xl sm:text-7xl lg:text-[6.5rem];
+  }
+
+  .heading-lg {
+    @apply heading-display text-4xl sm:text-5xl lg:text-[4.25rem];
+  }
+
+  .heading-md {
+    @apply heading-display text-3xl sm:text-4xl lg:text-5xl tracking-[-0.035em];
+  }
+
+  .heading-sm {
+    @apply font-display text-2xl font-bold leading-tight tracking-[-0.02em] text-carbon-950;
+  }
+
+  .lede {
+    @apply text-lg leading-relaxed text-carbon-500 sm:text-xl;
+  }
+
+  .muted {
+    @apply text-carbon-400;
+  }
+
+  .rule {
+    @apply h-px w-full bg-carbon-950/[0.08];
+  }
+
+  .italic-accent {
+    font-family: "Cabinet Grotesk", serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+}

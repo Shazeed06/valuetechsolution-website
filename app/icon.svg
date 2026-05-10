@@ -1,0 +1,4 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50 2 L91 26 L91 74 L50 98 L9 74 L9 26 Z" fill="#0a0a0a" />
+  <text x="50" y="62" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="28" letter-spacing="-1" fill="#ffffff">VTS</text>
+</svg>
