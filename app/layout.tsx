@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LenisProvider from "@/components/LenisProvider";
 import CustomCursor from "@/components/CustomCursor";
-import PageTransition from "@/components/PageTransition";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
 import FloatingActions from "@/components/FloatingActions";
 import CookieBanner from "@/components/CookieBanner";
@@ -80,9 +79,7 @@ export default function RootLayout({
           <AnalyticsProvider />
         </Suspense>
         <Navbar />
-        <main className="relative">
-          <PageTransition>{children}</PageTransition>
-        </main>
+        <main className="relative">{children}</main>
         <Footer />
         <FloatingActions />
         <CookieBanner />

@@ -1,13 +1,20 @@
+import Image from "next/image";
+
 type Props = {
   size?: number;
   withWordmark?: boolean;
   variant?: "dark" | "light";
+  /**
+   * If true, renders only the mark (no inner padding tweaks). Useful in
+   * tight chrome like the navbar where the wordmark sits beside it.
+   */
   compact?: boolean;
 };
 
 /**
- * Value Tech Solution mark — bold V with an upward-rising arrow.
- * Renders inline SVG so it inherits currentColor (works on light + dark).
+ * Value Tech Solution mark — uses the brand JPEG at /logo.jpg.
+ * The wordmark next to it is text-based so it auto-flips colour
+ * (black on light bg, white on dark hero) via the variant prop.
  */
 export default function Logo({
   size = 36,
@@ -15,14 +22,14 @@ export default function Logo({
   variant = "dark",
   compact = false,
 }: Props) {
-  const color = variant === "dark" ? "text-carbon-950" : "text-white";
+  const wordmarkColor = variant === "dark" ? "text-carbon-950" : "text-white";
   return (
-    <span className={`inline-flex items-center gap-3 ${color}`}>
+    <span className="inline-flex items-center gap-3">
       <LogoMark size={size} />
-      {withWordmark && (
-        <span className="flex flex-col leading-none">
+      {withWordmark && !compact && (
+        <span className={`flex flex-col leading-none ${wordmarkColor}`}>
           <span className="font-display text-[15px] font-bold tracking-[0.02em]">
-            {compact ? "VALUE TECH" : "VALUE TECH"}
+            VALUE TECH
           </span>
           <span className="mt-1 font-mono text-[8px] uppercase tracking-[0.34em] opacity-70">
             solution
@@ -35,35 +42,14 @@ export default function Logo({
 
 export function LogoMark({ size = 36 }: { size?: number }) {
   return (
-    <svg
-      viewBox="0 0 100 100"
+    <Image
+      src="/logo.jpg"
+      alt="Value Tech Solution"
       width={size}
       height={size}
-      role="img"
-      aria-label="Value Tech Solution"
-      className="shrink-0"
-    >
-      <g fill="currentColor">
-        {/* V — left thick stroke */}
-        <path d="M14 18 L30 18 L52 78 L42 78 Z" />
-        {/* V — right stroke */}
-        <path d="M46 78 L56 78 L72 36 L62 36 Z" />
-        {/* Inner motion line — lifting energy */}
-        <path d="M28 70 L48 24 L42 24 L24 64 Z" opacity={0.55} />
-      </g>
-      {/* Arrow shaft — pierces from inside the V up to the top-right */}
-      <line
-        x1="40"
-        y1="62"
-        x2="86"
-        y2="14"
-        stroke="currentColor"
-        strokeWidth={9}
-        strokeLinecap="square"
-      />
-      {/* Arrowhead — open chevron */}
-      <polygon points="86,14 70,16 84,30" fill="currentColor" />
-      <polygon points="86,14 78,30 92,18" fill="currentColor" />
-    </svg>
+      priority
+      className="shrink-0 select-none"
+      style={{ width: size, height: size, objectFit: "contain" }}
+    />
   );
 }
