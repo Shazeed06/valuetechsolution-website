@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import TaglineStrip from "@/components/TaglineStrip";
 import Principles from "@/components/Principles";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
@@ -20,7 +19,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TaglineStrip invert />
       <Principles />
       <Stats />
 
