@@ -139,7 +139,7 @@ export default function Guarantee() {
             >
               <span className="block overflow-hidden">
                 <span data-line className="block">
-                  Kaam pasand nahi aaya?
+                  Don&apos;t love the work?
                 </span>
               </span>
               <span className="block overflow-hidden">
@@ -147,7 +147,7 @@ export default function Guarantee() {
                   data-line
                   className="block italic-accent text-carbon-500"
                 >
-                  Paise wapas.
+                  Full refund.
                 </span>
               </span>
             </h2>
