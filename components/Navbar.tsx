@@ -115,7 +115,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-x flex h-24 items-center justify-between">
+      <div className="container-x flex h-28 items-center justify-between">
         <Link
           href="/"
           aria-label="Value Tech Solution — Home"
@@ -123,7 +123,7 @@ export default function Navbar() {
             lightMode ? "text-white" : "text-carbon-950"
           }`}
         >
-          <Logo size={64} />
+          <Logo size={84} />
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">
