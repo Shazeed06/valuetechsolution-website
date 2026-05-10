@@ -4,6 +4,7 @@ Production website for **Value Tech Solution** — an AI automation studio shipp
 
 🌐 **Live**: [valuetechsolution.com](https://valuetechsolution.com)
 📧 **Contact**: admin@valuetechsolution.com
+📐 **Architecture**: see [`ARCHITECTURE.md`](./ARCHITECTURE.md) for a plain-English map of the codebase
 
 ---
 
