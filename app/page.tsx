@@ -26,7 +26,7 @@ export default function Home() {
       <MediaDivider
         src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2200&q=80"
         alt="Analytics dashboard, close-up"
-        caption="(field 01) — the work, measured"
+        caption="the work, measured"
         headline={
           <>
             Outputs you can measure.{" "}
@@ -51,7 +51,7 @@ export default function Home() {
       <MediaDivider
         src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=2200&q=80"
         alt="Engineer's keyboard, low light"
-        caption="(field 02) — built like software"
+        caption="built like software"
         headline={
           <>
             Versioned. Reviewed.{" "}
@@ -80,7 +80,7 @@ export default function Home() {
       <MediaDivider
         src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=2200&q=80"
         alt="Engineer at workstation"
-        caption="(field 03) — the craft"
+        caption="the craft"
         headline={
           <>
             Long deep-work blocks.{" "}

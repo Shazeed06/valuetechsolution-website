@@ -102,7 +102,7 @@ export default function AboutPage() {
               />
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 text-white">
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em]">
-                  (img 01) — the work
+                  the work
                 </p>
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em]">
                   bengaluru · 2026
@@ -215,7 +215,7 @@ export default function AboutPage() {
             <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 text-white sm:p-10">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em]">
-                  (img 02) — the studio
+                  the studio
                 </p>
                 <p className="mt-3 max-w-md font-display text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
                   A small room. Senior people. Long deep work blocks.
@@ -323,7 +323,7 @@ export default function AboutPage() {
                 />
               </div>
               <figcaption className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
-                <span>(img 03) — building, daily</span>
+                <span>building, daily</span>
                 <span>est. 2024</span>
               </figcaption>
             </figure>

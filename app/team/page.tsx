@@ -155,9 +155,7 @@ export default function TeamPage() {
                     aria-hidden
                     className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-950 backdrop-blur">
-                    {m.n}
-                  </span>
+                  {/* number badge removed — no image numbers on photos */}
                 </div>
 
                 <div className="flex flex-1 flex-col p-7 sm:p-9">

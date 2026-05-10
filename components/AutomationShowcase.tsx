@@ -85,7 +85,7 @@ export default function AutomationShowcase() {
                 <span className="italic-accent text-carbon-300">%</span>
               </span>
               <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
-                (figure 02) — manual hours, removed
+                manual hours, removed
               </p>
             </div>
           </div>
