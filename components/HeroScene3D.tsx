@@ -29,7 +29,9 @@ export default function HeroScene3D() {
     const group = new THREE.Group();
     scene.add(group);
 
-    const nodeCount = 96;
+    // Reduce node count on smaller / lower-power devices for perf
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const nodeCount = isMobile ? 36 : 64;
     const positions = new Float32Array(nodeCount * 3);
     const nodes: THREE.Vector3[] = [];
 
@@ -65,9 +67,10 @@ export default function HeroScene3D() {
     group.add(pointCloud);
 
     const linePositions: number[] = [];
+    const maxLines = isMobile ? 360 : 700;
     for (let i = 0; i < nodeCount; i += 1) {
       for (let j = i + 1; j < nodeCount; j += 1) {
-        if (nodes[i].distanceTo(nodes[j]) < 2.55 && linePositions.length < 1200) {
+        if (nodes[i].distanceTo(nodes[j]) < 2.55 && linePositions.length < maxLines) {
           linePositions.push(
             nodes[i].x,
             nodes[i].y,
@@ -98,9 +101,10 @@ export default function HeroScene3D() {
     const ringGroup = new THREE.Group();
     group.add(ringGroup);
 
-    for (let i = 0; i < 5; i += 1) {
+    const ringCount = isMobile ? 2 : 3;
+    for (let i = 0; i < ringCount; i += 1) {
       const ring = new THREE.Mesh(
-        new THREE.TorusGeometry(2.4 + i * 0.85, 0.01, 12, 180),
+        new THREE.TorusGeometry(2.4 + i * 0.85, 0.01, 10, 120),
         new THREE.MeshBasicMaterial({
           color: i % 2 === 0 ? 0xffffff : 0x42e8c6,
           transparent: true,
@@ -149,9 +153,28 @@ export default function HeroScene3D() {
 
     let frame = 0;
     let raf = 0;
+    let visible = true;
+    let pageVisible = !document.hidden;
     const clock = new THREE.Clock();
 
+    // Pause render when canvas leaves viewport (saves CPU/battery)
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => (visible = e.isIntersecting)),
+      { threshold: 0 }
+    );
+    io.observe(mount);
+
+    const onVis = () => {
+      pageVisible = !document.hidden;
+    };
+    document.addEventListener("visibilitychange", onVis);
+
     const render = () => {
+      // Skip frame work when scene is offscreen or tab hidden
+      if (!visible || !pageVisible) {
+        raf = window.requestAnimationFrame(render);
+        return;
+      }
       const elapsed = clock.getElapsedTime();
       frame += 1;
 
@@ -185,6 +208,8 @@ export default function HeroScene3D() {
       window.cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVis);
+      io.disconnect();
       mount.removeChild(renderer.domElement);
       nodeGeometry.dispose();
       nodeMaterial.dispose();

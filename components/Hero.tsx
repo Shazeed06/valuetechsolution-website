@@ -1,13 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles, Zap, Clock } from "lucide-react";
 import SplitReveal, { Line } from "./SplitReveal";
-import HeroScene3D from "./HeroScene3D";
+
+// Three.js scene is heavy (~150KB) — load it after first paint
+const HeroScene3D = dynamic(() => import("./HeroScene3D"), {
+  ssr: false,
+  loading: () => null,
+});
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
