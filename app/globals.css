@@ -29,6 +29,26 @@ body {
   color: rgb(252, 251, 249);
 }
 
+/* Custom black cursor — only on hover-capable devices.
+   Native cursor stays on touch / coarse-pointer devices for accessibility.
+   Cursor layers themselves are pointer-events:none, so clicks always work. */
+@media (hover: hover) and (pointer: fine) {
+  html.vts-cursor-on,
+  html.vts-cursor-on body {
+    cursor: none;
+  }
+  html.vts-cursor-on a,
+  html.vts-cursor-on button,
+  html.vts-cursor-on [role="button"],
+  html.vts-cursor-on input,
+  html.vts-cursor-on textarea,
+  html.vts-cursor-on select,
+  html.vts-cursor-on label,
+  html.vts-cursor-on [data-cursor] {
+    cursor: none;
+  }
+}
+
 @layer components {
   .container-x {
     @apply mx-auto w-full max-w-7xl px-6 sm:px-10;
