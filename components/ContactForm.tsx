@@ -15,7 +15,7 @@ const services = [
   "Not sure yet",
 ];
 
-const budgets = ["< $5k", "$5k – $15k", "$15k – $40k", "$40k+"];
+const budgets = ["< $1k", "$1k – $3k", "$3k – $8k", "$8k+"];
 
 type FormState = {
   name: string;

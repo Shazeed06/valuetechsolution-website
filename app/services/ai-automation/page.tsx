@@ -61,9 +61,9 @@ export default function AIPage() {
         description="Custom AI agents, RAG solutions, multi-agent systems, and workflow automations on n8n, GHL, Zapier, and Python."
         url="https://valuetechsolution.com/services/ai-automation"
         offers={[
-          { name: "Diagnostic", price: "1200" },
-          { name: "First Agent", price: "6500" },
-          { name: "Automation Retainer", price: "4500" },
+          { name: "Diagnostic", price: "399" },
+          { name: "First Agent", price: "1999" },
+          { name: "Automation Retainer", price: "1499" },
         ]}
       />
       <FAQSchema items={faqs} />
@@ -186,7 +186,7 @@ export default function AIPage() {
         pricing={[
           {
             name: "Diagnostic",
-            price: "from $1,200",
+            price: "from $399",
             bullets: [
               "2-week workflow audit",
               "Automation opportunity map",
@@ -196,7 +196,7 @@ export default function AIPage() {
           },
           {
             name: "First Agent",
-            price: "from $6,500",
+            price: "from $1,999",
             highlight: true,
             bullets: [
               "1 production-grade agent",
@@ -207,7 +207,7 @@ export default function AIPage() {
           },
           {
             name: "Automation Retainer",
-            price: "from $4,500 / mo",
+            price: "from $1,499 / mo",
             bullets: [
               "Continuous agent expansion",
               "Monitoring + tuning",

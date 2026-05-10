@@ -116,7 +116,7 @@ export default function DesignSystemsPage() {
         pricing={[
           {
             name: "Brand sprint",
-            price: "from $4,800",
+            price: "from $1,299",
             bullets: [
               "Logo + identity refresh",
               "Type, color, spacing tokens",
@@ -126,7 +126,7 @@ export default function DesignSystemsPage() {
           },
           {
             name: "Full system",
-            price: "from $14,500",
+            price: "from $4,499",
             highlight: true,
             bullets: [
               "Brand + product design system",
@@ -137,7 +137,7 @@ export default function DesignSystemsPage() {
           },
           {
             name: "Design retainer",
-            price: "from $5,500 / mo",
+            price: "from $1,499 / mo",
             bullets: [
               "Ongoing system extension",
               "New patterns each month",

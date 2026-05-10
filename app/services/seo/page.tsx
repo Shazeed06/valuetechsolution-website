@@ -116,7 +116,7 @@ export default function SeoPage() {
         pricing={[
           {
             name: "Audit & Fix",
-            price: "from $1,800",
+            price: "from $499",
             bullets: [
               "Technical audit + roadmap",
               "Top-15 critical fixes implemented",
@@ -126,7 +126,7 @@ export default function SeoPage() {
           },
           {
             name: "Growth Retainer",
-            price: "from $2,400 / mo",
+            price: "from $799 / mo",
             highlight: true,
             bullets: [
               "Ongoing content + outreach",

@@ -155,7 +155,7 @@ export default function ZapierPage() {
         pricing={[
           {
             name: "Zap sprint",
-            price: "from $900",
+            price: "from $299",
             bullets: [
               "Up to 5 production Zaps",
               "Filters + error routing",
@@ -165,7 +165,7 @@ export default function ZapierPage() {
           },
           {
             name: "Workspace build",
-            price: "from $4,200",
+            price: "from $1,299",
             highlight: true,
             bullets: [
               "Up to 20 Zaps + Sub-Zaps",
@@ -176,7 +176,7 @@ export default function ZapierPage() {
           },
           {
             name: "Zapier retainer",
-            price: "from $1,800 / mo",
+            price: "from $599 / mo",
             bullets: [
               "New Zaps every month",
               "Monitoring + cost reports",

@@ -180,7 +180,7 @@ export default function CTA() {
               <span className="hidden h-4 w-px bg-white/15 sm:block" />
               <Stat label="scope" value="fixed" />
               <span className="hidden h-4 w-px bg-white/15 sm:block" />
-              <Stat label="diagnostic" value="from $1,200" />
+              <Stat label="diagnostic" value="from $399" />
               <span className="hidden h-4 w-px bg-white/15 sm:block" />
               <Stat label="written tradeoffs" value="always" />
             </div>

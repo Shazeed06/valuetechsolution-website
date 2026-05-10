@@ -16,7 +16,7 @@ const tiers = [
   {
     name: "Diagnostic",
     audience: "Founders scoping their first agent or website",
-    price: "$1,200",
+    price: "$399",
     cadence: "fixed · 2 weeks",
     headline: "We map. You decide.",
     bullets: [
@@ -32,7 +32,7 @@ const tiers = [
   {
     name: "Build sprint",
     audience: "One agent, site, or platform setup — shipped",
-    price: "from $6,500",
+    price: "from $1,999",
     cadence: "fixed · 4–6 weeks",
     headline: "We ship. You operate.",
     bullets: [
@@ -48,7 +48,7 @@ const tiers = [
   {
     name: "Studio retainer",
     audience: "Teams who need an embedded engineering bench",
-    price: "from $4,500 / mo",
+    price: "from $1,499 / mo",
     cadence: "rolling · 3-month minimum",
     headline: "We extend. You compound.",
     bullets: [
@@ -67,26 +67,26 @@ const services = [
     cat: "AI Automation",
     href: "/services/ai-automation",
     items: [
-      ["Diagnostic", "from $1,200"],
-      ["First agent (production)", "from $6,500"],
-      ["Automation retainer", "from $4,500 / mo"],
+      ["Diagnostic", "from $399"],
+      ["First agent (production)", "from $1,999"],
+      ["Automation retainer", "from $1,499 / mo"],
     ],
   },
   {
     cat: "Web Development",
     href: "/services/web-development",
     items: [
-      ["Landing page sprint", "from $2,400"],
-      ["Marketing site (12 pages)", "from $7,800"],
-      ["Web application", "from $18,000"],
+      ["Landing page sprint", "from $599"],
+      ["Marketing site (12 pages)", "from $2,499"],
+      ["Web application", "from $5,999"],
     ],
   },
   {
     cat: "SEO Optimization",
     href: "/services/seo",
     items: [
-      ["Audit + critical fixes", "from $1,800"],
-      ["Growth retainer", "from $2,400 / mo"],
+      ["Audit + critical fixes", "from $499"],
+      ["Growth retainer", "from $799 / mo"],
       ["Enterprise programs", "custom"],
     ],
   },
@@ -94,19 +94,19 @@ const services = [
     cat: "Design Systems",
     href: "/services/design-systems",
     items: [
-      ["Brand sprint", "from $4,800"],
-      ["Full design system", "from $14,500"],
-      ["Design retainer", "from $5,500 / mo"],
+      ["Brand sprint", "from $1,299"],
+      ["Full design system", "from $4,499"],
+      ["Design retainer", "from $1,499 / mo"],
     ],
   },
   {
     cat: "Automation Platforms",
     href: "/services",
     items: [
-      ["n8n workflow suite", "from $6,500"],
-      ["GoHighLevel agency snapshot", "from $4,800"],
-      ["Zapier workspace build", "from $4,200"],
-      ["Python pipeline build", "from $7,500"],
+      ["n8n workflow suite", "from $1,999"],
+      ["GoHighLevel agency snapshot", "from $1,499"],
+      ["Zapier workspace build", "from $1,299"],
+      ["Python pipeline build", "from $2,499"],
     ],
   },
 ];

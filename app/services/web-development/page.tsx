@@ -118,7 +118,7 @@ export default function WebDevPage() {
         pricing={[
           {
             name: "Landing",
-            price: "from $2,400",
+            price: "from $599",
             bullets: [
               "Single high-converting landing page",
               "Up to 6 sections + lead form",
@@ -128,7 +128,7 @@ export default function WebDevPage() {
           },
           {
             name: "Marketing Site",
-            price: "from $7,800",
+            price: "from $2,499",
             highlight: true,
             bullets: [
               "Up to 12 pages + blog",
@@ -139,7 +139,7 @@ export default function WebDevPage() {
           },
           {
             name: "Web Application",
-            price: "from $18,000",
+            price: "from $5,999",
             bullets: [
               "Auth, dashboards, billing",
               "Database + API design",
