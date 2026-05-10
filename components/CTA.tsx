@@ -101,23 +101,6 @@ export default function CTA() {
             size={56}
           />
 
-          {/* Animated dot pulse top-right */}
-          <motion.div
-            aria-hidden
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="absolute right-8 top-8 hidden items-center gap-2 sm:flex"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-            </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/55">
-              now booking · Q3
-            </span>
-          </motion.div>
-
           {/* Content */}
           <div className="relative text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-white/70 backdrop-blur">
