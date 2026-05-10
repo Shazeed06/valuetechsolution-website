@@ -115,33 +115,16 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-x flex h-20 items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Link
-            href="/"
-            aria-label="Value Tech Solution — Home"
-            className={`transition hover:opacity-80 ${
-              lightMode ? "text-white" : "text-carbon-950"
-            }`}
-          >
-            <Logo size={52} />
-          </Link>
-
-          {/* Status pill — fills the gap and signals 'live, hiring, etc.' */}
-          <span
-            className={`hidden items-center gap-2 rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] lg:inline-flex ${
-              lightMode
-                ? "border-white/20 bg-white/[0.06] text-white/75"
-                : "border-carbon-950/[0.08] bg-white text-carbon-500"
-            }`}
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            </span>
-            Booking Q3 · 2 slots left
-          </span>
-        </div>
+      <div className="container-x flex h-28 items-center justify-between">
+        <Link
+          href="/"
+          aria-label="Value Tech Solution — Home"
+          className={`transition hover:opacity-80 ${
+            lightMode ? "text-white" : "text-carbon-950"
+          }`}
+        >
+          <Logo size={96} />
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) =>
