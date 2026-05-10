@@ -146,6 +146,7 @@ export default function Hero() {
           >
             <Link
               href="/contact"
+              data-cursor="Book"
               className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-semibold text-carbon-950 transition hover:bg-white/90"
             >
               Book a strategy call
@@ -156,6 +157,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/services"
+              data-cursor="View"
               className="inline-flex items-center gap-2 text-sm font-medium text-white/85 underline-offset-[6px] transition hover:text-white hover:underline"
             >
               See how we work
