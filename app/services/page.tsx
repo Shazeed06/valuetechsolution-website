@@ -47,7 +47,7 @@ const services = [
     summary:
       "Token-driven, documented brand and product systems that compound across launches and team changes.",
     image:
-      "https://images.unsplash.com/photo-1561070791-2526d30994b8?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1400&q=80",
   },
 ];
 

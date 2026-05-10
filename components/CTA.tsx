@@ -70,7 +70,7 @@ export default function CTA() {
   return (
     <section ref={sectionRef} className="section relative">
       <div className="container-x">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-carbon-950 bg-carbon-950 px-6 py-20 text-white sm:px-12 sm:py-28 lg:px-20 lg:py-36">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-carbon-950 bg-carbon-950 px-6 py-14 text-white sm:px-12 sm:py-20 lg:px-16 lg:py-24">
           {/* Animated mesh background */}
           <div
             aria-hidden
@@ -126,7 +126,7 @@ export default function CTA() {
 
             <h2
               ref={headingRef}
-              className="mx-auto mt-8 max-w-5xl font-display font-bold leading-[0.92] tracking-[-0.045em] text-5xl sm:text-6xl lg:text-[8rem] lg:leading-[0.88]"
+              className="mx-auto mt-6 max-w-4xl font-display font-bold leading-[0.95] tracking-[-0.045em] text-4xl sm:text-5xl lg:text-[5.5rem] lg:leading-[0.92]"
             >
               <span className="block overflow-hidden">
                 <span data-line className="block">
@@ -151,13 +151,13 @@ export default function CTA() {
               </span>
             </h2>
 
-            <p className="mx-auto mt-10 max-w-xl text-base leading-relaxed text-white/65">
+            <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-white/65">
               30-minute strategy call. We&apos;ll map the highest-leverage
               automations in your business, scope a website if you need one,
               and quote a fixed price — whether you hire us or not.
             </p>
 
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               <Link
                 href="/contact"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-7 py-4 text-sm font-semibold text-carbon-950 transition hover:bg-white"
@@ -192,7 +192,7 @@ export default function CTA() {
             </div>
 
             {/* Footer status row */}
-            <div className="mx-auto mt-16 flex max-w-3xl flex-wrap items-center justify-center gap-6 border-t border-white/10 pt-8 sm:gap-10">
+            <div className="mx-auto mt-12 flex max-w-3xl flex-wrap items-center justify-center gap-6 border-t border-white/10 pt-7 sm:gap-10">
               <Stat label="response" value="< 24h" />
               <span className="hidden h-4 w-px bg-white/15 sm:block" />
               <Stat label="scope" value="fixed" />

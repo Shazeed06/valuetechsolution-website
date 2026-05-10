@@ -22,7 +22,7 @@ export default function DesignSystemsPage() {
           </>
         }
         intro="A Figma file isn't a design system. We build token-driven libraries, documented patterns, and motion guidelines your engineers will actually use — and your next designer can extend without rewriting from scratch."
-        heroImage="https://images.unsplash.com/photo-1561070791-2526d30994b8?auto=format&fit=crop&w=2200&q=80"
+        heroImage="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=2200&q=80"
         heroAlt="Design system sketches and components"
         midImage="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=2200&q=80"
         midAlt="Designer at work"
