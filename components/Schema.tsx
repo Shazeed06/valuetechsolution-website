@@ -6,7 +6,7 @@ export function OrganizationSchema() {
     "@type": "Organization",
     name: "Value Tech Solution",
     url: "https://valuetechsolution.com",
-    logo: "https://valuetechsolution.com/logo.jpg",
+    logo: "https://valuetechsolution.com/logo-main.png",
     description:
       "Value Tech Solution is an AI startup of engineers shipping automations on n8n, GoHighLevel, Zapier, and Python — alongside Next.js websites and SEO programs that compound.",
     foundingDate: "2024",

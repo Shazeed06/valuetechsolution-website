@@ -12,7 +12,7 @@ type Props = {
 };
 
 /**
- * Value Tech Solution mark — uses the brand JPEG at /logo.jpg.
+ * Value Tech Solution mark — uses the brand JPEG at /logo-main.png.
  * The wordmark next to it is text-based so it auto-flips colour
  * (black on light bg, white on dark hero) via the variant prop.
  */
@@ -43,7 +43,7 @@ export default function Logo({
 export function LogoMark({ size = 36 }: { size?: number }) {
   return (
     <Image
-      src="/logo.jpg"
+      src="/logo-main.png"
       alt="Value Tech Solution"
       width={size}
       height={size}
