@@ -25,26 +25,30 @@ export default async function OGImage() {
         {/* Top row */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <svg width={56} height={56} viewBox="0 0 100 100">
+            <svg width={64} height={64} viewBox="0 0 100 100">
+              {/* V — left thick stroke */}
+              <path d="M14 18 L30 18 L52 78 L42 78 Z" fill="white" />
+              {/* V — right stroke */}
+              <path d="M46 78 L56 78 L72 36 L62 36 Z" fill="white" />
+              {/* Inner motion line */}
               <path
-                d="M50 2 L91 26 L91 74 L50 98 L9 74 L9 26 Z"
-                fill="none"
-                stroke="white"
-                strokeWidth={5}
-                strokeLinejoin="round"
-              />
-              <text
-                x={50}
-                y={62}
-                textAnchor="middle"
-                fontFamily="Inter, sans-serif"
-                fontWeight={900}
-                fontSize={28}
-                letterSpacing={-1}
+                d="M28 70 L48 24 L42 24 L24 64 Z"
                 fill="white"
-              >
-                VTS
-              </text>
+                opacity={0.55}
+              />
+              {/* Arrow shaft */}
+              <line
+                x1="40"
+                y1="62"
+                x2="86"
+                y2="14"
+                stroke="white"
+                strokeWidth={9}
+                strokeLinecap="square"
+              />
+              {/* Arrowhead */}
+              <polygon points="86,14 70,16 84,30" fill="white" />
+              <polygon points="86,14 78,30 92,18" fill="white" />
             </svg>
             <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
               <span style={{ fontSize: 22, fontWeight: 800, letterSpacing: 0.5 }}>

@@ -1,4 +1,12 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <path d="M50 2 L91 26 L91 74 L50 98 L9 74 L9 26 Z" fill="#0a0a0a" />
-  <text x="50" y="62" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="28" letter-spacing="-1" fill="#ffffff">VTS</text>
+  <rect width="100" height="100" fill="#fbf8f0" />
+  <g fill="#0a0a0a">
+    <path d="M14 18 L30 18 L52 78 L42 78 Z" />
+    <path d="M46 78 L56 78 L72 36 L62 36 Z" />
+    <path d="M28 70 L48 24 L42 24 L24 64 Z" opacity="0.55" />
+  </g>
+  <line x1="40" y1="62" x2="86" y2="14"
+    stroke="#0a0a0a" stroke-width="9" stroke-linecap="square" />
+  <polygon points="86,14 70,16 84,30" fill="#0a0a0a" />
+  <polygon points="86,14 78,30 92,18" fill="#0a0a0a" />
 </svg>
