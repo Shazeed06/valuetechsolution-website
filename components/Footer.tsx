@@ -57,18 +57,8 @@ export default function Footer() {
       <div className="container-x py-16 sm:py-24">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <div className="flex items-start gap-5">
-              <Logo size={64} withWordmark={false} />
-              <div>
-                <p className="font-display text-3xl font-bold leading-[0.95] tracking-[-0.03em] text-carbon-950 sm:text-4xl">
-                  Value Tech
-                </p>
-                <p className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.32em] text-carbon-500">
-                  Solution
-                </p>
-              </div>
-            </div>
-            <p className="mt-7 max-w-md text-base leading-relaxed text-carbon-500">
+            <Logo size={88} />
+            <p className="mt-8 max-w-md text-base leading-relaxed text-carbon-500">
               An AI startup of engineers building automations on n8n, GHL,
               Zapier, and Python — paired with Next.js websites and SEO that
               compounds.

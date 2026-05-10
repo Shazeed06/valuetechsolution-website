@@ -123,7 +123,7 @@ export default function Navbar() {
             lightMode ? "text-white" : "text-carbon-950"
           }`}
         >
-          <Logo size={34} variant={lightMode ? "light" : "dark"} />
+          <Logo size={44} />
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">

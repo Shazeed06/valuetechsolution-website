@@ -1,55 +1,36 @@
-import Image from "next/image";
-
 type Props = {
+  /** Display height in px. Width auto-scales to preserve aspect ratio. */
   size?: number;
-  withWordmark?: boolean;
-  variant?: "dark" | "light";
   /**
-   * If true, renders only the mark (no inner padding tweaks). Useful in
-   * tight chrome like the navbar where the wordmark sits beside it.
+   * Kept for backwards compatibility — has no effect since the wordmark
+   * is baked into the logo image itself.
    */
-  compact?: boolean;
+  variant?: "dark" | "light";
+  withWordmark?: boolean;
 };
 
 /**
- * Value Tech Solution mark — uses the brand JPEG at /logo-main.png.
- * The wordmark next to it is text-based so it auto-flips colour
- * (black on light bg, white on dark hero) via the variant prop.
+ * Renders the user's brand logo (public/logo-main.png) at a fixed height
+ * with auto width so the wordmark inside the image stays legible.
+ *
+ * Uses a plain <img> tag because:
+ *  • next/image requires explicit width AND height props (it locks the
+ *    aspect ratio to those numbers, which crops/squishes a wide logo).
+ *  • The PNG is only 49KB — optimisation gain is marginal.
+ *  • Renders synchronously on first paint without layout shift.
  */
-export default function Logo({
-  size = 36,
-  withWordmark = true,
-  variant = "dark",
-  compact = false,
-}: Props) {
-  const wordmarkColor = variant === "dark" ? "text-carbon-950" : "text-white";
+export default function Logo({ size = 44 }: Props) {
   return (
-    <span className="inline-flex items-center gap-3">
-      <LogoMark size={size} />
-      {withWordmark && !compact && (
-        <span className={`flex flex-col leading-none ${wordmarkColor}`}>
-          <span className="font-display text-[15px] font-bold tracking-[0.02em]">
-            VALUE TECH
-          </span>
-          <span className="mt-1 font-mono text-[8px] uppercase tracking-[0.34em] opacity-70">
-            solution
-          </span>
-        </span>
-      )}
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/logo-main.png"
+      alt="Value Tech Solution"
+      style={{ height: size, width: "auto" }}
+      className="shrink-0 select-none"
+    />
   );
 }
 
-export function LogoMark({ size = 36 }: { size?: number }) {
-  return (
-    <Image
-      src="/logo-main.png"
-      alt="Value Tech Solution"
-      width={size}
-      height={size}
-      priority
-      className="shrink-0 select-none"
-      style={{ width: size, height: size, objectFit: "contain" }}
-    />
-  );
+export function LogoMark({ size = 44 }: { size?: number }) {
+  return <Logo size={size} />;
 }
