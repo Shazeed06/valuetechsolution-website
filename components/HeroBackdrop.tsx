@@ -233,16 +233,21 @@ export default function HeroBackdrop() {
           warmth without competing with the stars. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-[-10%] top-[10%] h-[36rem] w-[36rem] rounded-full bg-emerald-500/25 blur-[120px] animate-blob-1"
+        className="pointer-events-none absolute left-[-10%] top-[5%] h-[42rem] w-[42rem] rounded-full bg-emerald-500/40 blur-[100px] animate-blob-1"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute right-[-10%] top-[-5%] h-[34rem] w-[34rem] rounded-full bg-sky-500/20 blur-[120px] animate-blob-2"
+        className="pointer-events-none absolute right-[-15%] top-[-10%] h-[40rem] w-[40rem] rounded-full bg-sky-500/35 blur-[110px] animate-blob-2"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-[-15%] left-[30%] h-[40rem] w-[40rem] rounded-full bg-violet-500/[0.18] blur-[140px] animate-blob-1"
+        className="pointer-events-none absolute bottom-[-20%] left-[25%] h-[48rem] w-[48rem] rounded-full bg-violet-500/30 blur-[120px] animate-blob-1"
         style={{ animationDelay: "-9s" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[20%] bottom-[10%] h-[26rem] w-[26rem] rounded-full bg-rose-400/20 blur-[100px] animate-blob-2"
+        style={{ animationDelay: "-14s" }}
       />
 
       <canvas
