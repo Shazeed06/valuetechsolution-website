@@ -9,8 +9,10 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles, Zap, Clock } from "lucide-react";
 import SplitReveal, { Line } from "./SplitReveal";
 
-// Three.js scene is heavy (~150KB) — load it after first paint
-const HeroScene3D = dynamic(() => import("./HeroScene3D"), {
+// Live agent-network canvas + aurora mesh. Client-only so SSR stays
+// clean. ~6KB component, beats the old HeroScene3D's 150KB Three.js
+// scene on both weight and visual interest.
+const HeroBackdrop = dynamic(() => import("./HeroBackdrop"), {
   ssr: false,
   loading: () => null,
 });
@@ -70,7 +72,7 @@ export default function Hero() {
       className="relative isolate -mt-24 overflow-hidden bg-carbon-950 text-white"
     >
       <div className="hero-depth-field absolute inset-0 -z-10">
-        <HeroScene3D />
+        <HeroBackdrop />
       </div>
       {/* Gradient overlays for text legibility */}
       <div
