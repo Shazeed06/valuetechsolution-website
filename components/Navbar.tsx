@@ -101,8 +101,8 @@ export default function Navbar() {
     ? "text-white/80 hover:text-white"
     : "text-carbon-700 hover:text-carbon-950";
   const burgerBorder = lightMode
-    ? "border-white/30 text-white"
-    : "border-carbon-950/15 text-carbon-950";
+    ? "border-white/60 bg-white/10 text-white backdrop-blur"
+    : "border-carbon-950/20 bg-white text-carbon-950";
   const ctaClasses = lightMode
     ? "inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-carbon-950 hover:bg-white/90"
     : "btn-primary";
