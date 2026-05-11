@@ -61,22 +61,52 @@ const links = [
   { href: "/contact", label: "Contact" },
 ];
 
+function formatIST(d: Date) {
+  // 24-hour HH:MM in Asia/Kolkata.
+  return new Intl.DateTimeFormat("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone: "Asia/Kolkata",
+  }).format(d);
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [time, setTime] = useState<string | null>(null);
   const pathname = usePathname();
   const onDarkHero = pathname === "/";
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Scroll tracking — drives the colour-change AND the progress bar
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      setProgress(max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0);
+      setScrolled(window.scrollY > 80);
+    };
     onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
-  // Close mega-menu when route actually changes (e.g. user clicked a link)
+  // Live IST clock — client-only so SSR doesn't mismatch
+  useEffect(() => {
+    const tick = () => setTime(formatIST(new Date()));
+    tick();
+    const id = window.setInterval(tick, 30_000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  // Close mega-menu when route actually changes
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
@@ -94,18 +124,20 @@ export default function Navbar() {
     closeTimerRef.current = setTimeout(() => setMenuOpen(false), 180);
   }
 
-  // Over the dark hero AND not scrolled = light navbar text
+  function isActive(href: string) {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(href + "/");
+  }
+
   const lightMode = onDarkHero && !scrolled;
 
   const linkColor = lightMode
     ? "text-white/80 hover:text-white"
     : "text-carbon-700 hover:text-carbon-950";
+  const underlineColor = lightMode ? "bg-white" : "bg-carbon-950";
   const burgerBorder = lightMode
     ? "border-white/60 bg-white/10 text-white backdrop-blur"
     : "border-carbon-950/20 bg-white text-carbon-950";
-  const ctaClasses = lightMode
-    ? "inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-carbon-950 hover:bg-white/90"
-    : "btn-primary";
 
   return (
     <header
@@ -115,63 +147,116 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-x flex h-24 items-center justify-between">
+      <div className="container-x flex h-24 items-center justify-between gap-6">
         <Link
           href="/"
           aria-label="Value Tech Solution — Home"
-          className={`transition hover:opacity-80 ${
+          className={`group relative inline-flex items-center transition ${
             lightMode ? "text-white" : "text-carbon-950"
           }`}
         >
-          {/* Smaller on mobile so the hamburger has room; larger on desktop */}
-          <span className="block md:hidden">
+          <span className="block transition-transform duration-500 group-hover:scale-[1.04] md:hidden">
             <Logo size={64} />
           </span>
-          <span className="hidden md:block">
+          <span className="hidden transition-transform duration-500 group-hover:scale-[1.04] md:block">
             <Logo size={88} />
+          </span>
+          {/* Tiny live pulse — studio-vibe, no copy. */}
+          <span className="ml-2 hidden h-1.5 w-1.5 md:inline-flex" aria-hidden>
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            </span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {links.map((l) =>
-            l.hasMenu ? (
-              <div
-                key={l.href}
-                className="relative"
-                onMouseEnter={openMenu}
-                onMouseLeave={scheduleClose}
-              >
-                <Link
-                  href={l.href}
-                  className={`text-sm transition ${linkColor}`}
+        <nav className="hidden items-center gap-7 lg:gap-9 md:flex">
+          {links.map((l) => {
+            const active = isActive(l.href);
+            const Underline = (
+              <span
+                aria-hidden
+                className={`pointer-events-none absolute -bottom-1.5 left-0 right-0 h-px origin-left transform transition-transform duration-300 ease-out ${underlineColor} ${
+                  active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                }`}
+              />
+            );
+
+            if (l.hasMenu) {
+              return (
+                <div
+                  key={l.href}
+                  className="relative"
+                  onMouseEnter={openMenu}
+                  onMouseLeave={scheduleClose}
                 >
-                  {l.label}
-                </Link>
-                {/* Invisible bridge so cursor can travel from link to dropdown
-                    without leaving any hover surface. */}
-                <span
-                  aria-hidden
-                  className="absolute inset-x-0 top-full h-3"
-                />
-              </div>
-            ) : (
+                  <Link
+                    href={l.href}
+                    className={`group relative text-sm transition ${linkColor}`}
+                  >
+                    {l.label}
+                    {Underline}
+                  </Link>
+                  {/* Invisible bridge so cursor can travel from link to dropdown */}
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 top-full h-3"
+                  />
+                </div>
+              );
+            }
+
+            return (
               <Link
                 key={l.href}
                 href={l.href}
-                className={`text-sm transition ${linkColor}`}
+                className={`group relative text-sm transition ${linkColor}`}
                 onMouseEnter={() => {
                   if (menuOpen) scheduleClose();
                 }}
               >
                 {l.label}
+                {Underline}
               </Link>
-            )
-          )}
+            );
+          })}
         </nav>
 
-        <div className="hidden md:block">
-          <Link href="/contact" className={ctaClasses}>
-            Book a call
+        <div className="hidden items-center gap-5 md:flex">
+          {/* Live IST clock — small studio detail */}
+          <span
+            className={`hidden items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] lg:flex ${
+              lightMode ? "text-white/55" : "text-carbon-400"
+            }`}
+            aria-label="Current time in India"
+          >
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            </span>
+            <span suppressHydrationWarning>{time ?? "--:--"} IST</span>
+          </span>
+
+          {/* CTA with shimmer */}
+          <Link
+            href="/contact"
+            className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-semibold transition ${
+              lightMode
+                ? "bg-white text-carbon-950 hover:bg-white/90"
+                : "bg-carbon-950 text-white hover:bg-carbon-700"
+            }`}
+          >
+            <span
+              aria-hidden
+              className={`absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full ${
+                lightMode ? "opacity-50" : "opacity-30"
+              }`}
+            />
+            <span className="relative">Book a call</span>
+            <ArrowUpRight
+              size={14}
+              className="relative transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
           </Link>
         </div>
 
@@ -183,6 +268,15 @@ export default function Navbar() {
           {open ? <X size={16} /> : <Menu size={16} />}
         </button>
       </div>
+
+      {/* Scroll progress bar — fills left-to-right as the user reads the page */}
+      <span
+        aria-hidden
+        className={`pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left transform transition-[transform,background-color] duration-150 ${
+          lightMode ? "bg-white/70" : "bg-carbon-950"
+        }`}
+        style={{ transform: `scaleX(${progress})` }}
+      />
 
       {/* Desktop services mega-menu */}
       {menuOpen && (
