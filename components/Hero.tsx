@@ -67,7 +67,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       data-hero-dark
-      className="relative isolate overflow-hidden bg-carbon-950 text-white"
+      className="relative isolate -mt-24 overflow-hidden bg-carbon-950 text-white"
     >
       <div className="hero-depth-field absolute inset-0 -z-10">
         <HeroScene3D />
@@ -96,7 +96,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative flex min-h-[88vh] flex-col pt-20 pb-10 sm:min-h-[86vh] sm:pt-20 lg:min-h-[84vh] lg:pt-20 lg:pb-12">
+      <div className="relative flex min-h-[88vh] flex-col pt-32 pb-10 sm:min-h-[86vh] sm:pt-32 lg:min-h-[84vh] lg:pt-32 lg:pb-12">
         {/* Top eyebrow row */}
         <div className="container-x flex flex-wrap items-center justify-between gap-4 pt-2">
           <span className="inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.28em] text-white/65">

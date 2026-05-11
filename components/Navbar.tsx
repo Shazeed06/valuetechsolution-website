@@ -156,7 +156,7 @@ export default function Navbar() {
           }`}
         >
           <span className="block transition-transform duration-500 group-hover:scale-[1.04] md:hidden">
-            <Logo size={64} />
+            <Logo size={80} />
           </span>
           <span className="hidden transition-transform duration-500 group-hover:scale-[1.04] md:block">
             <Logo size={88} />
