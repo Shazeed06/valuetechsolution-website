@@ -74,27 +74,16 @@ export default function Hero() {
       <div className="hero-depth-field absolute inset-0 -z-10">
         <HeroBackdrop />
       </div>
-      {/* Gradient overlays for text legibility */}
+      {/* Soft contrast overlays — left dim for headline, bottom fade
+          to the next section. Light enough that the constellation
+          backdrop reads cleanly underneath. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_74%_34%,rgba(66,232,198,0.18),transparent_25%),linear-gradient(to_bottom,rgba(0,0,0,0.56),rgba(0,0,0,0.58)_48%,#000)]"
+        className="absolute inset-0 -z-[5] bg-gradient-to-r from-carbon-950/70 via-carbon-950/20 to-transparent"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-r from-carbon-950 via-carbon-950/72 to-carbon-950/18"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-carbon-950 to-transparent"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.095]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-[5] h-32 bg-gradient-to-t from-carbon-950 to-transparent"
       />
 
       {/* Content */}
