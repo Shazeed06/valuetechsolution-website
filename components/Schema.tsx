@@ -209,32 +209,6 @@ export function ArticleSchema({
   );
 }
 
-export function AggregateRatingSchema({
-  ratingValue = 4.9,
-  reviewCount = 4,
-  bestRating = 5,
-}: {
-  ratingValue?: number;
-  reviewCount?: number;
-  bestRating?: number;
-}) {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Value Tech Solution",
-    url: "https://valuetechsolution.com",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue,
-      reviewCount,
-      bestRating,
-      worstRating: 1,
-    },
-  };
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-}
+// AggregateRatingSchema removed — until real verifiable reviews exist
+// on the site, shipping AggregateRating JSON-LD risks a Google manual
+// action for fake rich-result content.

@@ -3,30 +3,17 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Cookie, X } from "lucide-react";
-
-const KEY = "vts-cookie-consent-v1";
+import { readConsent, writeConsent, type ConsentValue } from "@/lib/consent";
 
 export default function CookieBanner() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    try {
-      const v = localStorage.getItem(KEY);
-      if (!v) setShow(true);
-    } catch {
-      // ignore
-    }
+    if (!readConsent()) setShow(true);
   }, []);
 
-  function decide(value: "all" | "essential") {
-    try {
-      localStorage.setItem(
-        KEY,
-        JSON.stringify({ value, ts: Date.now() })
-      );
-    } catch {
-      // ignore
-    }
+  function decide(value: ConsentValue) {
+    writeConsent(value);
     setShow(false);
   }
 

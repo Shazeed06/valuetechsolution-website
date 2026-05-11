@@ -74,33 +74,13 @@ export default function Testimonials() {
     return () => ctx.revert();
   }, []);
 
-  // AggregateRating JSON-LD — based on the four testimonials below
-  const aggregateRating = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Value Tech Solution",
-    url: "https://valuetechsolution.com",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: 4.9,
-      bestRating: 5,
-      worstRating: 1,
-      reviewCount: testimonials.length,
-    },
-    review: testimonials.map((t) => ({
-      "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-      author: { "@type": "Person", name: t.name },
-      reviewBody: t.quote,
-    })),
-  };
+  // AggregateRating JSON-LD was removed: the on-page testimonials are
+  // illustrative personas, not verifiable reviews. Shipping fake review
+  // markup is a Google rich-results policy violation. Restore once real
+  // attributed reviews exist on the page.
 
   return (
     <section className="section">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRating) }}
-      />
       <div ref={ref} className="container-x">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
