@@ -72,6 +72,43 @@ export default function RootLayout({
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="" />
+        {/*
+          Google Consent Mode v2 — must run BEFORE the GTM snippet.
+          Defaults every advertising / analytics category to "denied"
+          so GTM-managed tags wait for the user's choice. If the visitor
+          previously opted-in (localStorage), we immediately push an
+          "update" so they're not asked twice. The cookie banner pushes
+          another update on click via lib/consent.ts.
+        */}
+        <Script id="gtag-consent-default" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  personalization_storage: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  var raw = localStorage.getItem('vts-cookie-consent-v1');
+  if (raw) {
+    var v = JSON.parse(raw);
+    if (v && v.value === 'all') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted',
+        personalization_storage: 'granted'
+      });
+    }
+  }
+} catch (e) {}`}
+        </Script>
         {/* Google Tag Manager */}
         <Script id="gtm-init" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
