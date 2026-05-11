@@ -70,7 +70,8 @@ export default function HeroBackdrop() {
       stars = Array.from({ length: count }, () => ({
         x: rand() * w,
         y: rand() * h,
-        r: 0.3 + rand() * 1.4,
+        // Slightly bigger range so most stars are readable on dark.
+        r: 0.6 + rand() * 1.6,
         tw: rand() * Math.PI * 2,
       }));
     };
@@ -122,7 +123,7 @@ export default function HeroBackdrop() {
           const d2 = ddx * ddx + ddy * ddy;
           if (d2 > rangeSq) continue;
           const d = Math.sqrt(d2);
-          const alpha = 0.22 * (1 - d / range);
+          const alpha = 0.32 * (1 - d / range);
           ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
@@ -136,8 +137,8 @@ export default function HeroBackdrop() {
       for (let i = 0; i < rotated.length; i++) {
         const s = rotated[i];
         const tw = reduceMotion
-          ? 0.85
-          : 0.55 + Math.sin(time * 0.002 + s.tw) * 0.4;
+          ? 0.92
+          : 0.7 + Math.sin(time * 0.002 + s.tw) * 0.3;
         ctx.fillStyle = `rgba(255,255,255,${tw})`;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
@@ -232,15 +233,15 @@ export default function HeroBackdrop() {
           warmth without competing with the stars. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-[-10%] top-[10%] h-[36rem] w-[36rem] rounded-full bg-emerald-500/[0.10] blur-[140px] animate-blob-1"
+        className="pointer-events-none absolute left-[-10%] top-[10%] h-[36rem] w-[36rem] rounded-full bg-emerald-500/25 blur-[120px] animate-blob-1"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute right-[-10%] top-[-5%] h-[34rem] w-[34rem] rounded-full bg-sky-500/[0.08] blur-[140px] animate-blob-2"
+        className="pointer-events-none absolute right-[-10%] top-[-5%] h-[34rem] w-[34rem] rounded-full bg-sky-500/20 blur-[120px] animate-blob-2"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-[-15%] left-[30%] h-[40rem] w-[40rem] rounded-full bg-violet-500/[0.06] blur-[160px] animate-blob-1"
+        className="pointer-events-none absolute bottom-[-15%] left-[30%] h-[40rem] w-[40rem] rounded-full bg-violet-500/[0.18] blur-[140px] animate-blob-1"
         style={{ animationDelay: "-9s" }}
       />
 

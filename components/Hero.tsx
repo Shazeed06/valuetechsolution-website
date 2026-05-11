@@ -108,7 +108,7 @@ export default function Hero() {
         {/* Mega headline block */}
         <div className="container-x flex flex-1 flex-col justify-center pt-8 sm:pt-10">
           <SplitReveal trigger="load" stagger={0.13}>
-            <h1 className="font-display text-[2.7rem] font-bold leading-[0.94] tracking-[-0.045em] text-white sm:text-6xl lg:text-[6.5rem] lg:leading-[0.9]">
+            <h1 className="font-display text-[2.4rem] font-bold leading-[0.96] tracking-[-0.045em] text-white sm:text-[3.6rem] lg:text-[5rem] lg:leading-[0.92] xl:text-[5.5rem]">
               <Line>We delete</Line>
               <Line>
                 <span className="italic-accent text-white/65">boring work.</span>
