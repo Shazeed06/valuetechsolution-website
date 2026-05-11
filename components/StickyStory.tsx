@@ -232,7 +232,7 @@ export default function StickyStory() {
   return (
     <section
       ref={wrap}
-      className="relative overflow-hidden bg-carbon-950 py-12 text-white sm:py-16 lg:py-20"
+      className="relative overflow-hidden bg-carbon-950 py-10 text-white sm:py-12 lg:py-14"
     >
       {/* Ambient backdrop */}
       <div
@@ -261,18 +261,18 @@ export default function StickyStory() {
             Anatomy of one workflow
             <span className="h-px w-8 bg-white/40" />
           </span>
-          <h2 className="mt-6 font-display text-3xl font-bold leading-[1.02] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+          <h2 className="mt-5 font-display text-2xl font-bold leading-[1.05] tracking-[-0.04em] sm:text-4xl lg:text-5xl">
             How a Value Tech{" "}
             <span className="italic-accent text-white/55">agent</span> works.
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/55 sm:text-base">
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/55 sm:mt-4 sm:text-base">
             Watch one production run, from raw inbound to a tracked outcome.
             Auto-cycles — tap a stage to jump.
           </p>
         </div>
 
         {/* Live system strip */}
-        <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
+        <div className="mx-auto mt-6 grid max-w-3xl grid-cols-2 gap-2 sm:mt-8 sm:grid-cols-4 sm:gap-3">
           <LiveStat icon={Activity} label="agents running" value={live.agents} suffix="" />
           <LiveStat
             icon={Zap}
@@ -286,7 +286,7 @@ export default function StickyStory() {
         </div>
 
         {/* Metro-style pipeline */}
-        <div className="mt-10 sm:mt-14">
+        <div className="mt-8 sm:mt-10">
           <Pipeline
             active={active}
             onJump={(i) => {
@@ -298,7 +298,7 @@ export default function StickyStory() {
         </div>
 
         {/* Execution panel */}
-        <div className="relative mt-8 sm:mt-10">
+        <div className="relative mt-6 sm:mt-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.n}
@@ -335,7 +335,7 @@ export default function StickyStory() {
               </div>
 
               {/* Body */}
-              <div className="grid gap-6 p-5 sm:p-8 lg:grid-cols-12 lg:gap-10">
+              <div className="grid gap-5 p-4 sm:p-6 lg:grid-cols-12 lg:gap-8">
                 {/* Left — title + body + metrics */}
                 <div className="lg:col-span-7">
                   <div className="flex items-start gap-4">
@@ -343,7 +343,7 @@ export default function StickyStory() {
                       {/* Big background number */}
                       <span
                         aria-hidden
-                        className="pointer-events-none absolute -left-1 -top-2 select-none font-display text-7xl font-bold leading-none tracking-[-0.05em] text-white/[0.04] sm:-top-4 sm:text-[7rem]"
+                        className="pointer-events-none absolute -left-1 -top-1 select-none font-display text-5xl font-bold leading-none tracking-[-0.05em] text-white/[0.04] sm:-top-2 sm:text-7xl"
                       >
                         {current.n}
                       </span>
@@ -355,18 +355,18 @@ export default function StickyStory() {
                         initial={{ opacity: 0, x: -8 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.05, duration: 0.5 }}
-                        className="relative mt-2 font-display text-2xl font-bold tracking-[-0.025em] sm:text-4xl lg:text-5xl"
+                        className="relative mt-2 font-display text-xl font-bold tracking-[-0.025em] sm:text-3xl lg:text-4xl"
                       >
                         {current.title}
                       </motion.h3>
                     </div>
                   </div>
 
-                  <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/65 sm:text-base">
+                  <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/65">
                     {current.body}
                   </p>
 
-                  <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
+                  <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
                     {current.metrics.map(([k, v], j) => (
                       <motion.div
                         key={k}
@@ -387,7 +387,7 @@ export default function StickyStory() {
                     ))}
                   </div>
 
-                  <p className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-white/55">
+                  <p className="mt-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-white/55">
                     <Sparkles size={11} />
                     {current.detail}
                   </p>
