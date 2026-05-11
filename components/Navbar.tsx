@@ -115,7 +115,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-x flex h-20 items-center justify-between">
+      <div className="container-x flex h-24 items-center justify-between">
         <Link
           href="/"
           aria-label="Value Tech Solution — Home"
@@ -125,10 +125,10 @@ export default function Navbar() {
         >
           {/* Smaller on mobile so the hamburger has room; larger on desktop */}
           <span className="block md:hidden">
-            <Logo size={48} />
+            <Logo size={64} />
           </span>
           <span className="hidden md:block">
-            <Logo size={72} />
+            <Logo size={88} />
           </span>
         </Link>
 
