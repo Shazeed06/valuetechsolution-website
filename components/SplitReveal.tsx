@@ -88,9 +88,12 @@ export function Line({
   className?: string;
 }) {
   return (
+    // pb-[0.18em] gives italic descenders ("g", "k" tail, periods) room
+    // inside the overflow:hidden box that powers the slide-up reveal.
+    // Without it, letterforms get visibly clipped at the bottom edge.
     <span
       data-split
-      className={`block overflow-hidden ${className}`}
+      className={`block overflow-hidden pb-[0.18em] ${className}`}
     >
       <span data-split-inner className="block">
         {children}

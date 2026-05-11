@@ -244,12 +244,12 @@ export default function CTA() {
               ref={headingRef}
               className="mx-auto mt-6 max-w-5xl font-display font-bold leading-[0.93] tracking-[-0.05em] text-[2.6rem] sm:text-6xl lg:text-[7.5rem] lg:leading-[0.9]"
             >
-              <span className="block overflow-hidden">
+              <span className="block overflow-hidden pb-[0.18em]">
                 <span data-line className="block">
                   Get your team
                 </span>
               </span>
-              <span className="block overflow-hidden">
+              <span className="block overflow-hidden pb-[0.18em]">
                 <span
                   data-line
                   className="block italic-accent text-white/55"
@@ -269,7 +269,7 @@ export default function CTA() {
                   hours
                 </span>
               </span>
-              <span className="block overflow-hidden">
+              <span className="block overflow-hidden pb-[0.18em]">
                 <span data-line className="block">
                   every <span className="italic-accent text-white/55">week.</span>
                 </span>
