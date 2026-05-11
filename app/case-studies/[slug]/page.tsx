@@ -75,7 +75,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* Hero image */}
       <section className="relative">
         <div className="container-x">
-          <figure className="relative aspect-[16/8] overflow-hidden rounded-3xl border border-carbon-950/[0.08]">
+          <figure className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-carbon-950/[0.08] sm:aspect-[16/8]">
             <Image
               src={c.hero}
               alt={c.heroAlt}

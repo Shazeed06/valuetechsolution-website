@@ -66,7 +66,7 @@ export default function BlogPage() {
                 >
                   <div
                     className={`relative overflow-hidden ${
-                      isFeatured ? "aspect-[16/7]" : "aspect-[16/9]"
+                      isFeatured ? "aspect-[4/3] sm:aspect-[16/7]" : "aspect-[16/9]"
                     }`}
                   >
                     <Image

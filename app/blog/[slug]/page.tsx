@@ -134,7 +134,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Cover image */}
         <div className="container-x mt-12">
-          <figure className="relative aspect-[16/8] overflow-hidden rounded-3xl border border-carbon-950/[0.08]">
+          <figure className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-carbon-950/[0.08] sm:aspect-[16/8]">
             <Image
               src={p.cover}
               alt={p.coverAlt}

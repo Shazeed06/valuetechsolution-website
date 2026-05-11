@@ -98,7 +98,7 @@ export default function PortfolioPage() {
       {/* Cinematic image */}
       <section className="relative">
         <div className="container-x">
-          <figure className="relative aspect-[16/8] overflow-hidden rounded-3xl border border-carbon-950/[0.08]">
+          <figure className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-carbon-950/[0.08] sm:aspect-[16/8]">
             <Image
               src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=80"
               alt="Engineering close-up"
@@ -111,12 +111,12 @@ export default function PortfolioPage() {
               aria-hidden
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/10"
             />
-            <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-6 text-white sm:flex-row sm:items-end sm:justify-between sm:p-10">
+            <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-4 text-white sm:flex-row sm:items-end sm:justify-between sm:p-10">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em]">
+                <p className="font-mono text-[9px] uppercase tracking-[0.24em] sm:text-[10px] sm:tracking-[0.28em]">
                   (manifesto)
                 </p>
-                <p className="mt-3 max-w-xl font-display text-2xl font-bold tracking-[-0.02em] sm:text-3xl lg:text-4xl">
+                <p className="mt-2 max-w-xl font-display text-base font-bold leading-tight tracking-[-0.02em] sm:mt-3 sm:text-3xl lg:text-4xl">
                   Built by engineers.
                   <span className="italic-accent text-white/70">
                     {" "}

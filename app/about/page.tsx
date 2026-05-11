@@ -204,7 +204,7 @@ export default function AboutPage() {
       {/* Wide image divider */}
       <section className="relative">
         <div className="container-x">
-          <figure className="relative aspect-[16/8] overflow-hidden rounded-3xl border border-carbon-950/[0.08] sm:aspect-[16/7]">
+          <figure className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-carbon-950/[0.08] sm:aspect-[16/7]">
             <Image
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
               alt="Modern engineering workspace"
@@ -212,12 +212,12 @@ export default function AboutPage() {
               className="object-cover grayscale contrast-105"
               sizes="100vw"
             />
-            <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 text-white sm:p-10">
+            <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between p-4 text-white sm:p-10">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em]">
+                <p className="font-mono text-[9px] uppercase tracking-[0.24em] sm:text-[10px] sm:tracking-[0.28em]">
                   the studio
                 </p>
-                <p className="mt-3 max-w-md font-display text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
+                <p className="mt-2 max-w-md font-display text-base font-bold leading-tight tracking-[-0.02em] sm:mt-3 sm:text-3xl">
                   A small room. Senior people. Long deep work blocks.
                 </p>
               </div>
