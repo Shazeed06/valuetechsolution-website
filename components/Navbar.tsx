@@ -61,22 +61,11 @@ const links = [
   { href: "/contact", label: "Contact" },
 ];
 
-function formatIST(d: Date) {
-  // 24-hour HH:MM in Asia/Kolkata.
-  return new Intl.DateTimeFormat("en-GB", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-    timeZone: "Asia/Kolkata",
-  }).format(d);
-}
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [time, setTime] = useState<string | null>(null);
   const pathname = usePathname();
   const onDarkHero = pathname === "/";
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -96,14 +85,6 @@ export default function Navbar() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, []);
-
-  // Live IST clock — client-only so SSR doesn't mismatch
-  useEffect(() => {
-    const tick = () => setTime(formatIST(new Date()));
-    tick();
-    const id = window.setInterval(tick, 30_000);
-    return () => window.clearInterval(id);
   }, []);
 
   // Close mega-menu when route actually changes
@@ -161,13 +142,6 @@ export default function Navbar() {
           <span className="hidden transition-transform duration-500 group-hover:scale-[1.04] md:block">
             <Logo size={88} />
           </span>
-          {/* Tiny live pulse — studio-vibe, no copy. */}
-          <span className="ml-2 hidden h-1.5 w-1.5 md:inline-flex" aria-hidden>
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            </span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:gap-9 md:flex">
@@ -223,20 +197,6 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-5 md:flex">
-          {/* Live IST clock — small studio detail */}
-          <span
-            className={`hidden items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] lg:flex ${
-              lightMode ? "text-white/55" : "text-carbon-400"
-            }`}
-            aria-label="Current time in India"
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            </span>
-            <span suppressHydrationWarning>{time ?? "--:--"} IST</span>
-          </span>
-
           {/* CTA with shimmer */}
           <Link
             href="/contact"
