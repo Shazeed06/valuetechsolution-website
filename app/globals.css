@@ -87,12 +87,12 @@ body {
   }
 
   .section {
-    @apply relative py-20 sm:py-28 lg:py-36;
+    @apply relative py-12 sm:py-16 lg:py-20;
   }
 
   /* Tighter rhythm for connector / strip sections (marquees, stickers, image dividers) */
   .section-tight {
-    @apply relative py-14 sm:py-20 lg:py-24;
+    @apply relative py-8 sm:py-10 lg:py-14;
   }
 
   /* Page hero header rhythm — accounts for sticky 80px navbar; visible in first viewport */
