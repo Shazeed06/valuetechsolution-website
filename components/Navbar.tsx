@@ -137,10 +137,10 @@ export default function Navbar() {
           }`}
         >
           <span className="block transition-transform duration-500 group-hover:scale-[1.04] md:hidden">
-            <Logo size={80} />
+            <Logo size={80} variant={lightMode ? "light" : "dark"} />
           </span>
           <span className="hidden transition-transform duration-500 group-hover:scale-[1.04] md:block">
-            <Logo size={88} />
+            <Logo size={88} variant={lightMode ? "light" : "dark"} />
           </span>
         </Link>
 
