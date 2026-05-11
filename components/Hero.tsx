@@ -87,27 +87,31 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative flex min-h-[88vh] flex-col pt-32 pb-10 sm:min-h-[86vh] sm:pt-32 lg:min-h-[84vh] lg:pt-32 lg:pb-12">
-        {/* Top eyebrow row */}
+        {/* Top eyebrow row — this is the semantic H1. Small visually,
+            keyword-led for search engines. The big "We delete..."
+            block below is a display heading, demoted to a div so the
+            page has exactly one H1. */}
         <div className="container-x flex flex-wrap items-center justify-between gap-4 pt-2">
-          <span className="inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.28em] text-white/65">
-            <span className="h-px w-8 bg-white/45" />
-            <span className="sm:hidden">VTS · AI Startup</span>
-            <span className="hidden sm:inline">
-              Value Tech Solution · AI Startup · est. 2024
-            </span>
-          </span>
+          <h1 className="inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.28em] text-white/65">
+            <span aria-hidden className="h-px w-8 bg-white/45" />
+            AI Automation &amp; Web Development Agency
+          </h1>
         </div>
 
-        {/* Mega headline block */}
+        {/* Mega headline block — display copy, not the H1 */}
         <div className="container-x flex flex-1 flex-col justify-center pt-8 sm:pt-10">
           <SplitReveal trigger="load" stagger={0.13}>
-            <h1 className="font-display text-[2.4rem] font-bold leading-[1.02] tracking-[-0.045em] text-white sm:text-[3.6rem] sm:leading-[1] lg:text-[5rem] lg:leading-[1] xl:text-[5.5rem]">
+            <div
+              role="doc-subtitle"
+              aria-label="We delete boring work. We ship the rest."
+              className="font-display text-[2.4rem] font-bold leading-[1.02] tracking-[-0.045em] text-white sm:text-[3.6rem] sm:leading-[1] lg:text-[5rem] lg:leading-[1] xl:text-[5.5rem]"
+            >
               <Line>We delete</Line>
               <Line>
                 <span className="italic-accent text-white/65">boring work.</span>
               </Line>
               <Line>We ship the rest.</Line>
-            </h1>
+            </div>
           </SplitReveal>
 
           <div ref={subRef} className="mt-6 max-w-2xl sm:mt-8">

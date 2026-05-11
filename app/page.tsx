@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Principles from "@/components/Principles";
 import Stats from "@/components/Stats";
@@ -12,6 +13,33 @@ import ROICalculator from "@/components/ROICalculator";
 import Guarantee from "@/components/Guarantee";
 import CTA from "@/components/CTA";
 import MediaDivider from "@/components/MediaDivider";
+
+// Homepage gets its own keyword-led title + description so SERPs
+// don't fall back to the root layout's generic copy. `title.absolute`
+// disables the "%s · Value Tech Solution" template — we already
+// include the brand in the title manually here.
+export const metadata: Metadata = {
+  title: {
+    absolute: "AI Automation & Web Development Agency | Value Tech Solution",
+  },
+  description:
+    "Value Tech Solution provides AI automation, AI agents, SaaS development, SEO, and modern business websites for startups and businesses.",
+  alternates: { canonical: "https://valuetechsolution.com" },
+  openGraph: {
+    title: "AI Automation & Web Development Agency | Value Tech Solution",
+    description:
+      "Value Tech Solution provides AI automation, AI agents, SaaS development, SEO, and modern business websites for startups and businesses.",
+    url: "https://valuetechsolution.com",
+    siteName: "Value Tech Solution",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Automation & Web Development Agency | Value Tech Solution",
+    description:
+      "Value Tech Solution provides AI automation, AI agents, SaaS development, SEO, and modern business websites for startups and businesses.",
+  },
+};
 
 export default function Home() {
   return (
