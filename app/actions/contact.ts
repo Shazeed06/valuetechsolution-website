@@ -157,9 +157,22 @@ export async function sendContact(payload: ContactPayload): Promise<Result> {
     }
   }
 
-  console.log("[contact]", { subject, sent, failed });
+  // Always log the full lead so it's never silently lost — visible in
+  // Vercel logs even when no delivery channel is configured.
+  console.log("[contact] LEAD", { subject, sent, failed, payload });
 
-  if (sent.length === 0 && (env.RESEND_API_KEY || env.CONTACT_WEBHOOK_URL)) {
+  // No delivery channel configured — fail loud instead of silent success.
+  if (!env.RESEND_API_KEY && !env.CONTACT_WEBHOOK_URL) {
+    console.error(
+      "[contact] No RESEND_API_KEY or CONTACT_WEBHOOK_URL configured — lead was not delivered."
+    );
+    return {
+      ok: false,
+      error: `Our inbox isn't connected yet. Please email ${CONTACT.email} directly — we'll reply within a business day.`,
+    };
+  }
+
+  if (sent.length === 0) {
     return {
       ok: false,
       error: `We couldn't reach our inbox. Please email ${CONTACT.email} directly.`,
