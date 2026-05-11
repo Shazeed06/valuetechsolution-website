@@ -157,25 +157,55 @@ export async function sendContact(payload: ContactPayload): Promise<Result> {
     }
   }
 
-  // Always log the full lead so it's never silently lost — visible in
-  // Vercel logs even when no delivery channel is configured.
-  console.log("[contact] LEAD", { subject, sent, failed, payload });
-
-  // No delivery channel configured — fail loud instead of silent success.
-  if (!env.RESEND_API_KEY && !env.CONTACT_WEBHOOK_URL) {
-    console.error(
-      "[contact] No RESEND_API_KEY or CONTACT_WEBHOOK_URL configured — lead was not delivered."
-    );
-    return {
-      ok: false,
-      error: `Our inbox isn't connected yet. Please email ${CONTACT.email} directly — we'll reply within a business day.`,
-    };
+  // 6. Free fallback — FormSubmit.co (no signup, just a one-time
+  //    activation click on the first email sent to CONTACT.email).
+  //    Runs ONLY when nothing else delivered, so configured Resend /
+  //    webhook flows still take priority.
+  if (sent.length === 0) {
+    try {
+      const fsRes = await fetch(
+        `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT.email)}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: payload.name,
+            email: payload.email,
+            _subject: subject,
+            _replyto: payload.email,
+            _template: "table",
+            _captcha: "false",
+            company: payload.company ?? "",
+            website: payload.website ?? "",
+            service: payload.service,
+            budget: payload.budget,
+            source: payload.source ?? "direct",
+            message: payload.message,
+          }),
+        }
+      );
+      if (fsRes.ok) {
+        sent.push("formsubmit");
+      } else {
+        console.error("[contact] formsubmit failed", fsRes.status);
+        failed.push("formsubmit");
+      }
+    } catch (err) {
+      console.error("[contact] formsubmit exception", err);
+      failed.push("formsubmit");
+    }
   }
+
+  // Always log the full lead so it's never silently lost.
+  console.log("[contact] LEAD", { subject, sent, failed, payload });
 
   if (sent.length === 0) {
     return {
       ok: false,
-      error: `We couldn't reach our inbox. Please email ${CONTACT.email} directly.`,
+      error: `We couldn't reach our inbox. Please email ${CONTACT.email} directly — we'll reply within a business day.`,
     };
   }
 
