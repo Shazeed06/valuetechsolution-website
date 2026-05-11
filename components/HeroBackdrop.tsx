@@ -3,24 +3,23 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Hero backdrop — an animated agent-network visualisation layered over
- * a slow aurora gradient mesh.
+ * Hero backdrop — rotating constellation.
  *
- * Why canvas, not Three.js:
- *  • The old HeroScene3D pulled ~150KB of WebGL for a static-feeling
- *    node graph. This file is ~6KB, animates more dynamically, and
- *    actually tells the brand story (data flowing between agents).
+ * A starfield slowly rotating around the hero's centre with thin
+ * connection lines drawn between any two stars within a small radius
+ * (alpha fades with distance). A handful of brighter "comet" streaks
+ * cross the canvas every few seconds for ambient surprise. Behind it
+ * sits a quiet aurora gradient (emerald / sky / violet) so the
+ * canvas isn't just monochrome on flat black.
  *
- * Performance notes:
- *  • Deterministic Mulberry32 PRNG seeded with the same value every
- *    mount, so the node positions don't shift between renders.
- *  • Mobile-aware: fewer nodes and a shorter connect-distance at
- *    narrow widths.
- *  • IntersectionObserver pauses the rAF loop the moment the user
- *    scrolls the hero off-screen — no battery drain elsewhere.
- *  • Respects prefers-reduced-motion: renders a single static frame
- *    instead of animating.
- *  • Devicepixelratio-aware so the lines stay crisp on retina.
+ * Engineering choices:
+ *  - Deterministic Mulberry32 PRNG so layout is identical on every
+ *    mount; no flicker on hot reload.
+ *  - Mobile-aware: fewer stars + tighter connect-radius below 720px.
+ *  - DPR clamped at 2x — sharp on retina without exploding memory.
+ *  - IntersectionObserver pauses the rAF loop the second the hero
+ *    leaves the viewport (no battery drain anywhere else on the page).
+ *  - Respects prefers-reduced-motion: renders one static frame.
  */
 export default function HeroBackdrop() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -36,27 +35,18 @@ export default function HeroBackdrop() {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    type Node = { x: number; y: number; r: number; phase: number };
-    type Edge = { a: number; b: number; length: number };
-    type Packet = {
-      edgeIdx: number;
-      t: number;
-      speed: number;
-      hue: number;
-    };
+    type Star = { x: number; y: number; r: number; tw: number };
+    type Comet = { x: number; y: number; vx: number; vy: number; life: number };
 
-    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let w = 0;
     let h = 0;
-    let nodes: Node[] = [];
-    let edges: Edge[] = [];
-    let packets: Packet[] = [];
-    let mouseX = -9999;
-    let mouseY = -9999;
+    let stars: Star[] = [];
+    let comets: Comet[] = [];
     let raf = 0;
     let visible = true;
+    let lastCometAt = 0;
 
-    // Mulberry32 — deterministic so layout doesn't flicker on remount
     function makeRng(seed: number) {
       let t = seed >>> 0;
       return () => {
@@ -74,153 +64,138 @@ export default function HeroBackdrop() {
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      buildGraph();
+      buildStars();
     }
 
-    function buildGraph() {
-      const rand = makeRng(0xdeadbeef);
+    function buildStars() {
+      const rand = makeRng(0xc0ffee);
       const narrow = w < 720;
-      const count = narrow ? 16 : 28;
-      const range = narrow ? 190 : 240;
-
-      nodes = [];
-      // Push some structure — bias the layout so the right side of the
-      // hero (where text is lighter) keeps a denser cluster. Looks more
-      // intentional than pure noise.
-      for (let i = 0; i < count; i++) {
-        const xPull = 0.35 + rand() * 0.6;
-        nodes.push({
-          x: w * xPull,
-          y: h * (0.1 + rand() * 0.85),
-          r: 1.3 + rand() * 1.8,
-          phase: rand() * Math.PI * 2,
-        });
-      }
-
-      edges = [];
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
-          const d = Math.hypot(dx, dy);
-          if (d < range) edges.push({ a: i, b: j, length: d });
-        }
-      }
-
-      packets = [];
-      const packetCount = Math.min(
-        narrow ? 10 : 18,
-        Math.max(4, Math.floor(edges.length * 0.25))
-      );
-      for (let i = 0; i < packetCount; i++) {
-        packets.push({
-          edgeIdx: Math.floor(rand() * edges.length),
-          t: rand(),
-          speed: 0.0014 + rand() * 0.0028,
-          hue: rand() > 0.5 ? 152 : 198, // emerald-ish or sky-ish
-        });
-      }
+      const count = narrow ? 80 : 150;
+      stars = Array.from({ length: count }, () => ({
+        x: rand() * w,
+        y: rand() * h,
+        r: 0.3 + rand() * 1.4,
+        tw: rand() * Math.PI * 2,
+      }));
     }
 
     function step(time: number) {
       const t = time * 0.001;
       ctx.clearRect(0, 0, w, h);
 
-      // Edges — fade by length so short ones look stronger
-      for (const e of edges) {
-        const a = nodes[e.a];
-        const b = nodes[e.b];
-        const alpha = 0.04 + 0.06 * (1 - e.length / 260);
-        ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.lineTo(b.x, b.y);
-        ctx.stroke();
-      }
+      const cx = w / 2;
+      const cy = h / 2;
+      const angle = t * 0.018; // very slow rotation
+      const cos = Math.cos(angle);
+      const sin = Math.sin(angle);
 
-      // Packets — travel along edges with a glowing trail
-      for (const p of packets) {
-        if (!reduceMotion) p.t += p.speed;
-        if (p.t >= 1) {
-          p.t = 0;
-          // hop to a different edge so packets visually traverse the
-          // graph rather than ping-ponging on one line
-          const next = Math.floor(Math.random() * edges.length);
-          p.edgeIdx = next;
-        }
-        const e = edges[p.edgeIdx];
-        if (!e) continue;
-        const a = nodes[e.a];
-        const b = nodes[e.b];
-        const x = a.x + (b.x - a.x) * p.t;
-        const y = a.y + (b.y - a.y) * p.t;
+      // Project each star into a rotated frame each tick. This is the
+      // simple O(n) version — for ~150 stars on a hero it's well under
+      // a millisecond per frame.
+      const rotated = stars.map((s) => {
+        const dx = s.x - cx;
+        const dy = s.y - cy;
+        return {
+          x: cx + dx * cos - dy * sin,
+          y: cy + dx * sin + dy * cos,
+          r: s.r,
+          tw: s.tw,
+        };
+      });
 
-        const glow = ctx.createRadialGradient(x, y, 0, x, y, 16);
-        glow.addColorStop(0, `hsla(${p.hue}, 85%, 70%, 0.85)`);
-        glow.addColorStop(1, `hsla(${p.hue}, 85%, 70%, 0)`);
-        ctx.fillStyle = glow;
-        ctx.beginPath();
-        ctx.arc(x, y, 16, 0, Math.PI * 2);
-        ctx.fill();
-
-        ctx.fillStyle = `hsla(${p.hue}, 95%, 80%, 1)`;
-        ctx.beginPath();
-        ctx.arc(x, y, 1.7, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      // Nodes with subtle pulse + cursor halo
-      for (const n of nodes) {
-        const pulse = reduceMotion
-          ? 1
-          : 0.85 + Math.sin(t * 1.4 + n.phase) * 0.18;
-        const d = Math.hypot(n.x - mouseX, n.y - mouseY);
-        const near = Math.max(0, 1 - d / 200);
-        const r = n.r * pulse * (1 + near * 1.4);
-        const baseAlpha = 0.35 + near * 0.55;
-
-        ctx.fillStyle = `rgba(255,255,255,${baseAlpha})`;
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
-        ctx.fill();
-
-        if (near > 0.18) {
-          const h = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 8);
-          h.addColorStop(0, `rgba(110,225,200,${near * 0.35})`);
-          h.addColorStop(1, "rgba(110,225,200,0)");
-          ctx.fillStyle = h;
+      // Connection lines — only draw if stars are within `range` px.
+      const narrow = w < 720;
+      const range = narrow ? 90 : 120;
+      const rangeSq = range * range;
+      for (let i = 0; i < rotated.length; i++) {
+        const a = rotated[i];
+        for (let j = i + 1; j < rotated.length; j++) {
+          const b = rotated[j];
+          const ddx = a.x - b.x;
+          const ddy = a.y - b.y;
+          const d2 = ddx * ddx + ddy * ddy;
+          if (d2 > rangeSq) continue;
+          const d = Math.sqrt(d2);
+          const alpha = 0.22 * (1 - d / range);
+          ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+          ctx.lineWidth = 1;
           ctx.beginPath();
-          ctx.arc(n.x, n.y, r * 8, 0, Math.PI * 2);
-          ctx.fill();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
         }
+      }
+
+      // Stars themselves, with a gentle twinkle
+      for (let i = 0; i < rotated.length; i++) {
+        const s = rotated[i];
+        const tw = reduceMotion
+          ? 0.85
+          : 0.55 + Math.sin(time * 0.002 + s.tw) * 0.4;
+        ctx.fillStyle = `rgba(255,255,255,${tw})`;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Comets — bright streaks that arc diagonally across the hero
+      // every 4-8 seconds. Adds life without polluting the constellation.
+      if (!reduceMotion) {
+        if (time - lastCometAt > 4500 + Math.random() * 3500 && comets.length < 2) {
+          const fromLeft = Math.random() > 0.5;
+          comets.push({
+            x: fromLeft ? -20 : w + 20,
+            y: Math.random() * h * 0.7 + h * 0.1,
+            vx: (fromLeft ? 1 : -1) * (3 + Math.random() * 2),
+            vy: 1.4 + Math.random() * 1.2,
+            life: 1,
+          });
+          lastCometAt = time;
+        }
+        comets = comets.filter((c) => {
+          c.x += c.vx;
+          c.y += c.vy;
+          c.life -= 0.006;
+          // Trail
+          const tailLen = 80;
+          const grad = ctx.createLinearGradient(
+            c.x,
+            c.y,
+            c.x - c.vx * (tailLen / 5),
+            c.y - c.vy * (tailLen / 5)
+          );
+          grad.addColorStop(0, `rgba(180,255,210,${0.9 * c.life})`);
+          grad.addColorStop(1, "rgba(180,255,210,0)");
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 1.4;
+          ctx.beginPath();
+          ctx.moveTo(c.x, c.y);
+          ctx.lineTo(c.x - c.vx * (tailLen / 5), c.y - c.vy * (tailLen / 5));
+          ctx.stroke();
+          // Bright head
+          ctx.fillStyle = `rgba(220,255,230,${c.life})`;
+          ctx.beginPath();
+          ctx.arc(c.x, c.y, 1.6, 0, Math.PI * 2);
+          ctx.fill();
+          return (
+            c.life > 0 &&
+            c.x > -100 &&
+            c.x < w + 100 &&
+            c.y > -100 &&
+            c.y < h + 100
+          );
+        });
       }
 
       if (visible && !reduceMotion) raf = requestAnimationFrame(step);
     }
 
-    function onMove(e: MouseEvent) {
-      const rect = canvas.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
-    }
-    function onLeave() {
-      mouseX = -9999;
-      mouseY = -9999;
-    }
-
     resize();
-    if (reduceMotion) {
-      // single static frame
-      step(0);
-    } else {
-      raf = requestAnimationFrame(step);
-    }
+    if (reduceMotion) step(0);
+    else raf = requestAnimationFrame(step);
 
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
-    window.addEventListener("mousemove", onMove);
-    canvas.addEventListener("mouseleave", onLeave);
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -242,51 +217,34 @@ export default function HeroBackdrop() {
       cancelAnimationFrame(raf);
       ro.disconnect();
       io.disconnect();
-      window.removeEventListener("mousemove", onMove);
-      canvas.removeEventListener("mouseleave", onLeave);
     };
   }, []);
 
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden bg-carbon-950">
-      {/* Aurora gradient mesh — three soft drifting blobs */}
+      {/* Quiet aurora behind the constellation — gives the black some
+          warmth without competing with the stars. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-[-20%] top-[10%] h-[40rem] w-[40rem] rounded-full bg-emerald-500/[0.12] blur-[120px] animate-blob-1"
+        className="pointer-events-none absolute left-[-10%] top-[10%] h-[36rem] w-[36rem] rounded-full bg-emerald-500/[0.10] blur-[140px] animate-blob-1"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute right-[-10%] top-[-15%] h-[36rem] w-[36rem] rounded-full bg-sky-500/[0.10] blur-[140px] animate-blob-2"
+        className="pointer-events-none absolute right-[-10%] top-[-5%] h-[34rem] w-[34rem] rounded-full bg-sky-500/[0.08] blur-[140px] animate-blob-2"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-[-20%] left-[30%] h-[44rem] w-[44rem] rounded-full bg-violet-500/[0.08] blur-[150px] animate-blob-1"
+        className="pointer-events-none absolute bottom-[-15%] left-[30%] h-[40rem] w-[40rem] rounded-full bg-violet-500/[0.06] blur-[160px] animate-blob-1"
         style={{ animationDelay: "-9s" }}
       />
 
-      {/* Crisp grid for engineering vibe */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-          backgroundSize: "72px 72px",
-          maskImage:
-            "radial-gradient(ellipse 100% 80% at center, black 30%, transparent 90%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 100% 80% at center, black 30%, transparent 90%)",
-        }}
-      />
-
-      {/* Live network canvas */}
       <canvas
         ref={canvasRef}
         aria-hidden
         className="absolute inset-0 h-full w-full"
       />
 
-      {/* Subtle vignette so text always reads */}
+      {/* Vignette */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
