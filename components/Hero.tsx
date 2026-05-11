@@ -1,21 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles, Zap, Clock } from "lucide-react";
 import SplitReveal, { Line } from "./SplitReveal";
+import HeroBackdrop from "./HeroBackdrop";
 
-// Live agent-network canvas + aurora mesh. Client-only so SSR stays
-// clean. ~6KB component, beats the old HeroScene3D's 150KB Three.js
-// scene on both weight and visual interest.
-const HeroBackdrop = dynamic(() => import("./HeroBackdrop"), {
-  ssr: false,
-  loading: () => null,
-});
+// HeroBackdrop is imported directly (not via next/dynamic) — the
+// component is ~6KB, gates all its window/canvas usage behind a
+// useEffect, and renders only safe SSR markup (a wrapper div + an
+// empty canvas). Direct import avoids a stale dynamic-chunk issue we
+// hit on Vercel's CDN where the Suspense boundary silently errored
+// out and left the hero looking like a flat black slab.
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
