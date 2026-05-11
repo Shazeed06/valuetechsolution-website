@@ -41,7 +41,7 @@ export default function PageHeader({ eyebrow, title, description }: Props) {
   return (
     <section
       ref={ref}
-      className="relative pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-32 lg:pb-16"
+      className="relative pt-10 pb-10 sm:pt-14 sm:pb-12 lg:pt-20 lg:pb-16"
     >
       <div className="container-x">
         {eyebrow && (
