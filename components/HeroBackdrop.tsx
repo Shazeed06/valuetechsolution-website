@@ -47,7 +47,13 @@ export default function HeroBackdrop() {
     let visible = true;
     let lastCometAt = 0;
 
-    function makeRng(seed: number) {
+    // NOTE: these are const arrow functions, not `function` declarations.
+    // Function declarations are hoisted, so TS won't propagate the
+    // `canvas` / `ctx` non-null narrowing from the if-checks above into
+    // their bodies. Arrow functions assigned to const get type-checked
+    // at their position in source, so narrowing flows in cleanly.
+
+    const makeRng = (seed: number) => {
       let t = seed >>> 0;
       return () => {
         t = (t + 0x6d2b79f5) >>> 0;
@@ -55,19 +61,9 @@ export default function HeroBackdrop() {
         x ^= x + Math.imul(x ^ (x >>> 7), x | 61);
         return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
       };
-    }
+    };
 
-    function resize() {
-      const rect = canvas.getBoundingClientRect();
-      w = rect.width;
-      h = rect.height;
-      canvas.width = Math.floor(w * dpr);
-      canvas.height = Math.floor(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      buildStars();
-    }
-
-    function buildStars() {
+    const buildStars = () => {
       const rand = makeRng(0xc0ffee);
       const narrow = w < 720;
       const count = narrow ? 80 : 150;
@@ -77,9 +73,19 @@ export default function HeroBackdrop() {
         r: 0.3 + rand() * 1.4,
         tw: rand() * Math.PI * 2,
       }));
-    }
+    };
 
-    function step(time: number) {
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      w = rect.width;
+      h = rect.height;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      buildStars();
+    };
+
+    const step = (time: number) => {
       const t = time * 0.001;
       ctx.clearRect(0, 0, w, h);
 
@@ -188,7 +194,7 @@ export default function HeroBackdrop() {
       }
 
       if (visible && !reduceMotion) raf = requestAnimationFrame(step);
-    }
+    };
 
     resize();
     if (reduceMotion) step(0);
