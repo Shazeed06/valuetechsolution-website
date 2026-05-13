@@ -1,16 +1,63 @@
 import type { Metadata } from "next";
 import ServiceDetail from "@/components/ServiceDetail";
 import CTA from "@/components/CTA";
+import {
+  ServiceSchema,
+  FAQSchema,
+  BreadcrumbSchema,
+} from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Web Development",
+  title: "Next.js Development Agency India · Custom Web Development",
   description:
-    "Production-grade Next.js, React, and headless web development. Fast, accessible, SEO-ready, deployed on the edge.",
+    "Next.js development agency in India — production-grade React, headless CMS, fast, accessible, SEO-ready websites and SaaS apps deployed on the edge.",
+  keywords: [
+    "Next.js development agency India",
+    "hire Next.js developer India",
+    "custom SaaS development India",
+    "React development agency Delhi",
+    "web development agency for startups",
+    "Jamstack development agency India",
+  ],
+  alternates: { canonical: "https://valuetechsolution.com/services/web-development" },
 };
+
+const faqs = [
+  {
+    q: "Why pick a Next.js agency over WordPress / Wix?",
+    a: "Next.js gives you full ownership of code, edge-grade performance, and SEO out of the box. WordPress is fine for blogs but breaks at SaaS or high-traffic ecommerce; Wix gates everything behind a closed platform. We pick Next.js because it ages well — five years from now your stack still works.",
+  },
+  {
+    q: "How long does a marketing site take?",
+    a: "A 12-page marketing site with CMS, blog, and SEO foundation lands in 4–6 weeks. A landing-page sprint ships in 2 weeks. We give you the exact day-by-day timeline before you sign anything.",
+  },
+  {
+    q: "Do you handle hosting and DNS?",
+    a: "Yes — sites deploy to Vercel by default (or Cloudflare Pages / AWS Amplify if you prefer). We migrate DNS, configure preview deploys per PR, and hand over the dashboard with full ownership.",
+  },
+  {
+    q: "Will the site rank on Google?",
+    a: "Technical SEO is built in: Core Web Vitals green, JSON-LD schema, sitemap, robots.txt, OG metadata, semantic HTML. Ranking still depends on your content + backlinks — we ship the foundation and recommend pairing with our SEO retainer for ongoing growth.",
+  },
+];
 
 export default function WebDevPage() {
   return (
     <>
+      <ServiceSchema
+        name="Next.js Web Development"
+        serviceType="Web Development"
+        description="Production-grade Next.js, React, and headless web development. Fast, accessible, SEO-ready, deployed on the edge."
+        url="https://valuetechsolution.com/services/web-development"
+      />
+      <FAQSchema items={faqs} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://valuetechsolution.com/" },
+          { name: "Services", url: "https://valuetechsolution.com/services" },
+          { name: "Web Development", url: "https://valuetechsolution.com/services/web-development" },
+        ]}
+      />
       <ServiceDetail
         eyebrow="Web Development"
         title={

@@ -1,16 +1,59 @@
 import type { Metadata } from "next";
 import ServiceDetail from "@/components/ServiceDetail";
 import CTA from "@/components/CTA";
+import {
+  ServiceSchema,
+  FAQSchema,
+  BreadcrumbSchema,
+} from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Design Systems",
+  title: "Design System Agency India · Brand & Product Design",
   description:
-    "Token-driven, fully documented design systems and product flows that turn first-time visitors into repeat customers.",
+    "Design system agency in India — token-driven design systems, Figma libraries, React component libraries, and brand identity for SaaS startups.",
+  keywords: [
+    "design system agency India",
+    "brand identity for SaaS India",
+    "Figma design system service",
+    "React component library development",
+    "product design agency India",
+    "design tokens consulting",
+  ],
+  alternates: { canonical: "https://valuetechsolution.com/services/design-systems" },
 };
+
+const faqs = [
+  {
+    q: "What's the difference between a brand sprint and a full design system?",
+    a: "A brand sprint locks in logo, type, color, and the rules for using them — 2–3 weeks, fixed price. A full design system extends that into a working Figma library plus a React/TypeScript component library, Storybook documentation, and motion spec. Pick brand sprint if you need identity; full system if you're shipping a product.",
+  },
+  {
+    q: "Do you work in Figma or another tool?",
+    a: "Figma. Every design token, component, and motion spec lands in a shared Figma workspace your team owns from day one. We handover with a Loom walkthrough and stay on call for 30 days post-launch.",
+  },
+  {
+    q: "Can you migrate our existing design system?",
+    a: "Yes. We audit the current state, deprecate inconsistencies, formalise tokens, rebuild the component library, and ship a migration guide your engineering team can follow without breaking production.",
+  },
+];
 
 export default function DesignSystemsPage() {
   return (
     <>
+      <ServiceSchema
+        name="Design Systems"
+        serviceType="Design"
+        description="Token-driven, fully documented design systems, brand sprints, and product design for SaaS startups in India and globally."
+        url="https://valuetechsolution.com/services/design-systems"
+      />
+      <FAQSchema items={faqs} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://valuetechsolution.com/" },
+          { name: "Services", url: "https://valuetechsolution.com/services" },
+          { name: "Design Systems", url: "https://valuetechsolution.com/services/design-systems" },
+        ]}
+      />
       <ServiceDetail
         eyebrow="Design Systems"
         title={

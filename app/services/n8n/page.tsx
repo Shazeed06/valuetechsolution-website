@@ -8,9 +8,17 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "n8n Development · Workflow Automation",
+  title: "n8n Automation Agency India · n8n Workflow Developer",
   description:
-    "Production-grade n8n workflows built by engineers — self-hosted, observable, version-controlled. Custom nodes, retries, and AI-step integrations included.",
+    "n8n development agency in India — production-grade workflows, self-hosted setup, custom nodes, AI integrations. Hire an n8n workflow developer for your startup or agency.",
+  keywords: [
+    "n8n automation agency India",
+    "n8n workflow developer India",
+    "n8n consultant India",
+    "n8n self-hosted setup",
+    "n8n custom node development",
+    "n8n agency Delhi",
+  ],
   alternates: { canonical: "https://valuetechsolution.com/services/n8n" },
 };
 

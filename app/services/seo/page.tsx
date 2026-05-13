@@ -1,16 +1,64 @@
 import type { Metadata } from "next";
 import ServiceDetail from "@/components/ServiceDetail";
 import CTA from "@/components/CTA";
+import {
+  ServiceSchema,
+  FAQSchema,
+  BreadcrumbSchema,
+} from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "SEO Optimization",
+  title: "SEO Agency India · Technical SEO & AEO Services",
   description:
-    "Technical SEO, content systems, and link strategy that compound over months — not one-off audits that gather dust.",
+    "SEO agency in India focused on technical SEO, programmatic SEO, AEO (Answer Engine Optimization) and GEO. Content systems and link strategy that compound for years.",
+  keywords: [
+    "SEO agency India",
+    "technical SEO services India",
+    "SEO services Delhi",
+    "AEO answer engine optimization",
+    "GEO generative engine optimization",
+    "programmatic SEO agency",
+    "SEO consultant for startups",
+  ],
+  alternates: { canonical: "https://valuetechsolution.com/services/seo" },
 };
+
+const faqs = [
+  {
+    q: "How is technical SEO different from regular SEO?",
+    a: "Technical SEO fixes how search engines crawl, render, and index your site — Core Web Vitals, structured data, sitemaps, canonical tags, internal linking. Regular SEO is mostly content + backlinks. Both matter. We start with technical because it's the foundation a content strategy stacks on.",
+  },
+  {
+    q: "What is AEO and why does it matter in 2026?",
+    a: "Answer Engine Optimization is making your content quotable by AI search engines — ChatGPT, Perplexity, Claude, Google AI Overviews. The signals are different from classic SEO: structured FAQ blocks, llms.txt, JSON-LD schema, attributable claims. Sites that ignore AEO are losing 20-40% of their organic discovery already.",
+  },
+  {
+    q: "How long until I see ranking improvements?",
+    a: "Technical fixes (sitemap, Core Web Vitals, schema) show in 2–4 weeks. Content-driven rankings need 3–6 months. Backlink-driven authority gains compound over 6–12 months. We share monthly dashboards so you see what's working — and what isn't — before you re-invest.",
+  },
+  {
+    q: "Do you guarantee #1 rankings?",
+    a: "No serious SEO agency does — and any that promises a #1 is selling you blackhat tactics that will get you penalised. We guarantee process: technical audit done, content shipped, links earned. We track outcomes against agreed KPIs (impressions, CTR, conversions). Refund if we miss our written commitments.",
+  },
+];
 
 export default function SeoPage() {
   return (
     <>
+      <ServiceSchema
+        name="SEO Optimization"
+        serviceType="Search Engine Optimization"
+        description="Technical SEO, AEO, GEO, content systems, and link strategy that compound. Built for startups and SMBs across India and the GCC."
+        url="https://valuetechsolution.com/services/seo"
+      />
+      <FAQSchema items={faqs} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://valuetechsolution.com/" },
+          { name: "Services", url: "https://valuetechsolution.com/services" },
+          { name: "SEO Optimization", url: "https://valuetechsolution.com/services/seo" },
+        ]}
+      />
       <ServiceDetail
         eyebrow="SEO Optimization"
         title={

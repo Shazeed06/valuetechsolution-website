@@ -8,9 +8,17 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "GoHighLevel Setup · CRM, Funnels & Automations",
+  title: "GoHighLevel Agency India · GHL Snapshot & Setup",
   description:
-    "End-to-end GoHighLevel setups by engineers — pipelines, funnels, calendars, snapshot deployments, and AI-enhanced follow-up sequences.",
+    "GoHighLevel agency in India — full setup, white-label snapshots, pipelines, AI follow-up sequences. Trusted by agencies in Delhi, Mumbai, Bangalore, Dubai.",
+  keywords: [
+    "GoHighLevel agency India",
+    "GHL agency India",
+    "GoHighLevel consultant India",
+    "GHL snapshot for agencies",
+    "GoHighLevel setup India",
+    "white label GHL agency",
+  ],
   alternates: { canonical: "https://valuetechsolution.com/services/gohighlevel" },
 };
 

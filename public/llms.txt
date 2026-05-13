@@ -1,8 +1,15 @@
 # Value Tech Solution
 
-> Value Tech Solution is an AI startup of computer-science engineers shipping AI agents, automations, websites, and SEO programs. We build on n8n, GoHighLevel, Zapier, Python, OpenAI, Anthropic, Next.js, and TypeScript.
+> Value Tech Solution is an AI automation and web development agency in India — a studio of computer-science engineers shipping AI agents, n8n / GoHighLevel / Zapier / Python automations, Next.js websites, and SEO programs for startups and businesses across Delhi, Bangalore, Mumbai, Dubai, London, and globally.
 
-We help teams cut human work by 80% and reclaim 40 hours per week through production-grade AI agents and automation systems — paired with high-performance websites and search programs that compound.
+We help teams cut human work by 80% and reclaim 40 hours per week through production-grade AI agents and automation systems — paired with high-performance websites and search programs that compound. Trusted by Indian SMBs, MENA marketing agencies, and Western SaaS founders.
+
+## Where we operate
+
+- **Primary market:** India (Delhi NCR, Bangalore, Mumbai, Pune, Chennai, Hyderabad)
+- **Secondary:** UAE (Dubai, Abu Dhabi), UK (London), US
+- Remote-first; async-friendly across IST, GST, GMT, ET timezones
+- Bill in INR (UPI / RTGS / GST-compliant invoices) or USD (wire / Stripe)
 
 ## What we do
 

@@ -8,9 +8,16 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Zapier Solutions · Fast App-to-App Automations",
+  title: "Zapier Consultant India · Custom Zap Development",
   description:
-    "Engineer-built Zapier automations across 6,000+ apps. Path branching, error handling, schedule logic, and AI-step integrations.",
+    "Zapier consultant in India — custom zap development, path branching, error handling, AI-step integrations across 6,000+ apps. Hire a Zapier expert for your business.",
+  keywords: [
+    "Zapier consultant India",
+    "Zapier expert India",
+    "Zapier automation agency India",
+    "custom zap development",
+    "Zapier developer Delhi",
+  ],
   alternates: { canonical: "https://valuetechsolution.com/services/zapier" },
 };
 

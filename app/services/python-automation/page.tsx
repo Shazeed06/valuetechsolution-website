@@ -8,9 +8,17 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Python Automation · Custom Pipelines & Scripts",
+  title: "Python Automation Services India · ETL & Scripts",
   description:
-    "Custom Python automations, ETL pipelines, scraping, scheduled jobs, and AI-augmented scripts engineered to run reliably in production.",
+    "Python automation services in India — custom ETL pipelines, web scraping, scheduled jobs, FastAPI services, and AI-augmented scripts engineered for production.",
+  keywords: [
+    "Python automation services India",
+    "Python developer India",
+    "ETL pipeline development India",
+    "Python web scraping service",
+    "FastAPI development agency",
+    "Python automation consultant",
+  ],
   alternates: {
     canonical: "https://valuetechsolution.com/services/python-automation",
   },

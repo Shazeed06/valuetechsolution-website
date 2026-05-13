@@ -20,24 +20,39 @@ import MediaDivider from "@/components/MediaDivider";
 // include the brand in the title manually here.
 export const metadata: Metadata = {
   title: {
-    absolute: "AI Automation & Web Development Agency | Value Tech Solution",
+    absolute:
+      "AI Automation & Web Development Agency India | Value Tech Solution",
   },
   description:
-    "Value Tech Solution provides AI automation, AI agents, SaaS development, SEO, and modern business websites for startups and businesses.",
+    "Value Tech Solution is an AI automation and web development agency in India — building AI agents, n8n / GoHighLevel / Zapier / Python automations, Next.js websites and SEO for startups in Delhi, Bangalore, Mumbai, Dubai, and beyond.",
+  keywords: [
+    "AI automation agency India",
+    "AI automation agency Delhi",
+    "n8n automation agency India",
+    "GoHighLevel agency India",
+    "AI agent development India",
+    "Next.js development agency India",
+    "Zapier consultant India",
+    "Python automation services India",
+    "Value Tech Solution",
+  ],
   alternates: { canonical: "https://valuetechsolution.com" },
   openGraph: {
-    title: "AI Automation & Web Development Agency | Value Tech Solution",
+    title:
+      "AI Automation & Web Development Agency India | Value Tech Solution",
     description:
-      "Value Tech Solution provides AI automation, AI agents, SaaS development, SEO, and modern business websites for startups and businesses.",
+      "AI automation and web development agency in India — AI agents, n8n / GHL / Zapier / Python automations, Next.js websites and SEO for startups in Delhi, Bangalore, Mumbai, and the GCC.",
     url: "https://valuetechsolution.com",
     siteName: "Value Tech Solution",
     type: "website",
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Automation & Web Development Agency | Value Tech Solution",
+    title:
+      "AI Automation & Web Development Agency India | Value Tech Solution",
     description:
-      "Value Tech Solution provides AI automation, AI agents, SaaS development, SEO, and modern business websites for startups and businesses.",
+      "AI automation and web development agency in India — AI agents, n8n / GHL / Zapier / Python automations, Next.js websites and SEO for startups in Delhi, Bangalore, Mumbai, and the GCC.",
   },
 };
 
