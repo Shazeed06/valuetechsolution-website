@@ -12,6 +12,7 @@ import { OrganizationSchema, WebSiteSchema } from "@/components/Schema";
 import { Suspense } from "react";
 
 const GTM_ID = "GTM-W6BL4JCR";
+const GA_ID = "G-2E1KGCSRBL";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://valuetechsolution.com"),
@@ -116,6 +117,21 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${GTM_ID}');`}
+        </Script>
+        {/* Google Analytics 4 (gtag.js). Loads after interactive paint
+            and respects the Consent Mode v2 default we set in the
+            beforeInteractive block above — analytics_storage starts
+            denied, the cookie banner flips it to granted on opt-in. */}
+        <Script
+          id="gtag-loader"
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        />
+        <Script id="gtag-config" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
         </Script>
       </head>
       <body className="min-h-screen bg-[rgb(252,251,249)] text-carbon-950 antialiased">
