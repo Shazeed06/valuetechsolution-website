@@ -4,6 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight, Clock, Calendar } from "lucide-react";
 import CTA from "@/components/CTA";
+import BlogTOC, { slugifyHeading } from "@/components/BlogTOC";
+import BlogSidebar from "@/components/BlogSidebar";
 import { getPost, posts, publishedPosts, wordCount } from "@/lib/blog";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/Schema";
 
@@ -73,28 +75,33 @@ export default async function BlogPostPage({ params }: Props) {
         ]}
       />
 
-      {/* Header */}
-      <article className="pt-24 sm:pt-28 lg:pt-32">
+      {/* ── Article header ──────────────────────────────── */}
+      <header className="page-header border-b border-carbon-950/[0.06] bg-white">
         <div className="container-x">
           <Link
             href="/blog"
-            className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-500 hover:text-carbon-950"
+            className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400 transition hover:text-carbon-950"
           >
             ← all field notes
           </Link>
 
-          <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
-            {p.n} · {p.category} ·{" "}
-            <span className="inline-flex items-center gap-1.5">
+          <div className="mt-7 flex flex-wrap items-center gap-3">
+            <span className="rounded-full bg-orange-600 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.26em] text-white">
+              {p.category}
+            </span>
+            <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-400">
               <Clock size={10} /> {p.readMinutes} min read
             </span>
-          </p>
+            <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-400">
+              {p.n}
+            </span>
+          </div>
 
-          <h1 className="heading-lg mt-5 max-w-4xl">{p.title}</h1>
+          <h1 className="heading-lg mt-6 max-w-4xl">{p.title}</h1>
 
-          <p className="lede mt-6 max-w-2xl">{p.description}</p>
+          <p className="lede mt-5 max-w-2xl">{p.description}</p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-carbon-950/[0.08] pt-6">
+          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-carbon-950/[0.08] pt-6">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
                 author
@@ -106,7 +113,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {p.author.name}
               </Link>
             </div>
-            {p.publishedAt && (
+            {p.publishedAt ? (
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
                   published
@@ -120,8 +127,7 @@ export default async function BlogPostPage({ params }: Props) {
                   })}
                 </p>
               </div>
-            )}
-            {!p.publishedAt && (
+            ) : (
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
                   status
@@ -133,8 +139,8 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* Cover image */}
-        <div className="container-x mt-12">
-          <figure className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-carbon-950/[0.08] sm:aspect-[16/8]">
+        <div className="container-x mt-10">
+          <figure className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-carbon-950/[0.08] sm:aspect-[21/8]">
             <Image
               src={p.cover}
               alt={p.coverAlt}
@@ -145,32 +151,48 @@ export default async function BlogPostPage({ params }: Props) {
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10"
             />
           </figure>
         </div>
+      </header>
 
-        {/* Body */}
-        <section className="section pt-12 sm:pt-16">
-          <div className="container-x">
-            <div className="mx-auto max-w-3xl">
+      {/* ── 3-column body ───────────────────────────────── */}
+      <div className="section bg-white">
+        <div className="container-x">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_260px] lg:grid-cols-[220px_1fr_260px] lg:gap-14">
+
+            {/* TOC — desktop only ───────── */}
+            <aside className="hidden lg:block">
+              <div className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pb-4">
+                <BlogTOC sections={p.sections} />
+              </div>
+            </aside>
+
+            {/* Article body ───────────────── */}
+            <article className="min-w-0">
               {p.published && p.sections.length > 0 ? (
-                p.sections.map((s, i) => (
-                  <section key={i} className="mb-12">
-                    {s.heading && (
-                      <h2 className="font-display text-2xl font-bold tracking-[-0.025em] text-carbon-950 sm:text-3xl">
-                        {s.heading}
-                      </h2>
-                    )}
-                    <div className="mt-5 space-y-5 text-base leading-[1.75] text-carbon-700 sm:text-lg sm:leading-[1.8]">
-                      {s.paragraphs.map((para, j) => (
-                        <p key={j}>{para}</p>
-                      ))}
-                    </div>
-                  </section>
-                ))
+                <div className="space-y-12">
+                  {p.sections.map((s, i) => (
+                    <section key={i}>
+                      {s.heading && (
+                        <h2
+                          id={slugifyHeading(s.heading)}
+                          className="scroll-mt-28 font-display text-2xl font-bold tracking-[-0.03em] text-carbon-950 sm:text-3xl"
+                        >
+                          {s.heading}
+                        </h2>
+                      )}
+                      <div className="mt-5 space-y-5 text-base leading-[1.8] text-carbon-700 sm:text-[1.0625rem]">
+                        {s.paragraphs.map((para, j) => (
+                          <p key={j}>{para}</p>
+                        ))}
+                      </div>
+                    </section>
+                  ))}
+                </div>
               ) : (
-                <div className="rounded-3xl border border-carbon-950/[0.08] p-10 text-center">
+                <div className="rounded-3xl border border-carbon-950/[0.08] bg-[rgb(250,250,250)] p-10 text-center">
                   <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-carbon-400">
                     coming soon
                   </p>
@@ -180,47 +202,71 @@ export default async function BlogPostPage({ params }: Props) {
                   </p>
                 </div>
               )}
+            </article>
+
+            {/* Sidebar — tablet + desktop ── */}
+            <aside className="hidden md:block">
+              <div className="sticky top-28">
+                <BlogSidebar />
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      {/* ── More posts ──────────────────────────────────── */}
+      {others.length > 0 && (
+        <section className="section border-t border-carbon-950/[0.06] bg-[rgb(250,250,250)]">
+          <div className="container-x">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <h2 className="heading-sm">More field notes</h2>
+              <Link href="/blog" className="btn-link">
+                All notes <ArrowUpRight size={13} />
+              </Link>
+            </div>
+            <div className="mt-10 grid gap-6 lg:grid-cols-2">
+              {others.map((o) => (
+                <Link
+                  key={o.slug}
+                  href={`/blog/${o.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-carbon-950/[0.07] bg-white transition-all duration-300 hover:border-orange-600/25 hover:shadow-[0_12px_40px_-12px_rgba(234,88,12,0.12)]"
+                >
+                  <div className="relative aspect-[16/8] overflow-hidden">
+                    <Image
+                      src={o.cover}
+                      alt={o.coverAlt}
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover grayscale contrast-110 transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 to-transparent"
+                    />
+                    <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-carbon-950 backdrop-blur-sm">
+                      {o.category}
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-7">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
+                      {o.n}
+                    </p>
+                    <h3 className="mt-3 font-display text-xl font-bold leading-snug tracking-[-0.025em] text-carbon-950 transition-colors group-hover:text-orange-700 sm:text-2xl">
+                      {o.title}
+                    </h3>
+                    <p className="mt-3 flex-1 line-clamp-2 text-sm leading-relaxed text-carbon-500">
+                      {o.description}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-orange-600 transition-all group-hover:gap-2.5">
+                      Read it <ArrowUpRight size={13} />
+                    </span>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
-
-        {/* Other posts */}
-        {others.length > 0 && (
-          <section className="section pt-0">
-            <div className="container-x">
-              <div className="flex items-end justify-between">
-                <h2 className="heading-md">More notes.</h2>
-                <Link href="/blog" className="btn-link">
-                  All notes <ArrowUpRight size={13} />
-                </Link>
-              </div>
-              <div className="mt-10 grid gap-6 lg:grid-cols-2">
-                {others.map((o) => (
-                  <Link
-                    key={o.slug}
-                    href={`/blog/${o.slug}`}
-                    data-cursor="Read"
-                    className="group relative overflow-hidden rounded-3xl border border-carbon-950/[0.08] bg-white p-7 transition hover:-translate-y-1 hover:border-carbon-950/20 sm:p-9"
-                  >
-                    <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
-                      {o.n} · {o.category}
-                    </p>
-                    <h3 className="mt-4 font-display text-2xl font-bold leading-tight tracking-[-0.025em] text-carbon-950 sm:text-3xl">
-                      {o.title}
-                    </h3>
-                    <p className="mt-3 line-clamp-2 text-sm text-carbon-500">
-                      {o.description}
-                    </p>
-                    <span className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-carbon-950">
-                      Read it <ArrowUpRight size={13} />
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-      </article>
+      )}
 
       <CTA />
     </>

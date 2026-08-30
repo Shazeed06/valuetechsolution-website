@@ -1,58 +1,28 @@
 import type { MetadataRoute } from "next";
-import { cases } from "@/lib/case-studies";
-import { posts } from "@/lib/blog";
+import { publishedPosts } from "@/lib/blog";
+
+const BASE = "https://valuetechsolution.com";
+
+const staticRoutes: MetadataRoute.Sitemap = [
+  { url: `${BASE}/`, changeFrequency: "weekly", priority: 1.0 },
+  { url: `${BASE}/about`, changeFrequency: "monthly", priority: 0.8 },
+  { url: `${BASE}/contact`, changeFrequency: "monthly", priority: 0.8 },
+  { url: `${BASE}/blog`, changeFrequency: "daily", priority: 0.9 },
+  { url: `${BASE}/services/web-development`, changeFrequency: "monthly", priority: 0.85 },
+  { url: `${BASE}/services/ai-automation`, changeFrequency: "monthly", priority: 0.85 },
+  { url: `${BASE}/services/claude-automation`, changeFrequency: "monthly", priority: 0.85 },
+  { url: `${BASE}/services/seo`, changeFrequency: "monthly", priority: 0.85 },
+  { url: `${BASE}/services/gohighlevel`, changeFrequency: "monthly", priority: 0.8 },
+  { url: `${BASE}/services/n8n-automation`, changeFrequency: "monthly", priority: 0.8 },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://valuetechsolution.com";
-  const routes: { path: string; priority: number; freq: "monthly" | "weekly" | "daily" }[] = [
-    { path: "", priority: 1.0, freq: "weekly" },
-    { path: "/about", priority: 0.8, freq: "monthly" },
-    { path: "/services", priority: 0.9, freq: "weekly" },
-    { path: "/services/ai-automation", priority: 0.95, freq: "weekly" },
-    { path: "/services/web-development", priority: 0.85, freq: "weekly" },
-    { path: "/services/seo", priority: 0.85, freq: "weekly" },
-    { path: "/services/design-systems", priority: 0.8, freq: "weekly" },
-    { path: "/services/n8n", priority: 0.85, freq: "weekly" },
-    { path: "/services/gohighlevel", priority: 0.85, freq: "weekly" },
-    { path: "/services/zapier", priority: 0.85, freq: "weekly" },
-    { path: "/services/python-automation", priority: 0.85, freq: "weekly" },
-    { path: "/pricing", priority: 0.85, freq: "weekly" },
-    { path: "/case-studies", priority: 0.8, freq: "weekly" },
-    { path: "/portfolio", priority: 0.7, freq: "monthly" },
-    { path: "/team", priority: 0.7, freq: "monthly" },
-    { path: "/blog", priority: 0.7, freq: "weekly" },
-    { path: "/contact", priority: 0.6, freq: "monthly" },
-    { path: "/privacy", priority: 0.3, freq: "monthly" },
-    { path: "/terms", priority: 0.3, freq: "monthly" },
-    { path: "/security", priority: 0.5, freq: "monthly" },
-  ];
-
-  const base_routes: MetadataRoute.Sitemap = routes.map((r) => ({
-    url: `${base}${r.path}`,
-    lastModified: new Date(),
-    changeFrequency: r.freq,
-    priority: r.priority,
-  }));
-
-  const case_routes: MetadataRoute.Sitemap = cases.map((c) => ({
-    url: `${base}/case-studies/${c.slug}`,
-    lastModified: new Date(),
+  const blogRoutes: MetadataRoute.Sitemap = publishedPosts().map((p) => ({
+    url: `${BASE}/blog/${p.slug}`,
+    lastModified: p.publishedAt ? new Date(p.publishedAt) : undefined,
     changeFrequency: "monthly",
     priority: 0.75,
   }));
 
-  // Only published blog posts go in sitemap. "Coming soon" placeholders are
-  // noindexed via per-page metadata.robots.
-  const blog_routes: MetadataRoute.Sitemap = posts
-    .filter((p) => p.published)
-    .map((p) => ({
-      url: `${base}/blog/${p.slug}`,
-      lastModified: p.publishedAt
-        ? new Date(p.publishedAt)
-        : new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    }));
-
-  return [...base_routes, ...case_routes, ...blog_routes];
+  return [...staticRoutes, ...blogRoutes];
 }
