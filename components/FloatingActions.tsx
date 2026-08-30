@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { MessageCircle, Calendar, X, Mail } from "lucide-react";
 import Link from "next/link";
-import { CONTACT, whatsappLink, mailtoLink } from "@/lib/contact-config";
+import { CONTACT, whatsappLinks, mailtoLink } from "@/lib/contact-config";
 
 const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK || "/contact";
 
@@ -16,7 +16,7 @@ export default function FloatingActions() {
   }, []);
   if (!mounted) return null;
 
-  const wa = whatsappLink();
+  const waNumbers = whatsappLinks();
   const mail = mailtoLink(`Project enquiry · ${CONTACT.brand}`);
 
   return (
@@ -25,19 +25,22 @@ export default function FloatingActions() {
           intercept taps on mobile (which was firing WhatsApp/email on scroll). */}
       {open && (
         <div className="pointer-events-auto flex flex-col items-end gap-2">
-          <a
-            href={wa}
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center gap-3 rounded-full border border-carbon-950/15 bg-white px-4 py-3 shadow-depth transition hover:border-carbon-950"
-          >
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-emerald-500 text-white">
-              <MessageCircle size={16} />
-            </span>
-            <span className="text-sm font-medium text-carbon-950">
-              WhatsApp · {CONTACT.phone}
-            </span>
-          </a>
+          {waNumbers.map((n) => (
+            <a
+              key={n.e164}
+              href={n.href}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-3 rounded-full border border-carbon-950/15 bg-white px-4 py-3 shadow-depth transition hover:border-carbon-950"
+            >
+              <span className="grid h-8 w-8 place-items-center rounded-full bg-emerald-500 text-white">
+                <MessageCircle size={16} />
+              </span>
+              <span className="text-sm font-medium text-carbon-950">
+                WhatsApp · {n.pretty}
+              </span>
+            </a>
+          ))}
 
           <a
             href={mail}

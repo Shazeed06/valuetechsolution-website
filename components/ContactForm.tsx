@@ -267,7 +267,7 @@ export default function ContactForm() {
         <a href={`mailto:${CONTACT.email}`} className="underline">
           {CONTACT.email}
         </a>
-        {" "}or directly to {CONTACT.phone} on WhatsApp. By submitting, you
+        {" "}or directly on WhatsApp at {CONTACT.whatsappNumbers[0].pretty} / {CONTACT.whatsappNumbers[1].pretty}. By submitting, you
         agree to our{" "}
         <a href="/privacy" className="underline">
           privacy policy

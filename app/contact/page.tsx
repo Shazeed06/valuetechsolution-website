@@ -10,7 +10,9 @@ export const metadata: Metadata = {
     "Tell us about your project. We reply within one business day with a tight scope, an honest timeline, and a fixed price.",
 };
 
-import { CONTACT, whatsappLink } from "@/lib/contact-config";
+import { CONTACT, whatsappLinks } from "@/lib/contact-config";
+
+const waLinks = whatsappLinks();
 
 const channels = [
   {
@@ -22,8 +24,14 @@ const channels = [
   {
     icon: Phone,
     label: "WhatsApp",
-    value: CONTACT.phone,
-    href: whatsappLink(),
+    value: waLinks[0].pretty,
+    href: waLinks[0].href,
+  },
+  {
+    icon: Phone,
+    label: "WhatsApp",
+    value: waLinks[1].pretty,
+    href: waLinks[1].href,
   },
   { icon: MapPin, label: "HQ", value: "Remote-first · India · UAE · UK" },
   { icon: Clock, label: "Response", value: "Within 1 business day" },

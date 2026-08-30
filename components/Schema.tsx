@@ -33,7 +33,7 @@ export function OrganizationSchema() {
       "@type": "ContactPoint",
       contactType: "Customer Service",
       email: "admin@valuetechsolution.com",
-      telephone: "+918287245032",
+      telephone: "+918287124651",
       availableLanguage: ["English", "Hindi"],
     },
   };

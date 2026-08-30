@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Linkedin, Mail, MessageCircle } from "lucide-react";
 import Logo from "./Logo";
-import { CONTACT, whatsappLink } from "@/lib/contact-config";
+import { CONTACT, whatsappLinks } from "@/lib/contact-config";
 
 const cols = [
   {
@@ -80,15 +80,18 @@ export default function Footer() {
               >
                 <Linkedin size={14} />
               </a>
-              <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`WhatsApp ${CONTACT.phone}`}
-                className="grid h-9 w-9 place-items-center rounded-full border border-carbon-950/15 bg-white text-carbon-700 transition hover:border-emerald-500 hover:bg-emerald-500 hover:text-white"
-              >
-                <MessageCircle size={14} />
-              </a>
+              {whatsappLinks().map((n) => (
+                <a
+                  key={n.e164}
+                  href={n.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`WhatsApp ${n.pretty}`}
+                  className="grid h-9 w-9 place-items-center rounded-full border border-carbon-950/15 bg-white text-carbon-700 transition hover:border-emerald-500 hover:bg-emerald-500 hover:text-white"
+                >
+                  <MessageCircle size={14} />
+                </a>
+              ))}
               <a
                 href={`mailto:${CONTACT.email}`}
                 aria-label={`Email ${CONTACT.email}`}
