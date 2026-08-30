@@ -37,6 +37,18 @@ const cols = [
     ],
   },
   {
+    title: "Locations",
+    links: [
+      { href: "/locations/delhi", label: "Delhi" },
+      { href: "/locations/bangalore", label: "Bangalore" },
+      { href: "/locations/mumbai", label: "Mumbai" },
+      { href: "/locations/new-york", label: "New York" },
+      { href: "/locations/london", label: "London" },
+      { href: "/locations/dubai", label: "Dubai" },
+      { href: "/locations", label: "All locations" },
+    ],
+  },
+  {
     title: "Resources",
     links: [
       { href: "/blog", label: "Blog" },

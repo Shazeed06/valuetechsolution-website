@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { publishedPosts } from "@/lib/blog";
+import { cities } from "@/lib/cities";
 
 const BASE = "https://valuetechsolution.com";
 
@@ -24,5 +25,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...staticRoutes, ...blogRoutes];
+  const locationRoutes: MetadataRoute.Sitemap = [
+    { url: `${BASE}/locations`, changeFrequency: "monthly", priority: 0.8 },
+    ...cities.map((c) => ({
+      url: `${BASE}/locations/${c.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+  ];
+
+  return [...staticRoutes, ...blogRoutes, ...locationRoutes];
 }
