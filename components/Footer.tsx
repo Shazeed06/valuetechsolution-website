@@ -20,6 +20,7 @@ const cols = [
     links: [
       { href: "/services/ai-automation", label: "AI Automation" },
       { href: "/services/web-development", label: "Web Development" },
+      { href: "/services/starter-website", label: "Starter Website $300" },
       { href: "/services/seo", label: "SEO" },
       { href: "/services/design-systems", label: "Design Systems" },
       { href: "/services", label: "All services" },

@@ -18,6 +18,11 @@ const services = [
     desc: "Next.js, edge runtimes.",
   },
   {
+    href: "/services/starter-website",
+    label: "Starter Website $300",
+    desc: "India · USA · UK packages.",
+  },
+  {
     href: "/services/seo",
     label: "SEO Optimization",
     desc: "Technical SEO & content.",

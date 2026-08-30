@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import FreeConsultation from "@/components/FreeConsultation";
 import CaseStudyPreview from "@/components/CaseStudyPreview";
-import StickyStory from "@/components/StickyStory";
 import StackMarquee from "@/components/StackMarquee";
 import EngagementProcess from "@/components/EngagementProcess";
 import CTA from "@/components/CTA";
@@ -25,6 +25,12 @@ export const metadata: Metadata = {
     "GoHighLevel agency India",
     "AI agent development India",
     "Next.js development agency India",
+    "website development India",
+    "website development USA",
+    "website development UK",
+    "affordable website development India",
+    "website development $500",
+    "web development agency for startups",
     "Zapier consultant India",
     "Python automation services India",
     "Value Tech Solution",
@@ -78,8 +84,8 @@ export default function Home() {
       <Hero />
       <StackMarquee />
       <Services />
+      <FreeConsultation />
       <CaseStudyPreview />
-      <StickyStory />
       <EngagementProcess />
       <CTA />
     </>
