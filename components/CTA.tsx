@@ -183,32 +183,40 @@ export default function CTA() {
   return (
     <section ref={sectionRef} className="section relative">
       <div className="container-x">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-orange-800 bg-orange-950 px-6 py-14 text-white sm:px-12 sm:py-20 lg:px-16 lg:py-24">
+        <div
+          className="relative overflow-hidden rounded-[2.5rem] px-6 py-14 text-white sm:px-12 sm:py-20 lg:px-16 lg:py-24"
+          style={{
+            background:
+              "radial-gradient(ellipse at 55% -10%, #f97316 0%, #ea580c 22%, #9a3412 55%, #431407 100%)",
+          }}
+        >
           {/* Cursor-following glow orb */}
           <div
             ref={glowRef}
             aria-hidden
-            className="pointer-events-none absolute left-0 top-0 hidden h-[28rem] w-[28rem] rounded-full opacity-60 mix-blend-screen blur-3xl md:block"
+            className="pointer-events-none absolute left-0 top-0 hidden h-[32rem] w-[32rem] rounded-full opacity-50 mix-blend-screen blur-3xl md:block"
             style={{
               background:
-                "radial-gradient(circle, rgba(251,146,60,0.40), rgba(251,146,60,0) 60%)",
+                "radial-gradient(circle, rgba(253,186,74,0.55), rgba(249,115,22,0) 65%)",
             }}
           />
 
-          {/* Static mesh */}
+          {/* Big ambient blobs */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(circle at 18% 22%, rgba(251,146,60,0.20), transparent 38%), radial-gradient(circle at 82% 78%, rgba(234,88,12,0.15), transparent 45%)",
-            }}
+            className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full blur-3xl"
+            style={{ background: "rgba(249,115,22,0.25)" }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full blur-3xl"
+            style={{ background: "rgba(194,65,12,0.30)" }}
           />
 
-          {/* Grid */}
+          {/* Grid overlay */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-[0.07]"
+            className="pointer-events-none absolute inset-0 opacity-[0.09]"
             style={{
               backgroundImage:
                 "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
@@ -218,49 +226,46 @@ export default function CTA() {
 
           {/* Floating decorations */}
           <Asterisk
-            className="cta-deco-1 absolute right-[7%] top-[10%] hidden text-orange-400/30 sm:block"
-            size={90}
+            className="cta-deco-1 absolute right-[7%] top-[10%] hidden text-orange-300/40 sm:block"
+            size={100}
           />
           <Asterisk
-            className="cta-deco-2 absolute left-[5%] bottom-[16%] hidden text-orange-300/25 sm:block"
-            size={64}
+            className="cta-deco-2 absolute left-[4%] bottom-[14%] hidden text-white/20 sm:block"
+            size={70}
           />
           <Asterisk
-            className="cta-deco-3 absolute right-[14%] bottom-[10%] hidden text-white/12 lg:block"
-            size={40}
+            className="cta-deco-3 absolute right-[13%] bottom-[8%] hidden text-orange-200/20 lg:block"
+            size={44}
           />
 
           {/* Content */}
           <div className="relative text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-white/70 backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.28em] text-white/90 backdrop-blur-sm">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-70" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-orange-400" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-70" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-white" />
               </span>
               accepting 2 builds this month
             </span>
 
             <h2
               ref={headingRef}
-              className="mx-auto mt-6 max-w-5xl font-display font-bold leading-[0.93] tracking-[-0.05em] text-[2.6rem] sm:text-6xl lg:text-[7.5rem] lg:leading-[0.9]"
+              className="mx-auto mt-7 max-w-5xl font-display font-black leading-[0.93] tracking-[-0.05em] text-[2.6rem] sm:text-6xl lg:text-[7.5rem] lg:leading-[0.9]"
             >
               <span className="block overflow-hidden pb-[0.18em]">
-                <span data-line className="block">
+                <span data-line className="block text-white">
                   Get your team
                 </span>
               </span>
               <span className="block overflow-hidden pb-[0.18em]">
-                <span
-                  data-line
-                  className="block italic-accent text-white/55"
-                >
+                <span data-line className="block italic-accent text-white/60">
                   <span
                     ref={numberRef}
-                    className="relative mr-3 inline-block not-italic"
+                    className="relative mr-3 inline-block not-italic font-black"
                     style={{
-                      WebkitTextStroke: "1.5px rgba(255,255,255,0.85)",
+                      WebkitTextStroke: "2px rgba(255,255,255,0.90)",
                       color: "transparent",
-                      textShadow: "0 0 50px rgba(110,225,200,0.35)",
+                      textShadow: "0 0 60px rgba(253,186,74,0.55)",
                     }}
                     suppressHydrationWarning
                   >
@@ -270,13 +275,14 @@ export default function CTA() {
                 </span>
               </span>
               <span className="block overflow-hidden pb-[0.18em]">
-                <span data-line className="block">
-                  every <span className="italic-accent text-white/55">week.</span>
+                <span data-line className="block text-white">
+                  every{" "}
+                  <span className="italic-accent text-white/60">week.</span>
                 </span>
               </span>
             </h2>
 
-            <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-white/65">
+            <p className="mx-auto mt-8 max-w-lg text-base leading-relaxed text-white/75 sm:text-lg">
               30-minute strategy call. We&apos;ll map the highest-leverage
               automations in your business, scope a website if you need one,
               and quote a fixed price — whether you hire us or not.
@@ -286,9 +292,9 @@ export default function CTA() {
               <Link
                 ref={ctaRef}
                 href="/contact"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-8 py-5 text-base font-semibold text-orange-700 shadow-[0_8px_40px_-8px_rgba(251,146,60,0.50)] transition-transform duration-200 ease-out will-change-transform hover:shadow-[0_12px_60px_-8px_rgba(251,146,60,0.65)]"
+                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-white px-9 py-4 text-base font-bold text-orange-700 shadow-[0_12px_48px_-8px_rgba(0,0,0,0.35)] transition-transform duration-200 ease-out will-change-transform hover:shadow-[0_16px_60px_-8px_rgba(0,0,0,0.45)]"
               >
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-orange-200/0 via-orange-200/50 to-orange-200/0 transition-transform duration-700 group-hover:translate-x-full" />
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-orange-100/0 via-orange-100/60 to-orange-100/0 transition-transform duration-700 group-hover:translate-x-full" />
                 <span className="relative">Book a strategy call</span>
                 <ArrowUpRight
                   size={17}
@@ -302,11 +308,11 @@ export default function CTA() {
                   href={n.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-2 rounded-full border border-orange-400/40 bg-orange-400/10 px-6 py-4 text-sm font-semibold text-orange-200 transition hover:border-orange-300 hover:bg-orange-400/20"
+                  className="group inline-flex items-center gap-2.5 rounded-full border border-emerald-400/50 bg-emerald-500/20 px-6 py-4 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-emerald-500/35 hover:border-emerald-300"
                 >
                   <MessageCircle
                     size={14}
-                    className="transition group-hover:rotate-12"
+                    className="text-emerald-300 transition group-hover:rotate-12"
                   />
                   WhatsApp · {n.pretty}
                 </a>
@@ -314,30 +320,30 @@ export default function CTA() {
 
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="text-sm text-white/70 underline-offset-[6px] hover:text-white hover:underline"
+                className="text-sm text-white/60 underline-offset-[6px] hover:text-white hover:underline"
               >
                 {CONTACT.email}
               </a>
             </div>
           </div>
 
-          {/* Infinite marquee — replaces the static stat strip */}
+          {/* Infinite marquee */}
           <div className="relative mt-14 sm:mt-20">
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-orange-950 to-transparent"
+              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-[#431407] to-transparent"
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-orange-950 to-transparent"
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-[#431407] to-transparent"
             />
-            <div className="overflow-hidden border-y border-white/10 py-4">
-              <div className="flex w-max animate-marquee gap-10 font-mono text-[11px] uppercase tracking-[0.32em] text-white/55">
+            <div className="overflow-hidden border-y border-white/[0.12] py-4">
+              <div className="flex w-max animate-marquee gap-10 font-mono text-[11px] uppercase tracking-[0.32em] text-white/65">
                 {[...ticker, ...ticker].map((item, i) => (
                   <span key={i} className="flex items-center gap-10">
                     <Asterisk
                       size={11}
-                      className="text-orange-400/70"
+                      className="text-orange-300/80"
                       aria-hidden
                     />
                     {item}
