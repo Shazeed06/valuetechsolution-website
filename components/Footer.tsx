@@ -29,6 +29,7 @@ const cols = [
   {
     title: "Platforms",
     links: [
+      { href: "/services/claude-automation", label: "Claude AI" },
       { href: "/services/n8n", label: "n8n" },
       { href: "/services/gohighlevel", label: "GoHighLevel" },
       { href: "/services/zapier", label: "Zapier" },
@@ -77,7 +78,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="grid h-9 w-9 place-items-center rounded-full border border-carbon-950/15 bg-white text-carbon-700 transition hover:border-carbon-950 hover:bg-carbon-950 hover:text-white"
+                className="grid h-9 w-9 place-items-center rounded-full border border-carbon-950/15 bg-white text-carbon-700 transition hover:border-orange-600 hover:bg-orange-600 hover:text-white"
               >
                 <Linkedin size={14} />
               </a>
@@ -96,7 +97,7 @@ export default function Footer() {
               <a
                 href={`mailto:${CONTACT.email}`}
                 aria-label={`Email ${CONTACT.email}`}
-                className="grid h-9 w-9 place-items-center rounded-full border border-carbon-950/15 bg-white text-carbon-700 transition hover:border-carbon-950 hover:bg-carbon-950 hover:text-white"
+                className="grid h-9 w-9 place-items-center rounded-full border border-carbon-950/15 bg-white text-carbon-700 transition hover:border-orange-600 hover:bg-orange-600 hover:text-white"
               >
                 <Mail size={14} />
               </a>

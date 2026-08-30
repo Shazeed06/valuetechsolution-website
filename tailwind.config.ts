@@ -68,6 +68,19 @@ const config: Config = {
           500: "#404040",
           600: "#171717",
         },
+        orange: {
+          50: "#fff7ed",
+          100: "#ffedd5",
+          200: "#fed7aa",
+          300: "#fdba74",
+          400: "#fb923c",
+          500: "#f97316",
+          600: "#ea580c",
+          700: "#c2410c",
+          800: "#9a3412",
+          900: "#7c2d12",
+          950: "#431407",
+        },
         ink: {
           900: "#ffffff",
           800: "#fafafa",
@@ -77,17 +90,18 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
-          "'Cabinet Grotesk'",
+          "'Plus Jakarta Sans'",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
         ],
         display: [
-          "'Cabinet Grotesk'",
+          "'Plus Jakarta Sans'",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
         ],
+        serif: ["'Fraunces'", "Georgia", "serif"],
         mono: ["'JetBrains Mono'", "ui-monospace", "monospace"],
       },
       backgroundImage: {

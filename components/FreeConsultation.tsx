@@ -13,7 +13,7 @@ export default function FreeConsultation() {
   const waNumbers = whatsappLinks("Hi, I'd like to book a free 30-min consultation.");
 
   return (
-    <section className="section bg-carbon-950 text-white">
+    <section className="section bg-orange-700 text-white">
       <div className="container-x">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           {/* Left column */}
@@ -48,7 +48,7 @@ export default function FreeConsultation() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-semibold text-carbon-950 transition hover:bg-white/90"
+                className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-semibold text-orange-700 transition hover:bg-orange-50"
               >
                 <Phone size={14} />
                 Book free call
@@ -62,7 +62,7 @@ export default function FreeConsultation() {
                 href={waNumbers[0].href}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-6 py-4 text-sm font-semibold text-emerald-300 transition hover:border-emerald-300 hover:bg-emerald-400/20"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition hover:border-white hover:bg-white/20"
               >
                 <MessageCircle size={14} />
                 WhatsApp us

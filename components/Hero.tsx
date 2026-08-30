@@ -68,7 +68,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       data-hero-dark
-      className="relative isolate -mt-24 overflow-hidden bg-carbon-950 text-white"
+      className="relative isolate -mt-24 overflow-hidden bg-orange-950 text-white"
     >
       <div className="hero-depth-field absolute inset-0 -z-10">
         <HeroBackdrop />
@@ -78,11 +78,11 @@ export default function Hero() {
           backdrop reads cleanly underneath. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-[5] bg-gradient-to-r from-carbon-950/70 via-carbon-950/20 to-transparent"
+        className="absolute inset-0 -z-[5] bg-gradient-to-r from-orange-950/80 via-orange-950/30 to-transparent"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-[5] h-32 bg-gradient-to-t from-carbon-950 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-[5] h-32 bg-gradient-to-t from-orange-950 to-transparent"
       />
 
       {/* Content */}
@@ -134,7 +134,7 @@ export default function Hero() {
             <Link
               href="/contact"
               data-cursor="Book"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-semibold text-carbon-950 transition hover:bg-white/90"
+              className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-semibold text-orange-700 transition hover:bg-orange-50"
             >
               Book a strategy call
               <ArrowUpRight

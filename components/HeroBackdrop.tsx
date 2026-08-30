@@ -228,7 +228,7 @@ export default function HeroBackdrop() {
   }, []);
 
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden bg-carbon-950">
+    <div className="absolute inset-0 -z-10 overflow-hidden bg-orange-950">
       {/* Quiet aurora behind the constellation — gives the black some
           warmth without competing with the stars. */}
       {/*

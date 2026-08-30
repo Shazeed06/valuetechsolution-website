@@ -83,7 +83,7 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-3xl border border-carbon-950 bg-carbon-950 p-10 text-center text-white shadow-depth">
+      <div className="rounded-3xl border border-orange-700 bg-orange-600 p-10 text-center text-white shadow-depth">
         <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-white text-carbon-950">
           <Check size={24} />
         </div>
@@ -190,8 +190,8 @@ export default function ContactForm() {
               onClick={() => setService(s)}
               className={`rounded-full px-4 py-2 text-sm transition ${
                 service === s
-                  ? "bg-carbon-950 text-white"
-                  : "border border-carbon-950/15 bg-white text-carbon-700 hover:border-carbon-950"
+                  ? "bg-orange-600 text-white"
+                  : "border border-carbon-950/15 bg-white text-carbon-700 hover:border-orange-600"
               }`}
             >
               {s}
@@ -212,8 +212,8 @@ export default function ContactForm() {
               onClick={() => setBudget(b)}
               className={`rounded-full px-4 py-2 text-sm transition ${
                 budget === b
-                  ? "bg-carbon-950 text-white"
-                  : "border border-carbon-950/15 bg-white text-carbon-700 hover:border-carbon-950"
+                  ? "bg-orange-600 text-white"
+                  : "border border-carbon-950/15 bg-white text-carbon-700 hover:border-orange-600"
               }`}
             >
               {b}

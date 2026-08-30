@@ -1,12 +1,14 @@
-@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=jetbrains-mono@400,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: 252 251 249;
-  --foreground: 12 12 12;
+  --background: 255 255 255;
+  --foreground: 15 15 15;
+  --brand: 234 88 12;       /* orange-600 */
+  --brand-light: 251 146 60; /* orange-400 */
 }
 
 * {
@@ -18,15 +20,15 @@ html,
 body {
   background: rgb(var(--background));
   color: rgb(var(--foreground));
-  font-family: "Cabinet Grotesk", ui-sans-serif, system-ui, sans-serif;
-  font-feature-settings: "ss01", "cv01", "cv02";
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "kern", "liga", "calt";
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
 ::selection {
-  background: rgb(12, 12, 12);
-  color: rgb(252, 251, 249);
+  background: rgb(234, 88, 12);
+  color: rgb(255, 255, 255);
 }
 
 /* Custom black cursor — only on hover-capable devices.
@@ -55,7 +57,10 @@ body {
   }
 
   .gradient-text {
-    @apply text-carbon-950;
+    background: linear-gradient(135deg, #ea580c 0%, #fb923c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .btn {
@@ -63,15 +68,15 @@ body {
   }
 
   .btn-primary {
-    @apply btn bg-carbon-950 text-white hover:bg-carbon-700;
+    @apply btn bg-orange-600 text-white hover:bg-orange-700;
   }
 
   .btn-ghost {
-    @apply btn border border-carbon-950/20 bg-transparent text-carbon-950 hover:border-carbon-950 hover:bg-carbon-950 hover:text-white;
+    @apply btn border border-orange-600/30 bg-transparent text-orange-600 hover:border-orange-600 hover:bg-orange-600 hover:text-white;
   }
 
   .btn-link {
-    @apply inline-flex items-center gap-2 text-sm font-medium text-carbon-950 underline-offset-[6px] hover:underline;
+    @apply inline-flex items-center gap-2 text-sm font-medium text-orange-600 underline-offset-[6px] hover:underline;
   }
 
   .card {
@@ -116,27 +121,33 @@ body {
   }
 
   .heading-display {
-    @apply font-display font-bold leading-[0.92] tracking-[-0.045em] text-carbon-950;
+    @apply font-display leading-[0.90] tracking-[-0.05em] text-carbon-950;
+    font-weight: 900;
   }
 
   .heading-xl {
-    @apply heading-display text-6xl sm:text-7xl lg:text-[6.5rem];
+    @apply heading-display text-[3.5rem] sm:text-7xl lg:text-[7rem];
   }
 
   .heading-lg {
-    @apply heading-display text-4xl sm:text-5xl lg:text-[4.25rem];
+    @apply heading-display text-4xl sm:text-5xl lg:text-[4.75rem];
   }
 
   .heading-md {
-    @apply heading-display text-3xl sm:text-4xl lg:text-5xl tracking-[-0.035em];
+    @apply heading-display text-3xl sm:text-4xl lg:text-5xl;
+    font-weight: 800;
+    letter-spacing: -0.04em;
   }
 
   .heading-sm {
-    @apply font-display text-2xl font-bold leading-tight tracking-[-0.02em] text-carbon-950;
+    @apply font-display text-2xl leading-tight text-carbon-950;
+    font-weight: 800;
+    letter-spacing: -0.03em;
   }
 
   .lede {
     @apply text-lg leading-relaxed text-carbon-500 sm:text-xl;
+    font-weight: 400;
   }
 
   .muted {
@@ -148,8 +159,10 @@ body {
   }
 
   .italic-accent {
-    font-family: "Cabinet Grotesk", serif;
+    font-family: "Fraunces", Georgia, serif;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    letter-spacing: 0.01em;
   }
 }

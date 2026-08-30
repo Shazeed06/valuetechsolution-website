@@ -125,7 +125,7 @@ export default function EngagementProcess() {
                   className="group relative rounded-3xl border border-carbon-950/[0.08] bg-white p-6 transition hover:-translate-y-1 hover:border-carbon-950/30 hover:shadow-[0_24px_40px_-24px_rgba(10,10,10,0.16)] sm:p-7"
                 >
                   <div className="flex items-center gap-4">
-                    <span className="relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-carbon-950 text-white transition group-hover:bg-carbon-700">
+                    <span className="relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-orange-600 text-white transition group-hover:bg-orange-700">
                       <Icon size={18} />
                     </span>
                     <div>

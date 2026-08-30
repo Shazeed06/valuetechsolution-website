@@ -56,7 +56,7 @@ export default function Services() {
             <li key={s.title}>
               <Link
                 href={s.href}
-                className="group grid grid-cols-12 items-center gap-6 py-10 transition-colors duration-500 hover:bg-carbon-950 hover:text-white sm:py-14"
+                className="group grid grid-cols-12 items-center gap-6 py-10 transition-colors duration-500 hover:bg-orange-600 hover:text-white sm:py-14"
               >
                 <span className="col-span-2 pl-2 font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-400 group-hover:text-white/60 sm:pl-6">
                   {s.n}

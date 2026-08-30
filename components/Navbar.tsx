@@ -36,6 +36,11 @@ const services = [
 
 const platforms = [
   {
+    href: "/services/claude-automation",
+    label: "Claude AI Automation",
+    desc: "Anthropic Claude agents.",
+  },
+  {
     href: "/services/n8n",
     label: "n8n Development",
     desc: "Self-hosted workflows.",
@@ -120,7 +125,7 @@ export default function Navbar() {
   const linkColor = lightMode
     ? "text-white/80 hover:text-white"
     : "text-carbon-700 hover:text-carbon-950";
-  const underlineColor = lightMode ? "bg-white" : "bg-carbon-950";
+  const underlineColor = lightMode ? "bg-white" : "bg-orange-600";
   const burgerBorder = lightMode
     ? "border-white/60 bg-white/10 text-white backdrop-blur"
     : "border-carbon-950/20 bg-white text-carbon-950";
@@ -129,7 +134,7 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 w-full transition-colors duration-500 ${
         scrolled
-          ? "border-b border-carbon-950/[0.06] bg-[rgb(252,251,249)]/85 backdrop-blur-xl"
+          ? "border-b border-carbon-950/[0.06] bg-white/90 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
@@ -207,8 +212,8 @@ export default function Navbar() {
             href="/contact"
             className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-semibold transition ${
               lightMode
-                ? "bg-white text-carbon-950 hover:bg-white/90"
-                : "bg-carbon-950 text-white hover:bg-carbon-700"
+                ? "bg-white text-orange-700 hover:bg-orange-50"
+                : "bg-orange-600 text-white hover:bg-orange-700"
             }`}
           >
             <span
@@ -273,7 +278,7 @@ export default function Navbar() {
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="group flex items-start justify-between bg-[rgb(252,251,249)] p-5 transition hover:bg-carbon-950 hover:text-white"
+                      className="group flex items-start justify-between bg-[rgb(255,255,255)] p-5 transition hover:bg-orange-600 hover:text-white"
                     >
                       <div>
                         <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-400 group-hover:text-white/55">
@@ -304,7 +309,7 @@ export default function Navbar() {
                     <Link
                       key={p.href}
                       href={p.href}
-                      className="group flex flex-col bg-[rgb(252,251,249)] p-4 transition hover:bg-carbon-950 hover:text-white"
+                      className="group flex flex-col bg-[rgb(255,255,255)] p-4 transition hover:bg-orange-600 hover:text-white"
                     >
                       <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-carbon-400 group-hover:text-white/55">
                         P.{String(i + 1).padStart(2, "0")}

@@ -183,7 +183,7 @@ export default function CTA() {
   return (
     <section ref={sectionRef} className="section relative">
       <div className="container-x">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-carbon-950 bg-carbon-950 px-6 py-14 text-white sm:px-12 sm:py-20 lg:px-16 lg:py-24">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-orange-800 bg-orange-950 px-6 py-14 text-white sm:px-12 sm:py-20 lg:px-16 lg:py-24">
           {/* Cursor-following glow orb */}
           <div
             ref={glowRef}
@@ -191,7 +191,7 @@ export default function CTA() {
             className="pointer-events-none absolute left-0 top-0 hidden h-[28rem] w-[28rem] rounded-full opacity-60 mix-blend-screen blur-3xl md:block"
             style={{
               background:
-                "radial-gradient(circle, rgba(110,225,200,0.35), rgba(110,225,200,0) 60%)",
+                "radial-gradient(circle, rgba(251,146,60,0.40), rgba(251,146,60,0) 60%)",
             }}
           />
 
@@ -201,7 +201,7 @@ export default function CTA() {
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "radial-gradient(circle at 18% 22%, rgba(110,225,200,0.18), transparent 38%), radial-gradient(circle at 82% 78%, rgba(120,140,255,0.12), transparent 45%)",
+                "radial-gradient(circle at 18% 22%, rgba(251,146,60,0.20), transparent 38%), radial-gradient(circle at 82% 78%, rgba(234,88,12,0.15), transparent 45%)",
             }}
           />
 
@@ -218,11 +218,11 @@ export default function CTA() {
 
           {/* Floating decorations */}
           <Asterisk
-            className="cta-deco-1 absolute right-[7%] top-[10%] hidden text-white/20 sm:block"
+            className="cta-deco-1 absolute right-[7%] top-[10%] hidden text-orange-400/30 sm:block"
             size={90}
           />
           <Asterisk
-            className="cta-deco-2 absolute left-[5%] bottom-[16%] hidden text-emerald-400/30 sm:block"
+            className="cta-deco-2 absolute left-[5%] bottom-[16%] hidden text-orange-300/25 sm:block"
             size={64}
           />
           <Asterisk
@@ -234,8 +234,8 @@ export default function CTA() {
           <div className="relative text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-white/70 backdrop-blur">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-70" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-orange-400" />
               </span>
               accepting 2 builds this month
             </span>
@@ -286,9 +286,9 @@ export default function CTA() {
               <Link
                 ref={ctaRef}
                 href="/contact"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-8 py-5 text-base font-semibold text-carbon-950 shadow-[0_8px_40px_-8px_rgba(110,225,200,0.45)] transition-transform duration-200 ease-out will-change-transform hover:shadow-[0_12px_60px_-8px_rgba(110,225,200,0.6)]"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-8 py-5 text-base font-semibold text-orange-700 shadow-[0_8px_40px_-8px_rgba(251,146,60,0.50)] transition-transform duration-200 ease-out will-change-transform hover:shadow-[0_12px_60px_-8px_rgba(251,146,60,0.65)]"
               >
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-emerald-300/0 via-emerald-300/50 to-emerald-300/0 transition-transform duration-700 group-hover:translate-x-full" />
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-orange-200/0 via-orange-200/50 to-orange-200/0 transition-transform duration-700 group-hover:translate-x-full" />
                 <span className="relative">Book a strategy call</span>
                 <ArrowUpRight
                   size={17}
@@ -302,7 +302,7 @@ export default function CTA() {
                   href={n.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-400/10 px-6 py-4 text-sm font-semibold text-emerald-300 transition hover:border-emerald-300 hover:bg-emerald-400/20"
+                  className="group inline-flex items-center gap-2 rounded-full border border-orange-400/40 bg-orange-400/10 px-6 py-4 text-sm font-semibold text-orange-200 transition hover:border-orange-300 hover:bg-orange-400/20"
                 >
                   <MessageCircle
                     size={14}
@@ -325,11 +325,11 @@ export default function CTA() {
           <div className="relative mt-14 sm:mt-20">
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-carbon-950 to-transparent"
+              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-orange-950 to-transparent"
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-carbon-950 to-transparent"
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-orange-950 to-transparent"
             />
             <div className="overflow-hidden border-y border-white/10 py-4">
               <div className="flex w-max animate-marquee gap-10 font-mono text-[11px] uppercase tracking-[0.32em] text-white/55">
@@ -337,7 +337,7 @@ export default function CTA() {
                   <span key={i} className="flex items-center gap-10">
                     <Asterisk
                       size={11}
-                      className="text-emerald-400/70"
+                      className="text-orange-400/70"
                       aria-hidden
                     />
                     {item}

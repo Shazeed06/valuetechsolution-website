@@ -23,7 +23,7 @@ export default function CookieBanner() {
     <div className="fixed inset-x-4 bottom-4 z-[60] sm:inset-x-auto sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-md">
       <div className="rounded-2xl border border-carbon-950/15 bg-white p-5 shadow-depth">
         <div className="flex items-start gap-3">
-          <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full bg-carbon-950 text-white">
+          <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full bg-orange-600 text-white">
             <Cookie size={15} />
           </span>
           <div className="flex-1">
@@ -42,7 +42,7 @@ export default function CookieBanner() {
             <div className="mt-4 flex flex-wrap items-center gap-2">
               <button
                 onClick={() => decide("all")}
-                className="rounded-full bg-carbon-950 px-4 py-2 text-xs font-semibold text-white transition hover:bg-carbon-700"
+                className="rounded-full bg-orange-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-orange-700"
               >
                 Allow all
               </button>

@@ -46,7 +46,7 @@ export default function FloatingActions() {
             href={mail}
             className="group inline-flex items-center gap-3 rounded-full border border-carbon-950/15 bg-white px-4 py-3 shadow-depth transition hover:border-carbon-950"
           >
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-carbon-950 text-white">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-orange-600 text-white">
               <Mail size={15} />
             </span>
             <span className="text-sm font-medium text-carbon-950">
@@ -60,7 +60,7 @@ export default function FloatingActions() {
             rel={CAL_LINK.startsWith("http") ? "noreferrer" : undefined}
             className="group inline-flex items-center gap-3 rounded-full border border-carbon-950/15 bg-white px-4 py-3 shadow-depth transition hover:border-carbon-950"
           >
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-carbon-950 text-white">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-orange-600 text-white">
               <Calendar size={15} />
             </span>
             <span className="text-sm font-medium text-carbon-950">
@@ -75,7 +75,7 @@ export default function FloatingActions() {
         aria-label={open ? "Close contact options" : "Open contact options"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="pointer-events-auto grid h-14 w-14 place-items-center rounded-full bg-carbon-950 text-white shadow-depth transition hover:bg-carbon-700"
+        className="pointer-events-auto grid h-14 w-14 place-items-center rounded-full bg-orange-600 text-white shadow-depth transition hover:bg-orange-700"
       >
         {open ? <X size={18} /> : <MessageCircle size={20} />}
       </button>
