@@ -28,7 +28,7 @@ emerald-400 accents for live / status dots.
 Centralised in `lib/contact-config.ts`:
 
 - **Email**: `admin@valuetechsolution.com`
-- **Phone / WhatsApp**: `+91 82871 24651` (E.164: `918287124651`) and `+91 88106 50579` (E.164: `918810650579`)
+- **Phone / WhatsApp**: `+91 88106 50579` (E.164: `918810650579`)
 - **LinkedIn**: `https://www.linkedin.com/in/valuetech-solution-624528409/`
 - **Brand name**: "Value Tech Solution"
 

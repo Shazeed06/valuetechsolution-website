@@ -33,7 +33,7 @@ export function OrganizationSchema() {
       "@type": "ContactPoint",
       contactType: "Customer Service",
       email: "admin@valuetechsolution.com",
-      telephone: "+918287124651",
+      telephone: "+918810650579",
       availableLanguage: ["English", "Hindi"],
     },
   };
@@ -219,7 +219,7 @@ export function LocalBusinessSchema() {
     url: "https://valuetechsolution.com",
     logo: "https://valuetechsolution.com/logo-main.png",
     image: "https://valuetechsolution.com/logo-main.png",
-    telephone: "+918287124651",
+    telephone: "+918810650579",
     email: "admin@valuetechsolution.com",
     foundingDate: "2024",
     priceRange: "₹₹",

@@ -5,15 +5,14 @@ export const CONTACT = {
   email: "admin@valuetechsolution.com",
   emailPretty: "admin@valuetechsolution.com",
 
-  // Both WhatsApp numbers
+  // WhatsApp number
   whatsappNumbers: [
-    { e164: "918287124651", pretty: "+91 82871 24651" },
     { e164: "918810650579", pretty: "+91 88106 50579" },
   ],
 
-  // Primary number (first entry) kept for single-link usages
-  whatsappE164: "918287124651",
-  phone: "+91 82871 24651",
+  // Primary number
+  whatsappE164: "918810650579",
+  phone: "+91 88106 50579",
 
   // Default WhatsApp greeting
   whatsappGreeting:
