@@ -123,16 +123,6 @@ export default async function CityPage({ params }: Props) {
 
       {/* ── Hero ──────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-orange-950 pt-16 pb-14 sm:pt-20 sm:pb-16 lg:pt-24 lg:pb-20">
-        {/* Background grid */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }}
-        />
         {/* Glow */}
         <div
           aria-hidden
@@ -141,69 +131,75 @@ export default async function CityPage({ params }: Props) {
         />
 
         <div className="container-x relative">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-2xl">{c.flag}</span>
-            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-white/80">
-              {c.country}
-            </span>
-            <span className="rounded-full border border-orange-500/40 bg-orange-600/20 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-orange-300">
-              {c.market}
-            </span>
-          </div>
+          <div className="grid gap-12 lg:grid-cols-[1fr_280px] lg:items-center">
 
-          <h1 className="mt-7 font-display font-black leading-[0.95] tracking-[-0.05em] text-white text-4xl sm:text-6xl lg:text-[5.5rem]">
-            Web Dev &amp; AI
-            <br />
-            Automation in
-            <br />
-            <span className="text-orange-400">{c.name}.</span>
-          </h1>
+            {/* Left: content */}
+            <div>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-white/80">
+                  {c.country}
+                </span>
+                <span className="rounded-full border border-orange-500/40 bg-orange-600/20 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-orange-300">
+                  {c.market}
+                </span>
+              </div>
 
-          <p className="mt-7 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
-            {c.context}
-          </p>
+              <h1 className="mt-7 font-display font-black leading-[0.95] tracking-[-0.05em] text-white text-4xl sm:text-6xl lg:text-[5.5rem]">
+                Web Dev &amp; AI
+                <br />
+                Automation in
+                <br />
+                <span className="text-orange-400">{c.name}.</span>
+              </h1>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-orange-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-500"
-            >
-              Book a free call <ArrowUpRight size={14} />
-            </Link>
-            {wa.map((n) => (
-              <a
-                key={n.e164}
-                href={n.href}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/15 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-500/25"
-              >
-                <MessageCircle size={14} className="text-emerald-400" />
-                WhatsApp · {n.pretty}
-              </a>
-            ))}
-          </div>
-
-          {/* Pricing strip */}
-          <div className="mt-12 grid grid-cols-2 gap-4 max-w-sm sm:max-w-md">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.07] px-5 py-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">
-                Starter website
+              <p className="mt-7 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+                {c.context}
               </p>
-              <p className="mt-1 font-display text-xl font-black text-white sm:text-2xl">
-                {c.starterPrice}
-              </p>
-              <p className="mt-0.5 text-xs text-white/50">Fixed scope · 4 weeks</p>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-orange-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-500"
+                >
+                  Book a free call <ArrowUpRight size={14} />
+                </Link>
+                {wa.map((n) => (
+                  <a
+                    key={n.e164}
+                    href={n.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/15 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-500/25"
+                  >
+                    <MessageCircle size={14} className="text-emerald-400" />
+                    WhatsApp · {n.pretty}
+                  </a>
+                ))}
+              </div>
             </div>
-            <div className="rounded-2xl border border-orange-500/30 bg-orange-600/15 px-5 py-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-orange-300/70">
-                AI agent
-              </p>
-              <p className="mt-1 font-display text-xl font-black text-white sm:text-2xl">
-                {c.agentPrice}
-              </p>
-              <p className="mt-0.5 text-xs text-orange-300/50">Starting · 4–6 weeks</p>
+
+            {/* Right: pricing cards */}
+            <div className="grid grid-cols-2 gap-4 lg:grid-cols-1">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.07] px-5 py-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">
+                  Starter website
+                </p>
+                <p className="mt-2 font-display text-2xl font-black text-white sm:text-3xl">
+                  {c.starterPrice}
+                </p>
+                <p className="mt-1 text-xs text-white/50">Fixed scope · 4 weeks</p>
+              </div>
+              <div className="rounded-2xl border border-orange-500/30 bg-orange-600/15 px-5 py-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-orange-300/70">
+                  AI agent
+                </p>
+                <p className="mt-2 font-display text-2xl font-black text-white sm:text-3xl">
+                  {c.agentPrice}
+                </p>
+                <p className="mt-1 text-xs text-orange-300/50">Starting · 4–6 weeks</p>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
