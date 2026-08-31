@@ -27,11 +27,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = getCity(slug);
   if (!c) return { title: "Not found" };
 
-  const title = `Web Development & AI Automation Agency in ${c.name} · Value Tech Solution`;
-  const description = `Top-rated web development and AI automation agency serving ${c.name}, ${c.country}. Fixed-price websites from ${c.starterPrice}, AI agents from ${c.agentPrice}. Senior engineers, fast delivery, written scope.`;
+  const title = `Web Development & AI Automation Agency in ${c.name} | Value Tech Solution`;
+  const description = `Fixed-price web development and AI automation in ${c.name}. Websites from ${c.starterPrice}, AI agents from ${c.agentPrice}. Senior engineers, fast delivery, written scope.`;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: {
       canonical: `https://valuetechsolution.com/locations/${c.slug}`,
