@@ -74,8 +74,8 @@ export default function RootLayout({
         <meta name="geo.placename" content="New Delhi, India" />
         <meta name="geo.position" content="28.6139;77.2090" />
         <meta name="ICBM" content="28.6139, 77.2090" />
-        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="" />
-        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="" />
         {/*
