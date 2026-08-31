@@ -26,7 +26,7 @@ export const cities: City[] = [
     region: "India",
     currencySymbol: "₹",
     starterPrice: "₹41,500",
-    agentPrice: "₹1,60,000",
+    agentPrice: "₹10,000",
     market: "NCR's startup & enterprise hub",
     context:
       "Delhi NCR is India's second-largest startup ecosystem, home to unicorns in fintech, edtech, and logistics. Businesses here operate at high velocity and demand automation that can keep pace — from CRM pipelines handling thousands of leads a month to AI agents managing enterprise workflows.",
@@ -59,7 +59,7 @@ export const cities: City[] = [
     region: "India",
     currencySymbol: "₹",
     starterPrice: "₹41,500",
-    agentPrice: "₹1,60,000",
+    agentPrice: "₹10,000",
     market: "India's tech capital — AI-native teams move fast here",
     context:
       "Bangalore is the epicentre of India's engineering talent and the city where AI-native startups are being born. Our clients here range from Series A SaaS companies integrating Claude or GPT-4o into their core product, to growth-stage agencies automating their entire delivery stack on n8n.",
@@ -68,7 +68,7 @@ export const cities: City[] = [
     faqs: [
       {
         q: "Can you integrate Claude or GPT-4o into our Bangalore-based SaaS product?",
-        a: "Absolutely. LLM integration into SaaS products is one of our core specialties. We handle the full stack — prompt engineering, RAG retrieval, evals, guardrails, observability, and cost control. Engagements start at ₹1,60,000 for a scoped integration sprint.",
+        a: "Absolutely. LLM integration into SaaS products is one of our core specialties. We handle the full stack — prompt engineering, RAG retrieval, evals, guardrails, observability, and cost control. Engagements start at ₹10,000 for a scoped integration sprint.",
       },
       {
         q: "How do you work with Bangalore engineering teams?",
@@ -92,7 +92,7 @@ export const cities: City[] = [
     region: "India",
     currencySymbol: "₹",
     starterPrice: "₹41,500",
-    agentPrice: "₹1,60,000",
+    agentPrice: "₹10,000",
     market: "India's financial capital — where scale meets urgency",
     context:
       "Mumbai's businesses operate under pressure: financial services with compliance requirements, media companies churning content daily, and retail brands managing thousands of SKUs. We serve Mumbai clients who need automation that's production-grade from day one — not a proof of concept that breaks under load.",
@@ -125,7 +125,7 @@ export const cities: City[] = [
     region: "India",
     currencySymbol: "₹",
     starterPrice: "₹41,500",
-    agentPrice: "₹1,60,000",
+    agentPrice: "₹10,000",
     market: "HITEC City's fastest-growing tech corridor",
     context:
       "Hyderabad's HITEC City corridor hosts global IT giants alongside a vibrant startup ecosystem in pharma, agritech, and government tech. We work with Hyderabad businesses that want the quality of a global agency at India-competitive pricing — with senior engineers, not offshore staffing.",
@@ -154,7 +154,7 @@ export const cities: City[] = [
     region: "India",
     currencySymbol: "₹",
     starterPrice: "₹41,500",
-    agentPrice: "₹1,60,000",
+    agentPrice: "₹10,000",
     market: "Oxford of the East — engineering talent + manufacturing scale",
     context:
       "Pune punches above its weight: a massive IT sector, auto manufacturing, and one of India's highest densities of engineering colleges. Our Pune clients are typically mid-market IT companies or manufacturing exporters who need modern web presence and process automation — not both outsourced to the cheapest vendor.",
@@ -179,7 +179,7 @@ export const cities: City[] = [
     region: "India",
     currencySymbol: "₹",
     starterPrice: "₹41,500",
-    agentPrice: "₹1,60,000",
+    agentPrice: "₹10,000",
     market: "South India's industrial and IT backbone",
     context:
       "Chennai is a hub for automotive manufacturing, IT exports, and healthcare. Its business culture values reliability and long-term relationships — which matches our fixed-scope, written-tradeoffs engagement model. Chennai clients get the same senior engineers, same performance standards, no compromises.",
@@ -204,7 +204,7 @@ export const cities: City[] = [
     region: "India",
     currencySymbol: "₹",
     starterPrice: "₹41,500",
-    agentPrice: "₹1,60,000",
+    agentPrice: "₹10,000",
     market: "East India's commerce and culture capital — going digital fast",
     context:
       "Kolkata's traditional trading and manufacturing businesses are modernising quickly, with second-generation owners investing in digital infrastructure and automation. We serve Kolkata businesses that want to compete nationally without relocating — a professional web presence and AI automation that works while the team sleeps.",
@@ -229,7 +229,7 @@ export const cities: City[] = [
     region: "India",
     currencySymbol: "₹",
     starterPrice: "₹41,500",
-    agentPrice: "₹1,60,000",
+    agentPrice: "₹10,000",
     market: "Gujarat's business capital — commerce runs on relationships and speed",
     context:
       "Ahmedabad is one of India's fastest-growing business cities, driven by chemicals, textiles, pharmaceuticals, and a new wave of SaaS startups. Gujarati business culture values speed and ROI — which maps perfectly to our fixed-price, no-retainer engagement model.",
@@ -254,7 +254,7 @@ export const cities: City[] = [
     region: "India",
     currencySymbol: "₹",
     starterPrice: "₹41,500",
-    agentPrice: "₹1,60,000",
+    agentPrice: "₹10,000",
     market: "Rajasthan's pink-city startup scene rising fast",
     context:
       "Jaipur's economy blends traditional exports (gems, textiles, handicrafts) with a growing startup and IT services sector. Businesses here are digitising rapidly and need web and automation partners who understand both the local market and global digital standards.",
@@ -279,7 +279,7 @@ export const cities: City[] = [
     region: "India",
     currencySymbol: "₹",
     starterPrice: "₹41,500",
-    agentPrice: "₹1,60,000",
+    agentPrice: "₹10,000",
     market: "North India's planned city with a growing startup base",
     context:
       "Chandigarh and the tricity area (Mohali, Panchkula) house a quietly growing IT and services sector alongside agriculture, hospitality, and education businesses. For our Chandigarh clients, we're often the first professional web development or automation partner they've worked with — and we're built to make that onboarding smooth.",
@@ -306,7 +306,7 @@ export const cities: City[] = [
     region: "USA",
     currencySymbol: "$",
     starterPrice: "$499",
-    agentPrice: "$1,999",
+    agentPrice: "$100",
     market: "World's financial capital — built for ambition",
     context:
       "New York businesses demand agency-quality work at startup speed. Our India-based senior engineering team delivers exactly that — $499 starter websites and $1,999 AI agent sprints at a quality that would cost $5,000–$15,000 from a Manhattan agency, with EST-overlap communication and zero compromise on standards.",
@@ -339,7 +339,7 @@ export const cities: City[] = [
     region: "UK",
     currencySymbol: "£",
     starterPrice: "£399",
-    agentPrice: "£1,599",
+    agentPrice: "£85",
     market: "Europe's tech and finance hub — moving at City pace",
     context:
       "London businesses get senior engineering from India's deep talent pool, at a fraction of UK agency rates, with GMT+1 communication overlap and British-style project management: written scope, written tradeoffs, fixed price, no surprises.",
@@ -372,7 +372,7 @@ export const cities: City[] = [
     region: "UAE",
     currencySymbol: "AED",
     starterPrice: "AED 1,850",
-    agentPrice: "AED 7,350",
+    agentPrice: "AED 370",
     market: "Middle East's fastest-growing tech and commerce hub",
     context:
       "Dubai businesses operate in one of the world's most competitive markets: high expectations, international buyers, and a zero-tolerance culture for slow websites and missed enquiries. We build for that standard — fast, multilingual-ready, and automated to respond to leads before your competitor does.",
@@ -405,7 +405,7 @@ export const cities: City[] = [
     region: "Canada",
     currencySymbol: "CAD",
     starterPrice: "CAD 675",
-    agentPrice: "CAD 2,699",
+    agentPrice: "CAD 135",
     market: "Canada's innovation hub — AI-forward and globally connected",
     context:
       "Toronto's tech ecosystem rivals any North American city: strong AI research (Vector Institute, Mila), a deep talent pool, and businesses that understand the value of engineering done properly. We serve Toronto clients who want execution-quality work from India's top engineers at Canadian-budget pricing.",
@@ -434,7 +434,7 @@ export const cities: City[] = [
     region: "Singapore",
     currencySymbol: "SGD",
     starterPrice: "SGD 675",
-    agentPrice: "SGD 2,699",
+    agentPrice: "SGD 135",
     market: "Southeast Asia's digital finance and startup gateway",
     context:
       "Singapore's businesses sit at the intersection of Southeast Asian growth and global capital. Compliance matters, speed matters, and the bar for digital quality is high. We serve Singapore clients who expect a global standard of engineering and communication — delivered at India's cost efficiency.",
@@ -463,7 +463,7 @@ export const cities: City[] = [
     region: "Australia",
     currencySymbol: "AUD",
     starterPrice: "AUD 775",
-    agentPrice: "AUD 3,099",
+    agentPrice: "AUD 150",
     market: "APAC's digital economy hub — direct India overlap",
     context:
       "Sydney is the closest major English-speaking market to India in terms of time zone overlap — AEDT sits just 4.5–5.5 hours ahead of IST. That makes collaboration unusually smooth. Sydney clients get senior India-based engineering with same-day turnaround on most deliverables.",

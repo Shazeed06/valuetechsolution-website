@@ -40,6 +40,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `Web Development & AI Agency — ${c.name}`,
       description,
       url: `https://valuetechsolution.com/locations/${c.slug}`,
+      siteName: "Value Tech Solution",
+      type: "website",
+      locale: c.country === "India" ? "en_IN" : "en_US",
     },
   };
 }
@@ -182,24 +185,24 @@ export default async function CityPage({ params }: Props) {
           </div>
 
           {/* Pricing strip */}
-          <div className="mt-12 flex flex-wrap gap-4">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.07] px-6 py-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-white/50">
+          <div className="mt-12 grid grid-cols-2 gap-4 max-w-sm sm:max-w-md">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.07] px-5 py-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">
                 Starter website
               </p>
-              <p className="mt-1 font-display text-2xl font-black text-white">
+              <p className="mt-1 font-display text-xl font-black text-white sm:text-2xl">
                 {c.starterPrice}
               </p>
               <p className="mt-0.5 text-xs text-white/50">Fixed scope · 4 weeks</p>
             </div>
-            <div className="rounded-2xl border border-orange-500/30 bg-orange-600/15 px-6 py-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-orange-300/70">
-                AI agent sprint
+            <div className="rounded-2xl border border-orange-500/30 bg-orange-600/15 px-5 py-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-orange-300/70">
+                AI agent
               </p>
-              <p className="mt-1 font-display text-2xl font-black text-white">
+              <p className="mt-1 font-display text-xl font-black text-white sm:text-2xl">
                 {c.agentPrice}
               </p>
-              <p className="mt-0.5 text-xs text-orange-300/50">Production-grade · 4–6 weeks</p>
+              <p className="mt-0.5 text-xs text-orange-300/50">Starting · 4–6 weeks</p>
             </div>
           </div>
         </div>

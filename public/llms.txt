@@ -25,7 +25,7 @@ We build production-grade AI agents with evaluation suites, observability, and h
 - Multi-agent orchestration pipelines
 - Conversational agents and chatbots for lead capture, support, and ops
 - Decision-support analytics and AI dashboards
-- Starting from ₹1,60,000 (approx. $1,999) · 4–6 weeks
+- Starting from ₹10,000 (approx. $100) · 4–6 weeks
 
 ### 2. Workflow Automation
 - n8n (open-source, self-hosted; preferred for privacy-sensitive workloads)
@@ -107,12 +107,12 @@ We build production-grade AI agents with evaluation suites, observability, and h
 - [Chandigarh](https://valuetechsolution.com/locations/chandigarh) — North India; key industries: Agri, Government, Startups
 
 **International**
-- [New York, USA](https://valuetechsolution.com/locations/new-york) — from $499 / $1,999
-- [London, UK](https://valuetechsolution.com/locations/london) — from £399 / £1,599
-- [Dubai, UAE](https://valuetechsolution.com/locations/dubai) — from AED 1,850 / AED 7,350
-- [Toronto, Canada](https://valuetechsolution.com/locations/toronto) — from CAD 675 / CAD 2,699
-- [Singapore](https://valuetechsolution.com/locations/singapore) — from SGD 675 / SGD 2,699
-- [Sydney, Australia](https://valuetechsolution.com/locations/sydney) — from AUD 775 / AUD 3,099
+- [New York, USA](https://valuetechsolution.com/locations/new-york) — from $499 / $100
+- [London, UK](https://valuetechsolution.com/locations/london) — from £399 / £85
+- [Dubai, UAE](https://valuetechsolution.com/locations/dubai) — from AED 1,850 / AED 370
+- [Toronto, Canada](https://valuetechsolution.com/locations/toronto) — from CAD 675 / CAD 135
+- [Singapore](https://valuetechsolution.com/locations/singapore) — from SGD 675 / SGD 135
+- [Sydney, Australia](https://valuetechsolution.com/locations/sydney) — from AUD 775 / AUD 150
 
 ---
 
@@ -135,8 +135,8 @@ We build production-grade AI agents with evaluation suites, observability, and h
 | Starter Website              | ₹41,500                    | ~$500         | 4 weeks   |
 | Marketing Site (full)        | ₹1,99,500–₹3,19,200        | $2,499–$3,999 | 4–6 weeks |
 | AI Diagnostic / Audit        | ₹31,900                    | ~$399         | 2 weeks   |
-| First AI Agent (production)  | ₹1,59,920                  | ~$1,999       | 4–6 weeks |
-| Automation Retainer          | ₹1,19,820/month            | ~$1,499/mo    | ongoing   |
+| First AI Agent (production)  | ₹10,000                    | ~$100         | 4–6 weeks |
+| Automation Retainer          | ₹41,500/month              | ~$500/mo      | ongoing   |
 | SEO Retainer                 | ₹63,900/month              | ~$799/mo      | ongoing   |
 
 All prices are fixed-scope — no billing surprises.

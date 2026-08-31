@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     absolute: "Pricing — AI Automation & Web Development | Value Tech Solution",
   },
   description:
-    "Transparent fixed-scope pricing for AI automation (from ₹1,60,000), web development (from ₹41,500), SEO, and design systems. No billing surprises.",
+    "Transparent fixed-scope pricing for AI automation (from ₹10,000), web development (from ₹41,500), SEO, and design systems. No billing surprises.",
   keywords: [
     "AI automation pricing India",
     "web development cost India",
@@ -55,7 +55,7 @@ const tiers = [
   {
     name: "Build sprint",
     audience: "One agent, site, or platform setup — shipped",
-    price: "from $1,999",
+    price: "from $100",
     cadence: "fixed · 4–6 weeks",
     headline: "We ship. You operate.",
     bullets: [
@@ -91,8 +91,8 @@ const services = [
     href: "/services/ai-automation",
     items: [
       ["Diagnostic", "from $399"],
-      ["First agent (production)", "from $1,999"],
-      ["Automation retainer", "from $1,499 / mo"],
+      ["First agent (production)", "from $100"],
+      ["Automation retainer", "from $500 / mo"],
     ],
   },
   {
@@ -126,10 +126,10 @@ const services = [
     cat: "Automation Platforms",
     href: "/services",
     items: [
-      ["n8n workflow suite", "from $1,999"],
-      ["GoHighLevel agency snapshot", "from $1,499"],
-      ["Zapier workspace build", "from $1,299"],
-      ["Python pipeline build", "from $2,499"],
+      ["n8n workflow suite", "from $100"],
+      ["GoHighLevel agency snapshot", "from $100"],
+      ["Zapier workspace build", "from $100"],
+      ["Python pipeline build", "from $100"],
     ],
   },
 ];
