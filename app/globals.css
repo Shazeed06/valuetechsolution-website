@@ -102,7 +102,7 @@ body {
 
   /* Page hero header rhythm — accounts for sticky 80px navbar; visible in first viewport */
   .page-header {
-    @apply relative pt-10 pb-10 sm:pt-14 sm:pb-12 lg:pt-18 lg:pb-14;
+    @apply relative pt-10 pb-10 sm:pt-14 sm:pb-12 lg:pt-20 lg:pb-14;
   }
 
   .eyebrow {

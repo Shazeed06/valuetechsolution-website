@@ -2,13 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { Section } from "@/lib/blog";
-
-export function slugifyHeading(text: string) {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-}
+import { slugifyHeading } from "@/lib/slugify";
 
 export default function BlogTOC({ sections }: { sections: Section[] }) {
   const headings = sections
