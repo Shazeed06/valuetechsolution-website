@@ -8,9 +8,32 @@ import Capabilities from "@/components/Capabilities";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "What we engineer",
+  title: "Our Work — AI Agents & Websites Built in India",
   description:
-    "Value Tech Solution is a young AI startup. We don't show fake case studies — we show the actual stack, capabilities, and work we ship.",
+    "Real stack, real capabilities — AI automation agents, Next.js websites, and SEO programs shipped by Value Tech Solution's senior engineering team.",
+  keywords: [
+    "AI automation portfolio India",
+    "web development projects India",
+    "n8n workflow examples",
+    "Value Tech Solution work",
+    "AI agent projects India",
+  ],
+  alternates: { canonical: "https://valuetechsolution.com/portfolio" },
+  openGraph: {
+    title: "Our Work — AI Agents & Websites | Value Tech Solution",
+    description:
+      "Real stack, real capabilities — AI automation agents, websites, and SEO programs shipped by senior engineers.",
+    url: "https://valuetechsolution.com/portfolio",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Work — AI Agents & Websites | Value Tech Solution",
+    description:
+      "AI automation agents, Next.js websites, and SEO programs shipped by senior engineers in India.",
+  },
 };
 
 const examples = [

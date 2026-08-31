@@ -6,9 +6,9 @@ import { whatsappLink } from "@/lib/contact-config";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Claude AI Automation Agency India · Anthropic Claude API Integration",
+  title: "Claude AI Automation Agency India · Claude API Developers",
   description:
-    "Hire Claude AI developers in India — Claude API integrations, Claude agent development, custom Claude assistants, RAG pipelines, and Claude-powered automation for startups and businesses globally.",
+    "Hire Claude AI developers in India — Claude API integrations, agent development, RAG pipelines, and Claude-powered automation for startups globally.",
   keywords: [
     "Claude AI automation",
     "Claude AI automation India",
@@ -31,10 +31,11 @@ export const metadata: Metadata = {
     url: "https://valuetechsolution.com/services/claude-automation",
     siteName: "Value Tech Solution",
     type: "website",
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Claude AI Automation — Value Tech Solution",
+    title: "Claude AI Automation Agency India | Value Tech Solution",
     description:
       "Claude API integrations, agents, and automation — engineered by AI specialists in India.",
   },

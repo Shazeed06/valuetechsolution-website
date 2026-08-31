@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: "AI Automation Agency India · AI Agent Development",
   description:
-    "AI automation agency in India — AI agent development, RAG systems, and workflow automation on n8n, GHL, Zapier, Python. Trusted by Delhi & Bangalore startups, saving 40+ hours/week.",
+    "AI automation agency in India — AI agent development, RAG systems, and workflow automation on n8n, GHL, Zapier, Python. Saving 40+ hours/week.",
   keywords: [
     "AI automation agency India",
     "AI automation agency Delhi",

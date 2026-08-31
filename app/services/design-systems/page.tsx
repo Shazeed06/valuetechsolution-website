@@ -20,6 +20,21 @@ export const metadata: Metadata = {
     "design tokens consulting",
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/design-systems" },
+  openGraph: {
+    title: "Design System Agency India · Brand & Product Design",
+    description:
+      "Token-driven design systems, Figma libraries, React component libraries, and brand identity for SaaS startups. Fixed price, India.",
+    url: "https://valuetechsolution.com/services/design-systems",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Design System Agency India · Brand & Product Design",
+    description:
+      "Token-driven design systems, Figma libraries, React component libraries. Fixed price.",
+  },
 };
 
 const faqs = [

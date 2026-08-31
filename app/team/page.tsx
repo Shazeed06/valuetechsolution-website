@@ -7,10 +7,32 @@ import CTA from "@/components/CTA";
 import { CONTACT } from "@/lib/contact-config";
 
 export const metadata: Metadata = {
-  title: "The team",
+  title: "Our Team — Senior AI & Web Engineers | Value Tech Solution",
   description:
-    "Senior engineers and operators behind Value Tech Solution — AI, web, automation, search. Owned end-to-end. No juniors.",
+    "Senior CS engineers and AI automation specialists behind Value Tech Solution. B.Tech/M.S. backgrounds. No juniors. Every project owned end-to-end.",
+  keywords: [
+    "AI automation team India",
+    "senior engineers India",
+    "Value Tech Solution team",
+    "AI developer India",
+    "web development team India",
+  ],
   alternates: { canonical: "https://valuetechsolution.com/team" },
+  openGraph: {
+    title: "Our Team — Senior AI & Web Engineers | Value Tech Solution",
+    description:
+      "Senior CS engineers and AI automation specialists. No juniors, no subcontracting — every project owned end-to-end.",
+    url: "https://valuetechsolution.com/team",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Team — Senior AI & Web Engineers | Value Tech Solution",
+    description:
+      "Senior CS engineers and AI automation specialists. No juniors, no subcontracting.",
+  },
 };
 
 export type Member = {

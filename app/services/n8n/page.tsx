@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "n8n Automation Agency India · n8n Workflow Developer",
   description:
-    "n8n development agency in India — production-grade workflows, self-hosted setup, custom nodes, AI integrations. Hire an n8n workflow developer for your startup or agency.",
+    "n8n development agency in India — production-grade workflows, self-hosted setup, custom nodes, AI integrations. Fixed price, senior engineers.",
   keywords: [
     "n8n automation agency India",
     "n8n workflow developer India",

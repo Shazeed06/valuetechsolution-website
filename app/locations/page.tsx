@@ -5,10 +5,32 @@ import CTA from "@/components/CTA";
 import { indianCities, internationalCities } from "@/lib/cities";
 
 export const metadata: Metadata = {
-  title: "Locations — Web Development & AI Automation Agency",
+  title: "Locations — AI & Web Agency Serving India & Globally",
   description:
-    "Value Tech Solution serves clients across India (Delhi, Mumbai, Bangalore, Hyderabad, Pune) and internationally (USA, UK, UAE, Canada, Singapore, Australia). Fixed-price builds, senior engineers.",
+    "Value Tech Solution serves clients in Delhi, Mumbai, Bangalore, Hyderabad, Pune and globally in USA, UK, UAE, Canada, Singapore. Fixed-price, senior engineers.",
+  keywords: [
+    "AI agency locations India",
+    "web development agency Delhi",
+    "AI automation agency Mumbai",
+    "web agency Bangalore",
+    "global AI agency India",
+  ],
   alternates: { canonical: "https://valuetechsolution.com/locations" },
+  openGraph: {
+    title: "Locations — AI & Web Agency Serving India & Globally",
+    description:
+      "Senior engineers serving clients in Delhi, Mumbai, Bangalore, and globally in USA, UK, UAE. Fixed-price builds.",
+    url: "https://valuetechsolution.com/locations",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Locations — AI & Web Agency Serving India & Globally",
+    description:
+      "Delhi, Mumbai, Bangalore, and globally — fixed-price AI automation and web development.",
+  },
 };
 
 export default function LocationsPage() {

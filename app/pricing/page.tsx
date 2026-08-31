@@ -7,9 +7,18 @@ import CTA from "@/components/CTA";
 import { FAQSchema, BreadcrumbSchema } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Pricing — AI Automation & Web Development | Value Tech Solution",
+  title: {
+    absolute: "Pricing — AI Automation & Web Development | Value Tech Solution",
+  },
   description:
     "Transparent fixed-scope pricing for AI automation (from ₹1,60,000), web development (from ₹41,500), SEO, and design systems. No billing surprises.",
+  keywords: [
+    "AI automation pricing India",
+    "web development cost India",
+    "AI agent development price",
+    "fixed price web agency India",
+    "Value Tech Solution pricing",
+  ],
   alternates: { canonical: "https://valuetechsolution.com/pricing" },
   openGraph: {
     title: "Pricing — AI Automation & Web Development | Value Tech Solution",

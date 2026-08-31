@@ -7,9 +7,35 @@ import Process from "@/components/Process";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: {
+    absolute: "AI Automation & Web Dev Services — Value Tech Solution",
+  },
   description:
-    "AI automation, web development, SEO, and design systems — delivered as fixed-scope sprints by a senior engineering team.",
+    "AI automation, web development, SEO, and design systems — fixed-scope sprints by senior engineers. Serving Delhi, Bangalore, Mumbai, Dubai, and beyond.",
+  keywords: [
+    "AI automation services India",
+    "web development agency India",
+    "SEO services India",
+    "n8n automation India",
+    "GoHighLevel agency India",
+    "Value Tech Solution services",
+  ],
+  alternates: { canonical: "https://valuetechsolution.com/services" },
+  openGraph: {
+    title: "AI Automation & Web Dev Services — Value Tech Solution",
+    description:
+      "Fixed-scope AI automation, web development, and SEO sprints. Senior engineers. No juniors.",
+    url: "https://valuetechsolution.com/services",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Automation & Web Dev Services — Value Tech Solution",
+    description:
+      "Fixed-scope AI automation, web development, and SEO sprints. Senior engineers only.",
+  },
 };
 
 const services = [

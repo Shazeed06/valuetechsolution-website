@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "Zapier Consultant India · Custom Zap Development",
   description:
-    "Zapier consultant in India — custom zap development, path branching, error handling, AI-step integrations across 6,000+ apps. Hire a Zapier expert for your business.",
+    "Zapier consultant in India — custom zap development, path branching, error handling, AI-step integrations across 6,000+ apps. Fixed price.",
   keywords: [
     "Zapier consultant India",
     "Zapier expert India",

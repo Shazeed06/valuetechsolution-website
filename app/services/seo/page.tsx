@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "SEO Agency India · Technical SEO & AEO Services",
   description:
-    "SEO agency in India focused on technical SEO, programmatic SEO, AEO (Answer Engine Optimization) and GEO. Content systems and link strategy that compound for years.",
+    "SEO agency in India — technical SEO, programmatic SEO, AEO, and GEO. Content systems and link strategy that compound for years. Fixed price.",
   keywords: [
     "SEO agency India",
     "technical SEO services India",

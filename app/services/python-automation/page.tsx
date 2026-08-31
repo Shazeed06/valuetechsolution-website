@@ -22,6 +22,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://valuetechsolution.com/services/python-automation",
   },
+  openGraph: {
+    title: "Python Automation Services India · ETL & Scripts",
+    description:
+      "Custom ETL pipelines, web scraping, FastAPI services, and AI-augmented Python scripts. Production-grade, fixed price.",
+    url: "https://valuetechsolution.com/services/python-automation",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Python Automation Services India · ETL & Scripts",
+    description:
+      "Custom ETL pipelines, web scraping, FastAPI services, and AI-augmented Python scripts. India.",
+  },
 };
 
 const faqs = [

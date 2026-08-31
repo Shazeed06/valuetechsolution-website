@@ -6,12 +6,21 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { BreadcrumbSchema } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Contact Value Tech Solution — Book a Free Strategy Call | India",
+  title: {
+    absolute: "Contact Us — Book a Free Strategy Call | Value Tech Solution",
+  },
   description:
-    "Book a free 30-minute strategy call with Value Tech Solution. We reply within one business day with a written scope, honest timeline, and fixed price. Serving Delhi, Bangalore, Mumbai, Dubai, London.",
+    "Book a free 30-min strategy call. We reply within one business day with a written scope and fixed price. Serving Delhi, Bangalore, Mumbai, Dubai, London.",
+  keywords: [
+    "contact AI agency India",
+    "book free strategy call India",
+    "hire AI developer India",
+    "Value Tech Solution contact",
+    "AI automation consultation India",
+  ],
   alternates: { canonical: "https://valuetechsolution.com/contact" },
   openGraph: {
-    title: "Contact Value Tech Solution — Book a Free Strategy Call",
+    title: "Contact Us — Book a Free Strategy Call | Value Tech Solution",
     description:
       "Tell us about your project. Fixed price. 4-week delivery. Senior engineers only.",
     url: "https://valuetechsolution.com/contact",
@@ -21,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Value Tech Solution — Book a Free Strategy Call",
+    title: "Contact Us — Book a Free Strategy Call | Value Tech Solution",
     description:
       "Tell us about your project. Fixed price. 4-week delivery. Senior engineers only.",
   },

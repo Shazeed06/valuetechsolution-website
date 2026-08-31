@@ -8,12 +8,21 @@ import CTA from "@/components/CTA";
 import { BreadcrumbSchema } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "About Value Tech Solution — AI Automation Agency India",
+  title: {
+    absolute: "About Us — AI Automation Agency India | Value Tech Solution",
+  },
   description:
-    "Meet the team behind Value Tech Solution — senior CS engineers and AI automation specialists building production-grade agents, n8n workflows, and Next.js websites for startups in India, UAE, and the UK.",
+    "Senior CS engineers and AI automation specialists. Fixed price, no juniors. Building AI agents, n8n workflows, and Next.js websites for startups in India, UAE, and the UK.",
+  keywords: [
+    "AI automation agency India about",
+    "Value Tech Solution team",
+    "senior engineers India",
+    "AI agency founders India",
+    "about Value Tech Solution",
+  ],
   alternates: { canonical: "https://valuetechsolution.com/about" },
   openGraph: {
-    title: "About Value Tech Solution — AI Automation Agency India",
+    title: "About Us — AI Automation Agency India | Value Tech Solution",
     description:
       "Senior engineers. Fixed price. No juniors handed off. Learn who we are and how we build.",
     url: "https://valuetechsolution.com/about",
@@ -23,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Value Tech Solution — AI Automation Agency India",
+    title: "About Us — AI Automation Agency India | Value Tech Solution",
     description:
       "Senior engineers. Fixed price. No juniors handed off. Learn who we are and how we build.",
   },

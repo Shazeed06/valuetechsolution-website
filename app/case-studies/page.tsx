@@ -7,10 +7,32 @@ import CTA from "@/components/CTA";
 import { cases } from "@/lib/case-studies";
 
 export const metadata: Metadata = {
-  title: "Case studies",
+  title: "Case Studies — AI Agents, Automations & Web Projects",
   description:
-    "Anonymised, real-shape engagements from Value Tech Solution — AI agents, automations, web, and SEO programs.",
+    "Real-shape engagements from Value Tech Solution — AI agents, n8n automations, web, and SEO programs. Clients anonymised, metrics verified, stack disclosed.",
+  keywords: [
+    "AI automation case studies India",
+    "n8n workflow case study",
+    "web development case study India",
+    "AI agent project examples",
+    "Value Tech Solution projects",
+  ],
   alternates: { canonical: "https://valuetechsolution.com/case-studies" },
+  openGraph: {
+    title: "Case Studies — AI Agents, Automations & Web Projects",
+    description:
+      "Real project shapes from Value Tech Solution — AI agents, n8n automations, web, and SEO. Clients anonymised.",
+    url: "https://valuetechsolution.com/case-studies",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Case Studies — AI Agents, Automations & Web Projects",
+    description:
+      "Real project shapes. AI agents, n8n automations, web, SEO. Clients anonymised.",
+  },
 };
 
 export default function CaseStudiesPage() {

@@ -5,9 +5,12 @@ import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/Schema"
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Website Development $300–$1000 | India · USA · UK | Value Tech Solution",
+  title: {
+    absolute:
+      "Website Development $300–$1000 | India · USA · UK | Value Tech Solution",
+  },
   description:
-    "Professional website development from $300 to $1000 — for businesses in India (from ₹25,000), USA, and UK. Next.js, SEO-ready, Lighthouse 95+, delivered in 2–4 weeks. Fixed price, no hidden costs.",
+    "Professional websites from $300 (₹25,000) for businesses in India, USA, and UK. Next.js, SEO-ready, Lighthouse 95+, 2–4 week delivery. Fixed price.",
   keywords: [
     "website development USA",
     "website development UK",
@@ -32,7 +35,15 @@ export const metadata: Metadata = {
     description:
       "Professional websites from $300 for businesses in India, USA, and UK. Fast, SEO-ready, mobile-first. Fixed price, 2–4 week delivery.",
     url: "https://valuetechsolution.com/services/starter-website",
+    siteName: "Value Tech Solution",
     type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Website Development $300–$1000 | India · USA · UK",
+    description:
+      "Professional websites from $300 (₹25,000). Next.js, SEO-ready, Lighthouse 95+, 2–4 weeks.",
   },
 };
 
