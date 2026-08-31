@@ -7,7 +7,7 @@ import CTA from "@/components/CTA";
 import { CONTACT } from "@/lib/contact-config";
 
 export const metadata: Metadata = {
-  title: "Our Team — Senior AI & Web Engineers | Value Tech Solution",
+  title: { absolute: "Our Team — Senior Engineers | Value Tech Solution" },
   description:
     "Senior CS engineers and AI automation specialists behind Value Tech Solution. B.Tech/M.S. backgrounds. No juniors. Every project owned end-to-end.",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/team" },
   openGraph: {
-    title: "Our Team — Senior AI & Web Engineers | Value Tech Solution",
+    title: "Our Team — Senior Engineers | Value Tech Solution",
     description:
       "Senior CS engineers and AI automation specialists. No juniors, no subcontracting — every project owned end-to-end.",
     url: "https://valuetechsolution.com/team",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Our Team — Senior AI & Web Engineers | Value Tech Solution",
+    title: "Our Team — Senior Engineers | Value Tech Solution",
     description:
       "Senior CS engineers and AI automation specialists. No juniors, no subcontracting.",
   },

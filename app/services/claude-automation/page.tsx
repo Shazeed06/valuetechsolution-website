@@ -6,7 +6,7 @@ import { whatsappLink } from "@/lib/contact-config";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Claude AI Automation Agency India · Claude API Developers",
+  title: { absolute: "Claude AI Agency India | Value Tech Solution" },
   description:
     "Hire Claude AI developers in India — Claude API integrations, agent development, RAG pipelines, and Claude-powered automation for startups globally.",
   keywords: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/claude-automation" },
   openGraph: {
-    title: "Claude AI Automation — Value Tech Solution",
+    title: "Claude AI Agency India | Value Tech Solution",
     description:
       "Claude API integrations, Claude agents, and Claude-powered automation workflows — built by engineers in India for startups worldwide.",
     url: "https://valuetechsolution.com/services/claude-automation",

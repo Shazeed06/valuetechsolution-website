@@ -8,7 +8,7 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "n8n Automation Agency India · n8n Workflow Developer",
+  title: { absolute: "n8n Automation Agency India | Value Tech Solution" },
   description:
     "n8n development agency in India — production-grade workflows, self-hosted setup, custom nodes, AI integrations. Fixed price, senior engineers.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/n8n" },
   openGraph: {
-    title: "n8n Automation Agency India · n8n Workflow Developer",
+    title: "n8n Automation Agency India | Value Tech Solution",
     description: "Production-grade n8n workflows, self-hosted setup, custom nodes, AI integrations. Hire an n8n workflow developer in India.",
     url: "https://valuetechsolution.com/services/n8n",
     siteName: "Value Tech Solution",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "n8n Automation Agency India · n8n Workflow Developer",
+    title: "n8n Automation Agency India | Value Tech Solution",
     description: "Production-grade n8n workflows, custom nodes, AI integrations. Hire an n8n expert.",
   },
 };

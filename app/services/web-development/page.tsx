@@ -8,7 +8,7 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Next.js Development Agency India · Custom Web Development",
+  title: { absolute: "Web Development Agency India | Value Tech Solution" },
   description:
     "Next.js development agency in India — production-grade React, headless CMS, fast, accessible, SEO-ready websites and SaaS apps deployed on the edge.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/web-development" },
   openGraph: {
-    title: "Next.js Development Agency India · Custom Web Development",
+    title: "Web Development Agency India | Value Tech Solution",
     description: "Production-grade React, headless CMS, fast, accessible, SEO-ready websites. 95+ Lighthouse guaranteed. Fixed price, 4 weeks.",
     url: "https://valuetechsolution.com/services/web-development",
     siteName: "Value Tech Solution",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Next.js Development Agency India · Custom Web Development",
+    title: "Web Development Agency India | Value Tech Solution",
     description: "Production-grade React websites. 95+ Lighthouse guaranteed. Fixed price, 4 weeks.",
   },
 };

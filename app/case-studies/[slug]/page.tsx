@@ -23,6 +23,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `https://valuetechsolution.com/case-studies/${c.slug}`,
     },
+    openGraph: {
+      title: c.title,
+      description: c.oneLiner,
+      url: `https://valuetechsolution.com/case-studies/${c.slug}`,
+      siteName: "Value Tech Solution",
+      type: "article",
+      locale: "en_IN",
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: c.title,
+      description: c.oneLiner,
+    },
   };
 }
 

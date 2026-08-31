@@ -5,7 +5,7 @@ import CTA from "@/components/CTA";
 import { indianCities, internationalCities } from "@/lib/cities";
 
 export const metadata: Metadata = {
-  title: "Locations — AI & Web Agency Serving India & Globally",
+  title: { absolute: "Locations — India, UAE, UK & More | Value Tech Solution" },
   description:
     "Value Tech Solution serves clients in Delhi, Mumbai, Bangalore, Hyderabad, Pune and globally in USA, UK, UAE, Canada, Singapore. Fixed-price, senior engineers.",
   keywords: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/locations" },
   openGraph: {
-    title: "Locations — AI & Web Agency Serving India & Globally",
+    title: "Locations — India, UAE, UK & More | Value Tech Solution",
     description:
       "Senior engineers serving clients in Delhi, Mumbai, Bangalore, and globally in USA, UK, UAE. Fixed-price builds.",
     url: "https://valuetechsolution.com/locations",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Locations — AI & Web Agency Serving India & Globally",
+    title: "Locations — India, UAE, UK & More | Value Tech Solution",
     description:
       "Delhi, Mumbai, Bangalore, and globally — fixed-price AI automation and web development.",
   },

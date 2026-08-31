@@ -8,7 +8,7 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Design System Agency India · Brand & Product Design",
+  title: { absolute: "Design Systems Agency India | Value Tech Solution" },
   description:
     "Design system agency in India — token-driven design systems, Figma libraries, React component libraries, and brand identity for SaaS startups.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/design-systems" },
   openGraph: {
-    title: "Design System Agency India · Brand & Product Design",
+    title: "Design Systems Agency India | Value Tech Solution",
     description:
       "Token-driven design systems, Figma libraries, React component libraries, and brand identity for SaaS startups. Fixed price, India.",
     url: "https://valuetechsolution.com/services/design-systems",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Design System Agency India · Brand & Product Design",
+    title: "Design Systems Agency India | Value Tech Solution",
     description:
       "Token-driven design systems, Figma libraries, React component libraries. Fixed price.",
   },

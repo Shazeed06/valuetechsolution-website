@@ -7,7 +7,7 @@ import CTA from "@/components/CTA";
 import { cases } from "@/lib/case-studies";
 
 export const metadata: Metadata = {
-  title: "Case Studies — AI Agents, Automations & Web Projects",
+  title: { absolute: "Case Studies — AI Projects | Value Tech Solution" },
   description:
     "Real-shape engagements from Value Tech Solution — AI agents, n8n automations, web, and SEO programs. Clients anonymised, metrics verified, stack disclosed.",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/case-studies" },
   openGraph: {
-    title: "Case Studies — AI Agents, Automations & Web Projects",
+    title: "Case Studies — AI Projects | Value Tech Solution",
     description:
       "Real project shapes from Value Tech Solution — AI agents, n8n automations, web, and SEO. Clients anonymised.",
     url: "https://valuetechsolution.com/case-studies",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Case Studies — AI Agents, Automations & Web Projects",
+    title: "Case Studies — AI Projects | Value Tech Solution",
     description:
       "Real project shapes. AI agents, n8n automations, web, SEO. Clients anonymised.",
   },

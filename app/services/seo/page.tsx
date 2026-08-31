@@ -8,7 +8,7 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "SEO Agency India · Technical SEO & AEO Services",
+  title: { absolute: "SEO Agency India — AEO & Technical SEO | Value Tech Solution" },
   description:
     "SEO agency in India — technical SEO, programmatic SEO, AEO, and GEO. Content systems and link strategy that compound for years. Fixed price.",
   keywords: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/seo" },
   openGraph: {
-    title: "SEO Agency India · Technical SEO & AEO Services",
+    title: "SEO Agency India — AEO & Technical SEO | Value Tech Solution",
     description: "Technical SEO, AEO, and GEO for Indian startups. Content systems and link strategy that compound. Senior engineers only.",
     url: "https://valuetechsolution.com/services/seo",
     siteName: "Value Tech Solution",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SEO Agency India · Technical SEO & AEO Services",
+    title: "SEO Agency India — AEO & Technical SEO | Value Tech Solution",
     description: "Technical SEO, AEO, GEO. Content systems that compound. Senior engineers only.",
   },
 };

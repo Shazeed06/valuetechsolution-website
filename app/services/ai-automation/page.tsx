@@ -13,7 +13,7 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "AI Automation Agency India · AI Agent Development",
+  title: { absolute: "AI Automation Agency India | Value Tech Solution" },
   description:
     "AI automation agency in India — AI agent development, RAG systems, and workflow automation on n8n, GHL, Zapier, Python. Saving 40+ hours/week.",
   keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/ai-automation" },
   openGraph: {
-    title: "AI Automation Agency India — Value Tech Solution",
+    title: "AI Automation Agency India | Value Tech Solution",
     description:
       "AI agents and automations on n8n, GoHighLevel, Zapier, Python. Engineered, evaluated, observable. Serving Delhi, Bangalore, Mumbai and beyond.",
     url: "https://valuetechsolution.com/services/ai-automation",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Automation Agency India — Value Tech Solution",
+    title: "AI Automation Agency India | Value Tech Solution",
     description:
       "AI agents and automations on n8n, GoHighLevel, Zapier, Python. Fixed price. Senior engineers only.",
   },

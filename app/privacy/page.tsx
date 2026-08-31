@@ -8,6 +8,21 @@ export const metadata: Metadata = {
     "How Value Tech Solution collects, uses, and protects information shared by visitors and clients.",
   alternates: { canonical: "https://valuetechsolution.com/privacy" },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: "Privacy Policy | Value Tech Solution",
+    description:
+      "How Value Tech Solution collects, uses, and protects information shared by visitors and clients.",
+    url: "https://valuetechsolution.com/privacy",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Value Tech Solution",
+    description:
+      "How Value Tech Solution collects, uses, and protects information shared by visitors and clients.",
+  },
 };
 
 const updated = "2026-05-10";

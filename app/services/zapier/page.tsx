@@ -8,7 +8,7 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Zapier Consultant India · Custom Zap Development",
+  title: { absolute: "Zapier Consultant India | Value Tech Solution" },
   description:
     "Zapier consultant in India — custom zap development, path branching, error handling, AI-step integrations across 6,000+ apps. Fixed price.",
   keywords: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/zapier" },
   openGraph: {
-    title: "Zapier Consultant India · Custom Zap Development",
+    title: "Zapier Consultant India | Value Tech Solution",
     description: "Custom Zap development, path branching, error handling, AI-step integrations across 6,000+ apps. Hire a Zapier expert in India.",
     url: "https://valuetechsolution.com/services/zapier",
     siteName: "Value Tech Solution",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zapier Consultant India · Custom Zap Development",
+    title: "Zapier Consultant India | Value Tech Solution",
     description: "Custom Zaps, path branching, AI integrations across 6,000+ apps. Hire a Zapier expert.",
   },
 };

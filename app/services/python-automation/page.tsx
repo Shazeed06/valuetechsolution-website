@@ -8,7 +8,7 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Python Automation Services India · ETL & Scripts",
+  title: { absolute: "Python Automation Services India | Value Tech Solution" },
   description:
     "Python automation services in India — custom ETL pipelines, web scraping, scheduled jobs, FastAPI services, and AI-augmented scripts engineered for production.",
   keywords: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     canonical: "https://valuetechsolution.com/services/python-automation",
   },
   openGraph: {
-    title: "Python Automation Services India · ETL & Scripts",
+    title: "Python Automation Services India | Value Tech Solution",
     description:
       "Custom ETL pipelines, web scraping, FastAPI services, and AI-augmented Python scripts. Production-grade, fixed price.",
     url: "https://valuetechsolution.com/services/python-automation",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Python Automation Services India · ETL & Scripts",
+    title: "Python Automation Services India | Value Tech Solution",
     description:
       "Custom ETL pipelines, web scraping, FastAPI services, and AI-augmented Python scripts. India.",
   },

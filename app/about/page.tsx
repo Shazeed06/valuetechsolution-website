@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     absolute: "About Us — AI Automation Agency India | Value Tech Solution",
   },
   description:
-    "Senior CS engineers and AI automation specialists. Fixed price, no juniors. Building AI agents, n8n workflows, and Next.js websites for startups in India, UAE, and the UK.",
+    "Senior CS engineers and AI automation specialists. Fixed price, no juniors. AI agents, n8n workflows, and Next.js sites for startups in India, UAE, and the UK.",
   keywords: [
     "AI automation agency India about",
     "Value Tech Solution team",

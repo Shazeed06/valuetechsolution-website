@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       "AI Automation & Web Development Agency India | Value Tech Solution",
   },
   description:
-    "Value Tech Solution is an AI automation and web development agency in India — building AI agents, n8n / GoHighLevel / Zapier / Python automations, Next.js websites and SEO for startups in Delhi, Bangalore, Mumbai, Dubai, and beyond.",
+    "India's AI automation and web development agency. We build AI agents, n8n/GoHighLevel/Zapier automations, Next.js websites, and SEO programs for startups.",
   keywords: [
     "AI automation agency India",
     "AI automation agency Delhi",

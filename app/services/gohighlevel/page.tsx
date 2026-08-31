@@ -8,7 +8,7 @@ import {
 } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "GoHighLevel Agency India · GHL Snapshot & Setup",
+  title: { absolute: "GoHighLevel Agency India | Value Tech Solution" },
   description:
     "GoHighLevel agency in India — full setup, white-label snapshots, pipelines, AI follow-up sequences. Trusted by agencies in Delhi, Mumbai, Bangalore, Dubai.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/gohighlevel" },
   openGraph: {
-    title: "GoHighLevel Agency India · GHL Snapshot & Setup",
+    title: "GoHighLevel Agency India | Value Tech Solution",
     description: "Full GHL setup, white-label snapshots, CRM pipelines, AI follow-up sequences. Trusted by agencies in Delhi, Mumbai, Dubai.",
     url: "https://valuetechsolution.com/services/gohighlevel",
     siteName: "Value Tech Solution",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GoHighLevel Agency India · GHL Snapshot & Setup",
+    title: "GoHighLevel Agency India | Value Tech Solution",
     description: "Full GHL setup, white-label snapshots, CRM pipelines, AI follow-up sequences.",
   },
 };

@@ -8,7 +8,7 @@ import Capabilities from "@/components/Capabilities";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Our Work — AI Agents & Websites Built in India",
+  title: { absolute: "Our Work — AI Agents & Websites | Value Tech Solution" },
   description:
     "Real stack, real capabilities — AI automation agents, Next.js websites, and SEO programs shipped by Value Tech Solution's senior engineering team.",
   keywords: [

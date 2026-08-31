@@ -9,6 +9,21 @@ export const metadata: Metadata = {
   description:
     "How Value Tech Solution secures client systems, code, and data. Infrastructure, access control, and incident response.",
   alternates: { canonical: "https://valuetechsolution.com/security" },
+  openGraph: {
+    title: "Security | Value Tech Solution",
+    description:
+      "How Value Tech Solution secures client systems, code, and data. Infrastructure, access control, and incident response.",
+    url: "https://valuetechsolution.com/security",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Security | Value Tech Solution",
+    description:
+      "How Value Tech Solution secures client systems, code, and data. Infrastructure, access control, and incident response.",
+  },
 };
 
 const pillars = [

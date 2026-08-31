@@ -7,12 +7,12 @@ import { publishedPosts } from "@/lib/blog";
 import { BreadcrumbSchema } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Blog — AI Automation, Web Dev & SEO Insights | Value Tech Solution",
+  title: { absolute: "Blog — AI, Web & SEO Insights | Value Tech Solution" },
   description:
     "Field notes on AI agents, n8n automation, web development, and SEO — written by senior engineers at Value Tech Solution, India's AI automation agency.",
   alternates: { canonical: "https://valuetechsolution.com/blog" },
   openGraph: {
-    title: "Blog — AI Automation, Web Dev & SEO | Value Tech Solution",
+    title: "Blog — AI, Web & SEO Insights | Value Tech Solution",
     description:
       "Field notes on AI agents, n8n automation, web development, and SEO from engineers building them.",
     url: "https://valuetechsolution.com/blog",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog — AI Automation & SEO Insights | Value Tech Solution",
+    title: "Blog — AI, Web & SEO Insights | Value Tech Solution",
     description:
       "Short, opinionated essays on AI agents, n8n, web performance, and search — from India's AI automation engineers.",
   },

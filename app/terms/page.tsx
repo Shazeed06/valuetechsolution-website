@@ -7,6 +7,21 @@ export const metadata: Metadata = {
   description:
     "The basic rules under which Value Tech Solution provides services through valuetechsolution.com.",
   alternates: { canonical: "https://valuetechsolution.com/terms" },
+  openGraph: {
+    title: "Terms of Service | Value Tech Solution",
+    description:
+      "The basic rules under which Value Tech Solution provides services through valuetechsolution.com.",
+    url: "https://valuetechsolution.com/terms",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service | Value Tech Solution",
+    description:
+      "The basic rules under which Value Tech Solution provides services through valuetechsolution.com.",
+  },
 };
 
 const updated = "2026-05-10";
