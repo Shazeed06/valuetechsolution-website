@@ -122,46 +122,67 @@ export default async function CityPage({ params }: Props) {
       />
 
       {/* ── Hero ──────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-orange-950 pt-16 pb-14 sm:pt-20 sm:pb-16 lg:pt-24 lg:pb-20">
-        {/* Glow */}
+      <section className="relative overflow-hidden bg-[#180800] pt-20 pb-16 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24">
+        {/* Large centre glow */}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-96 w-[60%] rounded-full opacity-30 blur-3xl"
-          style={{ background: "radial-gradient(circle, #ea580c, transparent 70%)" }}
+          className="pointer-events-none absolute left-1/3 top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/4 rounded-full opacity-50 blur-[100px]"
+          style={{ background: "radial-gradient(circle, #c2410c 0%, transparent 65%)" }}
         />
+        {/* Right accent glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-0 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full opacity-20 blur-[60px]"
+          style={{ background: "radial-gradient(circle, #ea580c 0%, transparent 70%)" }}
+        />
+        {/* Large faded city initial — decorative */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none font-display text-[clamp(200px,30vw,420px)] font-black leading-none text-white/[0.03]"
+        >
+          {c.name.charAt(0)}
+        </span>
 
         <div className="container-x relative">
-          <div className="grid gap-12 lg:grid-cols-[1fr_280px] lg:items-center">
+          <div className="grid gap-14 lg:grid-cols-[1fr_300px] lg:items-center">
 
             {/* Left: content */}
             <div>
+              {/* Badges */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-white/80">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/8 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-white/70 backdrop-blur-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
                   {c.country}
                 </span>
-                <span className="rounded-full border border-orange-500/40 bg-orange-600/20 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-orange-300">
+                <span className="rounded-full border border-orange-500/30 bg-orange-600/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-orange-300/90">
                   {c.market}
                 </span>
               </div>
 
-              <h1 className="mt-7 font-display font-black leading-[0.95] tracking-[-0.05em] text-white text-4xl sm:text-6xl lg:text-[5.5rem]">
+              {/* Heading */}
+              <h1 className="mt-8 font-display font-black leading-[0.92] tracking-[-0.05em] text-white text-5xl sm:text-6xl lg:text-[5.5rem]">
                 Web Dev &amp; AI
                 <br />
                 Automation in
                 <br />
-                <span className="text-orange-400">{c.name}.</span>
+                <span className="bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
+                  {c.name}.
+                </span>
               </h1>
 
-              <p className="mt-7 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+              {/* Description */}
+              <p className="mt-7 max-w-lg text-base leading-relaxed text-white/60 sm:text-lg">
                 {c.context}
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-3">
+              {/* CTAs */}
+              <div className="mt-9 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-orange-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-500"
+                  className="group inline-flex items-center gap-2 rounded-full bg-orange-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-500"
                 >
-                  Book a free call <ArrowUpRight size={14} />
+                  Book a free call
+                  <ArrowUpRight size={14} className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Link>
                 {wa.map((n) => (
                   <a
@@ -169,38 +190,84 @@ export default async function CityPage({ params }: Props) {
                     href={n.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/15 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-500/25"
+                    className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-500/20"
                   >
                     <MessageCircle size={14} className="text-emerald-400" />
                     WhatsApp · {n.pretty}
                   </a>
                 ))}
               </div>
+
+              {/* Stats strip */}
+              <div className="mt-12 grid grid-cols-3 gap-6 border-t border-white/[0.08] pt-10 sm:grid-cols-3">
+                {[
+                  { n: "60+", label: "projects shipped" },
+                  { n: "95+", label: "Lighthouse score" },
+                  { n: "4 wk", label: "avg. delivery" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <p className="font-display text-2xl font-black text-white sm:text-3xl">{s.n}</p>
+                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-white/35">{s.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Right: pricing cards */}
             <div className="grid grid-cols-2 gap-4 lg:grid-cols-1">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.07] px-5 py-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">
-                  Starter website
-                </p>
-                <p className="mt-2 font-display text-2xl font-black text-white sm:text-3xl">
+              {/* Starter */}
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] px-6 py-6 backdrop-blur-sm">
+                <div className="flex items-start justify-between gap-2">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/40">
+                    Starter website
+                  </p>
+                  <span className="rounded-full bg-white/10 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/50">
+                    Popular
+                  </span>
+                </div>
+                <p className="mt-3 font-display text-3xl font-black text-white">
                   {c.starterPrice}
                 </p>
-                <p className="mt-1 text-xs text-white/50">Fixed scope · 4 weeks</p>
+                <p className="mt-1 text-xs text-white/40">Fixed scope · 4 weeks</p>
+                <div className="mt-4 flex items-center gap-1.5">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-400/70">Available now</span>
+                </div>
               </div>
-              <div className="rounded-2xl border border-orange-500/30 bg-orange-600/15 px-5 py-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-orange-300/70">
+
+              {/* AI Agent */}
+              <div className="relative overflow-hidden rounded-2xl border border-orange-500/25 bg-gradient-to-br from-orange-600/20 to-orange-900/20 px-6 py-6 backdrop-blur-sm">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 opacity-30"
+                  style={{ background: "radial-gradient(circle at top left, #ea580c20, transparent 60%)" }}
+                />
+                <p className="relative font-mono text-[10px] uppercase tracking-[0.24em] text-orange-300/60">
                   AI agent
                 </p>
-                <p className="mt-2 font-display text-2xl font-black text-white sm:text-3xl">
+                <p className="relative mt-3 font-display text-3xl font-black text-white">
                   {c.agentPrice}
                 </p>
-                <p className="mt-1 text-xs text-orange-300/50">Starting · 4–6 weeks</p>
+                <p className="relative mt-1 text-xs text-orange-300/40">Starting · 4–6 weeks</p>
+                <div className="relative mt-4 flex items-center gap-1.5">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-60" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-orange-400" />
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-orange-400/60">Accepting projects</span>
+                </div>
               </div>
             </div>
 
           </div>
+        </div>
+
+        {/* Bottom separator */}
+        <div className="container-x mt-16">
+          <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         </div>
       </section>
 
