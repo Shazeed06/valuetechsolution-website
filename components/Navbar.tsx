@@ -132,13 +132,13 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-colors duration-500 ${
+      className={`sticky top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? "border-b border-carbon-950/[0.06] bg-white/90 backdrop-blur-xl"
+          ? "border-b border-carbon-950/[0.08] bg-white/95 shadow-[0_1px_24px_-4px_rgba(0,0,0,0.08)] backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
-      <div className="container-x flex h-24 items-center justify-between gap-6">
+      <div className="container-x flex h-16 items-center justify-between gap-6 sm:h-[4.5rem]">
         <Link
           href="/"
           aria-label="Value Tech Solution — Home"
@@ -176,7 +176,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={l.href}
-                    className={`group relative text-sm transition ${linkColor}`}
+                    className={`group relative text-sm font-medium transition ${linkColor}`}
                   >
                     {l.label}
                     {Underline}
@@ -194,7 +194,7 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`group relative text-sm transition ${linkColor}`}
+                className={`group relative text-sm font-medium transition ${linkColor}`}
                 onMouseEnter={() => {
                   if (menuOpen) scheduleClose();
                 }}
@@ -242,8 +242,8 @@ export default function Navbar() {
       {/* Scroll progress bar — fills left-to-right as the user reads the page */}
       <span
         aria-hidden
-        className={`pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left transform transition-[transform,background-color] duration-150 ${
-          lightMode ? "bg-white/70" : "bg-carbon-950"
+        className={`pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left transform transition-[transform,background-color] duration-150 ${
+          lightMode ? "bg-white/70" : "bg-orange-600"
         }`}
         style={{ transform: `scaleX(${progress})` }}
       />

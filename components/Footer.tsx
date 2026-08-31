@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Linkedin, Mail, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Linkedin, Mail, MessageCircle, MapPin } from "lucide-react";
 import Logo from "./Logo";
 import { CONTACT, whatsappLinks } from "@/lib/contact-config";
 
@@ -12,6 +12,7 @@ const cols = [
       { href: "/team", label: "The team" },
       { href: "/case-studies", label: "Case studies" },
       { href: "/portfolio", label: "What we engineer" },
+      { href: "/pricing", label: "Pricing" },
       { href: "/contact", label: "Contact" },
     ],
   },
@@ -33,7 +34,7 @@ const cols = [
       { href: "/services/n8n", label: "n8n" },
       { href: "/services/gohighlevel", label: "GoHighLevel" },
       { href: "/services/zapier", label: "Zapier" },
-      { href: "/services/python-automation", label: "Python automation" },
+      { href: "/services/python-automation", label: "Python" },
     ],
   },
   {
@@ -52,8 +53,8 @@ const cols = [
     title: "Resources",
     links: [
       { href: "/blog", label: "Blog" },
-      { href: "/pricing", label: "Pricing" },
       { href: "/security", label: "Security" },
+      { href: "/sitemap.xml", label: "Sitemap" },
     ],
   },
 ];
@@ -66,42 +67,91 @@ const legal = [
 ];
 
 export default function Footer() {
-  return (
-    <footer className="border-t border-carbon-950/[0.08] bg-[rgb(252,251,249)]">
-      <div className="container-x py-16 sm:py-24">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
-            <Logo size={180} />
-            <p className="mt-8 max-w-md text-base leading-relaxed text-carbon-500">
-              An AI startup of engineers building automations on n8n, GHL,
-              Zapier, and Python — paired with Next.js websites and SEO that
-              compounds.
-            </p>
-            <a
-              href={`mailto:${CONTACT.email}`}
-              className="btn-link mt-7 text-base"
-            >
-              {CONTACT.email} →
-            </a>
+  const waLinks = whatsappLinks();
 
+  return (
+    <footer className="bg-carbon-950">
+
+      {/* ── Top CTA band ─────────────────────────────── */}
+      <div className="border-b border-white/[0.07]">
+        <div className="container-x py-16 sm:py-20">
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-orange-500">
+                · Start a project
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-black leading-tight tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
+                Let&apos;s build something
+                <br />
+                <span className="text-white/40 italic">that works.</span>
+              </h2>
+            </div>
+            <div className="flex flex-col gap-3 sm:items-end">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 rounded-full bg-orange-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-500"
+              >
+                Book a free call
+                <ArrowUpRight
+                  size={14}
+                  className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </Link>
+              <div className="flex flex-wrap gap-2">
+                {waLinks.map((n) => (
+                  <a
+                    key={n.e164}
+                    href={n.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-xs font-medium text-emerald-300 transition hover:bg-emerald-500/20"
+                  >
+                    <MessageCircle size={11} />
+                    {n.pretty}
+                  </a>
+                ))}
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-4 py-2 text-xs font-medium text-white/40 transition hover:text-white/70"
+                >
+                  <Mail size={11} />
+                  {CONTACT.email}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Link columns ─────────────────────────────── */}
+      <div className="container-x py-14 sm:py-16">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+
+          {/* Brand column */}
+          <div className="lg:col-span-4">
+            <Logo size={160} variant="light" />
+            <p className="mt-7 max-w-xs text-sm leading-relaxed text-white/40">
+              Senior engineers building AI automations, Next.js websites, and
+              SEO systems for startups across India, UAE, and the UK.
+            </p>
             <div className="mt-6 flex items-center gap-2">
               <a
                 href={CONTACT.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="grid h-9 w-9 place-items-center rounded-full border border-carbon-950/15 bg-white text-carbon-700 transition hover:border-orange-600 hover:bg-orange-600 hover:text-white"
+                className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-white/50 transition hover:border-orange-500 hover:bg-orange-500/10 hover:text-orange-400"
               >
                 <Linkedin size={14} />
               </a>
-              {whatsappLinks().map((n) => (
+              {waLinks.map((n) => (
                 <a
                   key={n.e164}
                   href={n.href}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`WhatsApp ${n.pretty}`}
-                  className="grid h-9 w-9 place-items-center rounded-full border border-carbon-950/15 bg-white text-carbon-700 transition hover:border-emerald-500 hover:bg-emerald-500 hover:text-white"
+                  className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-white/50 transition hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-400"
                 >
                   <MessageCircle size={14} />
                 </a>
@@ -109,25 +159,30 @@ export default function Footer() {
               <a
                 href={`mailto:${CONTACT.email}`}
                 aria-label={`Email ${CONTACT.email}`}
-                className="grid h-9 w-9 place-items-center rounded-full border border-carbon-950/15 bg-white text-carbon-700 transition hover:border-orange-600 hover:bg-orange-600 hover:text-white"
+                className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-white/50 transition hover:border-orange-500 hover:bg-orange-500/10 hover:text-orange-400"
               >
                 <Mail size={14} />
               </a>
             </div>
+            <p className="mt-6 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.24em] text-white/25">
+              <MapPin size={10} />
+              India · UAE · UK · Remote-first
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-7">
-            {cols.map((c) => (
-              <div key={c.title}>
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
-                  {c.title}
+          {/* Link columns */}
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-5 lg:col-span-8">
+            {cols.map((col) => (
+              <div key={col.title}>
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-orange-500/70">
+                  {col.title}
                 </p>
                 <ul className="mt-5 space-y-3">
-                  {c.links.map((l) => (
+                  {col.links.map((l) => (
                     <li key={l.label}>
                       <Link
                         href={l.href}
-                        className="text-sm text-carbon-700 transition hover:text-carbon-950"
+                        className="text-sm text-white/40 transition hover:text-white"
                       >
                         {l.label}
                       </Link>
@@ -139,25 +194,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-carbon-950/[0.08] pt-8 text-xs text-carbon-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} Value Tech Solution. All rights
-            reserved.
+        {/* Bottom bar */}
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/[0.07] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-white/25">
+            © {new Date().getFullYear()} Value Tech Solution. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             {legal.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
-                className="font-mono uppercase tracking-[0.24em] text-carbon-400 hover:text-carbon-950"
+                className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/25 transition hover:text-white/60"
               >
                 {l.label}
               </Link>
             ))}
           </div>
-          <p className="font-mono uppercase tracking-[0.24em]">
-            Remote-first · India · UAE · UK
-          </p>
         </div>
       </div>
     </footer>
