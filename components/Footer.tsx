@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Linkedin, Mail, MessageCircle, MapPin } from "lucide-react";
+import { Linkedin, Mail, MessageCircle, MapPin } from "lucide-react";
 import Logo from "./Logo";
 import { CONTACT, whatsappLinks } from "@/lib/contact-config";
 
@@ -71,57 +71,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-carbon-950">
-
-      {/* ── Top CTA band ─────────────────────────────── */}
-      <div className="border-b border-white/[0.07]">
-        <div className="container-x py-16 sm:py-20">
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-orange-500">
-                · Start a project
-              </p>
-              <h2 className="mt-4 font-display text-3xl font-black leading-tight tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
-                Let&apos;s build something
-                <br />
-                <span className="text-white/40 italic">that works.</span>
-              </h2>
-            </div>
-            <div className="flex flex-col gap-3 sm:items-end">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-orange-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-500"
-              >
-                Book a free call
-                <ArrowUpRight
-                  size={14}
-                  className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                />
-              </Link>
-              <div className="flex flex-wrap gap-2">
-                {waLinks.map((n) => (
-                  <a
-                    key={n.e164}
-                    href={n.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-xs font-medium text-emerald-300 transition hover:bg-emerald-500/20"
-                  >
-                    <MessageCircle size={11} />
-                    {n.pretty}
-                  </a>
-                ))}
-                <a
-                  href={`mailto:${CONTACT.email}`}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-4 py-2 text-xs font-medium text-white/40 transition hover:text-white/70"
-                >
-                  <Mail size={11} />
-                  {CONTACT.email}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* ── Link columns ─────────────────────────────── */}
       <div className="container-x py-14 sm:py-16">

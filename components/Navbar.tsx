@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
@@ -174,13 +174,17 @@ export default function Navbar() {
                   onMouseEnter={openMenu}
                   onMouseLeave={scheduleClose}
                 >
-                  <Link
-                    href={l.href}
-                    className={`group relative text-sm font-medium transition ${linkColor}`}
+                  <button
+                    onClick={() => setMenuOpen((v) => !v)}
+                    className={`group relative inline-flex items-center gap-1 text-sm font-medium transition ${linkColor}`}
                   >
                     {l.label}
+                    <ChevronDown
+                      size={13}
+                      className={`transition-transform duration-200 ${menuOpen ? "rotate-180" : "rotate-0"}`}
+                    />
                     {Underline}
-                  </Link>
+                  </button>
                   {/* Invisible bridge so cursor can travel from link to dropdown */}
                   <span
                     aria-hidden
