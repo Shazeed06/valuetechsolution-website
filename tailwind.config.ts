@@ -96,12 +96,11 @@ const config: Config = {
           "sans-serif",
         ],
         display: [
-          "'Inter'",
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif",
+          "'Playfair Display'",
+          "Georgia",
+          "serif",
         ],
-        serif: ["'Fraunces'", "Georgia", "serif"],
+        serif: ["'Playfair Display'", "Georgia", "serif"],
         mono: ["'JetBrains Mono'", "ui-monospace", "monospace"],
       },
       backgroundImage: {
