@@ -176,7 +176,7 @@ export default function Hero() {
       />
 
       {/* ── Content ───────────────────────────────────────── */}
-      <div className="relative min-h-[80vh] flex flex-col pt-28 pb-12 sm:min-h-[85vh] sm:pt-32 lg:min-h-[88vh] lg:pt-36">
+      <div className="relative min-h-[80vh] flex flex-col pt-16 pb-12 sm:min-h-[85vh] sm:pt-20 lg:min-h-[88vh] lg:pt-24">
 
         {/* Eyebrow */}
         <div className="container-x">

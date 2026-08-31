@@ -119,7 +119,7 @@ export default async function CityPage({ params }: Props) {
       />
 
       {/* ── Hero ──────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-orange-950 pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-44 lg:pb-24">
+      <section className="relative overflow-hidden bg-orange-950 pt-16 pb-14 sm:pt-20 sm:pb-16 lg:pt-24 lg:pb-20">
         {/* Background grid */}
         <div
           aria-hidden

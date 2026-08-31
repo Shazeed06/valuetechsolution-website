@@ -183,7 +183,7 @@ export default function StarterWebsitePage() {
       />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 sm:pt-40 lg:pt-48">
+      <section className="pt-10 pb-12 sm:pt-14 sm:pb-14 lg:pt-20 lg:pb-16">
         <div className="container-x">
           <div className="grid items-end gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">

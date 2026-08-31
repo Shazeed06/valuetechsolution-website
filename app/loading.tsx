@@ -4,7 +4,7 @@
  */
 export default function Loading() {
   return (
-    <div className="min-h-[60vh] pt-32 pb-20 sm:pt-40">
+    <div className="min-h-[60vh] pt-10 pb-20 sm:pt-14">
       <div className="container-x">
         {/* Eyebrow skeleton */}
         <div className="flex items-center gap-2">

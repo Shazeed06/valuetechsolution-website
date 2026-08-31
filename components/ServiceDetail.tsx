@@ -41,7 +41,7 @@ export default function ServiceDetail({
   return (
     <>
       {/* Hero header */}
-      <section className="pt-32 pb-12 sm:pt-40 lg:pt-48">
+      <section className="pt-10 pb-10 sm:pt-14 sm:pb-12 lg:pt-20 lg:pb-14">
         <div className="container-x">
           <div className="grid items-end gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
