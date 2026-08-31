@@ -19,6 +19,19 @@ export const metadata: Metadata = {
     "Zapier developer Delhi",
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/zapier" },
+  openGraph: {
+    title: "Zapier Consultant India · Custom Zap Development",
+    description: "Custom Zap development, path branching, error handling, AI-step integrations across 6,000+ apps. Hire a Zapier expert in India.",
+    url: "https://valuetechsolution.com/services/zapier",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zapier Consultant India · Custom Zap Development",
+    description: "Custom Zaps, path branching, AI integrations across 6,000+ apps. Hire a Zapier expert.",
+  },
 };
 
 const faqs = [

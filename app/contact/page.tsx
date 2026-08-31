@@ -3,11 +3,28 @@ import PageHeader from "@/components/PageHeader";
 import MediaDivider from "@/components/MediaDivider";
 import ContactForm from "@/components/ContactForm";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { BreadcrumbSchema } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact Value Tech Solution — Book a Free Strategy Call | India",
   description:
-    "Tell us about your project. We reply within one business day with a tight scope, an honest timeline, and a fixed price.",
+    "Book a free 30-minute strategy call with Value Tech Solution. We reply within one business day with a written scope, honest timeline, and fixed price. Serving Delhi, Bangalore, Mumbai, Dubai, London.",
+  alternates: { canonical: "https://valuetechsolution.com/contact" },
+  openGraph: {
+    title: "Contact Value Tech Solution — Book a Free Strategy Call",
+    description:
+      "Tell us about your project. Fixed price. 4-week delivery. Senior engineers only.",
+    url: "https://valuetechsolution.com/contact",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Value Tech Solution — Book a Free Strategy Call",
+    description:
+      "Tell us about your project. Fixed price. 4-week delivery. Senior engineers only.",
+  },
 };
 
 import { CONTACT, whatsappLinks } from "@/lib/contact-config";
@@ -40,6 +57,12 @@ const channels = [
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://valuetechsolution.com/" },
+          { name: "Contact", url: "https://valuetechsolution.com/contact" },
+        ]}
+      />
       <PageHeader
         eyebrow="(let's talk)"
         title={

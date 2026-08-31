@@ -209,6 +209,73 @@ export function ArticleSchema({
   );
 }
 
+export function LocalBusinessSchema() {
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Value Tech Solution",
+    description:
+      "AI automation and web development agency in India. Production-grade AI agents, n8n / GoHighLevel / Zapier automations, Next.js websites, and SEO programs.",
+    url: "https://valuetechsolution.com",
+    logo: "https://valuetechsolution.com/logo-main.png",
+    image: "https://valuetechsolution.com/logo-main.png",
+    telephone: "+918287124651",
+    email: "admin@valuetechsolution.com",
+    foundingDate: "2024",
+    priceRange: "₹₹",
+    currenciesAccepted: "INR, USD",
+    paymentAccepted: "UPI, Bank Transfer, Stripe",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "New Delhi",
+      addressRegion: "Delhi",
+      addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 28.6139,
+      longitude: 77.2090,
+    },
+    areaServed: [
+      { "@type": "City", name: "Delhi" },
+      { "@type": "City", name: "Bangalore" },
+      { "@type": "City", name: "Mumbai" },
+      { "@type": "City", name: "Hyderabad" },
+      { "@type": "City", name: "Pune" },
+      { "@type": "Country", name: "India" },
+      { "@type": "Country", name: "United Arab Emirates" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "United States" },
+    ],
+    sameAs: [
+      "https://www.linkedin.com/in/valuetech-solution-624528409/",
+      "https://twitter.com/valuetechsoln",
+      "https://github.com/valuetechsolution",
+    ],
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:00",
+      closes: "20:00",
+    },
+    serviceArea: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: 28.6139,
+        longitude: 77.2090,
+      },
+      geoRadius: "50000",
+    },
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+    />
+  );
+}
+
 // AggregateRatingSchema removed — until real verifiable reviews exist
 // on the site, shipping AggregateRating JSON-LD risks a Google manual
 // action for fake rich-result content.

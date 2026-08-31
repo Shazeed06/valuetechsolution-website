@@ -1,57 +1,113 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
-import { ArrowUpRight, Sparkles, Zap, Clock } from "lucide-react";
+import { ArrowUpRight, MessageCircle, Zap, Globe, Bot, TrendingUp } from "lucide-react";
 import SplitReveal, { Line } from "./SplitReveal";
 import HeroBackdrop from "./HeroBackdrop";
-
-// HeroBackdrop is imported directly (not via next/dynamic) — the
-// component is ~6KB, gates all its window/canvas usage behind a
-// useEffect, and renders only safe SSR markup (a wrapper div + an
-// empty canvas). Direct import avoids a stale dynamic-chunk issue we
-// hit on Vercel's CDN where the Suspense boundary silently errored
-// out and left the hero looking like a flat black slab.
+import { whatsappLinks } from "@/lib/contact-config";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+/* ── floating proof cards ─────────────────────────────────── */
+const proofCards = [
+  {
+    icon: Zap,
+    countTo: 47,
+    prefix: "",
+    suffix: " sec",
+    label: "AI lead response time",
+    sub: "was 4 hours",
+    color: "border-orange-500/30 bg-orange-500/10",
+    iconColor: "text-orange-400",
+  },
+  {
+    icon: Globe,
+    countTo: null,
+    prefix: "₹",
+    suffix: "41,500",
+    label: "Website, live in 4 weeks",
+    sub: "95+ Lighthouse guaranteed",
+    color: "border-white/10 bg-white/[0.06]",
+    iconColor: "text-white/70",
+  },
+  {
+    icon: Bot,
+    countTo: 40,
+    prefix: "",
+    suffix: " hrs",
+    label: "Saved per team per week",
+    sub: "avg across 60+ projects",
+    color: "border-emerald-500/25 bg-emerald-500/10",
+    iconColor: "text-emerald-400",
+  },
+  {
+    icon: TrendingUp,
+    countTo: 80,
+    prefix: "",
+    suffix: "%",
+    label: "Manual work eliminated",
+    sub: "by AI agents we ship",
+    color: "border-white/10 bg-white/[0.06]",
+    iconColor: "text-white/70",
+  },
+];
+
+/* ── animated counter ─────────────────────────────────────── */
+function Counter({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) {
+  const [val, setVal] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      const start = performance.now();
+      const dur = 1200;
+      const tick = (t: number) => {
+        const p = Math.min(1, (t - start) / dur);
+        setVal(Math.round((1 - Math.pow(1 - p, 3)) * to));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      io.disconnect();
+    }, { threshold: 0.5 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [to]);
+  return <span ref={ref}>{prefix}{val}{suffix}</span>;
+}
+
 export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const subRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const statusRef = useRef<HTMLDivElement>(null);
+  const subRef = useRef<HTMLParagraphElement>(null);
+  const wa = whatsappLinks();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(subRef.current, {
+      /* sub + cta fade in */
+      gsap.from(subRef.current, { opacity: 0, y: 24, duration: 1, ease: "expo.out", delay: 1.1 });
+      gsap.from(ctaRef.current, { opacity: 0, y: 18, duration: 1, ease: "expo.out", delay: 1.35 });
+
+      /* proof cards stagger in */
+      gsap.from(".proof-card", {
         opacity: 0,
-        y: 28,
-        duration: 1.1,
+        y: 32,
+        duration: 0.9,
         ease: "expo.out",
-        delay: 1.1,
-      });
-      gsap.from(ctaRef.current, {
-        opacity: 0,
-        y: 20,
-        duration: 1,
-        ease: "expo.out",
-        delay: 1.4,
-      });
-      gsap.from(statusRef.current, {
-        opacity: 0,
-        y: 18,
-        duration: 1,
-        ease: "expo.out",
-        delay: 1.65,
+        stagger: 0.12,
+        delay: 1.5,
       });
 
+      /* parallax on scroll */
       gsap.to(".hero-depth-field", {
-        yPercent: 8,
+        yPercent: 10,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -59,6 +115,16 @@ export default function Hero() {
           end: "bottom top",
           scrub: true,
         },
+      });
+
+      /* subtle float animation on cards */
+      gsap.to(".proof-card-float", {
+        y: "-8px",
+        duration: 2.8,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: { each: 0.5, from: "start" },
       });
     });
     return () => ctx.revert();
@@ -68,125 +134,186 @@ export default function Hero() {
     <section
       ref={sectionRef}
       data-hero-dark
-      className="relative isolate -mt-24 overflow-hidden bg-orange-950 text-white"
+      className="relative isolate -mt-24 overflow-hidden text-white"
+      style={{
+        background:
+          "radial-gradient(ellipse 90% 70% at 30% 0%, #ea580c 0%, #9a3412 35%, #431407 65%, #1c0a02 100%)",
+      }}
     >
+      {/* Backdrop constellation */}
       <div className="hero-depth-field absolute inset-0 -z-10">
         <HeroBackdrop />
       </div>
-      {/* Soft contrast overlays — left dim for headline, bottom fade
-          to the next section. Light enough that the constellation
-          backdrop reads cleanly underneath. */}
+
+      {/* Right-side warm ambient glow */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-[5] bg-gradient-to-r from-orange-950/80 via-orange-950/30 to-transparent"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-[5] h-32 bg-gradient-to-t from-orange-950 to-transparent"
+        className="pointer-events-none absolute right-0 top-0 -z-[5] h-[70%] w-[45%] opacity-40 blur-3xl"
+        style={{ background: "radial-gradient(circle at 80% 20%, #fb923c, transparent 65%)" }}
       />
 
-      {/* Content */}
-      <div className="relative flex min-h-[88vh] flex-col pt-32 pb-10 sm:min-h-[86vh] sm:pt-32 lg:min-h-[84vh] lg:pt-32 lg:pb-12">
-        {/* Top eyebrow row — this is the semantic H1. Small visually,
-            keyword-led for search engines. The big "We delete..."
-            block below is a display heading, demoted to a div so the
-            page has exactly one H1. */}
-        <div className="container-x flex flex-wrap items-center justify-between gap-4 pt-2">
-          <h1 className="inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.28em] text-white/65">
-            <span aria-hidden className="h-px w-8 bg-white/45" />
-            AI Automation &amp; Web Development Agency
-          </h1>
+      {/* Left dim so headline pops */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-[4] bg-gradient-to-r from-black/40 via-black/10 to-transparent"
+      />
+
+      {/* Bottom fade to next section */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-[4] h-36 bg-gradient-to-t from-black/60 to-transparent"
+      />
+
+      {/* Grid overlay — very subtle */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-[3] opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right,white 1px,transparent 1px),linear-gradient(to bottom,white 1px,transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
+
+      {/* ── Content ───────────────────────────────────────── */}
+      <div className="relative min-h-[80vh] flex flex-col pt-28 pb-12 sm:min-h-[85vh] sm:pt-32 lg:min-h-[88vh] lg:pt-36">
+
+        {/* Eyebrow */}
+        <div className="container-x">
+          <p className="inline-flex items-center gap-2.5 rounded-full border border-white/[0.15] bg-white/[0.07] px-4 py-1.5 text-[10px] font-medium uppercase tracking-[0.28em] text-white/70 backdrop-blur-sm">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-orange-400" />
+            </span>
+            AI Automation &amp; Web Development Agency · India
+          </p>
         </div>
 
-        {/* Mega headline block — display copy, not the H1 */}
-        <div className="container-x flex flex-1 flex-col justify-center pt-8 sm:pt-10">
-          <SplitReveal trigger="load" stagger={0.13}>
-            <div
-              role="doc-subtitle"
-              aria-label="We delete boring work. We ship the rest."
-              className="font-display text-[2.4rem] font-bold leading-[1.02] tracking-[-0.045em] text-white sm:text-[3.6rem] sm:leading-[1] lg:text-[5rem] lg:leading-[1] xl:text-[5.5rem]"
-            >
-              <Line>We delete</Line>
-              <Line>
-                <span className="italic-accent text-white/65">boring work.</span>
-              </Line>
-              <Line>We ship the rest.</Line>
-            </div>
-          </SplitReveal>
+        {/* Main content grid */}
+        <div className="container-x mt-8 flex flex-1 flex-col lg:flex-row lg:items-center lg:gap-12 xl:gap-16">
 
-          <div ref={subRef} className="mt-6 max-w-2xl sm:mt-8">
-            <p className="text-base leading-relaxed text-white/70 sm:text-lg">
-              Value Tech Solution is an AI automation studio of engineers
-              shipping production-grade agents on{" "}
-              <span className="font-medium text-white">
-                n8n, GHL, Zapier, Python
-              </span>{" "}
-              — paired with{" "}
-              <span className="font-medium text-white">Next.js websites</span>{" "}
-              and SEO that actually rank.
+          {/* ── Left: headline + CTA ─────────────────────── */}
+          <div className="flex-1 lg:max-w-[54%]">
+            <SplitReveal trigger="load" stagger={0.11}>
+              <h1
+                className="font-display font-black leading-[0.95] tracking-[-0.05em] text-white text-[2.6rem] sm:text-[3.8rem] lg:text-[4.6rem] xl:text-[5.2rem]"
+              >
+                <Line>
+                  <span className="text-orange-300">AI</span> that saves
+                </Line>
+                <Line>
+                  40 hrs/week.
+                </Line>
+                <Line>
+                  <span className="italic-accent text-white/60">Websites</span> that
+                </Line>
+                <Line>rank. Fixed price.</Line>
+              </h1>
+            </SplitReveal>
+
+            <p
+              ref={subRef}
+              className="mt-7 max-w-lg text-base leading-[1.75] text-white/65 sm:text-[1.0625rem]"
+            >
+              We build production-grade{" "}
+              <span className="font-semibold text-white">AI agents</span> (n8n,
+              Python, Claude) and{" "}
+              <span className="font-semibold text-white">Next.js websites</span>{" "}
+              for Indian startups and global agencies. Senior engineers.
+              Written scope. No surprises.
             </p>
+
+            {/* CTAs */}
+            <div ref={ctaRef} className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-4 text-sm font-bold text-orange-700 shadow-[0_8px_32px_-4px_rgba(0,0,0,0.4)] transition hover:bg-orange-50 hover:shadow-[0_12px_40px_-4px_rgba(0,0,0,0.5)]"
+              >
+                Book a free strategy call
+                <ArrowUpRight size={15} className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+
+              {wa.slice(0, 1).map((n) => (
+                <a
+                  key={n.e164}
+                  href={n.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/15 px-6 py-4 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-emerald-500/25"
+                >
+                  <MessageCircle size={14} className="text-emerald-400" />
+                  WhatsApp us
+                </a>
+              ))}
+
+              <Link
+                href="/services"
+                className="text-sm font-medium text-white/55 underline-offset-[6px] transition hover:text-white hover:underline"
+              >
+                See how we work →
+              </Link>
+            </div>
+
+            {/* Trust strip */}
+            <div className="mt-9 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/[0.08] pt-6">
+              <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-white/40">
+                trusted by
+              </span>
+              {["Delhi startups", "Mumbai agencies", "London SaaS", "Dubai PropTech"].map((tag) => (
+                <span key={tag} className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
 
+          {/* ── Right: floating proof cards ──────────────── */}
           <div
-            ref={ctaRef}
-            className="mt-8 flex flex-wrap items-center gap-5 sm:mt-10"
+            ref={cardsRef}
+            className="mt-12 grid grid-cols-2 gap-3.5 lg:mt-0 lg:flex-1 lg:max-w-[42%] sm:gap-4"
           >
-            <Link
-              href="/contact"
-              data-cursor="Book"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-semibold text-orange-700 transition hover:bg-orange-50"
-            >
-              Book a strategy call
-              <ArrowUpRight
-                size={15}
-                className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              />
-            </Link>
-            <Link
-              href="/services"
-              data-cursor="View"
-              className="inline-flex items-center gap-2 text-sm font-medium text-white/85 underline-offset-[6px] transition hover:text-white hover:underline"
-            >
-              See how we work
-            </Link>
+            {proofCards.map((card) => (
+              <div
+                key={card.label}
+                className={`proof-card proof-card-float rounded-2xl border p-5 backdrop-blur-sm sm:p-6 ${card.color}`}
+              >
+                <card.icon size={18} className={card.iconColor} />
+                <p className="mt-3 font-display text-2xl font-black tracking-[-0.04em] text-white sm:text-3xl">
+                  {card.countTo !== null ? (
+                    <Counter to={card.countTo} prefix={card.prefix} suffix={card.suffix} />
+                  ) : (
+                    <span>{card.prefix}{card.suffix}</span>
+                  )}
+                </p>
+                <p className="mt-1.5 text-xs font-semibold leading-snug text-white/80">
+                  {card.label}
+                </p>
+                <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-white/40">
+                  {card.sub}
+                </p>
+              </div>
+            ))}
 
-            <span className="hidden h-8 w-px bg-white/20 sm:block" />
-            <span className="hidden font-mono text-[10px] uppercase tracking-[0.28em] text-white/55 sm:inline">
-              fixed scope · fixed price · written tradeoffs
-            </span>
+            {/* Bottom wide card: open slots */}
+            <div className="proof-card col-span-2 flex items-center justify-between rounded-2xl border border-orange-500/30 bg-orange-500/10 px-5 py-4 backdrop-blur-sm sm:px-6">
+              <div>
+                <p className="text-xs font-semibold text-white/80">
+                  Accepting new clients
+                </p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/40">
+                  2 slots open this month
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-1.5 rounded-full bg-orange-600 px-4 py-2 text-xs font-bold text-white transition hover:bg-orange-500"
+              >
+                Claim slot <ArrowUpRight size={11} />
+              </Link>
+            </div>
           </div>
-        </div>
-
-        {/* Bottom status bar */}
-        <div
-          ref={statusRef}
-          className="container-x mt-10 flex flex-col gap-5 border-t border-white/[0.08] pt-6 sm:mt-12 sm:flex-row sm:items-center sm:justify-between"
-        >
-          <div className="grid w-full grid-cols-1 gap-4 sm:flex sm:items-center sm:gap-8">
-            <span className="flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.24em] text-white/65">
-              <Sparkles size={12} className="text-white" />
-              80% manual work — eliminated
-            </span>
-            <span className="flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.24em] text-white/65">
-              <Clock size={12} className="text-white" />
-              40 hrs / team / week saved
-            </span>
-            <span className="flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.24em] text-white/65">
-              <Zap size={12} className="text-white" />
-              avg agent response · 0.8s
-            </span>
-          </div>
-
-          <Link
-            href="#stats"
-            className="hidden items-center gap-2 font-mono text-[10px] uppercase tracking-[0.28em] text-white/55 transition hover:text-white sm:flex"
-          >
-            scroll
-            <span className="inline-block h-px w-8 bg-white/30" />
-          </Link>
         </div>
       </div>
-
     </section>
   );
 }

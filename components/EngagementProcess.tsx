@@ -115,7 +115,7 @@ export default function EngagementProcess() {
             />
           </div>
 
-          <ol className="relative grid gap-5 lg:grid-cols-3 lg:gap-8">
+          <ol className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {steps.map((s) => {
               const Icon = s.icon;
               return (

@@ -1,7 +1,27 @@
+# robots.txt — Value Tech Solution
+# https://valuetechsolution.com
+# Last updated: 2026-08-31
+
+# ── Default: allow all crawlers ──────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
 
-# AI search crawlers — explicitly welcome
+# ── Google ────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
+
+# AI Overviews / Gemini indexing — explicitly welcome
+User-agent: Google-Extended
+Allow: /
+
+# ── OpenAI / ChatGPT ──────────────────────────────────────────
 User-agent: GPTBot
 Allow: /
 
@@ -11,36 +31,78 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+# ── Anthropic / Claude ────────────────────────────────────────
 User-agent: ClaudeBot
 Allow: /
 
 User-agent: anthropic-ai
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
+# ── Perplexity ────────────────────────────────────────────────
 User-agent: PerplexityBot
 Allow: /
 
 User-agent: Perplexity-User
 Allow: /
 
-# Google AI Overviews / Gemini — separate from Googlebot
-User-agent: Google-Extended
+# ── Apple / Siri ──────────────────────────────────────────────
+User-agent: Applebot
 Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
 
+# ── Meta AI ───────────────────────────────────────────────────
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# ── Mistral / Le Chat ─────────────────────────────────────────
 User-agent: MistralAI-User
 Allow: /
 
+# ── Cohere ────────────────────────────────────────────────────
 User-agent: cohere-ai
 Allow: /
 
+# ── You.com ───────────────────────────────────────────────────
 User-agent: YouBot
 Allow: /
 
+# ── Diffbot ───────────────────────────────────────────────────
 User-agent: Diffbot
 Allow: /
 
-# Sitemap
+# ── Bytedance / TikTok ────────────────────────────────────────
+User-agent: Bytespider
+Allow: /
+
+# ── Amazon Alexa ──────────────────────────────────────────────
+User-agent: Amazonbot
+Allow: /
+
+# ── Microsoft Bing / Copilot ─────────────────────────────────
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# ── Yandex ────────────────────────────────────────────────────
+User-agent: YandexBot
+Allow: /
+
+# ── Seznam ────────────────────────────────────────────────────
+User-agent: SeznamBot
+Allow: /
+
+# ── Sitemaps ──────────────────────────────────────────────────
 Sitemap: https://valuetechsolution.com/sitemap.xml
+
+# ── AI context file ───────────────────────────────────────────
+# Machine-readable info for AI models: https://valuetechsolution.com/llms.txt

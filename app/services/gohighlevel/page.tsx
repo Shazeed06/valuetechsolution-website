@@ -20,6 +20,19 @@ export const metadata: Metadata = {
     "white label GHL agency",
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/gohighlevel" },
+  openGraph: {
+    title: "GoHighLevel Agency India · GHL Snapshot & Setup",
+    description: "Full GHL setup, white-label snapshots, CRM pipelines, AI follow-up sequences. Trusted by agencies in Delhi, Mumbai, Dubai.",
+    url: "https://valuetechsolution.com/services/gohighlevel",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GoHighLevel Agency India · GHL Snapshot & Setup",
+    description: "Full GHL setup, white-label snapshots, CRM pipelines, AI follow-up sequences.",
+  },
 };
 
 const faqs = [

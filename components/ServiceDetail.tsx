@@ -235,7 +235,7 @@ export default function ServiceDetail({
             </p>
           </div>
 
-          <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-carbon-950/[0.08] bg-carbon-950/[0.08] md:grid-cols-3">
+          <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-carbon-950/[0.08] bg-carbon-950/[0.08] sm:grid-cols-2 lg:grid-cols-3">
             {pricing.map((p) => (
               <div
                 key={p.name}

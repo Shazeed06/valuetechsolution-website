@@ -4,12 +4,26 @@ import { Check, ArrowUpRight } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import MediaDivider from "@/components/MediaDivider";
 import CTA from "@/components/CTA";
+import { FAQSchema, BreadcrumbSchema } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "Pricing — AI Automation & Web Development | Value Tech Solution",
   description:
-    "Transparent fixed-scope pricing for AI automation, web development, SEO, and design system engagements at Value Tech Solution.",
+    "Transparent fixed-scope pricing for AI automation (from ₹1,60,000), web development (from ₹41,500), SEO, and design systems. No billing surprises.",
   alternates: { canonical: "https://valuetechsolution.com/pricing" },
+  openGraph: {
+    title: "Pricing — AI Automation & Web Development | Value Tech Solution",
+    description: "Fixed-scope pricing for AI agents, websites, and SEO. No billing surprises. Senior engineers only.",
+    url: "https://valuetechsolution.com/pricing",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pricing — AI Automation & Web Development | Value Tech Solution",
+    description: "Fixed-scope pricing for AI agents, websites, and SEO. No billing surprises.",
+  },
 };
 
 const tiers = [
@@ -122,6 +136,15 @@ const faqs = [
 export default function PricingPage() {
   return (
     <>
+      <FAQSchema
+        items={faqs.map(([q, a]) => ({ q, a }))}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://valuetechsolution.com/" },
+          { name: "Pricing", url: "https://valuetechsolution.com/pricing" },
+        ]}
+      />
       <PageHeader
         eyebrow="(pricing)"
         title={

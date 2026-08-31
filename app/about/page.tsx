@@ -5,11 +5,28 @@ import { ArrowUpRight, Cpu, Code2, Search, Cloud, PenTool, Bot } from "lucide-re
 import PageHeader from "@/components/PageHeader";
 import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
+import { BreadcrumbSchema } from "@/components/Schema";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Value Tech Solution — AI Automation Agency India",
   description:
-    "Value Tech Solution is a studio of computer science engineers and AI automation engineers building the systems modern teams need to grow.",
+    "Meet the team behind Value Tech Solution — senior CS engineers and AI automation specialists building production-grade agents, n8n workflows, and Next.js websites for startups in India, UAE, and the UK.",
+  alternates: { canonical: "https://valuetechsolution.com/about" },
+  openGraph: {
+    title: "About Value Tech Solution — AI Automation Agency India",
+    description:
+      "Senior engineers. Fixed price. No juniors handed off. Learn who we are and how we build.",
+    url: "https://valuetechsolution.com/about",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Value Tech Solution — AI Automation Agency India",
+    description:
+      "Senior engineers. Fixed price. No juniors handed off. Learn who we are and how we build.",
+  },
 };
 
 const capabilities = [
@@ -73,6 +90,12 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://valuetechsolution.com/" },
+          { name: "About", url: "https://valuetechsolution.com/about" },
+        ]}
+      />
       <PageHeader
         eyebrow="(studio note)"
         title={

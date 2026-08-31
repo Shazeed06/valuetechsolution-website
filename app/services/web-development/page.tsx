@@ -20,6 +20,19 @@ export const metadata: Metadata = {
     "Jamstack development agency India",
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/web-development" },
+  openGraph: {
+    title: "Next.js Development Agency India · Custom Web Development",
+    description: "Production-grade React, headless CMS, fast, accessible, SEO-ready websites. 95+ Lighthouse guaranteed. Fixed price, 4 weeks.",
+    url: "https://valuetechsolution.com/services/web-development",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Next.js Development Agency India · Custom Web Development",
+    description: "Production-grade React websites. 95+ Lighthouse guaranteed. Fixed price, 4 weeks.",
+  },
 };
 
 const faqs = [

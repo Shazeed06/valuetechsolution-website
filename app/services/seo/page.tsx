@@ -21,6 +21,19 @@ export const metadata: Metadata = {
     "SEO consultant for startups",
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/seo" },
+  openGraph: {
+    title: "SEO Agency India · Technical SEO & AEO Services",
+    description: "Technical SEO, AEO, and GEO for Indian startups. Content systems and link strategy that compound. Senior engineers only.",
+    url: "https://valuetechsolution.com/services/seo",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SEO Agency India · Technical SEO & AEO Services",
+    description: "Technical SEO, AEO, GEO. Content systems that compound. Senior engineers only.",
+  },
 };
 
 const faqs = [

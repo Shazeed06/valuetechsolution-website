@@ -26,10 +26,19 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://valuetechsolution.com/services/ai-automation" },
   openGraph: {
-    title: "AI Automation — Value Tech Solution",
+    title: "AI Automation Agency India — Value Tech Solution",
     description:
-      "AI agents and automations on n8n, GoHighLevel, Zapier, Python. Engineered, evaluated, observable.",
+      "AI agents and automations on n8n, GoHighLevel, Zapier, Python. Engineered, evaluated, observable. Serving Delhi, Bangalore, Mumbai and beyond.",
     url: "https://valuetechsolution.com/services/ai-automation",
+    siteName: "Value Tech Solution",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Automation Agency India — Value Tech Solution",
+    description:
+      "AI agents and automations on n8n, GoHighLevel, Zapier, Python. Fixed price. Senior engineers only.",
   },
 };
 

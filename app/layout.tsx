@@ -8,7 +8,7 @@ import CustomCursor from "@/components/CustomCursor";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
 import FloatingActions from "@/components/FloatingActions";
 import CookieBanner from "@/components/CookieBanner";
-import { OrganizationSchema, WebSiteSchema } from "@/components/Schema";
+import { OrganizationSchema, WebSiteSchema, LocalBusinessSchema } from "@/components/Schema";
 import { Suspense } from "react";
 
 const GTM_ID = "GTM-W6BL4JCR";
@@ -69,6 +69,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Geo-targeting — local SEO signals for India/Delhi */}
+        <meta name="geo.region" content="IN-DL" />
+        <meta name="geo.placename" content="New Delhi, India" />
+        <meta name="geo.position" content="28.6139;77.2090" />
+        <meta name="ICBM" content="28.6139, 77.2090" />
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="" />
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
@@ -146,6 +151,7 @@ gtag('config', '${GA_ID}');`}
         </noscript>
         <OrganizationSchema />
         <WebSiteSchema />
+        <LocalBusinessSchema />
         <LenisProvider />
         <CustomCursor />
         <Suspense fallback={null}>
