@@ -122,8 +122,8 @@ export default function AboutPage() {
       {/* Manifesto + portrait image */}
       <section className="section pt-0">
         <div className="container-x grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-7 lg:order-2">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-carbon-950/[0.08]">
+          <div className="lg:col-span-6 lg:order-2">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-carbon-950/[0.08]">
               <Image
                 src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1400&q=80"
                 alt="Engineer working on code"
@@ -143,7 +143,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center lg:col-span-5 lg:order-1">
+          <div className="flex flex-col justify-center lg:col-span-6 lg:order-1">
             <span className="eyebrow">
               <span className="h-px w-8 bg-carbon-500" />
               Manifesto
@@ -183,7 +183,7 @@ export default function AboutPage() {
       <section className="section">
         <div className="container-x">
           <div className="grid gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-32 lg:col-span-4 lg:self-start">
               <span className="eyebrow">
                 <span className="h-px w-8 bg-carbon-500" />
                 What we engineer

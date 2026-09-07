@@ -49,7 +49,7 @@ export default function ServiceDetail({
                 <span className="h-px w-8 bg-carbon-500" />
                 {eyebrow}
               </span>
-              <h1 className="heading-xl mt-8">{title}</h1>
+              <h1 className="heading-lg mt-8">{title}</h1>
             </div>
             <div className="lg:col-span-5">
               <p className="lede max-w-md">{intro}</p>

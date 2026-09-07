@@ -92,17 +92,17 @@ export default function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       /* sub + cta fade in */
-      gsap.from(subRef.current, { opacity: 0, y: 24, duration: 1, ease: "expo.out", delay: 1.1 });
-      gsap.from(ctaRef.current, { opacity: 0, y: 18, duration: 1, ease: "expo.out", delay: 1.35 });
+      gsap.from(subRef.current, { opacity: 0, y: 24, duration: 0.8, ease: "expo.out", delay: 0.35 });
+      gsap.from(ctaRef.current, { opacity: 0, y: 18, duration: 0.8, ease: "expo.out", delay: 0.5 });
 
       /* proof cards stagger in */
       gsap.from(".proof-card", {
         opacity: 0,
         y: 32,
-        duration: 0.9,
+        duration: 0.8,
         ease: "expo.out",
-        stagger: 0.12,
-        delay: 1.5,
+        stagger: 0.1,
+        delay: 0.6,
       });
 
       /* parallax on scroll */

@@ -129,10 +129,10 @@ export default function EngagementProcess() {
                       <Icon size={18} />
                     </span>
                     <div>
-                      <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-400">
+                      <p className="font-mono text-xs uppercase tracking-[0.24em] text-carbon-400">
                         Step · {s.n}
                       </p>
-                      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-carbon-500">
+                      <p className="mt-1 font-mono text-xs uppercase tracking-[0.22em] text-carbon-500">
                         {s.duration}
                       </p>
                     </div>

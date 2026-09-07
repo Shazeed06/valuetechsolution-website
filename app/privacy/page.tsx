@@ -118,18 +118,18 @@ const sections = [
         </p>
         <ul className="ml-5 list-disc space-y-2">
           <li>
-            <strong>Information you give us</strong> — name, work email,
+            <strong>Information you give us</strong>: name, work email,
             company, project description when you submit a contact form or
             book a call.
           </li>
           <li>
-            <strong>Information from analytics</strong> — page views, referrer,
+            <strong>Information from analytics</strong>: page views, referrer,
             approximate location (country / region from IP), browser, device
             class, and aggregated session events. We use a privacy-respecting
             analytics provider that does not sell or resell data.
           </li>
           <li>
-            <strong>Cookies and similar</strong> — only the cookies you
+            <strong>Cookies and similar</strong>: only the cookies you
             consent to via the banner shown on first visit. Strictly necessary
             cookies are always set.
           </li>
@@ -146,7 +146,7 @@ const sections = [
           <li>To respond to your enquiry and scope a project.</li>
           <li>To send the occasional newsletter you opted into.</li>
           <li>
-            To improve the site — which pages get read, which CTAs work, where
+            To improve the site: which pages get read, which CTAs work, where
             people drop off.
           </li>
           <li>To meet legal and accounting obligations once you become a client.</li>

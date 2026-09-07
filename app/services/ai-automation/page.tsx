@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: { absolute: "AI Automation Agency India | Value Tech Solution" },
   description:
-    "AI automation agency in India — AI agent development, RAG systems, and workflow automation on n8n, GHL, Zapier, Python. Saving 40+ hours/week.",
+    "AI automation agency in India: AI agent development, RAG systems, and workflow automation on n8n, GHL, Zapier, Python. Saving 40+ hours/week.",
   keywords: [
     "AI automation agency India",
     "AI automation agency Delhi",
@@ -107,12 +107,12 @@ export default function AIPage() {
             week.
           </>
         }
-        intro="We map the repeat workflows in your business, identify where an LLM can be reliable (and where it can't), and ship agents that connect your tools — Slack, Gmail, HubSpot, GHL, your database — with guardrails, evals, and observability built in."
+        intro="We map the repeat workflows in your business, identify where an LLM can be reliable (and where it can't), and ship agents that connect your tools (Slack, Gmail, HubSpot, GHL, your database) with guardrails, evals, and observability built in."
         heroImage="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=2200&q=80"
         heroAlt="Abstract neural network visualisation"
         midImage="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=2200&q=80"
         midAlt="AI workspace abstract"
-        midCaption="(field) — agents in production"
+        midCaption="(field) · agents in production"
         midHeadline={
           <>
             Built like software, not demos.
@@ -128,7 +128,7 @@ export default function AIPage() {
             body: (
               <>
                 They wrap a chatbot, ship a demo, disappear. We&apos;re
-                engineers — we ship agents that survive contact with
+                engineers who ship agents that survive contact with
                 production traffic, with evals to prove it.
               </>
             ),
@@ -147,7 +147,7 @@ export default function AIPage() {
             title: "Most projects stall on integration",
             body: (
               <>
-                Slack, HubSpot, Notion, Linear, GHL, your CRM, your DB —
+                Slack, HubSpot, Notion, Linear, GHL, your CRM, your DB:
                 we&apos;ve wired all of them. Integration day is week one,
                 not week six.
               </>
@@ -171,11 +171,11 @@ export default function AIPage() {
           },
           {
             title: "Custom agents",
-            desc: "Built on OpenAI, Anthropic, or open-source — picked for the task, not the hype cycle.",
+            desc: "Built on OpenAI, Anthropic, or open-source, picked for the task, not the hype cycle.",
           },
           {
             title: "Tool integrations",
-            desc: "Slack, Gmail, HubSpot, GHL, Notion, Linear, Sheets, your CRM, your database — wired and tested.",
+            desc: "Slack, Gmail, HubSpot, GHL, Notion, Linear, Sheets, your CRM, your database: wired and tested.",
           },
           {
             title: "Guardrails & evals",

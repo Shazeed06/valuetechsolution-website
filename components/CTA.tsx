@@ -5,10 +5,10 @@ import { ArrowUpRight, MessageCircle, Mail, Clock, Shield, Zap, Users } from "lu
 import { CONTACT, whatsappLinks } from "@/lib/contact-config";
 
 const promises = [
-  { icon: Clock, label: "4-week delivery", sub: "Fixed timeline, no drift" },
+  { icon: Clock, label: "Fast delivery", sub: "Fixed timeline, no drift" },
   { icon: Shield, label: "Fixed price", sub: "Quoted upfront. No surprises." },
   { icon: Zap, label: "Senior engineers", sub: "No juniors, no handoffs" },
-  { icon: Users, label: "30-day guarantee", sub: "We fix it. No questions." },
+  { icon: Users, label: "Post-launch support", sub: "We fix it. No questions." },
 ];
 
 export default function CTA() {

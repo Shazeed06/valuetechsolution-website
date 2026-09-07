@@ -58,7 +58,7 @@ export default function Services() {
                 href={s.href}
                 className="group grid grid-cols-12 items-center gap-6 py-10 transition-colors duration-500 hover:bg-orange-600 hover:text-white sm:py-14"
               >
-                <span className="col-span-2 pl-2 font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-400 group-hover:text-white/60 sm:pl-6">
+                <span className="col-span-2 pl-2 font-mono text-xs uppercase tracking-[0.24em] text-carbon-400 group-hover:text-white/60 sm:pl-6">
                   {s.n}
                 </span>
                 <h3 className="col-span-12 font-display text-3xl font-bold tracking-[-0.035em] sm:col-span-5 sm:text-5xl lg:text-6xl">
@@ -69,7 +69,7 @@ export default function Services() {
                 </p>
                 <span className="col-span-2 hidden justify-end pr-2 sm:flex sm:pr-6">
                   <span className="grid h-12 w-12 place-items-center rounded-full border border-carbon-950/15 transition group-hover:border-white group-hover:bg-white group-hover:text-carbon-950">
-                    <ArrowUpRight size={16} />
+                    <ArrowUpRight size={20} />
                   </span>
                 </span>
               </Link>

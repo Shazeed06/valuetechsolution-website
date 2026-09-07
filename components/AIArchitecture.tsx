@@ -108,7 +108,7 @@ export default function AIArchitecture() {
               <span className="h-px w-8 bg-carbon-500" />
               How we build
             </span>
-            <h2 className="heading-lg gap-eyebrow-heading">
+            <h2 className="heading-md gap-eyebrow-heading">
               Architecture &
               <br />
               <span className="italic-accent text-carbon-500">
@@ -212,19 +212,19 @@ export default function AIArchitecture() {
                 What we run on, exactly.
               </h3>
 
-              <ul className="mt-6 divide-y divide-carbon-950/[0.08] overflow-hidden rounded-2xl border border-carbon-950/[0.08]">
+              <div className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-carbon-950/[0.08] bg-carbon-950/[0.08] sm:grid-cols-2">
                 {stackRows.map(([k, v]) => (
-                  <li
+                  <div
                     key={k}
-                    className="grid grid-cols-12 items-center gap-3 px-5 py-3 text-sm"
+                    className="flex flex-col gap-1 bg-snow-50 px-5 py-4 text-sm"
                   >
-                    <span className="col-span-4 font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-500">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-500">
                       {k}
                     </span>
-                    <span className="col-span-8 text-carbon-700">{v}</span>
-                  </li>
+                    <span className="text-carbon-700">{v}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>

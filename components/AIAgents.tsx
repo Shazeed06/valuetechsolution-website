@@ -118,11 +118,13 @@ export default function AIAgents() {
           ref={grid}
           className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-carbon-950/[0.08] bg-carbon-950/[0.08] sm:grid-cols-2 lg:grid-cols-3"
         >
-          {agents.map((a) => (
+          {agents.map((a, i) => (
             <article
               key={a.n}
               data-agent
-              className="flex flex-col bg-[rgb(252,251,249)] p-7 transition-colors duration-500 hover:bg-white sm:p-8"
+              className={`flex flex-col bg-[rgb(252,251,249)] p-7 transition-colors duration-500 hover:bg-white sm:p-8 ${
+                i === agents.length - 1 ? "sm:col-span-2 lg:col-span-2" : ""
+              }`}
             >
               <div className="flex items-start justify-between">
                 <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
