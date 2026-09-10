@@ -53,12 +53,6 @@ const channels = [
     value: waLinks[0].pretty,
     href: waLinks[0].href,
   },
-  {
-    icon: Phone,
-    label: "WhatsApp",
-    value: waLinks[1].pretty,
-    href: waLinks[1].href,
-  },
   { icon: MapPin, label: "HQ", value: "Remote-first · India · UAE · UK" },
   { icon: Clock, label: "Response", value: "Within 1 business day" },
 ];
