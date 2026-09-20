@@ -185,7 +185,7 @@ export default function PythonAutomationPage() {
         pricing={[
           {
             name: "Script sprint",
-            price: "from $399",
+            price: "Sprint Engagement",
             bullets: [
               "Single Python script or job",
               "Up to 3 integrations",
@@ -195,7 +195,7 @@ export default function PythonAutomationPage() {
           },
           {
             name: "Pipeline build",
-            price: "from $2,499",
+            price: "Custom Pipeline",
             highlight: true,
             bullets: [
               "Multi-stage data pipeline",
@@ -206,7 +206,7 @@ export default function PythonAutomationPage() {
           },
           {
             name: "Engineering retainer",
-            price: "from $1,499 / mo",
+            price: "Monthly Retainer",
             bullets: [
               "Continuous Python work",
               "New scripts each month",

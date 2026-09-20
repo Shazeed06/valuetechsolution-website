@@ -112,8 +112,6 @@ const useCases = [
 const pricing = [
   {
     tier: "Starter Integration",
-    usd: "$999",
-    inr: "₹83,000",
     timeline: "2 weeks",
     features: [
       "Claude API integration into one product surface",
@@ -125,8 +123,6 @@ const pricing = [
   },
   {
     tier: "Claude Agent",
-    usd: "$2,499",
-    inr: "₹2,08,000",
     timeline: "4–5 weeks",
     highlighted: true,
     features: [
@@ -140,8 +136,6 @@ const pricing = [
   },
   {
     tier: "Claude Platform",
-    usd: "$4,999+",
-    inr: "₹4,15,000+",
     timeline: "6–10 weeks",
     features: [
       "Multi-agent architecture (planner + executor + evaluator)",
@@ -196,11 +190,6 @@ export default function ClaudeAutomationPage() {
         serviceType="AI Automation"
         description="Claude API integrations, Claude agent development, custom Claude assistants, RAG pipelines, and Claude-powered automation workflows for businesses worldwide."
         url="https://valuetechsolution.com/services/claude-automation"
-        offers={[
-          { name: "Starter Integration", price: "999" },
-          { name: "Claude Agent", price: "2499" },
-          { name: "Claude Platform", price: "4999" },
-        ]}
       />
       <FAQSchema items={faqs} />
       <BreadcrumbSchema
@@ -313,20 +302,19 @@ export default function ClaudeAutomationPage() {
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* Engagement Options */}
       <section className="section bg-white">
         <div className="container-x">
           <p className="eyebrow">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-carbon-950" />
-            Pricing
+            Engagement options
           </p>
           <h2 className="heading-md mt-6 max-w-xl">
-            Fixed-price{" "}
-            <span className="italic-accent">Claude packages</span>
+            Tailored{" "}
+            <span className="italic-accent">Claude sprints</span>
           </h2>
           <p className="lede mt-4 max-w-2xl">
-            Indian clients billed in INR via UPI / RTGS / Razorpay with GST
-            invoice. USA & UK clients billed in USD via Stripe or wire.
+            Fixed scope, transparent timeline, and dedicated senior AI engineering. Tailored to your specific architecture and product stack.
           </p>
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
             {pricing.map((p) => (
@@ -346,15 +334,14 @@ export default function ClaudeAutomationPage() {
                 <p className={`font-mono text-[10px] uppercase tracking-[0.28em] ${p.highlighted ? "text-carbon-300" : "text-carbon-400"}`}>
                   {p.tier}
                 </p>
-                <div className="mt-4">
-                  <span className={`text-4xl font-black ${p.highlighted ? "text-white" : "text-carbon-950"}`}>
-                    {p.usd}
-                  </span>
-                  <span className={`ml-3 text-lg ${p.highlighted ? "text-carbon-300" : "text-carbon-400"}`}>
-                    / {p.inr}
+                <div className="mt-4 flex items-center">
+                  <span className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${
+                    p.highlighted ? "bg-white/20 text-white" : "bg-primary/10 text-primary"
+                  }`}>
+                    Tailored Scope · Fixed Quote
                   </span>
                 </div>
-                <p className={`mt-1 text-xs ${p.highlighted ? "text-carbon-400" : "text-carbon-400"}`}>
+                <p className={`mt-2 text-xs ${p.highlighted ? "text-carbon-400" : "text-carbon-400"}`}>
                   Timeline: {p.timeline}
                 </p>
                 <ul className="mt-8 space-y-3">
@@ -366,16 +353,14 @@ export default function ClaudeAutomationPage() {
                   ))}
                 </ul>
                 <a
-                  href={whatsappLink(`Hi, I'm interested in the ${p.tier} Claude automation package.`)}
-                  target="_blank"
-                  rel="noreferrer"
+                  href="/contact"
                   className={`btn mt-10 w-full justify-center ${
                     p.highlighted
                       ? "bg-white text-carbon-950 hover:bg-carbon-100"
                       : "bg-carbon-950 text-white hover:bg-carbon-700"
                   }`}
                 >
-                  Get started
+                  Book a Discovery Call
                 </a>
               </div>
             ))}

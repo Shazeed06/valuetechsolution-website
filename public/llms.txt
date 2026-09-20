@@ -25,7 +25,7 @@ We build production-grade AI agents with evaluation suites, observability, and h
 - Multi-agent orchestration pipelines
 - Conversational agents and chatbots for lead capture, support, and ops
 - Decision-support analytics and AI dashboards
-- Starting from ₹10,000 (approx. $100) · 4–6 weeks
+- Engagement: Bespoke scoping · 4–6 week delivery sprint
 
 ### 2. Workflow Automation
 - n8n (open-source, self-hosted; preferred for privacy-sensitive workloads)
@@ -33,7 +33,7 @@ We build production-grade AI agents with evaluation suites, observability, and h
 - Zapier (no-code, 6,000+ app integrations)
 - GoHighLevel / GHL (CRM funnels, WhatsApp automation, client dashboards, agency snapshots)
 - Custom Python and Node.js automation services
-- Starting from ₹31,900 (approx. $399) for a 2-week diagnostic
+- Engagement: 2-week diagnostic sprint or tailored workflow build
 
 ### 3. Web Development
 - Next.js 15+ (App Router), TypeScript, React
@@ -41,7 +41,7 @@ We build production-grade AI agents with evaluation suites, observability, and h
 - Headless CMS integration (Sanity, Contentful, Notion)
 - SEO-first architecture: schema markup, Core Web Vitals, llms.txt, structured data
 - Mobile-first, accessible, edge-runtime ready
-- Starter website from ₹41,500 (approx. $500) · 4 weeks
+- Engagement: 3–4 week fixed-timeline delivery sprint
 
 ### 4. SEO & Answer Engine Optimisation (AEO)
 - Technical SEO audits and implementation
@@ -49,7 +49,7 @@ We build production-grade AI agents with evaluation suites, observability, and h
 - AEO for AI search: Perplexity, ChatGPT, Google AI Overviews
 - llms.txt and robots.txt setup for AI crawler visibility
 - Content systems and editorial calendars
-- SEO retainer from ₹63,900/month (approx. $799/month)
+- Engagement: Monthly growth retainer or targeted audit sprint
 
 ### 5. GoHighLevel (GHL) Agency Work
 - White-label GHL setups and agency snapshots
@@ -58,10 +58,11 @@ We build production-grade AI agents with evaluation suites, observability, and h
 - Sub-account onboarding and fulfilment workflows
 
 ### 6. Claude AI Integration (Anthropic)
-- Claude Sonnet / Opus API integration into products
-- Prompt engineering, system prompts, guardrails
-- Claude-powered RAG systems
-- Anthropic Workbench setups for teams
+- Claude API integrations (Sonnet 3.7, Opus, Haiku)
+- Prompt engineering with structured output (JSON schema)
+- Long-context RAG pipelines with 200k token windows
+- Tool-use (function calling) for external API orchestration
+- Cost-performance optimization: prompt caching, model routing
 
 ---
 
@@ -128,18 +129,20 @@ We build production-grade AI agents with evaluation suites, observability, and h
 
 ---
 
-## Pricing in INR (primary market)
+## Engagement & Delivery Models
 
-| Service                      | Price (INR)                | Approx USD    | Timeline  |
-|------------------------------|----------------------------|---------------|-----------|
-| Starter Website              | ₹41,500                    | ~$500         | 4 weeks   |
-| Marketing Site (full)        | ₹1,99,500–₹3,19,200        | $2,499–$3,999 | 4–6 weeks |
-| AI Diagnostic / Audit        | ₹31,900                    | ~$399         | 2 weeks   |
-| First AI Agent (production)  | ₹10,000                    | ~$100         | 4–6 weeks |
-| Automation Retainer          | ₹41,500/month              | ~$500/mo      | ongoing   |
-| SEO Retainer                 | ₹63,900/month              | ~$799/mo      | ongoing   |
+All projects operate on a transparent fixed-price, fixed-scope, and fixed-timeline quote determined following a 15-minute discovery call:
 
-All prices are fixed-scope — no billing surprises.
+| Service / Sprint             | Scope & Deliverables                              | Timeline  |
+|------------------------------|---------------------------------------------------|-----------|
+| Bespoke Next.js Website      | 5+ custom pages, 95+ Lighthouse, full SEO & AEO   | 3–4 weeks |
+| Full Product / Web Platform  | Custom design system, CMS, DB, interactive UI     | 4–6 weeks |
+| AI Diagnostic / Audit        | Workflow audit, opportunity mapping, ROI blueprint| 2 weeks   |
+| Production AI Agent Sprint   | Evaluated agent, API tools, human-in-the-loop gate| 4–6 weeks |
+| Workflow Automation Build    | n8n/GHL/Python multi-stage pipelines              | 2–4 weeks |
+| Growth Retainer              | Continuous feature expansion, SEO, agent tuning   | Monthly   |
+
+Every engagement has written scope and deliverables upfront — no billing surprises or hourly overruns.
 
 ---
 

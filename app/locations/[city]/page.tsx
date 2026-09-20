@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!c) return { title: "Not found" };
 
   const title = `Web Development & AI Automation Agency in ${c.name} | Value Tech Solution`;
-  const description = `Fixed-price web development and AI automation in ${c.name}. Websites from ${c.starterPrice}, AI agents from ${c.agentPrice}. Senior engineers, fast delivery, written scope.`;
+  const description = `High-performance web development and AI automation studio in ${c.name}. Bespoke Next.js websites, AI agents, and workflows. Senior engineers, fast delivery, written scope.`;
 
   return {
     title: { absolute: title },
@@ -61,22 +61,12 @@ const services = [
   {
     icon: Zap,
     title: "Workflow Automation",
-    desc: "n8n, Make, Zapier, or custom Python — we pick what fits and ship it properly.",
+    desc: "n8n, GoHighLevel, Zapier, and Python pipelines that eliminate manual work.",
   },
   {
     icon: BarChart3,
-    title: "SEO & AEO",
-    desc: "Schema, Core Web Vitals, llms.txt, and answer-shaped content for AI search.",
-  },
-  {
-    icon: Code2,
-    title: "GoHighLevel",
-    desc: "Agency snapshots, WhatsApp automations, CRM pipelines, and client dashboards.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Claude AI Integration",
-    desc: "Anthropic Claude agents, RAG systems, and prompt engineering for your product.",
+    title: "SEO & Growth",
+    desc: "Technical SEO, Core Web Vitals optimization, and LLM-search visibility built in.",
   },
 ];
 
@@ -92,7 +82,7 @@ const guarantees = [
 export default async function CityPage({ params }: Props) {
   const { city: slug } = await params;
   const c = getCity(slug);
-  if (!c) return notFound();
+  if (!c) notFound();
 
   const wa = whatsappLinks(
     `Hi, I'm in ${c.name} and I'd like to discuss a project with Value Tech Solution.`
@@ -104,13 +94,9 @@ export default async function CityPage({ params }: Props) {
     <>
       <ServiceSchema
         name={`Web Development & AI Automation Agency — ${c.name}`}
-        description={`Fixed-price web development and AI automation for ${c.name} businesses. Websites from ${c.starterPrice}, AI agents from ${c.agentPrice}.`}
+        description={`Tailored web development and AI automation for ${c.name} businesses. Bespoke Next.js web applications, AI agents, and workflows.`}
         url={`${BASE}/locations/${c.slug}`}
         serviceType="Web Development and AI Automation"
-        offers={[
-          { name: "Starter Website", price: c.starterPrice },
-          { name: "AI Agent Sprint", price: c.agentPrice },
-        ]}
       />
       <FAQSchema items={c.faqs} />
       <BreadcrumbSchema
@@ -219,16 +205,16 @@ export default async function CityPage({ params }: Props) {
               <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] px-6 py-6 backdrop-blur-sm">
                 <div className="flex items-start justify-between gap-2">
                   <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/40">
-                    Starter website
+                    Bespoke Web Sprint
                   </p>
                   <span className="rounded-full bg-white/10 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/50">
-                    Popular
+                    High Performance
                   </span>
                 </div>
-                <p className="mt-3 font-display text-3xl font-black text-white">
-                  {c.starterPrice}
+                <p className="mt-3 font-display text-2xl font-bold text-white">
+                  Custom Scope
                 </p>
-                <p className="mt-1 text-xs text-white/40">Fixed scope · 4 weeks</p>
+                <p className="mt-1 text-xs text-white/40">Fixed quote · 3–4 weeks</p>
                 <div className="mt-4 flex items-center gap-1.5">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
@@ -246,12 +232,12 @@ export default async function CityPage({ params }: Props) {
                   style={{ background: "radial-gradient(circle at top left, #ea580c20, transparent 60%)" }}
                 />
                 <p className="relative font-mono text-[10px] uppercase tracking-[0.24em] text-orange-300/60">
-                  AI agent
+                  AI & Automations
                 </p>
-                <p className="relative mt-3 font-display text-3xl font-black text-white">
-                  {c.agentPrice}
+                <p className="relative mt-3 font-display text-2xl font-bold text-white">
+                  Tailored Systems
                 </p>
-                <p className="relative mt-1 text-xs text-orange-300/40">Starting · 4–6 weeks</p>
+                <p className="relative mt-1 text-xs text-orange-300/40">Custom sprint · 4–6 weeks</p>
                 <div className="relative mt-4 flex items-center gap-1.5">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-60" />

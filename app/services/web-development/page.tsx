@@ -133,7 +133,7 @@ export default function WebDevPage() {
             body: (
               <>
                 Sanity, Contentful, or Hygraph — content lives in a CMS your
-                team owns. New blog posts and pricing pages don't need an
+                team owns. New blog posts and landing pages don't need an
                 engineering ticket.
               </>
             ),
@@ -177,8 +177,8 @@ export default function WebDevPage() {
         ]}
         pricing={[
           {
-            name: "Landing",
-            price: "from $599",
+            name: "Landing Page Sprint",
+            price: "Fast 2-Week Sprint",
             bullets: [
               "Single high-converting landing page",
               "Up to 6 sections + lead form",
@@ -187,8 +187,8 @@ export default function WebDevPage() {
             ],
           },
           {
-            name: "Marketing Site",
-            price: "from $2,499",
+            name: "Marketing Website",
+            price: "Full Architecture",
             highlight: true,
             bullets: [
               "Up to 12 pages + blog",
@@ -198,8 +198,8 @@ export default function WebDevPage() {
             ],
           },
           {
-            name: "Web Application",
-            price: "from $5,999",
+            name: "Web Application / SaaS",
+            price: "Custom Engineering",
             bullets: [
               "Auth, dashboards, billing",
               "Database + API design",

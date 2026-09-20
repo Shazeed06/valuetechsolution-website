@@ -25,8 +25,8 @@ export const cities: City[] = [
     flag: "🇮🇳",
     region: "India",
     currencySymbol: "₹",
-    starterPrice: "₹41,500",
-    agentPrice: "₹10,000",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "NCR's startup & enterprise hub",
     context:
       "Delhi NCR is India's second-largest startup ecosystem, home to unicorns in fintech, edtech, and logistics. Businesses here operate at high velocity and demand automation that can keep pace — from CRM pipelines handling thousands of leads a month to AI agents managing enterprise workflows.",
@@ -39,7 +39,7 @@ export const cities: City[] = [
       },
       {
         q: "What's the cost of a website for a Delhi startup?",
-        a: "Our starter website package is ₹41,500 (fixed scope, 4 weeks, 95+ Lighthouse guaranteed). For funded startups needing custom features, SEO content, or a design system, quotes start at ₹1,20,000. All projects include GST-compliant invoicing.",
+        a: "We offer fixed-scope website sprints with guaranteed 95+ Lighthouse performance, complete SEO, and delivery in 3–4 weeks. Every quote is custom-tailored following a 15-minute discovery call. All projects include GST-compliant invoicing.",
       },
       {
         q: "Can you build AI automation for my Delhi-based real estate business?",
@@ -58,8 +58,8 @@ export const cities: City[] = [
     flag: "🇮🇳",
     region: "India",
     currencySymbol: "₹",
-    starterPrice: "₹41,500",
-    agentPrice: "₹10,000",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "India's tech capital — AI-native teams move fast here",
     context:
       "Bangalore is the epicentre of India's engineering talent and the city where AI-native startups are being born. Our clients here range from Series A SaaS companies integrating Claude or GPT-4o into their core product, to growth-stage agencies automating their entire delivery stack on n8n.",
@@ -68,7 +68,7 @@ export const cities: City[] = [
     faqs: [
       {
         q: "Can you integrate Claude or GPT-4o into our Bangalore-based SaaS product?",
-        a: "Absolutely. LLM integration into SaaS products is one of our core specialties. We handle the full stack — prompt engineering, RAG retrieval, evals, guardrails, observability, and cost control. Engagements start at ₹10,000 for a scoped integration sprint.",
+        a: "Absolutely. LLM integration into SaaS products is one of our core specialties. We handle the full stack — prompt engineering, RAG retrieval, evals, guardrails, observability, and cost control on fixed sprint engagements.",
       },
       {
         q: "How do you work with Bangalore engineering teams?",
@@ -91,8 +91,8 @@ export const cities: City[] = [
     flag: "🇮🇳",
     region: "India",
     currencySymbol: "₹",
-    starterPrice: "₹41,500",
-    agentPrice: "₹10,000",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "India's financial capital — where scale meets urgency",
     context:
       "Mumbai's businesses operate under pressure: financial services with compliance requirements, media companies churning content daily, and retail brands managing thousands of SKUs. We serve Mumbai clients who need automation that's production-grade from day one — not a proof of concept that breaks under load.",
@@ -109,7 +109,7 @@ export const cities: City[] = [
       },
       {
         q: "What web development packages do you offer for Mumbai businesses?",
-        a: "Starter site (₹41,500, 4 weeks, 5 pages, 95+ Lighthouse), growth site (from ₹1,20,000, custom design + CMS), and enterprise builds priced on scope. All sites include schema, Core Web Vitals CI, sitemap, robots.txt, and GA4 from day one.",
+        a: "Bespoke high-performance web sprints (3–4 weeks, 95+ Lighthouse guaranteed), custom web applications with CMS, and full enterprise builds. All sites include schema, Core Web Vitals CI, sitemap, robots.txt, and GA4 from day one.",
       },
       {
         q: "How do payments work for Mumbai clients?",
@@ -124,8 +124,8 @@ export const cities: City[] = [
     flag: "🇮🇳",
     region: "India",
     currencySymbol: "₹",
-    starterPrice: "₹41,500",
-    agentPrice: "₹10,000",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "HITEC City's fastest-growing tech corridor",
     context:
       "Hyderabad's HITEC City corridor hosts global IT giants alongside a vibrant startup ecosystem in pharma, agritech, and government tech. We work with Hyderabad businesses that want the quality of a global agency at India-competitive pricing — with senior engineers, not offshore staffing.",
@@ -142,7 +142,7 @@ export const cities: City[] = [
       },
       {
         q: "What's the starting price for a business website in Hyderabad?",
-        a: "Our starter website is ₹41,500 for 5 pages, built on Next.js, deployed on Vercel, with 95+ Lighthouse guaranteed, full SEO setup, and a 4-week timeline. GST invoice included.",
+        a: "We build on Next.js, deployed on Vercel, with 95+ Lighthouse guaranteed, full SEO setup, and a 3–4 week sprint timeline. Quotes are provided following a discovery call. GST invoice included.",
       },
     ],
   },
@@ -153,21 +153,21 @@ export const cities: City[] = [
     flag: "🇮🇳",
     region: "India",
     currencySymbol: "₹",
-    starterPrice: "₹41,500",
-    agentPrice: "₹10,000",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "Oxford of the East — engineering talent + manufacturing scale",
     context:
       "Pune punches above its weight: a massive IT sector, auto manufacturing, and one of India's highest densities of engineering colleges. Our Pune clients are typically mid-market IT companies or manufacturing exporters who need modern web presence and process automation — not both outsourced to the cheapest vendor.",
-    industries: ["IT Services", "Automotive", "Manufacturing", "Education", "Fintech"],
-    keyServices: ["Web Development", "AI Automation", "n8n", "SEO", "GoHighLevel"],
+    industries: ["IT Services", "Auto & Engineering", "Manufacturing", "EdTech", "Biotech"],
+    keyServices: ["Web Development", "AI Automation", "n8n", "GoHighLevel", "SEO"],
     faqs: [
       {
-        q: "Do you build websites for Pune IT companies?",
-        a: "Yes — and we understand what IT services buyers look for: case studies, certifications, clear service scope, fast load time, and structured schema that surfaces in AI search. Our IT services template covers all of that with a 4-week build.",
+        q: "Do you work with Pune manufacturing and auto companies?",
+        a: "Yes. We build supplier-facing portals, order-tracking workflows, and WhatsApp alert systems for manufacturing teams. Pune's engineering and manufacturing businesses often have manual data entry between legacy ERPs — n8n bridges those gaps cleanly without replacing the ERP.",
       },
       {
-        q: "Can you automate procurement or ERP workflows for Pune manufacturers?",
-        a: "We build n8n and Python automation that connects ERP systems, supplier portals, and internal dashboards. Common workflows: purchase order approvals, supplier QA reporting, and inventory alert systems. We integrate with SAP, Zoho, and custom ERPs via API or DB direct access.",
+        q: "Can you upgrade our legacy website to Next.js in Pune?",
+        a: "Yes. We run full legacy-to-Next.js migrations with 301 redirect mapping to preserve existing SEO equity, 95+ Lighthouse score guaranteed, and zero downtime. We've migrated sites from WordPress, Drupal, and custom PHP stacks.",
       },
     ],
   },
@@ -178,21 +178,67 @@ export const cities: City[] = [
     flag: "🇮🇳",
     region: "India",
     currencySymbol: "₹",
-    starterPrice: "₹41,500",
-    agentPrice: "₹10,000",
-    market: "South India's industrial and IT backbone",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
+    market: "Detroit of South Asia — SaaS giants and deep tech roots",
     context:
-      "Chennai is a hub for automotive manufacturing, IT exports, and healthcare. Its business culture values reliability and long-term relationships — which matches our fixed-scope, written-tradeoffs engagement model. Chennai clients get the same senior engineers, same performance standards, no compromises.",
-    industries: ["Automotive", "IT Exports", "Healthcare", "Shipping", "Retail"],
-    keyServices: ["Web Development", "AI Automation", "SEO", "n8n", "GoHighLevel"],
+      "Chennai is India's SaaS capital (home to Zoho, Freshworks) and the automobile hub of South Asia. Companies here care about architecture, reliability, and code quality. We match that mindset: typed TypeScript, automated CI, and documented codebases.",
+    industries: ["SaaS", "Automotive", "Healthcare", "Fintech", "Logistics"],
+    keyServices: ["Web Development", "AI Agent Development", "n8n Automation", "SEO", "Claude Integration"],
     faqs: [
       {
-        q: "Do you work with Chennai-based IT export companies?",
-        a: "Yes. We frequently work with Chennai IT service companies that need a modern website and SEO presence to win global clients — particularly in the US and UK. Our sites include AEO-optimized content, schema markup, and llms.txt so you appear in AI search interfaces internationally.",
+        q: "Do you work with Chennai-based SaaS companies?",
+        a: "Yes. Chennai's SaaS density means we frequently build marketing sites with product-led SEO, interactive product demo pages, and AI agent add-ons. We understand the B2B SaaS buyer journey and design sites specifically to drive demo bookings.",
       },
       {
-        q: "Can you build a website in Tamil or multilingual for Chennai businesses?",
-        a: "Yes. We support multilingual Next.js sites with i18n routing. Tamil, Hindi, and English variants can be served from the same codebase with proper hreflang tags for Google. Most Chennai clients request English-primary with a Tamil contact page.",
+        q: "Can you build HIPAA/healthcare-compliant automation for Chennai health tech?",
+        a: "We build with data privacy in mind — encrypted data transfer, access logging, and self-hosted n8n instances within Indian AWS/GCP regions for data residency. We don't touch PHI without appropriate Business Associate Agreements and security architecture in place.",
+      },
+    ],
+  },
+  {
+    slug: "gurgaon",
+    name: "Gurgaon",
+    country: "India",
+    flag: "🇮🇳",
+    region: "India",
+    currencySymbol: "₹",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
+    market: "India's corporate millennium city — where enterprises automate",
+    context:
+      "Gurgaon is corporate India: Fortune 500 headquarters, rapid-growth consumer brands, and venture-funded unicorns along Cyber City and Golf Course Road. Gurgaon businesses move fast and expect agency partners to deliver at executive-ready quality without hand-holding.",
+    industries: ["Fintech", "Consumer Internet", "Real Estate", "Professional Services", "Retail"],
+    keyServices: ["AI Agent Development", "n8n Automation", "Web Development", "GoHighLevel", "Design Systems"],
+    faqs: [
+      {
+        q: "Do you do in-person meetings for Gurgaon-based enterprise clients?",
+        a: "Yes. We're based in the NCR region and attend in-person kick-off workshops and quarterly review sessions for Gurgaon retainers. Day-to-day sprint delivery remains async on Slack and GitHub to maintain maximum development velocity.",
+      },
+      {
+        q: "Can you build a design system for a Gurgaon startup?",
+        a: "Yes. We build tokenised design systems in Figma and code (Tailwind CSS, React component libraries, Storybook). If your engineering team is building inconsistently across multiple products, a design system sprint standardises everything in 6–8 weeks.",
+      },
+    ],
+  },
+  {
+    slug: "noida",
+    name: "Noida",
+    country: "India",
+    flag: "🇮🇳",
+    region: "India",
+    currencySymbol: "₹",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
+    market: "NCR's electronics and software delivery corridor",
+    context:
+      "Noida has evolved from an IT back-office hub into a tech powerhouse with major electronics manufacturing, media cities, and SaaS startups along the Expressway. We serve Noida companies that want to build modern digital infrastructure at high velocity.",
+    industries: ["IT Services", "Electronics", "Media", "E-commerce", "Real Estate"],
+    keyServices: ["Web Development", "AI Automation", "GoHighLevel", "n8n", "SEO"],
+    faqs: [
+      {
+        q: "Can you build a lead generation funnel for a Noida real estate developer?",
+        a: "Yes. We build high-converting landing pages with instant WhatsApp booking, virtual tour integration, and CRM sync to GoHighLevel. For NCR real estate, our automated speed-to-lead workflows typically double qualified site visits.",
       },
     ],
   },
@@ -203,9 +249,9 @@ export const cities: City[] = [
     flag: "🇮🇳",
     region: "India",
     currencySymbol: "₹",
-    starterPrice: "₹41,500",
-    agentPrice: "₹10,000",
-    market: "East India's commerce and culture capital — going digital fast",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
+    market: "Eastern India's commercial gateway — traditional businesses modernising",
     context:
       "Kolkata's traditional trading and manufacturing businesses are modernising quickly, with second-generation owners investing in digital infrastructure and automation. We serve Kolkata businesses that want to compete nationally without relocating — a professional web presence and AI automation that works while the team sleeps.",
     industries: ["Trading", "Manufacturing", "Jute & Textiles", "IT Services", "Retail"],
@@ -217,7 +263,7 @@ export const cities: City[] = [
       },
       {
         q: "What's the timeline for a basic Kolkata business website?",
-        a: "4 weeks from kick-off to launch for our ₹41,500 starter. Week 1: content collection and design. Weeks 2–3: build. Week 4: review and go live. We handle domain configuration, SSL, and Google Analytics setup.",
+        a: "3–4 weeks from kick-off to launch. Week 1: content architecture and design. Weeks 2–3: build. Week 4: review and go live. We handle domain configuration, SSL, and Google Analytics setup.",
       },
     ],
   },
@@ -228,8 +274,8 @@ export const cities: City[] = [
     flag: "🇮🇳",
     region: "India",
     currencySymbol: "₹",
-    starterPrice: "₹41,500",
-    agentPrice: "₹10,000",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "Gujarat's business capital — commerce runs on relationships and speed",
     context:
       "Ahmedabad is one of India's fastest-growing business cities, driven by chemicals, textiles, pharmaceuticals, and a new wave of SaaS startups. Gujarati business culture values speed and ROI — which maps perfectly to our fixed-price, no-retainer engagement model.",
@@ -238,7 +284,7 @@ export const cities: City[] = [
     faqs: [
       {
         q: "Do you offer website packages for Ahmedabad SMEs?",
-        a: "Yes. Our ₹41,500 starter is designed for SMEs — 5 pages, fixed scope, 4 weeks, no hidden costs. Larger businesses with product catalogues or multiple service lines get a custom quote after a free 30-minute discovery call.",
+        a: "Yes. Our web sprints are designed for growing businesses — fixed scope, 3–4 weeks, no hidden costs. Tailored quotes are provided following a 15-minute discovery call.",
       },
       {
         q: "Can you automate WhatsApp follow-up for an Ahmedabad B2B business?",
@@ -253,8 +299,8 @@ export const cities: City[] = [
     flag: "🇮🇳",
     region: "India",
     currencySymbol: "₹",
-    starterPrice: "₹41,500",
-    agentPrice: "₹10,000",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "Rajasthan's pink-city startup scene rising fast",
     context:
       "Jaipur's economy blends traditional exports (gems, textiles, handicrafts) with a growing startup and IT services sector. Businesses here are digitising rapidly and need web and automation partners who understand both the local market and global digital standards.",
@@ -278,8 +324,8 @@ export const cities: City[] = [
     flag: "🇮🇳",
     region: "India",
     currencySymbol: "₹",
-    starterPrice: "₹41,500",
-    agentPrice: "₹10,000",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "North India's planned city with a growing startup base",
     context:
       "Chandigarh and the tricity area (Mohali, Panchkula) house a quietly growing IT and services sector alongside agriculture, hospitality, and education businesses. For our Chandigarh clients, we're often the first professional web development or automation partner they've worked with — and we're built to make that onboarding smooth.",
@@ -291,8 +337,8 @@ export const cities: City[] = [
         a: "Yes — the entire tricity area. All our work is remote-first so geography doesn't change the quality or timeline. Chandigarh businesses get the same senior engineers as our Delhi and Bangalore clients.",
       },
       {
-        q: "What's the cheapest way to get a professional website in Chandigarh?",
-        a: "Our ₹41,500 starter package is our entry point — 5 pages, Next.js, 95+ Lighthouse, full SEO setup, 4 weeks. If your budget is lower, we'll tell you honestly on the first call what's possible and what isn't.",
+        q: "How do I get started with a website sprint in Chandigarh?",
+        a: "We begin with a quick discovery call to map your business goals, target audience, and required pages. We provide a transparent fixed quote and deliver within 3–4 weeks with 95+ Lighthouse guaranteed.",
       },
     ],
   },
@@ -305,11 +351,11 @@ export const cities: City[] = [
     flag: "🇺🇸",
     region: "USA",
     currencySymbol: "$",
-    starterPrice: "$499",
-    agentPrice: "$100",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "World's financial capital — built for ambition",
     context:
-      "New York businesses demand agency-quality work at startup speed. Our India-based senior engineering team delivers exactly that — $499 starter websites and $1,999 AI agent sprints at a quality that would cost $5,000–$15,000 from a Manhattan agency, with EST-overlap communication and zero compromise on standards.",
+      "New York businesses demand agency-quality work at startup speed. Our India-based senior engineering team delivers exactly that — high-ticket Next.js web applications and production-grade AI agent sprints at world-class standards, with EST-overlap communication and zero compromise on quality.",
     industries: ["Finance", "Media", "Legal", "Fashion", "Real Estate"],
     keyServices: ["AI Agent Development", "Claude Integration", "Web Development", "n8n Automation", "SEO"],
     faqs: [
@@ -318,8 +364,8 @@ export const cities: City[] = [
         a: "We schedule all sync calls during EST morning overlap (9–11 AM EST = 7–9 PM IST). Async communication via Slack and Loom covers the rest. Most New York clients find the model works better than expected — we push work while you sleep and you wake up to progress.",
       },
       {
-        q: "What does a $499 website from Value Tech Solution include?",
-        a: "Five pages on Next.js — Home, About, Services, Contact, and one additional page. 95+ Lighthouse mobile score guaranteed. SEO setup including schema, sitemap, robots.txt, and GA4. Contact form, SSL, domain configuration, and a 30-minute handover call. All for a flat $499.",
+        q: "What does a bespoke website sprint include?",
+        a: "Five or more custom pages on Next.js — Home, About, Services, Case Studies, Contact, and custom workflows. 95+ Lighthouse mobile score guaranteed. Complete SEO architecture including schema, sitemap, robots.txt, and GA4. Contact form, SSL, domain configuration, and handover.",
       },
       {
         q: "Can you build AI agents for New York fintech or legal startups?",
@@ -338,8 +384,8 @@ export const cities: City[] = [
     flag: "🇬🇧",
     region: "UK",
     currencySymbol: "£",
-    starterPrice: "£399",
-    agentPrice: "£85",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "Europe's tech and finance hub — moving at City pace",
     context:
       "London businesses get senior engineering from India's deep talent pool, at a fraction of UK agency rates, with GMT+1 communication overlap and British-style project management: written scope, written tradeoffs, fixed price, no surprises.",
@@ -351,8 +397,8 @@ export const cities: City[] = [
         a: "We schedule sync calls between 9–11 AM GMT (2:30–4:30 PM IST). That's comfortable on both ends. Slack and Loom cover the rest. London clients often find the async model means less time in meetings and more progress between calls.",
       },
       {
-        q: "What's the cost of a business website for a London company?",
-        a: "Our starter package is £399 (5 pages, Next.js, 95+ Lighthouse, full SEO, 4 weeks). Custom builds from £999. All prices are fixed-scope — no billing surprises. We provide UK-format invoices with the relevant business details.",
+        q: "What is the engagement model for a London company?",
+        a: "We operate on fixed-scope sprints (Next.js, 95+ Lighthouse guaranteed, full SEO architecture, 3–4 weeks delivery). All quotes are transparent fixed-price with clear deliverables and British-format invoicing.",
       },
       {
         q: "Do you build AI automation for UK financial services firms?",
@@ -371,8 +417,8 @@ export const cities: City[] = [
     flag: "🇦🇪",
     region: "UAE",
     currencySymbol: "AED",
-    starterPrice: "AED 1,850",
-    agentPrice: "AED 370",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "Middle East's fastest-growing tech and commerce hub",
     context:
       "Dubai businesses operate in one of the world's most competitive markets: high expectations, international buyers, and a zero-tolerance culture for slow websites and missed enquiries. We build for that standard — fast, multilingual-ready, and automated to respond to leads before your competitor does.",
@@ -404,8 +450,8 @@ export const cities: City[] = [
     flag: "🇨🇦",
     region: "Canada",
     currencySymbol: "CAD",
-    starterPrice: "CAD 675",
-    agentPrice: "CAD 135",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "Canada's innovation hub — AI-forward and globally connected",
     context:
       "Toronto's tech ecosystem rivals any North American city: strong AI research (Vector Institute, Mila), a deep talent pool, and businesses that understand the value of engineering done properly. We serve Toronto clients who want execution-quality work from India's top engineers at Canadian-budget pricing.",
@@ -421,7 +467,7 @@ export const cities: City[] = [
         a: "Frequently. We do LLM integration, RAG system builds, eval suites, and production hardening for Toronto AI startups. If your team has the product vision but needs senior engineers to ship the AI layer reliably, that's exactly what we do.",
       },
       {
-        q: "What does a CAD 675 website include?",
+        q: "What does a website sprint include?",
         a: "Five pages on Next.js, 95+ Lighthouse guaranteed, full SEO setup (schema, sitemap, GA4), mobile-first design, contact form, and SSL. Flat fixed price — no scope creep unless you add scope.",
       },
     ],
@@ -433,8 +479,8 @@ export const cities: City[] = [
     flag: "🇸🇬",
     region: "Singapore",
     currencySymbol: "SGD",
-    starterPrice: "SGD 675",
-    agentPrice: "SGD 135",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "Southeast Asia's digital finance and startup gateway",
     context:
       "Singapore's businesses sit at the intersection of Southeast Asian growth and global capital. Compliance matters, speed matters, and the bar for digital quality is high. We serve Singapore clients who expect a global standard of engineering and communication — delivered at India's cost efficiency.",
@@ -462,8 +508,8 @@ export const cities: City[] = [
     flag: "🇦🇺",
     region: "Australia",
     currencySymbol: "AUD",
-    starterPrice: "AUD 775",
-    agentPrice: "AUD 150",
+    starterPrice: "Custom Scope",
+    agentPrice: "Tailored Architecture",
     market: "APAC's digital economy hub — direct India overlap",
     context:
       "Sydney is the closest major English-speaking market to India in terms of time zone overlap — AEDT sits just 4.5–5.5 hours ahead of IST. That makes collaboration unusually smooth. Sydney clients get senior India-based engineering with same-day turnaround on most deliverables.",

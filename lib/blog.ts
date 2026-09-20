@@ -793,7 +793,7 @@ export const posts: Post[] = [
         heading: "Cost — the numbers Indian founders actually care about",
         paragraphs: [
           "WordPress agencies in India quote ₹25,000–₹80,000 for a business site. That headline number looks attractive until you add: premium theme (₹6,000–₹12,000), plugin licences (₹8,000–₹25,000/year), managed hosting like WP Engine (₹6,000–₹18,000/month at Indian SMB scale), and annual maintenance.",
-          "A Next.js site built and hosted on Vercel runs ₹0–₹2,000/month on their Hobby or Pro plan for most Indian business sites. No plugin renewals. No theme updates. No PHP version surprises. The build cost is higher upfront — our starter websites start at ₹41,500 — but the 3-year total cost is almost always lower than an equivalent WordPress stack.",
+          "A Next.js site built and hosted on Vercel runs ₹0–₹2,000/month on their Hobby or Pro plan for most Indian business sites. No plugin renewals. No theme updates. No PHP version surprises. While a custom Next.js build is an upfront investment, the 3-year total cost of ownership is almost always lower than an equivalent WordPress stack.",
           "The other hidden cost is developer time. Fixing a broken WordPress update takes 2–6 hours of a developer's time, billed at ₹2,000–₹5,000/hr. Next.js deploys from a git push with automated type-checking and Lighthouse CI. The failure mode is a blocked PR, not a broken live site.",
         ],
       },
@@ -949,9 +949,9 @@ export const posts: Post[] = [
   {
     slug: "affordable-website-india-what-499-includes",
     n: "F.15",
-    title: "What a ₹41,500 ($499) starter website actually includes",
+    title: "What a fixed-scope high-performance website sprint actually includes",
     description:
-      "A transparent breakdown of what's in our ₹41,500 website package — pages, performance standards, SEO setup, and what's not included. No hidden costs, no bait-and-switch.",
+      "A transparent breakdown of what's in our bespoke website sprint — pages, performance standards, SEO setup, and what's out of scope. No hidden costs, no bait-and-switch.",
     category: "Web Development",
     readMinutes: 5,
     publishedAt: "2026-07-22",
@@ -966,50 +966,50 @@ export const posts: Post[] = [
     sections: [
       {
         paragraphs: [
-          "Indian business owners have been burned by web development quotes. ₹15,000 'complete websites' that take six months, look like 2015, and break when you try to add a page. We're trying something different: a fully transparent, fixed-scope starter package at ₹41,500 (approximately $499) with no hidden extras.",
+          "Business owners have been burned by web development quotes: vague scopes that take six months, look like 2015, and break when you try to add a page. We operate differently: a fully transparent, fixed-scope web sprint with defined deliverables and no hidden surprises.",
           "Here is exactly what you get — and exactly what you don't.",
         ],
       },
       {
         heading: "What's included",
         paragraphs: [
-          "Five pages: Home, About, Services (or Products), Contact, and one additional page of your choice (Privacy Policy, Pricing, FAQ, etc.). Each page is custom-designed — no template layouts, no stock page builders.",
-          "Built on Next.js, deployed on Vercel. Every page loads in under 2 seconds on a 4G connection. Lighthouse score of 90+ guaranteed on delivery — if it falls below, we fix it at our cost.",
+          "Five custom pages: Home, About, Services, Contact, and an additional page of your choice. Each page is custom-designed — no template layouts, no stock page builders.",
+          "Built on Next.js, deployed on Vercel. Every page loads in under 2 seconds on a 4G connection. Lighthouse score of 95+ guaranteed on delivery — if it falls below, we optimize it at our cost.",
           "SEO fundamentals from day one: correct title tags and meta descriptions, Open Graph tags for social sharing, JSON-LD schema for Organization and every service, Google Search Console setup and initial sitemap submission, robots.txt with AI crawler allowlisting, and a custom /llms.txt for AI engine visibility.",
-          "Mobile-first design, tested on real Android hardware. All forms working — contact form with email delivery via Resend. Domain configuration and SSL setup. A 30-minute handover call where we walk you through the CMS (if any) and analytics.",
+          "Mobile-first design, tested on real devices. All forms working with email delivery via Resend. Domain configuration and SSL setup. A 30-minute handover call where we walk you through the analytics and system.",
           "Google Analytics 4 setup, so you can see traffic and conversions from day one.",
         ],
       },
       {
         heading: "What's not included",
         paragraphs: [
-          "Content writing. We'll help you structure the copy, but you provide the text. If you want us to write it, we quote that separately (typically ₹8,000–₹15,000 for 5 pages at B2B quality).",
-          "Logo or brand design. If you have a logo and brand colours, great. If not, we can refer you to a designer or quote a brand identity separately.",
-          "E-commerce functionality. If you need a product catalogue, cart, and payment gateway, that's a different scope. Our e-commerce builds start at ₹85,000.",
-          "Stock photos or custom illustrations. We use Unsplash for placeholder photography. Licensed stock or custom illustration is billed separately.",
-          "Monthly maintenance. We offer a ₹4,999/month maintenance retainer (updates, uptime monitoring, monthly Lighthouse audit, one content change per month). The starter site runs fine without it — Vercel handles hosting reliability — but if you want someone watching it, that's the package.",
+          "Content writing. We'll help you structure the copy, but you provide the text. If you want us to write it, we scope that as a dedicated content sprint.",
+          "Logo or brand identity design. If you have brand guidelines, great. If not, we offer a dedicated Brand Sprint to create tokens, type, and color systems.",
+          "E-commerce functionality. If you need a product catalogue, cart, and payment gateway, that is scoped as an e-commerce platform sprint.",
+          "Stock photos or custom illustrations. We use clean photography placeholders. Licensed custom assets are scoped separately.",
+          "Ongoing maintenance retainer. We offer an optional monthly maintenance retainer (uptime monitoring, security patches, monthly performance audit, content updates) for teams who want dedicated engineering oversight.",
         ],
       },
       {
         heading: "The process",
         paragraphs: [
-          "Week 1: Discovery call (30 minutes, free), content collection, design direction agreed. Week 2–3: Design and build. Week 4: Review, revisions, and launch. Total: 3–4 weeks from kick-off to live.",
-          "Payment: 50% on kick-off, 50% on launch. INR payments via UPI, RTGS, or Razorpay. USD via Stripe or wire. GST-compliant invoice provided.",
-          "One round of revisions included. Additional revisions at ₹2,500/hour. Scope changes after Week 1 — new pages, feature additions — are quoted separately.",
+          "Week 1: Discovery call (15–30 minutes, free), content architecture, and creative direction agreed. Week 2–3: Design and build. Week 4: Review, polish, and launch. Total: 3–4 weeks from kick-off to live.",
+          "Payment: 50% on kick-off, 50% on launch. INR payments via UPI, RTGS, or Razorpay. International payments via Stripe or wire transfer. GST/tax invoice provided.",
+          "One full round of revisions included. Scope adjustments after Week 1 are clearly scoped upfront.",
         ],
       },
       {
-        heading: "Why ₹41,500 and not ₹15,000?",
+        heading: "Why fixed-scope sprints beat cheap templates",
         paragraphs: [
-          "₹15,000 websites exist. They are PHP templates with your logo dropped in, hosted on shared servers, and built by someone who will disappear when you have a problem. We've audited dozens of them for clients who come to us after the experience.",
-          "₹41,500 covers a senior engineer's time to build something properly: typed code, version control, automated deployment, real performance standards, and a handover you can actually understand. It also covers the cost of doing it right the first time, so you don't pay twice.",
-          "If ₹41,500 is outside your budget, we'll tell you on the first call. We'd rather have that conversation honestly than take a project we can't deliver well.",
+          "Cheap template websites exist. They are bloated CMS templates with your logo dropped in, hosted on shared slow servers, and built by someone who will disappear when you need an update. We've audited dozens of them for founders who come to us after the experience.",
+          "A dedicated sprint covers senior engineers' time to build something properly: typed TypeScript, automated deployment, real Core Web Vitals guarantees, and a codebase you actually own and understand.",
+          "We evaluate your requirements on a discovery call and provide a transparent, fixed-price quote with zero hidden surprises.",
         ],
       },
       {
-        heading: "Book a diagnostic call",
+        heading: "Book a discovery call",
         paragraphs: [
-          "The diagnostic call is 30 minutes and free. We look at your current site (if you have one), understand your goals, and tell you honestly whether the starter package fits or if you need something different.",
+          "The discovery call is 15 minutes and completely free. We look at your current site (if you have one), understand your business goals, and provide an honest assessment and scope blueprint.",
           "Book at valuetechsolution.com/contact. Response within one business day.",
         ],
       },
@@ -1091,7 +1091,7 @@ export const posts: Post[] = [
         heading: "What this means for your business",
         paragraphs: [
           "A site built this way doesn't need a 6-month SEO retainer to fix technical issues that should have been right on launch. It starts with a clean technical foundation and grows organic traffic as you add content, rather than fighting against technical debt.",
-          "We include all of the above — schema, Core Web Vitals CI, URL architecture, sitemaps, robots.txt, /llms.txt — in every website engagement, including the ₹41,500 starter package. It is not an upsell. It is our minimum standard.",
+          "We include all of the above — schema, Core Web Vitals CI, URL architecture, sitemaps, robots.txt, /llms.txt — in every website engagement, from our core website sprints to custom platforms. It is not an upsell. It is our minimum standard.",
           "If you want to see this in practice, book a call. We'll audit your current site live on the call and show you exactly where the technical SEO gaps are before you decide whether to work with us.",
         ],
       },

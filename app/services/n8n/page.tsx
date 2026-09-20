@@ -176,7 +176,7 @@ export default function N8nPage() {
         pricing={[
           {
             name: "Single workflow",
-            price: "from $499",
+            price: "Single Workflow",
             bullets: [
               "1 production workflow",
               "Up to 5 integrations",
@@ -186,7 +186,7 @@ export default function N8nPage() {
           },
           {
             name: "Workflow suite",
-            price: "from $1,999",
+            price: "Full Architecture",
             highlight: true,
             bullets: [
               "5–8 connected workflows",
@@ -197,7 +197,7 @@ export default function N8nPage() {
           },
           {
             name: "n8n retainer",
-            price: "from $1,199 / mo",
+            price: "Monthly Retainer",
             bullets: [
               "Continuous workflow expansion",
               "Monitoring + tuning",

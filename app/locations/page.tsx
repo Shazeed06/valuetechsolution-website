@@ -77,7 +77,7 @@ export default function LocationsPage() {
                 </div>
                 <div className="mt-5 flex items-center justify-between border-t border-carbon-950/[0.06] pt-4">
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-carbon-400">
-                    from {c.starterPrice}
+                    Tailored Quote · 4-Week Sprint
                   </span>
                   <ArrowUpRight
                     size={14}
@@ -117,7 +117,7 @@ export default function LocationsPage() {
                 </div>
                 <div className="mt-5 flex items-center justify-between border-t border-carbon-950/[0.06] pt-4">
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-carbon-400">
-                    from {c.starterPrice}
+                    Tailored Quote · 4-Week Sprint
                   </span>
                   <ArrowUpRight
                     size={14}

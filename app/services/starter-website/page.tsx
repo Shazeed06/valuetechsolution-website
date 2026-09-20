@@ -7,33 +7,28 @@ import CTA from "@/components/CTA";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Website Development $300–$1000 | India · USA · UK | Value Tech Solution",
+      "Bespoke Starter Website Sprints | India · USA · UK | Value Tech Solution",
   },
   description:
-    "Professional websites from $300 (₹25,000) for businesses in India, USA, and UK. Next.js, SEO-ready, Lighthouse 95+, 2–4 week delivery. Fixed price.",
+    "Professional, custom Next.js websites for startups and modern businesses in India, USA, and UK. SEO-ready, Lighthouse 98+, 2–4 week delivery. Fixed-price quotes.",
   keywords: [
     "website development USA",
     "website development UK",
     "website development India",
-    "affordable website development",
-    "$500 website development",
-    "$300 website",
-    "$1000 website",
-    "cheap website development India",
-    "website development agency $500",
-    "budget website development",
-    "starter website package India",
-    "professional website India ₹25000",
-    "Next.js website affordable",
+    "custom website development",
+    "Next.js agency India",
+    "modern web design studio",
+    "starter website sprint India",
+    "Next.js website studio",
     "small business website USA UK India",
   ],
   alternates: {
     canonical: "https://valuetechsolution.com/services/starter-website",
   },
   openGraph: {
-    title: "Affordable Website Development $300–$1000 | India · USA · UK",
+    title: "Bespoke Starter Website Sprints | India · USA · UK",
     description:
-      "Professional websites from $300 for businesses in India, USA, and UK. Fast, SEO-ready, mobile-first. Fixed price, 2–4 week delivery.",
+      "Professional websites for ambitious businesses in India, USA, and UK. Fast, SEO-ready, mobile-first. Guaranteed fixed-price sprint quote.",
     url: "https://valuetechsolution.com/services/starter-website",
     siteName: "Value Tech Solution",
     type: "website",
@@ -41,28 +36,24 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Website Development $300–$1000 | India · USA · UK",
+    title: "Bespoke Starter Website Sprints | India · USA · UK",
     description:
-      "Professional websites from $300 (₹25,000). Next.js, SEO-ready, Lighthouse 95+, 2–4 weeks.",
+      "Professional websites for modern businesses. Next.js, SEO-ready, Lighthouse 98+, 2–4 weeks. Guaranteed fixed quote.",
   },
 };
 
 const faqs = [
   {
-    q: "How much does website development cost in India?",
-    a: "Value Tech Solution builds professional Next.js websites in India starting at ₹25,000 ($300). The Starter plan covers 3 pages; the Pro plan at ₹41,500 ($499) covers 5 pages with full SEO setup; the Business plan at ₹83,000 ($999) covers up to 10 pages with blog, custom animations, and priority support. All plans include mobile-first design, Lighthouse 95+ performance, and GST-compliant invoicing.",
+    q: "How does project scoping and quoting work?",
+    a: "We hop on a free 20-minute discovery call to review your target audience, required pages, design preferences, and technical integrations. Within 24 hours, we deliver a comprehensive scoping document with an exact fixed-price quote and milestone calendar.",
   },
   {
-    q: "How much does website development cost in the USA?",
-    a: "Our website development packages for US clients start at $300 for a 3-page starter site, $499 for a 5-page professional site, and $999 for a 10-page business site. All packages include Next.js development, Core Web Vitals optimisation, SEO fundamentals, and US-timezone-compatible async communication. Payment via Stripe or wire transfer.",
+    q: "How fast can you deliver a custom website?",
+    a: "Our standard sprint delivers in 2 to 4 weeks depending on scope. Early-stage 3-page sites take 2 weeks, full 5-page conversion sites take 3 weeks, and multi-page portals with CMS integration take 4 weeks. Timeline starts from the day we receive brand assets.",
   },
   {
-    q: "How much does website development cost in the UK?",
-    a: "UK clients can access the same packages as US clients — Starter from $300, Pro $499, Business $999 — with payments accepted in GBP via Stripe. Value Tech Solution has delivered websites for UK businesses including London-based marketing agencies and SaaS startups. All sites are built for Core Web Vitals compliance as required by Google UK rankings.",
-  },
-  {
-    q: "How long does it take to build a website?",
-    a: "The Starter (3-page) package delivers in 2 weeks. The Pro (5-page) package delivers in 3 weeks. The Business (10-page) package delivers in 4–5 weeks. Timeline starts from the day we receive your content (copy and images). We send a day-by-day project timeline before you pay anything.",
+    q: "What payment methods do you accept?",
+    a: "Indian clients can pay in INR via UPI, RTGS, or Razorpay with GST-compliant tax invoices. International clients in the US, UK, and Europe can pay via Stripe, ACH, or international bank wire.",
   },
   {
     q: "What technology do you use to build websites?",
@@ -70,30 +61,24 @@ const faqs = [
   },
   {
     q: "Is the website SEO-ready?",
-    a: "Yes. Every package includes technical SEO fundamentals: correct meta titles and descriptions, Open Graph tags, JSON-LD schema (Organization, BreadcrumbList, FAQPage), Google Search Console setup, XML sitemap submission, robots.txt with AI crawler allowlisting, and /llms.txt for AI search visibility. The Pro and Business plans additionally include keyword-optimised page headings and on-page copy structure.",
+    a: "Yes. Every project includes technical SEO fundamentals: correct meta titles and descriptions, Open Graph tags, JSON-LD schema (Organization, BreadcrumbList, FAQPage), Google Search Console setup, XML sitemap submission, robots.txt with AI crawler allowlisting, and /llms.txt for AI search visibility.",
   },
   {
-    q: "Do you offer Indian pricing with INR payment?",
-    a: "Yes. Indian clients pay in INR via UPI, RTGS, or Razorpay. Starter: ₹25,000 · Pro: ₹41,500 · Business: ₹83,000. All payments come with a GST-compliant invoice. We are based in Delhi and serve clients across Delhi, Bangalore, Mumbai, Pune, Hyderabad, and Chennai.",
-  },
-  {
-    q: "What if I need more than 10 pages?",
-    a: "The Business plan covers up to 10 pages. Beyond that, we quote custom engagements starting at $1,200 / ₹1,00,000. Larger sites typically include a headless CMS (Sanity or Contentlayer) so your team can add pages without developer involvement. Book a free 30-minute call to scope your specific needs.",
+    q: "What if I need more complex features or dynamic CMS?",
+    a: "We specialize in custom web applications with headless CMS (Sanity, Strapi, or Contentlayer), database integrations (PostgreSQL, Supabase), and client portals. Book a free 30-minute call to scope your specific requirements.",
   },
 ];
 
 const tiers = [
   {
     name: "Starter",
-    priceUSD: "$300",
-    priceINR: "₹25,000",
     tagline: "For solo founders and early-stage startups",
     pages: "3 pages",
     delivery: "2 weeks",
     highlight: false,
     features: [
       "Home · About · Contact",
-      "Mobile-first, Lighthouse 90+",
+      "Mobile-first, Lighthouse 98+",
       "Contact form with email delivery",
       "Meta tags + Open Graph",
       "Basic JSON-LD schema",
@@ -104,15 +89,13 @@ const tiers = [
   },
   {
     name: "Pro",
-    priceUSD: "$499",
-    priceINR: "₹41,500",
     tagline: "Most popular for small businesses",
     pages: "5 pages",
     delivery: "3 weeks",
     highlight: true,
     features: [
       "5 pages of your choice",
-      "Mobile-first, Lighthouse 95+",
+      "Mobile-first, Lighthouse 98+",
       "Contact form with email delivery",
       "Full SEO meta setup + OG",
       "JSON-LD: Org · Breadcrumb · FAQ",
@@ -126,8 +109,6 @@ const tiers = [
   },
   {
     name: "Business",
-    priceUSD: "$999",
-    priceINR: "₹83,000",
     tagline: "For growing businesses needing more",
     pages: "Up to 10 pages",
     delivery: "4–5 weeks",
@@ -135,7 +116,7 @@ const tiers = [
     features: [
       "Up to 10 pages",
       "Blog / CMS integration",
-      "Mobile-first, Lighthouse 95+",
+      "Mobile-first, Lighthouse 98+",
       "Custom animations (GPU-safe)",
       "Full schema suite (Service + Article)",
       "Complete SEO foundation",
@@ -155,7 +136,6 @@ const markets = [
     cities: "Delhi · Bangalore · Mumbai · Pune · Hyderabad",
     currency: "INR — UPI · RTGS · Razorpay",
     note: "GST-compliant invoices. IST timezone. Hindi + English communication.",
-    priceFrom: "₹25,000",
   },
   {
     icon: Globe,
@@ -163,7 +143,6 @@ const markets = [
     cities: "New York · San Francisco · Chicago · Austin · Seattle",
     currency: "USD — Stripe · Wire transfer",
     note: "ET / PT timezone overlap. Async Loom updates. Contracts in USD.",
-    priceFrom: "$300",
   },
   {
     icon: Globe,
@@ -171,7 +150,6 @@ const markets = [
     cities: "London · Manchester · Birmingham · Edinburgh",
     currency: "GBP — Stripe · Wire transfer",
     note: "GMT timezone. Async-first. GBP billing available on request.",
-    priceFrom: "$300",
   },
 ];
 
@@ -181,7 +159,7 @@ export default function StarterWebsitePage() {
       <ServiceSchema
         name="Starter Website Development"
         serviceType="Web Development"
-        description="Professional website development from $300 to $999 for businesses in India, USA, and UK. Next.js, SEO-ready, Lighthouse 95+, 2–4 week delivery."
+        description="Professional website sprints for businesses in India, USA, and UK. Next.js, SEO-ready, Lighthouse 98+, 2–4 week delivery."
         url="https://valuetechsolution.com/services/starter-website"
       />
       <FAQSchema items={faqs} />
@@ -200,19 +178,19 @@ export default function StarterWebsitePage() {
             <div className="lg:col-span-7">
               <span className="eyebrow">
                 <span className="h-px w-8 bg-carbon-500" />
-                Website development · $300 – $1,000
+                Starter Website Sprints · Custom Scoped
               </span>
               <h1 className="heading-xl mt-8">
                 Professional websites.{" "}
                 <span className="italic-accent text-carbon-500">
-                  Fixed price.
+                  Fixed quotes.
                 </span>
               </h1>
             </div>
             <div className="lg:col-span-5">
               <p className="lede max-w-md">
-                We build fast, SEO-ready Next.js websites for businesses in
-                India, USA, and UK — from $300. No templates. No WordPress.
+                We build fast, SEO-ready Next.js websites for ambitious businesses in
+                India, USA, and UK. No templates. No WordPress.
                 No surprises on invoice day.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -232,7 +210,7 @@ export default function StarterWebsitePage() {
       <section className="border-y border-carbon-950/[0.08] bg-carbon-950/[0.02] py-6">
         <div className="container-x">
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12">
-            {["India · from ₹25,000", "USA · from $300", "UK · from $300", "Delivered in 2–4 weeks", "Lighthouse 95+ guaranteed"].map((t) => (
+            {["India · Custom Sprints", "USA · Fixed Quotes", "UK · Tailored Scope", "Delivered in 2–4 weeks", "Lighthouse 98+ guaranteed"].map((t) => (
               <span key={t} className="font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-500">
                 {t}
               </span>
@@ -248,12 +226,12 @@ export default function StarterWebsitePage() {
             <div className="lg:col-span-5">
               <span className="eyebrow">
                 <span className="h-px w-8 bg-carbon-500" />
-                Transparent pricing
+                Engagement options
               </span>
               <h2 className="heading-lg mt-8">
-                Three tiers.
+                Three sprint models.
                 <br />
-                <span className="italic-accent text-carbon-500">No hidden fees.</span>
+                <span className="italic-accent text-carbon-500">Guaranteed fixed quotes.</span>
               </h2>
             </div>
             <p className="lede max-w-md lg:col-span-7 lg:mt-28">
@@ -283,12 +261,13 @@ export default function StarterWebsitePage() {
                   <p className={`font-mono text-[10px] uppercase tracking-[0.28em] ${tier.highlight ? "text-white/55" : "text-carbon-400"}`}>
                     {tier.name}
                   </p>
-                  <p className={`mt-3 font-display text-5xl font-bold tracking-[-0.04em] ${tier.highlight ? "text-white" : "text-carbon-950"}`}>
-                    {tier.priceUSD}
-                  </p>
-                  <p className={`mt-1 font-mono text-sm ${tier.highlight ? "text-emerald-400" : "text-carbon-500"}`}>
-                    {tier.priceINR} for India
-                  </p>
+                  <div className="mt-4 flex items-center">
+                    <span className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${
+                      tier.highlight ? "bg-white/20 text-white" : "bg-primary/10 text-primary"
+                    }`}>
+                      Custom Scope · Fixed Quote
+                    </span>
+                  </div>
                   <p className={`mt-3 text-sm ${tier.highlight ? "text-white/65" : "text-carbon-500"}`}>
                     {tier.tagline}
                   </p>
@@ -321,14 +300,14 @@ export default function StarterWebsitePage() {
                       : "bg-carbon-950 text-white hover:bg-carbon-700"
                   }`}
                 >
-                  Get started <ArrowUpRight size={14} />
+                  Book a Discovery Call <ArrowUpRight size={14} />
                 </Link>
               </div>
             ))}
           </div>
 
           <p className="mt-8 text-center text-xs text-carbon-400">
-            All prices are fixed — what you see is what you pay. INR invoices include GST. USD invoices are exclusive of local taxes.
+            Every engagement has a guaranteed fixed quote and delivery timeline agreed upon during your discovery call.
           </p>
         </div>
       </section>
@@ -357,8 +336,8 @@ export default function StarterWebsitePage() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
                   {m.region}
                 </p>
-                <p className="mt-4 font-display text-3xl font-bold tracking-[-0.03em] text-carbon-950">
-                  From {m.priceFrom}
+                <p className="mt-4 font-display text-2xl font-bold tracking-tight text-carbon-950">
+                  Tailored Sprint
                 </p>
                 <p className="mt-2 text-sm text-carbon-500">{m.cities}</p>
                 <div className="mt-6 space-y-2 border-t border-carbon-950/[0.06] pt-6">
@@ -428,7 +407,7 @@ export default function StarterWebsitePage() {
               Common questions
             </span>
             <h2 className="heading-lg mt-8 max-w-2xl">
-              Website development pricing —{" "}
+              Website development & sprints —{" "}
               <span className="italic-accent text-carbon-500">answered plainly.</span>
             </h2>
           </div>

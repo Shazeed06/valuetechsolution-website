@@ -257,13 +257,13 @@ export default function ServiceDetail({
                 >
                   {p.name}
                 </p>
-                <p
-                  className={`mt-3 font-display text-4xl font-bold tracking-[-0.04em] ${
-                    p.highlight ? "text-white" : "text-carbon-950"
-                  }`}
-                >
-                  {p.price}
-                </p>
+                <div className="mt-4 flex items-center">
+                  <span className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${
+                    p.highlight ? "bg-white/20 text-white" : "bg-primary/10 text-primary"
+                  }`}>
+                    Tailored Quote · Fixed Scope
+                  </span>
+                </div>
                 <ul className="mt-6 flex-1 space-y-3">
                   {p.bullets.map((b) => (
                     <li
@@ -290,7 +290,7 @@ export default function ServiceDetail({
                       : "bg-carbon-950 text-white hover:bg-carbon-700"
                   }`}
                 >
-                  Start this engagement
+                  Book a Discovery Call
                 </Link>
               </div>
             ))}

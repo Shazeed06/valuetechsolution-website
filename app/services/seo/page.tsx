@@ -177,7 +177,7 @@ export default function SeoPage() {
         pricing={[
           {
             name: "Audit & Fix",
-            price: "from $499",
+            price: "Audit Sprint",
             bullets: [
               "Technical audit + roadmap",
               "Top-15 critical fixes implemented",
@@ -187,7 +187,7 @@ export default function SeoPage() {
           },
           {
             name: "Growth Retainer",
-            price: "from $799 / mo",
+            price: "Monthly Retainer",
             highlight: true,
             bullets: [
               "Ongoing content + outreach",
@@ -198,12 +198,12 @@ export default function SeoPage() {
           },
           {
             name: "Enterprise",
-            price: "custom",
+            price: "Custom Scope",
             bullets: [
               "Multi-region, multi-language",
               "Dedicated SEO lead",
               "Programmatic SEO at scale",
-              "Quarterly executive review",
+              "Executive reporting",
             ],
           },
         ]}

@@ -179,7 +179,7 @@ export default function GHLPage() {
         pricing={[
           {
             name: "GHL kickstart",
-            price: "from $499",
+            price: "Kickstart Sprint",
             bullets: [
               "Single-account setup",
               "1 pipeline + 3 funnels",
@@ -189,7 +189,7 @@ export default function GHLPage() {
           },
           {
             name: "Agency snapshot",
-            price: "from $1,499",
+            price: "Agency Architecture",
             highlight: true,
             bullets: [
               "Reusable agency snapshot",
@@ -200,7 +200,7 @@ export default function GHLPage() {
           },
           {
             name: "GHL retainer",
-            price: "from $799 / mo",
+            price: "Monthly Retainer",
             bullets: [
               "Ongoing system tuning",
               "New automations monthly",
