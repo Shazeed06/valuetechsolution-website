@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { contactConfig } from "@/lib/contact-config";
 import { ArrowUpRight } from "lucide-react";
+import Logo from "@/components/Logo";
 
 export default function Footer() {
   return (
@@ -14,13 +15,8 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="md:col-span-5">
-            <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
-              <span className="w-8 h-8 rounded-full bg-[#141414] text-white flex items-center justify-center font-montserrat font-black text-sm group-hover:bg-primary transition-colors">
-                V
-              </span>
-              <span className="font-montserrat font-bold text-xl text-[#141414] tracking-tight">
-                Value Tech<span className="text-primary font-serif italic text-xl ml-0.5">.</span>
-              </span>
+            <Link href="/" className="inline-block mb-4" aria-label="Value Tech Solution Home">
+              <Logo size="md" />
             </Link>
 
             <p className="text-sm text-[#7d7b77] font-medium leading-relaxed max-w-sm mb-6">

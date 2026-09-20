@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { contactConfig } from "@/lib/contact-config";
+import Logo from "@/components/Logo";
 
 const navLinks = [
   { name: "About", href: "/about" },
@@ -37,13 +38,8 @@ export default function Navbar() {
       <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="w-8 h-8 rounded-full bg-[#141414] text-white flex items-center justify-center font-montserrat font-black text-sm group-hover:bg-primary transition-colors">
-              V
-            </span>
-            <span className="font-montserrat font-bold text-lg sm:text-xl text-[#141414] tracking-tight">
-              Value Tech<span className="text-primary font-serif italic text-xl ml-0.5">.</span>
-            </span>
+          <Link href="/" aria-label="Value Tech Solution Home">
+            <Logo size="md" />
           </Link>
 
           {/* Desktop Nav Links */}

@@ -1,0 +1,13 @@
+<svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vtArrow" x1="8" y1="36" x2="38" y2="6" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1ab9a2" />
+      <stop offset="60%" stop-color="#1dd3b9" />
+      <stop offset="100%" stop-color="#25f5d8" />
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="40" height="40" rx="12" fill="#141414" />
+  <path d="M10 12H16.8L21.2 26.5L18.4 27.5L10 12Z" fill="#ffffff" />
+  <path d="M20 29.5L16.2 33H22L25 25L21.5 24.5L20 29.5Z" fill="#ffffff" />
+  <path d="M9 28C14.5 25.5 20.5 20 27.5 12.5L24 10H34V20L30.5 16.5C24.5 23 18 28.5 9 28Z" fill="url(#vtArrow)" />
+</svg>

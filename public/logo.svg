@@ -1,0 +1,28 @@
+<svg viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vtFullArrow" x1="8" y1="38" x2="38" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1ab9a2" />
+      <stop offset="60%" stop-color="#1dd3b9" />
+      <stop offset="100%" stop-color="#25f5d8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Logo Mark -->
+  <g transform="translate(2, 2)">
+    <rect x="2" y="2" width="40" height="40" rx="12" fill="#141414" />
+    <path d="M10 12H16.8L21.2 26.5L18.4 27.5L10 12Z" fill="#ffffff" />
+    <path d="M20 29.5L16.2 33H22L25 25L21.5 24.5L20 29.5Z" fill="#ffffff" />
+    <path d="M9 28C14.5 25.5 20.5 20 27.5 12.5L24 10H34V20L30.5 16.5C24.5 23 18 28.5 9 28Z" fill="url(#vtFullArrow)" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(56, 12)">
+    <text x="0" y="16" font-family="'Montserrat', sans-serif" font-weight="900" font-size="18" letter-spacing="-0.02em" fill="#141414">
+      VALUE TECH
+    </text>
+    <circle cx="126" cy="12" r="3" fill="#1ab9a2" />
+    <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="700" font-size="8.5" letter-spacing="0.24em" fill="#7d7b77">
+      SOLUTIONS
+    </text>
+  </g>
+</svg>
