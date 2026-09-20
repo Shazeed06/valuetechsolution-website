@@ -85,11 +85,11 @@ export default function Hero() {
           {/* Left Column: High-Converting Headline & Value Proposition */}
           <div className="lg:col-span-6 flex flex-col items-start text-left">
             
-            {/* Urgent Eyebrow Badge */}
+            {/* Eyebrow Badge */}
             <div className="inline-flex items-center gap-2 bg-[#f7f2ea] border border-[#d8d3ce] px-4 py-1.5 rounded-full mb-5 shadow-xs">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="text-xs font-bold uppercase tracking-[0.1em] text-[#141414]">
-                Web Development Studio · Accepting Q4 Projects
+                Web Development Studio · High-Performance Engineering
               </span>
             </div>
 

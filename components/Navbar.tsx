@@ -123,7 +123,7 @@ export default function Navbar() {
             <span>Navigation</span>
             <span className="flex items-center gap-1.5 text-emerald-400">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Available for Q4
+              Available for Projects
             </span>
           </div>
 
