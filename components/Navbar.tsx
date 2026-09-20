@@ -11,6 +11,7 @@ const navLinks = [
   { name: "Services", href: "/services", accent: "hover:text-[#fb72cc]", badge: "Hot" },
   { name: "Work", href: "/work", accent: "hover:text-[#fea800]" },
   { name: "Process", href: "/process", accent: "hover:text-[#1ab9a2]" },
+  { name: "Blog", href: "/blog", accent: "hover:text-[#fb72cc]" },
   { name: "Contact", href: "/contact", accent: "hover:text-[#fea800]" },
 ];
 
