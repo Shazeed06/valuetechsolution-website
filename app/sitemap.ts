@@ -6,6 +6,9 @@ const BASE = "https://valuetechsolution.com";
 
 const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE}/`, changeFrequency: "weekly", priority: 1.0 },
+  { url: `${BASE}/services`, changeFrequency: "weekly", priority: 0.9 },
+  { url: `${BASE}/process`, changeFrequency: "monthly", priority: 0.85 },
+  { url: `${BASE}/work`, changeFrequency: "weekly", priority: 0.85 },
   { url: `${BASE}/about`, changeFrequency: "monthly", priority: 0.8 },
   { url: `${BASE}/contact`, changeFrequency: "monthly", priority: 0.8 },
   { url: `${BASE}/blog`, changeFrequency: "daily", priority: 0.9 },

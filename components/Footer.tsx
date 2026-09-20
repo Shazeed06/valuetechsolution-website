@@ -68,10 +68,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/pricing"
+                  href="/process"
                   className="text-white font-bold text-base sm:text-lg hover:text-[#1ab9a2] transition-colors block"
                 >
-                  Pricing
+                  Our Process
                 </Link>
               </li>
               <li>

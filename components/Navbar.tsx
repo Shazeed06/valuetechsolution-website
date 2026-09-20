@@ -10,8 +10,7 @@ const navLinks = [
   { name: "About", href: "/about", accent: "hover:text-[#1ab9a2]" },
   { name: "Services", href: "/services", accent: "hover:text-[#fb72cc]", badge: "Hot" },
   { name: "Work", href: "/work", accent: "hover:text-[#fea800]" },
-  { name: "Process", href: "/#process", accent: "hover:text-[#1ab9a2]" },
-  { name: "Pricing", href: "/pricing", accent: "hover:text-[#fb72cc]" },
+  { name: "Process", href: "/process", accent: "hover:text-[#1ab9a2]" },
   { name: "Contact", href: "/contact", accent: "hover:text-[#fea800]" },
 ];
 
@@ -85,15 +84,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right Action: Cute Status Chip + Signature GUD Agency Teal CTA Pill Button */}
+        {/* Right Action: Signature GUD Agency Teal CTA Pill Button */}
         <div className="hidden sm:flex items-center gap-3">
-          
-          {/* Cute Live Indicator Chip */}
-          <div className="hidden lg:inline-flex items-center gap-2 bg-white/10 border border-white/15 px-3 py-1.5 rounded-full text-xs font-bold text-white/90 shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[11px] font-bold">Accepting Q4</span>
-          </div>
-
           {/* Teal Pill CTA */}
           <Link
             href="/contact"
@@ -102,7 +94,6 @@ export default function Navbar() {
             <span>Book a Call</span>
             <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
-
         </div>
 
         {/* Mobile Menu Hamburger Button */}
