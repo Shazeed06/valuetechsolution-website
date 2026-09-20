@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Star, Sparkles, CheckCircle2, Zap, TrendingUp, Laptop, Smartphone } from "lucide-react";
+import { ArrowUpRight, Star, CheckCircle2, Laptop } from "lucide-react";
 
 const clientLogos = [
   { name: "Techstars", label: "techstars" },
@@ -19,8 +19,8 @@ export default function Hero() {
       <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-[#1ab9a2]/15 rounded-full blur-[120px] pointer-events-none -z-10" />
       <div className="absolute top-1/3 left-[-100px] w-[450px] h-[450px] bg-[#fb72cc]/10 rounded-full blur-[130px] pointer-events-none -z-10" />
 
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* Left Column: High-Converting Headline & Value Proposition */}
           <div className="lg:col-span-6 flex flex-col items-start text-left">
@@ -106,40 +106,15 @@ export default function Hero() {
 
           </div>
 
-          {/* Right Column: Prominent, Grand Browser + Mobile Showcase with ZERO Overlapping Over Video */}
-          <div className="lg:col-span-6 flex justify-center lg:justify-end relative pt-6 pb-6">
-            <div className="relative w-full max-w-[540px] sm:max-w-[580px] lg:max-w-[620px]">
+          {/* Right Column: Clean Desktop & Phone Composition Matched to Reference Image (Tags Removed) */}
+          <div className="lg:col-span-6 flex justify-center lg:justify-end relative pt-4 pb-6">
+            <div className="relative w-full max-w-[560px] sm:max-w-[620px] lg:max-w-[650px] group">
               
-              {/* Floating Satellite Badge 1: Cleanly positioned ABOVE the browser (Zero Overlap) */}
-              <div className="absolute -top-7 right-2 sm:right-6 z-30 bg-white/95 backdrop-blur-md rounded-2xl px-3.5 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.08)] border border-[#ece9e1] flex items-center gap-2.5 transition-transform hover:scale-105 duration-300">
-                <div className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0">
-                  <Zap className="w-3.5 h-3.5 fill-primary" />
-                </div>
-                <div className="text-left">
-                  <div className="text-xs font-bold text-[#141414] flex items-center gap-1 leading-tight">
-                    <span>99 Lighthouse</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  </div>
-                  <div className="text-[10px] text-[#7d7b77] font-medium">Core Web Vitals Pass</div>
-                </div>
-              </div>
-
-              {/* Floating Satellite Badge 2: Cleanly positioned BELOW the browser on bottom-right (Zero Overlap) */}
-              <div className="absolute -bottom-6 right-2 sm:right-6 z-30 bg-white/95 backdrop-blur-md rounded-2xl px-3.5 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.08)] border border-[#ece9e1] flex items-center gap-2 transition-transform hover:scale-105 duration-300">
-                <div className="w-7 h-7 rounded-lg bg-tertiary/15 text-tertiary flex items-center justify-center shrink-0">
-                  <TrendingUp className="w-3.5 h-3.5" />
-                </div>
-                <div className="text-left">
-                  <div className="text-xs font-bold text-[#141414] leading-tight">3.2x Conversion Lift</div>
-                  <div className="text-[10px] text-[#7d7b77] font-medium">Engineered to Sell</div>
-                </div>
-              </div>
-
-              {/* Main Desktop Browser Frame - Grand & Prominent */}
-              <div className="relative w-full bg-white rounded-[24px] sm:rounded-[28px] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.16)] border border-[#d8d3ce] overflow-hidden group">
+              {/* Main Desktop Browser Frame - Clean with NO Tags, NO Overlay text */}
+              <div className="relative w-full bg-white rounded-[26px] sm:rounded-[32px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.14)] border border-[#d8d3ce] overflow-hidden">
                 
                 {/* Browser Header Bar */}
-                <div className="bg-[#f7f2ea] px-4 py-2.5 border-b border-[#ece9e1] flex items-center justify-between">
+                <div className="bg-[#f7f2ea] px-4 py-2.5 sm:py-3 border-b border-[#ece9e1] flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
@@ -147,18 +122,18 @@ export default function Hero() {
                   </div>
                   
                   {/* Browser Address Bar */}
-                  <div className="flex items-center gap-2 bg-white px-3.5 py-1 rounded-full border border-[#ece9e1] text-[11px] font-medium text-[#7d7b77] w-64 max-w-[60%] justify-center shadow-xs">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <div className="flex items-center gap-2 bg-white px-4 py-1 rounded-full border border-[#ece9e1] text-[11px] font-medium text-[#7d7b77] w-64 max-w-[60%] justify-center shadow-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     <span className="truncate text-[#141414] font-semibold">valuetechsolution.com</span>
                   </div>
 
-                  <div className="flex items-center gap-1 text-[#7d7b77]">
+                  <div className="flex items-center gap-1 text-[#7d7b77]/60">
                     <Laptop className="w-3.5 h-3.5" />
                   </div>
                 </div>
 
-                {/* Viewport: High-impact 3D Web Motion Video (Entire Video 100% Clear & Visible) */}
-                <div className="relative aspect-[16/9.5] w-full bg-[#141414] overflow-hidden">
+                {/* Viewport: Pure 3D Web Design Motion Video - Completely Unobscured */}
+                <div className="relative aspect-[16/10] w-full bg-[#141414] overflow-hidden">
                   <video
                     src="/videos/services/web-design.mp4"
                     autoPlay
@@ -172,32 +147,20 @@ export default function Hero() {
                       target.src = "https://framerusercontent.com/assets/4K6zXdlvxNmH7jGydrlDfMxo6c.mp4";
                     }}
                   />
-                  
-                  {/* Subtle Visual Overlay Banner */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent flex flex-col justify-end p-4 sm:p-5 text-white pointer-events-none">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="bg-primary text-[#141414] text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">
-                        Live Architecture
-                      </span>
-                      <span className="text-[10px] text-white/70">Next.js 16 · Tailwind · Motion</span>
-                    </div>
-                    <h4 className="font-montserrat font-bold text-sm sm:text-base lg:text-lg text-white leading-tight">
-                      Modern Web Engineering That Outperforms
-                    </h4>
-                  </div>
                 </div>
 
               </div>
 
-              {/* Layered Smartphone on Bottom-Left (Compact & Offset so it does NOT block the browser artwork) */}
-              <div className="absolute -bottom-6 -left-3 sm:-left-8 w-[130px] sm:w-[150px] h-[225px] sm:h-[255px] bg-[#141414] rounded-[28px] p-1.5 shadow-2xl border-[4px] border-white z-20 overflow-hidden flex flex-col group/phone hover:scale-105 transition-transform duration-300">
-                {/* iPhone Notch */}
-                <div className="w-10 h-2 bg-black rounded-full mx-auto mb-1 flex items-center justify-end pr-1">
+              {/* Tilted Smartphone positioned on Bottom-Left exactly like Reference Image */}
+              <div className="absolute -bottom-4 sm:-bottom-6 -left-2 sm:-left-6 w-[145px] sm:w-[175px] md:w-[190px] h-[270px] sm:h-[325px] md:h-[350px] bg-[#141414] rounded-[34px] sm:rounded-[40px] p-2 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-[5px] sm:border-[6px] border-[#141414] z-20 overflow-hidden flex flex-col rotate-[-5deg] group-hover:rotate-0 transition-transform duration-500">
+                
+                {/* iPhone Dynamic Notch */}
+                <div className="w-14 h-2.5 bg-black rounded-full mx-auto mb-1.5 flex items-center justify-end pr-1 z-20">
                   <div className="w-1 h-1 rounded-full bg-[#222]" />
                 </div>
                 
-                {/* Inner Screen */}
-                <div className="w-full h-full bg-[#191919] rounded-[20px] overflow-hidden relative flex flex-col justify-between p-2">
+                {/* Inner Screen with Live Interactive Motion Loop Video */}
+                <div className="w-full h-full bg-[#191919] rounded-[26px] sm:rounded-[30px] overflow-hidden relative flex flex-col justify-between p-2">
                   <video
                     src="/videos/services/social-management.mp4"
                     autoPlay
@@ -211,16 +174,24 @@ export default function Hero() {
                       target.src = "https://framerusercontent.com/assets/64ZMhO5aQtuzPw6cPEGQKIEos.mp4";
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40 pointer-events-none" />
                   
-                  <div className="relative z-10 flex items-center justify-between text-[7.5px] font-bold text-primary">
-                    <span>● MOBILE READY</span>
-                    <Smartphone className="w-2.5 h-2.5 text-white/80" />
+                  {/* Status Bar */}
+                  <div className="relative z-10 flex items-center justify-between text-[8px] font-bold text-white/90 px-1 pt-0.5">
+                    <span>9:41</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   </div>
-                  
-                  <div className="relative z-10 text-white text-[8px] font-semibold leading-tight">
-                    Responsive on all screens
-                  </div>
+
+                  {/* Bottom Home Indicator */}
+                  <div className="relative z-10 w-16 h-1 bg-white/40 rounded-full mx-auto mb-0.5" />
+                </div>
+
+              </div>
+
+              {/* Minimalist 3D Plant Accent on Bottom Right matching Reference Scene */}
+              <div className="absolute -bottom-2 -right-2 sm:-right-4 z-10 flex items-end gap-1.5 pointer-events-none opacity-90">
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-tertiary to-amber-200 shadow-md transform translate-y-1" />
+                <div className="w-8 h-10 sm:w-10 sm:h-12 bg-white rounded-2xl shadow-md border border-[#d8d3ce]/60 flex items-center justify-center p-1">
+                  <span className="text-base sm:text-lg">🪴</span>
                 </div>
               </div>
 
@@ -229,7 +200,7 @@ export default function Hero() {
 
         </div>
 
-        {/* Client Logo Strip - Compact to guarantee 100vh fit */}
+        {/* Client Logo Strip - Compact for 100vh Viewport Fit */}
         <div className="mt-8 sm:mt-10 pt-4 border-t border-[#d8d3ce]/50">
           <p className="text-[11px] font-bold uppercase tracking-widest text-[#7d7b77]/80 mb-3 text-center">
             Trusted by tech startups & ambitious brands worldwide
