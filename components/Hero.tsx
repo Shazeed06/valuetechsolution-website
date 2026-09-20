@@ -3,13 +3,73 @@
 import Link from "next/link";
 import { ArrowUpRight, Star, CheckCircle2, Laptop } from "lucide-react";
 
-const clientLogos = [
-  { name: "Techstars", label: "techstars" },
-  { name: "Y Combinator", label: "Y Combinator" },
-  { name: "TechCrunch", label: "TechCrunch" },
-  { name: "NETFLIX", label: "NETFLIX" },
-  { name: "Forbes", label: "Forbes" },
-  { name: "Sequoia", label: "SEQUOIA" },
+const techStack = [
+  {
+    name: "Next.js",
+    label: "Next.js",
+    icon: (
+      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.836 18.064l-6.85-8.83v8.83H9.418V5.936h1.568l6.85 8.83V5.936h1.568v12.128h-1.568z" />
+      </svg>
+    ),
+  },
+  {
+    name: "React",
+    label: "React",
+    icon: (
+      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <ellipse cx="12" cy="12" rx="10" ry="4" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
+    name: "TypeScript",
+    label: "TypeScript",
+    icon: (
+      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+        <path d="M3 3h18v18H3V3zm10.7 7.7h-2.1v6.7h-1.9v-6.7H7.6V9h6.1v1.7zm5 3.3c0-1.7-1.1-2.4-2.8-2.8-.9-.2-1.3-.5-1.3-.9 0-.4.4-.7 1.1-.7.8 0 1.5.3 1.9.7l1.1-1.3C18 8.3 17 8 15.7 8c-2 0-3.1 1.1-3.1 2.5 0 1.5 1 2.2 2.6 2.6.9.2 1.5.5 1.5 1 0 .5-.5.8-1.2.8-1 0-1.9-.4-2.4-1.1l-1.2 1.2c.8 1.1 2 1.6 3.6 1.6 2.1 0 3.2-1.1 3.2-2.9z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Tailwind CSS",
+    label: "Tailwind CSS",
+    icon: (
+      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+        <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zM6.001 12c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Node.js",
+    label: "Node.js",
+    icon: (
+      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+        <path d="M12 1l10.392 6v12L12 25 1.608 19V7L12 1zm0 2.309L3.608 7.695v9.61L12 21.691l8.392-4.386v-9.61L12 3.309z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Vercel",
+    label: "Vercel",
+    icon: (
+      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+        <path d="M12 2L24 22H0L12 2z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Figma",
+    label: "Figma",
+    icon: (
+      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+        <path d="M8 24c2.2 0 4-1.8 4-4v-4H8c-2.2 0-4 1.8-4 4s1.8 4 4 4zM4 12c0-2.2 1.8-4 4-4h4v8H8c-2.2 0-4-1.8-4-4zm0-8c0-2.2 1.8-4 4-4h4v8H8C5.8 8 4 6.2 4 4zm8-4h4c2.2 0 4 1.8 4 4s-1.8 4-4 4h-4V0zm0 8h4c2.2 0 4 1.8 4 4s-1.8 4-4 4c-2.2 0-4-1.8-4-4V8z" />
+      </svg>
+    ),
+  },
 ];
 
 export default function Hero() {
@@ -192,18 +252,19 @@ export default function Hero() {
 
         </div>
 
-        {/* Client Logo Strip - Compact for 100vh Viewport Fit */}
+        {/* Modern Web Tech Stack Strip - 100% Genuine, Honest & High-Converting */}
         <div className="mt-8 sm:mt-10 pt-4 border-t border-[#d8d3ce]/50">
           <p className="text-[11px] font-bold uppercase tracking-widest text-[#7d7b77]/80 mb-3 text-center">
-            Trusted by tech startups & ambitious brands worldwide
+            Engineered with modern web technologies & performance standards
           </p>
-          <div className="flex flex-wrap items-center justify-between gap-4 sm:gap-6 opacity-65 hover:opacity-100 transition-opacity">
-            {clientLogos.map((logo) => (
+          <div className="flex flex-wrap items-center justify-center sm:justify-between gap-4 sm:gap-6 opacity-75 hover:opacity-100 transition-opacity">
+            {techStack.map((tech) => (
               <div
-                key={logo.name}
-                className="font-montserrat font-bold text-base sm:text-lg tracking-tight text-[#141414]/70 hover:text-[#141414] transition-colors cursor-default"
+                key={tech.name}
+                className="flex items-center gap-2 font-montserrat font-bold text-sm sm:text-base tracking-tight text-[#141414]/80 hover:text-primary transition-colors cursor-default"
               >
-                {logo.label}
+                <span className="opacity-70 group-hover:opacity-100">{tech.icon}</span>
+                <span>{tech.label}</span>
               </div>
             ))}
           </div>
