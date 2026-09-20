@@ -21,34 +21,32 @@ export default function CookieBanner() {
 
   return (
     <div className="fixed inset-x-4 bottom-4 z-[60] sm:inset-x-auto sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-md">
-      <div className="rounded-2xl border border-carbon-950/15 bg-white p-5 shadow-depth">
-        <div className="flex items-start gap-3">
-          <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full bg-orange-600 text-white">
-            <Cookie size={15} />
+      <div className="rounded-3xl border border-[#ece9e1] bg-white p-5 shadow-2xl">
+        <div className="flex items-start gap-3.5">
+          <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary/15 text-primary">
+            <Cookie size={18} />
           </span>
           <div className="flex-1">
-            <p className="font-display text-base font-bold tracking-[-0.01em] text-carbon-950">
-              Cookies — the boring kind.
+            <p className="font-montserrat text-sm font-bold tracking-tight text-[#141414]">
+              Cookie Preferences
             </p>
-            <p className="mt-1.5 text-sm leading-relaxed text-carbon-500">
-              We use a small number of cookies to understand which pages get
-              read and to keep the site fast. Pick what you're comfortable
-              with.{" "}
-              <Link href="/privacy" className="underline underline-offset-2">
+            <p className="mt-1 text-xs leading-relaxed text-[#7d7b77]">
+              We use minimal cookies for site performance and speed telemetry.{" "}
+              <Link href="/privacy" className="underline hover:text-black">
                 Privacy policy
               </Link>
               .
             </p>
-            <div className="mt-4 flex flex-wrap items-center gap-2">
+            <div className="mt-3.5 flex flex-wrap items-center gap-2">
               <button
                 onClick={() => decide("all")}
-                className="rounded-full bg-orange-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-orange-700"
+                className="rounded-full bg-[#141414] hover:bg-black px-4 py-1.5 text-xs font-semibold text-white transition-all active:scale-95"
               >
                 Allow all
               </button>
               <button
                 onClick={() => decide("essential")}
-                className="rounded-full border border-carbon-950/15 bg-white px-4 py-2 text-xs font-semibold text-carbon-700 transition hover:border-carbon-950 hover:text-carbon-950"
+                className="rounded-full border border-[#d8d3ce] bg-[#f7f2ea] hover:bg-[#ece9e1] px-4 py-1.5 text-xs font-semibold text-[#141414] transition-all"
               >
                 Essential only
               </button>
@@ -57,7 +55,7 @@ export default function CookieBanner() {
           <button
             aria-label="Dismiss"
             onClick={() => decide("essential")}
-            className="-mr-1 -mt-1 grid h-8 w-8 place-items-center rounded-full text-carbon-400 hover:bg-carbon-950/[0.04] hover:text-carbon-950"
+            className="-mr-1 -mt-1 grid h-7 w-7 place-items-center rounded-full text-[#7d7b77] hover:bg-[#ece9e1]"
           >
             <X size={14} />
           </button>

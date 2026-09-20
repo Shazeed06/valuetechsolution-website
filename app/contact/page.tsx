@@ -2,145 +2,134 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import MediaDivider from "@/components/MediaDivider";
 import ContactForm from "@/components/ContactForm";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Sparkles } from "lucide-react";
 import { BreadcrumbSchema } from "@/components/Schema";
+import { CONTACT, whatsappLinks } from "@/lib/contact-config";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Contact Us — Book a Free Strategy Call | Value Tech Solution",
+    absolute: "Contact Us — Book a Free Discovery Call | Value Tech Solution",
   },
   description:
-    "Book a free 30-min strategy call. We reply within one business day with a written scope and fixed price. Serving Delhi, Bangalore, Mumbai, Dubai, London.",
+    "Book a free 20-min discovery call. We reply within one business day with an itemized scope and fixed price. Serving global startups and ambitious brands.",
   keywords: [
-    "contact AI agency India",
-    "book free strategy call India",
-    "hire AI developer India",
+    "contact web development agency",
+    "book discovery call Next.js",
+    "hire web developer India",
     "Value Tech Solution contact",
-    "AI automation consultation India",
   ],
   alternates: { canonical: "https://valuetechsolution.com/contact" },
-  openGraph: {
-    title: "Contact Us — Book a Free Strategy Call | Value Tech Solution",
-    description:
-      "Tell us about your project. Fixed price. 4-week delivery. Senior engineers only.",
-    url: "https://valuetechsolution.com/contact",
-    siteName: "Value Tech Solution",
-    type: "website",
-    locale: "en_IN",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact Us — Book a Free Strategy Call | Value Tech Solution",
-    description:
-      "Tell us about your project. Fixed price. 4-week delivery. Senior engineers only.",
-  },
 };
-
-import { CONTACT, whatsappLinks } from "@/lib/contact-config";
 
 const waLinks = whatsappLinks();
 
 const channels = [
   {
     icon: Mail,
-    label: "Email",
+    label: "Direct Email",
     value: CONTACT.email,
     href: `mailto:${CONTACT.email}`,
   },
   {
     icon: Phone,
-    label: "WhatsApp",
+    label: "WhatsApp / Call",
     value: waLinks[0].pretty,
     href: waLinks[0].href,
   },
-  { icon: MapPin, label: "HQ", value: "Remote-first · India · UAE · UK" },
-  { icon: Clock, label: "Response", value: "Within 1 business day" },
+  { icon: MapPin, label: "Studio Location", value: "Remote-first · Delhi · London · Dubai" },
+  { icon: Clock, label: "Response Window", value: "Guaranteed within 24 hours" },
 ];
 
 export default function ContactPage() {
   return (
-    <>
+    <div className="bg-[#efebe5] text-[#141414] min-h-screen">
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://valuetechsolution.com/" },
           { name: "Contact", url: "https://valuetechsolution.com/contact" },
         ]}
       />
+
       <PageHeader
-        eyebrow="(let's talk)"
+        eyebrow="Let's Talk"
         title={
           <>
             Tell us about your{" "}
-            <span className="italic-accent text-carbon-500">project.</span>
+            <span className="font-sourceSerif italic font-normal text-primary">project.</span>
           </>
         }
-        description="A 30-minute call, no slides, no sales pressure. We'll give you a tight scope, an honest timeline, and a fixed price — whether you hire us or not."
+        description="A 20-minute discovery call with senior engineers — no slide decks, no hard sales. We'll give you a tight architectural scope, an honest timeline, and a fixed price."
       />
 
-      <MediaDivider
-        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2200&q=80"
-        alt="Open studio space"
-        caption="(the studio · async first)"
-        headline={
-          <>
-            Loom over meetings.{" "}
-            <span className="italic-accent text-white/70">
-              Async over status calls.
-            </span>
-          </>
-        }
-        meta={
-          <>
-            replies within
-            <br />
-            one business day
-          </>
-        }
-        aspect="cine"
-      />
+      <section className="py-12 lg:py-16">
+        <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-12 items-start">
+            
+            {/* Left Column: Direct channels */}
+            <div className="lg:col-span-5">
+              <div className="inline-flex items-center gap-2 bg-[#f7f2ea] border border-[#d8d3ce] px-3.5 py-1.5 rounded-full mb-4">
+                <Sparkles className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs font-bold uppercase tracking-[0.1em] text-primary">
+                  Direct Channels
+                </span>
+              </div>
+              <h2 className="font-montserrat font-black text-3xl sm:text-4xl text-[#141414] tracking-tight mb-4">
+                Reach our team directly.
+              </h2>
+              <p className="text-sm sm:text-base text-[#7d7b77] font-medium leading-relaxed mb-8">
+                Prefer email, WhatsApp, or a direct phone call? Reach out on whichever channel works best for you. Every inquiry is reviewed directly by our founding engineers.
+              </p>
 
-      <section className="section pt-0">
-        <div className="container-x grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <h2 className="heading-md">Reach us directly.</h2>
-            <p className="mt-4 text-carbon-400">
-              Prefer email, WhatsApp, or a quick call? Pick whichever you
-              like — we answer all channels personally.
-            </p>
-
-            <div className="mt-8 space-y-4">
-              {channels.map((c) => (
-                <div key={c.label} className="card flex items-start gap-4">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-snow-100 text-carbon-950">
-                    <c.icon size={20} />
-                  </span>
-                  <div>
-                    <p className="text-[11px] uppercase tracking-widest text-carbon-300">
-                      {c.label}
-                    </p>
-                    {c.href ? (
-                      <a
-                        href={c.href}
-                        target={c.href.startsWith("http") ? "_blank" : undefined}
-                        rel={c.href.startsWith("http") ? "noreferrer" : undefined}
-                        className="font-medium text-carbon-950 hover:text-carbon-700"
-                      >
-                        {c.value}
-                      </a>
-                    ) : (
-                      <p className="font-medium text-carbon-950">{c.value}</p>
-                    )}
+              <div className="space-y-4">
+                {channels.map((c) => (
+                  <div
+                    key={c.label}
+                    className="bg-white rounded-3xl p-6 border border-[#ece9e1] shadow-sm flex items-center gap-4 hover:border-primary/40 transition-colors"
+                  >
+                    <div className="w-12 h-12 rounded-2xl bg-[#f7f2ea] border border-[#ece9e1] text-primary flex items-center justify-center flex-shrink-0">
+                      <c.icon size={22} />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase font-bold tracking-widest text-[#7d7b77]">
+                        {c.label}
+                      </p>
+                      {c.href ? (
+                        <a
+                          href={c.href}
+                          target={c.href.startsWith("http") ? "_blank" : undefined}
+                          rel={c.href.startsWith("http") ? "noreferrer" : undefined}
+                          className="font-montserrat font-bold text-sm sm:text-base text-[#141414] hover:text-primary transition-colors"
+                        >
+                          {c.value}
+                        </a>
+                      ) : (
+                        <p className="font-montserrat font-bold text-sm sm:text-base text-[#141414]">
+                          {c.value}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
+                ))}
+              </div>
 
-          <div className="lg:col-span-7">
-            <ContactForm />
+              <div className="mt-8 bg-[#f7f2ea] rounded-3xl p-6 border border-[#d8d3ce]">
+                <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1">
+                  Fixed Price Promise
+                </div>
+                <p className="text-xs text-[#7d7b77] font-medium leading-relaxed">
+                  Every proposal comes with a fixed timeline, clear written deliverables, and milestone-based payments. Zero unexpected billing overruns.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: Interactive Form */}
+            <div className="lg:col-span-7">
+              <ContactForm />
+            </div>
+
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

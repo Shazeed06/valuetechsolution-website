@@ -60,6 +60,26 @@ const config: Config = {
           800: "#262626",
           900: "#171717",
         },
+
+        // ── GUD Agency mapped tokens for legacy carbon / snow classes ────
+        carbon: {
+          50:  "#f7f2ea",
+          100: "#ece9e1",
+          200: "#d8d3ce",
+          300: "#a3a09a",
+          400: "#7d7b77",
+          500: "#7d7b77",
+          600: "#555555",
+          700: "#333333",
+          800: "#222222",
+          900: "#191919",
+          950: "#141414",
+        },
+        snow: {
+          50:  "#f7f2ea",
+          100: "#ece9e1",
+          200: "#d8d3ce",
+        },
       },
 
       fontFamily: {

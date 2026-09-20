@@ -1,377 +1,215 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, ArrowUpRight } from "lucide-react";
+import { Check, ArrowUpRight, Sparkles, HelpCircle } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
-import MediaDivider from "@/components/MediaDivider";
 import CTA from "@/components/CTA";
 import { FAQSchema, BreadcrumbSchema } from "@/components/Schema";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Pricing — AI Automation & Web Development | Value Tech Solution",
+    absolute: "Transparent Pricing — Web Development & SEO | Value Tech Solution",
   },
   description:
-    "Transparent fixed-scope pricing for AI automation (from ₹10,000), web development (from ₹41,500), SEO, and design systems. No billing surprises.",
+    "Transparent, fixed-price packages for Next.js web development, UI/UX design, and technical SEO. Zero surprise bills. 100% senior engineers.",
   keywords: [
-    "AI automation pricing India",
-    "web development cost India",
-    "AI agent development price",
-    "fixed price web agency India",
+    "web development pricing India",
+    "Next.js website cost",
+    "fixed price web agency",
     "Value Tech Solution pricing",
   ],
   alternates: { canonical: "https://valuetechsolution.com/pricing" },
-  openGraph: {
-    title: "Pricing — AI Automation & Web Development | Value Tech Solution",
-    description: "Fixed-scope pricing for AI agents, websites, and SEO. No billing surprises. Senior engineers only.",
-    url: "https://valuetechsolution.com/pricing",
-    siteName: "Value Tech Solution",
-    type: "website",
-    locale: "en_IN",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Pricing — AI Automation & Web Development | Value Tech Solution",
-    description: "Fixed-scope pricing for AI agents, websites, and SEO. No billing surprises.",
-  },
 };
 
 const tiers = [
   {
-    name: "Diagnostic",
-    audience: "Founders scoping their first agent or website",
-    price: "$399",
-    cadence: "fixed · 2 weeks",
-    headline: "We map. You decide.",
+    name: "Starter Website",
+    audience: "Early-stage startups & local businesses needing a fast, polished web presence",
+    price: "$399 / ₹32,000",
+    cadence: "Fixed · 1–2 weeks",
+    headline: "Fast launch. Clean code.",
     bullets: [
-      "Workflow audit + opportunity map",
-      "ROI estimate per workflow",
-      "Build / buy / skip recommendations",
-      "Fixed scope, fixed price",
+      "Custom responsive Next.js design (up to 5 pages)",
+      "98+ Google Lighthouse performance",
+      "Interactive contact form & WhatsApp widget",
+      "On-page SEO setup & metadata",
+      "14-day post-launch support",
     ],
-    cta: "Start a diagnostic",
-    href: "/contact?plan=diagnostic",
-    note: "Often credited toward the build engagement that follows.",
+    cta: "Choose Starter",
+    href: "/contact?plan=starter",
+    highlight: false,
   },
   {
-    name: "Build sprint",
-    audience: "One agent, site, or platform setup — shipped",
-    price: "from $100",
-    cadence: "fixed · 4–6 weeks",
-    headline: "We ship. You operate.",
+    name: "Growth Web Sprint",
+    audience: "High-growth startups & modern brands requiring a conversion-optimized experience",
+    price: "from $899 / ₹72,000",
+    cadence: "Fixed · 3–4 weeks",
+    headline: "Bespoke design. Peak conversions.",
     bullets: [
-      "1 production-grade deliverable",
-      "Up to 5 tool integrations",
-      "Eval suite + observability",
-      "30-day post-launch tuning",
+      "Full custom Figma design system",
+      "Next.js 16 App Router & micro-interactions",
+      "Headless CMS integration (Sanity / Strapi)",
+      "Technical SEO & JSON-LD schema markup",
+      "Analytics & conversion tracking integration",
+      "30-day post-launch warranty",
     ],
-    cta: "Start a sprint",
+    cta: "Start a Sprint",
     href: "/contact?plan=sprint",
     highlight: true,
   },
   {
-    name: "Studio retainer",
-    audience: "Teams who need an embedded engineering bench",
-    price: "from $1,499 / mo",
-    cadence: "rolling · 3-month minimum",
-    headline: "We extend. You compound.",
+    name: "Custom Web App / Portal",
+    audience: "Companies needing full-stack dashboards, client portals, or SaaS products",
+    price: "from $1,899 / ₹1,50,000",
+    cadence: "Milestone-based · 4–8 weeks",
+    headline: "Scalable architecture. Enterprise ready.",
     bullets: [
-      "Continuous expansion of agents/sites/SEO",
-      "Monitoring + tuning included",
-      "New workflow each month",
-      "Dedicated senior engineer",
+      "Full-stack Next.js, TypeScript & PostgreSQL",
+      "User authentication & role-based access",
+      "Third-party REST / GraphQL API integrations",
+      "Stripe / Razorpay payment gateway setup",
+      "Dedicated staging & CI/CD deployment pipelines",
+      "60-day post-launch tuning & maintenance",
     ],
-    cta: "Talk retainer",
-    href: "/contact?plan=retainer",
-  },
-];
-
-const services = [
-  {
-    cat: "AI Automation",
-    href: "/services/ai-automation",
-    items: [
-      ["Diagnostic", "from $399"],
-      ["First agent (production)", "from $100"],
-      ["Automation retainer", "from $500 / mo"],
-    ],
-  },
-  {
-    cat: "Web Development",
-    href: "/services/web-development",
-    items: [
-      ["Landing page sprint", "from $599"],
-      ["Marketing site (12 pages)", "from $2,499"],
-      ["Web application", "from $5,999"],
-    ],
-  },
-  {
-    cat: "SEO Optimization",
-    href: "/services/seo",
-    items: [
-      ["Audit + critical fixes", "from $499"],
-      ["Growth retainer", "from $799 / mo"],
-      ["Enterprise programs", "custom"],
-    ],
-  },
-  {
-    cat: "Design Systems",
-    href: "/services/design-systems",
-    items: [
-      ["Brand sprint", "from $1,299"],
-      ["Full design system", "from $4,499"],
-      ["Design retainer", "from $1,499 / mo"],
-    ],
-  },
-  {
-    cat: "Automation Platforms",
-    href: "/services",
-    items: [
-      ["n8n workflow suite", "from $100"],
-      ["GoHighLevel agency snapshot", "from $100"],
-      ["Zapier workspace build", "from $100"],
-      ["Python pipeline build", "from $100"],
-    ],
+    cta: "Discuss Web App",
+    href: "/contact?plan=webapp",
+    highlight: false,
   },
 ];
 
 const faqs = [
-  ["Why fixed-scope, not hourly?", "Hourly bills incentivise dragging projects out. Fixed scope forces us to be precise about what's in and what's not — and removes the surprise on your invoice."],
-  ["What if I need a change mid-project?", "Change requests are quoted in writing as a delta to the SOW before any work happens. You decide whether the new scope is worth the new price."],
-  ["Do you bill in INR?", "Yes — clients in India can be billed in INR via UPI / RTGS. International clients in USD via wire / Stripe."],
-  ["Can the diagnostic credit roll into a build?", "Yes — if you start a Build sprint within 60 days of the diagnostic, the diagnostic fee is credited 100% toward the build."],
-  ["Are retainers cancellable?", "After the 3-month minimum, retainers are month-to-month with 30 days notice. We don't believe in lock-in."],
+  ["Why fixed-scope, not hourly billing?", "Hourly billing incentivizes agencies to drag projects out. Fixed scope forces precision on deliverables, gives you budgetary certainty, and eliminates surprise invoices."],
+  ["What if I need a change mid-project?", "Change requests are quoted transparently in writing as an addendum before work begins. You always maintain complete control over scope and budget."],
+  ["Do you accept payments in INR and USD?", "Yes — clients in India can pay via UPI, NEFT, or corporate cards in INR. International clients can pay in USD, GBP, or EUR via Stripe or international wire transfer."],
+  ["What happens after the website goes live?", "Every build includes a dedicated post-launch warranty covering any bugs or adjustments. We also offer monthly care retainers for continuous speed and SEO monitoring."],
 ];
 
 export default function PricingPage() {
   return (
-    <>
-      <FAQSchema
-        items={faqs.map(([q, a]) => ({ q, a }))}
-      />
+    <div className="bg-[#efebe5] text-[#141414] min-h-screen">
+      <FAQSchema items={faqs.map(([q, a]) => ({ q, a }))} />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://valuetechsolution.com/" },
           { name: "Pricing", url: "https://valuetechsolution.com/pricing" },
         ]}
       />
+
       <PageHeader
-        eyebrow="(pricing)"
+        eyebrow="Transparent Pricing"
         title={
           <>
-            Three engagements.{" "}
-            <span className="italic-accent text-carbon-500">No surprises.</span>
+            Predictable pricing.{" "}
+            <span className="font-sourceSerif italic font-normal text-primary">
+              Guaranteed delivery.
+            </span>
           </>
         }
-        description="We sell three kinds of engagements — a diagnostic, a build sprint, or a studio retainer. Every project lives inside one of these. Scopes, timelines, and prices are written before you sign."
+        description="Every project comes with an itemized statement of work, a fixed turnaround timeline, and guaranteed 98+ Google Lighthouse performance. Zero surprise invoices."
       />
 
-      <section className="section pt-0">
-        <div className="container-x">
-          <div className="grid gap-px overflow-hidden rounded-3xl border border-carbon-950/[0.08] bg-carbon-950/[0.08] md:grid-cols-3">
+      {/* 3 Pricing Cards */}
+      <section className="py-12 lg:py-16">
+        <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 md:grid-cols-3 items-stretch">
             {tiers.map((t) => (
               <div
                 key={t.name}
-                className={`relative flex flex-col p-8 sm:p-10 ${
+                className={`relative rounded-3xl p-8 sm:p-9 flex flex-col justify-between transition-all duration-300 ${
                   t.highlight
-                    ? "bg-carbon-950 text-white"
-                    : "bg-[rgb(252,251,249)]"
+                    ? "bg-[#141414] text-white shadow-2xl border-2 border-primary"
+                    : "bg-white text-[#141414] border border-[#ece9e1] shadow-sm hover:shadow-md"
                 }`}
               >
                 {t.highlight && (
-                  <span className="mb-5 inline-flex w-fit rounded-full border border-white/20 bg-white/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-white/80">
-                    most chosen
-                  </span>
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow-sm flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3" />
+                    <span>Most Popular</span>
+                  </div>
                 )}
-                <p
-                  className={`font-mono text-[10px] uppercase tracking-[0.28em] ${
-                    t.highlight ? "text-white/55" : "text-carbon-400"
-                  }`}
-                >
-                  {t.cadence}
-                </p>
-                <h2
-                  className={`mt-3 font-display text-3xl font-bold tracking-[-0.03em] sm:text-4xl ${
-                    t.highlight ? "text-white" : "text-carbon-950"
-                  }`}
-                >
-                  {t.name}
-                </h2>
-                <p
-                  className={`mt-2 text-sm ${
-                    t.highlight ? "text-white/65" : "text-carbon-500"
-                  }`}
-                >
-                  {t.audience}
-                </p>
 
-                <p
-                  className={`mt-8 font-display text-5xl font-bold tracking-[-0.04em] ${
-                    t.highlight ? "text-white" : "text-carbon-950"
-                  }`}
-                >
-                  {t.price}
-                </p>
-                <p
-                  className={`mt-2 italic-accent text-base ${
-                    t.highlight ? "text-white/70" : "text-carbon-500"
-                  }`}
-                >
-                  {t.headline}
-                </p>
+                <div>
+                  <div className="flex justify-between items-center mb-4">
+                    <span className={`text-xs font-bold uppercase tracking-widest ${t.highlight ? "text-primary" : "text-[#7d7b77]"}`}>
+                      {t.cadence}
+                    </span>
+                  </div>
 
-                <ul className="mt-8 flex-1 space-y-3">
-                  {t.bullets.map((b) => (
-                    <li
-                      key={b}
-                      className={`flex items-start gap-2 text-sm ${
-                        t.highlight ? "text-white/85" : "text-carbon-700"
-                      }`}
-                    >
-                      <Check
-                        size={14}
-                        className={`mt-1 shrink-0 ${
-                          t.highlight ? "text-white" : "text-carbon-950"
-                        }`}
-                      />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
+                  <h3 className="font-montserrat font-black text-2xl sm:text-3xl tracking-tight mb-2">
+                    {t.name}
+                  </h3>
+                  <p className={`text-xs leading-relaxed mb-6 font-medium ${t.highlight ? "text-white/60" : "text-[#7d7b77]"}`}>
+                    {t.audience}
+                  </p>
 
-                {t.note && (
-                  <p
-                    className={`mt-6 border-t pt-4 text-xs ${
+                  <div className="pb-6 mb-6 border-b border-white/10">
+                    <div className="font-montserrat font-black text-3xl sm:text-4xl">
+                      {t.price}
+                    </div>
+                    <div className={`text-xs mt-1 font-medium ${t.highlight ? "text-primary" : "text-primary font-semibold"}`}>
+                      {t.headline}
+                    </div>
+                  </div>
+
+                  <ul className="space-y-3 mb-8">
+                    {t.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-xs font-medium">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span className={t.highlight ? "text-white/85" : "text-[#141414]/85"}>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <Link
+                    href={t.href}
+                    className={`w-full inline-flex items-center justify-center gap-2 py-4 rounded-full font-semibold text-sm transition-all duration-300 ${
                       t.highlight
-                        ? "border-white/10 text-white/55"
-                        : "border-carbon-950/[0.08] text-carbon-400"
+                        ? "bg-primary hover:bg-opacity-90 text-white shadow-md active:scale-95"
+                        : "bg-[#141414] hover:bg-black text-white active:scale-95"
                     }`}
                   >
-                    ↳ {t.note}
-                  </p>
-                )}
-
-                <Link
-                  href={t.href}
-                  className={`mt-8 rounded-full px-5 py-3 text-center text-sm font-semibold transition ${
-                    t.highlight
-                      ? "bg-white text-carbon-950 hover:bg-snow-100"
-                      : "bg-carbon-950 text-white hover:bg-carbon-700"
-                  }`}
-                >
-                  {t.cta}
-                </Link>
+                    <span>{t.cta}</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <MediaDivider
-        src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=2200&q=80"
-        alt="Code on a dark monitor"
-        caption="(scope · written)"
-        headline={
-          <>
-            Fixed scope.{" "}
-            <span className="italic-accent text-white/70">
-              Written tradeoffs.
-            </span>
-          </>
-        }
-        meta={
-          <>
-            no surprises
-            <br />
-            on the invoice
-          </>
-        }
-        aspect="cine"
-      />
-
-      <section className="section">
-        <div className="container-x">
-          <div className="text-center">
-            <span className="eyebrow">
-              <span className="h-px w-8 bg-carbon-500" />
-              By service
-            </span>
-            <h2 className="heading-lg gap-eyebrow-heading">
-              Pricing by{" "}
-              <span className="italic-accent text-carbon-500">discipline.</span>
+      {/* Pricing FAQs */}
+      <section className="py-20 bg-[#f7f2ea] border-t border-[#d8d3ce]">
+        <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 bg-white border border-[#d8d3ce] px-3.5 py-1.5 rounded-full mb-3">
+              <HelpCircle className="w-3.5 h-3.5 text-primary" />
+              <span className="text-xs font-bold uppercase tracking-[0.1em] text-primary">
+                Pricing Questions
+              </span>
+            </div>
+            <h2 className="font-montserrat font-black text-3xl sm:text-4xl text-[#141414] tracking-tight">
+              Common pricing queries
             </h2>
           </div>
 
-          <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-carbon-950/[0.08] bg-carbon-950/[0.08] sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
-              <div
-                key={s.cat}
-                className="flex flex-col bg-[rgb(252,251,249)] p-7 transition-colors hover:bg-white sm:p-9"
-              >
-                <h3 className="font-display text-xl font-bold tracking-[-0.025em] text-carbon-950 sm:text-2xl">
-                  {s.cat}
+          <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+            {faqs.map(([q, a]) => (
+              <div key={q} className="bg-white rounded-3xl p-7 border border-[#ece9e1] shadow-sm">
+                <h3 className="font-montserrat font-bold text-base text-[#141414] mb-2 tracking-tight">
+                  {q}
                 </h3>
-                <ul className="mt-5 flex-1 divide-y divide-carbon-950/[0.08]">
-                  {s.items.map(([name, price]) => (
-                    <li
-                      key={name}
-                      className="flex items-baseline justify-between gap-3 py-3 text-sm"
-                    >
-                      <span className="text-carbon-700">{name}</span>
-                      <span className="font-display font-bold tracking-[-0.02em] text-carbon-950">
-                        {price}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <Link href={s.href} className="btn-link mt-5 text-sm">
-                  Service detail <ArrowUpRight size={13} />
-                </Link>
+                <p className="text-sm text-[#7d7b77] font-medium leading-relaxed">
+                  {a}
+                </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section pt-0">
-        <div className="container-x">
-          <div className="grid gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-4">
-              <span className="eyebrow">
-                <span className="h-px w-8 bg-carbon-500" />
-                FAQ
-              </span>
-              <h2 className="heading-md gap-eyebrow-heading">
-                Pricing,{" "}
-                <span className="italic-accent text-carbon-500">explained.</span>
-              </h2>
-            </div>
-            <div className="lg:col-span-8">
-              <div className="overflow-hidden rounded-2xl border border-carbon-950/[0.08]">
-                {faqs.map(([q, a], i) => (
-                  <details
-                    key={q}
-                    className={`group ${i !== 0 ? "border-t border-carbon-950/[0.08]" : ""}`}
-                  >
-                    <summary className="flex cursor-pointer items-center justify-between p-6 transition hover:bg-snow-50">
-                      <span className="font-display text-lg font-bold tracking-[-0.02em] text-carbon-950">
-                        {q}
-                      </span>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-carbon-400 group-open:rotate-180">
-                        ↓
-                      </span>
-                    </summary>
-                    <div className="px-6 pb-6 text-sm leading-relaxed text-carbon-500">
-                      {a}
-                    </div>
-                  </details>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       <CTA />
-    </>
+    </div>
   );
 }

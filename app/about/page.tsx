@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Cpu, Code2, Search, Cloud, PenTool, Bot } from "lucide-react";
+import { ArrowUpRight, Code2, Palette, Search, ShieldCheck, Layers, Sparkles, Check } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
@@ -9,380 +9,256 @@ import { BreadcrumbSchema } from "@/components/Schema";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "About Us — AI Automation Agency India | Value Tech Solution",
+    absolute: "About Us — Web Development Studio | Value Tech Solution",
   },
   description:
-    "Senior CS engineers and AI automation specialists. Fixed price, no juniors. AI agents, n8n workflows, and Next.js sites for startups in India, UAE, and the UK.",
+    "Learn about Value Tech Solution: an engineering-led web development studio crafting high-performance Next.js websites, design systems, and conversion funnels for ambitious startups.",
   keywords: [
-    "AI automation agency India about",
+    "about web development studio",
     "Value Tech Solution team",
-    "senior engineers India",
-    "AI agency founders India",
-    "about Value Tech Solution",
+    "Next.js agency founders",
+    "web development studio India",
   ],
   alternates: { canonical: "https://valuetechsolution.com/about" },
-  openGraph: {
-    title: "About Us — AI Automation Agency India | Value Tech Solution",
-    description:
-      "Senior engineers. Fixed price. No juniors handed off. Learn who we are and how we build.",
-    url: "https://valuetechsolution.com/about",
-    siteName: "Value Tech Solution",
-    type: "website",
-    locale: "en_IN",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Us — AI Automation Agency India | Value Tech Solution",
-    description:
-      "Senior engineers. Fixed price. No juniors handed off. Learn who we are and how we build.",
-  },
 };
 
 const capabilities = [
   {
-    n: "C.01",
-    icon: Cpu,
-    title: "Computer Science Engineering",
-    desc: "Senior engineers from distributed systems, compilers, and applied product backgrounds — hired for taste and judgment, not ticket throughput.",
-  },
-  {
-    n: "C.02",
-    icon: Bot,
-    title: "AI Automation Engineering",
-    desc: "We design LLM agents, evals, guardrails, and tool integrations that hold up in production — not demos. Six-figure cost budgets, single-digit hallucination rates.",
-  },
-  {
-    n: "C.03",
+    n: "01",
     icon: Code2,
-    title: "Web & Product Engineering",
-    desc: "Next.js, TypeScript, headless CMS, edge runtimes. Lighthouse 99, CI-budgeted, accessible by default — the kind of code that ages well.",
+    title: "Next.js & React Engineering",
+    desc: "Clean component architecture, TypeScript, App Router, and edge rendering that guarantee 98+ Google Lighthouse scores and rapid scaling.",
   },
   {
-    n: "C.04",
+    n: "02",
+    icon: Palette,
+    title: "Bespoke UI/UX & Design Systems",
+    desc: "Tailor-made Figma designs, responsive typography scales, and token-driven design systems built for seamless handoffs and brand consistency.",
+  },
+  {
+    n: "03",
     icon: Search,
-    title: "Search & Growth",
-    desc: "Technical SEO, content systems, and link strategy that earn rankings the algorithms still reward in 2026.",
+    title: "Technical SEO & Organic Visibility",
+    desc: "Clean semantic HTML, automated JSON-LD schemas, Core Web Vitals optimization, and architecture that search engines love to index and rank.",
   },
   {
-    n: "C.05",
-    icon: Cloud,
-    title: "Cloud & Infrastructure",
-    desc: "AWS, GCP, Vercel — infrastructure that scales with the business and bills you don't have to babysit at 3am.",
+    n: "04",
+    icon: Layers,
+    title: "Full-Stack Web Applications",
+    desc: "Custom client portals, SaaS dashboards, and database integrations built with secure authentication, modern APIs, and reliable cloud setups.",
   },
   {
-    n: "C.06",
-    icon: PenTool,
-    title: "Design Systems",
-    desc: "Figma-first, token-driven, fully documented. The kind of handoff that doesn't quietly rot three months after launch.",
+    n: "05",
+    icon: ShieldCheck,
+    title: "Performance & Security Hardening",
+    desc: "Bank-grade SSL, DDoS protection, sub-second asset caching, and automated testing to keep your website fast, resilient, and always online.",
+  },
+  {
+    n: "06",
+    icon: Sparkles,
+    title: "Conversion Rate Optimization",
+    desc: "High-impact landing pages designed with persuasive user psychology, clear visual hierarchy, and friction-free call-to-actions.",
   },
 ];
 
 const values = [
   {
-    title: "Engineers first.",
-    desc: "Every project is led by an engineer with 6+ years in production systems. Strategists assist; they don't decide.",
+    title: "Senior Engineers Only.",
+    desc: "Every project is designed and coded by senior developers with 6+ years of experience. No juniors learning on your dime.",
   },
   {
-    title: "Outcomes, not artefacts.",
-    desc: "We're paid for revenue, hours saved, and rankings earned — not the number of slides or features delivered.",
+    title: "Outcomes, Not Slideware.",
+    desc: "We measure success by page speed, search rankings, and lead conversions — not the number of meetings or slide decks.",
   },
   {
-    title: "Boring stack, sharp ideas.",
-    desc: "Mature tooling, opinionated architecture. The next engineer ramps up in days, not months.",
+    title: "Clean Stack, Lasting Code.",
+    desc: "We write clean, documented Next.js and TypeScript. You own 100% of the repository and codebase from day one.",
   },
   {
-    title: "Honest scope.",
-    desc: "Fixed price, fixed timeline, written tradeoffs. If a thing can't ship in time, we'll say so before you sign.",
+    title: "Fixed Price & Clear Scope.",
+    desc: "No hourly surprises or creeping bills. You receive a fixed quote and guaranteed timeline before work begins.",
   },
 ];
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="bg-[#efebe5] text-[#141414] min-h-screen">
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://valuetechsolution.com/" },
           { name: "About", url: "https://valuetechsolution.com/about" },
         ]}
       />
+
       <PageHeader
-        eyebrow="(studio note)"
+        eyebrow="Our Story"
         title={
           <>
-            Engineers first.
+            Engineering first.
             <br />
-            <span className="italic-accent text-carbon-500">
+            <span className="font-sourceSerif italic font-normal text-primary">
               Studio second.
             </span>
           </>
         }
-        description="Value Tech Solution is an AI startup of engineers shipping automations on n8n, GHL, Zapier, and Python — alongside Next.js websites and SEO programs. Built for founders who'd rather ship than negotiate scope."
+        description="Value Tech Solution is a modern web development studio crafting high-performance Next.js websites for startups and ambitious brands. Built for founders who would rather ship real results than negotiate slide decks."
       />
 
-      {/* Manifesto + portrait image */}
-      <section className="section pt-0">
-        <div className="container-x grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-6 lg:order-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-carbon-950/[0.08]">
-              <Image
-                src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1400&q=80"
-                alt="Engineer working on code"
-                fill
-                priority
-                className="object-cover grayscale contrast-110"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-              />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 text-white">
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em]">
-                  the work
+      {/* Manifesto + Image Section */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-12 items-center">
+            
+            <div className="lg:col-span-6 lg:order-2">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[36px] border border-[#d8d3ce] shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1400&q=80"
+                  alt="Web engineers collaborating"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-between p-6 text-white">
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary">Web Studio</span>
+                  <span className="text-xs font-mono text-white/80">Est. 2024 · Global</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center lg:col-span-6 lg:order-1">
+              <div className="inline-flex items-center gap-2 bg-[#f7f2ea] border border-[#d8d3ce] px-3.5 py-1.5 rounded-full mb-4 self-start">
+                <span className="text-xs font-bold uppercase tracking-[0.1em] text-primary">
+                  The Philosophy
+                </span>
+              </div>
+              <h2 className="font-montserrat font-black text-3xl sm:text-4xl lg:text-5xl text-[#141414] tracking-tight leading-[1.1] mb-6">
+                We build websites that look stunning and{" "}
+                <span className="font-sourceSerif italic font-normal text-primary">
+                  convert effortlessly
+                </span>
+                .
+              </h2>
+              <div className="space-y-4 text-base text-[#7d7b77] font-medium leading-relaxed">
+                <p>
+                  Most web design agencies focus solely on surface aesthetics, leaving behind bloated codebases that load slowly, fail SEO audits, and require constant debugging.
                 </p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em]">
-                  bengaluru · 2026
+                <p>
+                  We started Value Tech Solution to bridge that gap. We combine world-class Figma design with rigorous computer science engineering — building Next.js websites that feel instantaneous, rank at the top of Google, and turn casual visitors into paying customers.
                 </p>
               </div>
             </div>
-          </div>
 
-          <div className="flex flex-col justify-center lg:col-span-6 lg:order-1">
-            <span className="eyebrow">
-              <span className="h-px w-8 bg-carbon-500" />
-              Manifesto
-            </span>
-            <h2 className="heading-md mt-8">
-              We are{" "}
-              <span className="italic-accent text-carbon-500">
-                computer science engineers
-              </span>{" "}
-              and{" "}
-              <span className="italic-accent text-carbon-500">
-                AI automation engineers
-              </span>
-              .
-            </h2>
-            <div className="mt-8 space-y-5 text-base leading-relaxed text-carbon-500">
-              <p>
-                That distinction matters. Most "AI agencies" are marketers
-                who learned to call OpenAI. We're engineers who've shipped
-                production systems for a decade — and who've spent the last
-                three years putting LLMs into the workflows that actually run
-                businesses.
-              </p>
-              <p>
-                We started Value Tech Solution because we got tired of agencies that
-                sell process and ship slide decks. We hired senior-only,
-                kept the team small, and made one promise: every line of
-                code, every agent, every brief — owned by an engineer with
-                judgment, not delegated to juniors learning on your dime.
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Capabilities — editorial divided list */}
-      <section className="section">
-        <div className="container-x">
-          <div className="grid gap-12 lg:grid-cols-12">
-            <div className="lg:sticky lg:top-32 lg:col-span-4 lg:self-start">
-              <span className="eyebrow">
-                <span className="h-px w-8 bg-carbon-500" />
-                What we engineer
+      {/* Capabilities Section */}
+      <section className="py-20 lg:py-28 bg-[#f7f2ea] border-y border-[#d8d3ce]">
+        <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 bg-white border border-[#d8d3ce] px-3.5 py-1.5 rounded-full mb-4">
+              <span className="text-xs font-bold uppercase tracking-[0.1em] text-primary">
+                Capabilities
               </span>
-              <h2 className="heading-lg mt-8">
-                Six disciplines.
-                <br />
-                <span className="italic-accent text-carbon-500">
-                  One team.
-                </span>
-              </h2>
-              <p className="lede mt-8 max-w-md">
-                We don't outsource the hard parts. Every capability below is
-                handled in-house by senior engineers who've built it before.
-              </p>
             </div>
+            <h2 className="font-montserrat font-black text-4xl sm:text-5xl text-[#141414] tracking-tight">
+              What we <span className="font-sourceSerif italic font-normal text-primary">engineer</span>
+            </h2>
+            <p className="mt-4 text-base text-[#7d7b77] font-medium">
+              Every deliverable is handled in-house by experienced software engineers who care about quality.
+            </p>
+          </div>
 
-            <ul className="lg:col-span-8 lg:mt-3">
-              {capabilities.map((c, i) => (
-                <li
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {capabilities.map((c) => {
+              const Icon = c.icon;
+              return (
+                <div
                   key={c.n}
-                  className={`grid grid-cols-12 items-baseline gap-6 py-10 ${
-                    i !== 0 ? "border-t border-carbon-950/[0.08]" : ""
-                  }`}
+                  className="bg-white rounded-3xl p-8 border border-[#ece9e1] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
                 >
-                  <span className="col-span-2 font-mono text-[11px] uppercase tracking-[0.24em] text-carbon-400">
-                    {c.n}
-                  </span>
-                  <div className="col-span-10 grid grid-cols-12 items-baseline gap-4">
-                    <div className="col-span-12 flex items-baseline gap-4 sm:col-span-6">
-                      <c.icon
-                        size={18}
-                        className="shrink-0 translate-y-0.5 text-carbon-950"
-                      />
-                      <h3 className="font-display text-2xl font-bold tracking-[-0.025em] text-carbon-950 sm:text-3xl">
-                        {c.title}
-                      </h3>
+                  <div>
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="w-12 h-12 rounded-2xl bg-[#f7f2ea] border border-[#ece9e1] text-primary flex items-center justify-center">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <span className="text-xs font-bold text-[#7d7b77]/50 font-montserrat">
+                        {c.n}
+                      </span>
                     </div>
-                    <p className="col-span-12 text-sm text-carbon-500 sm:col-span-6 sm:max-w-md sm:pl-6">
+                    <h3 className="font-montserrat font-bold text-xl text-[#141414] mb-3 tracking-tight">
+                      {c.title}
+                    </h3>
+                    <p className="text-sm text-[#7d7b77] font-medium leading-relaxed">
                       {c.desc}
                     </p>
                   </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Wide image divider */}
-      <section className="relative">
-        <div className="container-x">
-          <figure className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-carbon-950/[0.08] sm:aspect-[16/7]">
-            <Image
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
-              alt="Modern engineering workspace"
-              fill
-              className="object-cover grayscale contrast-105"
-              sizes="100vw"
-            />
-            <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between p-4 text-white sm:p-10">
-              <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.24em] sm:text-[10px] sm:tracking-[0.28em]">
-                  the studio
-                </p>
-                <p className="mt-2 max-w-md font-display text-base font-bold leading-tight tracking-[-0.02em] sm:mt-3 sm:text-3xl">
-                  A small room. Senior people. Long deep work blocks.
-                </p>
-              </div>
-              <p className="hidden font-mono text-[10px] uppercase tracking-[0.28em] sm:block">
-                remote-first
-                <br />
-                IN · UAE · UK
-              </p>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      {/* Engineer credentials strip */}
-      <section className="section">
-        <div className="container-x">
-          <div className="grid gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-5">
-              <span className="eyebrow">
-                <span className="h-px w-8 bg-carbon-500" />
-                Engineering DNA
-              </span>
-              <h2 className="heading-md mt-8">
-                Computer science meets{" "}
-                <span className="italic-accent text-carbon-500">applied AI</span>.
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 gap-10 lg:col-span-7">
-              {[
-                ["6+", "yrs avg. tenure", "of every engineer on the team"],
-                ["100%", "in-house", "no offshore subcontracting, ever"],
-                ["12", "AI agents shipped", "in the last 18 months alone"],
-                ["B.Tech / M.S.", "computer science", "from accredited programmes"],
-              ].map(([v, k, s]) => (
-                <div
-                  key={k}
-                  className="border-t border-carbon-950/[0.08] pt-6"
-                >
-                  <p className="font-display text-4xl font-bold tracking-[-0.04em] text-carbon-950 sm:text-5xl">
-                    {v}
-                  </p>
-                  <p className="mt-3 text-sm font-medium text-carbon-950">
-                    {k}
-                  </p>
-                  <p className="mt-1 text-xs text-carbon-400">{s}</p>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
+      {/* Numbers / Stats Section */}
       <Stats />
 
-      {/* Values */}
-      <section className="section">
-        <div className="container-x">
-          <div className="text-center">
-            <span className="eyebrow">
-              <span className="h-px w-8 bg-carbon-500" />
-              What we believe
-            </span>
-            <h2 className="heading-lg mt-8">
+      {/* Values / Principles */}
+      <section className="py-24 lg:py-32">
+        <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 bg-[#f7f2ea] border border-[#d8d3ce] px-3.5 py-1.5 rounded-full mb-4">
+              <span className="text-xs font-bold uppercase tracking-[0.1em] text-primary">
+                Our Values
+              </span>
+            </div>
+            <h2 className="font-montserrat font-black text-4xl sm:text-5xl text-[#141414] tracking-tight">
               Four principles.{" "}
-              <span className="italic-accent text-carbon-500">Every project.</span>
+              <span className="font-sourceSerif italic font-normal text-primary">Every project.</span>
             </h2>
           </div>
 
-          <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-carbon-950/[0.08] bg-carbon-950/[0.08] sm:grid-cols-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {values.map((v, i) => (
               <div
                 key={v.title}
-                className="bg-[rgb(252,251,249)] p-10 sm:p-14"
+                className="bg-white rounded-3xl p-8 sm:p-10 border border-[#ece9e1] shadow-sm flex flex-col justify-between"
               >
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
-                  ({String(i + 1).padStart(2, "0")})
-                </p>
-                <h3 className="mt-6 font-display text-3xl font-bold tracking-[-0.025em] text-carbon-950 sm:text-4xl">
-                  {v.title}
-                </h3>
-                <p className="mt-4 max-w-md text-base text-carbon-500">
-                  {v.desc}
-                </p>
+                <div>
+                  <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                    Principle 0{i + 1}
+                  </span>
+                  <h3 className="mt-6 font-montserrat font-bold text-2xl text-[#141414] tracking-tight mb-3">
+                    {v.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-[#7d7b77] font-medium leading-relaxed">
+                    {v.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final image with closing word */}
-      <section className="section">
-        <div className="container-x">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <figure className="lg:col-span-7">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-carbon-950/[0.08]">
-                <Image
-                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1600&q=80"
-                  alt="Hands at a laptop, building"
-                  fill
-                  className="object-cover grayscale contrast-110"
-                  sizes="(min-width: 1024px) 60vw, 100vw"
-                />
-              </div>
-              <figcaption className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400">
-                <span>building, daily</span>
-                <span>est. 2024</span>
-              </figcaption>
-            </figure>
-
-            <div className="flex flex-col justify-center lg:col-span-5">
-              <span className="eyebrow">
-                <span className="h-px w-8 bg-carbon-500" />
-                A closing note
-              </span>
-              <p className="mt-8 font-display text-3xl font-medium leading-[1.18] tracking-[-0.025em] text-carbon-950 sm:text-4xl">
-                <span className="italic-accent text-carbon-500">"</span>
-                If you're hiring an agency to write copy and pick a template,
-                we're the wrong studio. If you want engineers who'll build
-                the actual system behind your business — and stand behind
-                it — say hello.
-                <span className="italic-accent text-carbon-500">"</span>
-              </p>
-
-              <Link href="/contact" className="btn-link mt-10 text-base">
-                Start a conversation <ArrowUpRight size={14} />
-              </Link>
-            </div>
-          </div>
+      {/* Final Callout */}
+      <section className="py-16 bg-[#f7f2ea] border-t border-[#d8d3ce]">
+        <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="font-montserrat font-black text-2xl sm:text-3xl lg:text-4xl text-[#141414] tracking-tight max-w-3xl mx-auto leading-tight mb-8">
+            &ldquo;If you want a cookie-cutter template, we&apos;re the wrong studio. If you want engineers who build high-performance web systems and stand behind them — let&apos;s talk.&rdquo;
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-[#141414] text-white hover:bg-black px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-xl active:scale-95"
+          >
+            <span>Start a Conversation</span>
+            <ArrowUpRight className="w-4 h-4 text-primary" />
+          </Link>
         </div>
       </section>
 
       <CTA />
-    </>
+    </div>
   );
 }

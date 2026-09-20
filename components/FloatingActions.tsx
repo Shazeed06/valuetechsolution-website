@@ -21,8 +21,7 @@ export default function FloatingActions() {
 
   return (
     <div className="pointer-events-none fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
-      {/* Action panel — only rendered when open so invisible links can't
-          intercept taps on mobile (which was firing WhatsApp/email on scroll). */}
+      {/* Action panel */}
       {open && (
         <div className="pointer-events-auto flex flex-col items-end gap-2">
           {waNumbers.map((n) => (
@@ -31,12 +30,12 @@ export default function FloatingActions() {
               href={n.href}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full border border-carbon-950/15 bg-white px-4 py-3 shadow-depth transition hover:border-carbon-950"
+              className="group inline-flex items-center gap-3 rounded-full border border-[#ece9e1] bg-white px-4 py-3 shadow-xl transition hover:border-emerald-500"
             >
               <span className="grid h-8 w-8 place-items-center rounded-full bg-emerald-500 text-white">
                 <MessageCircle size={16} />
               </span>
-              <span className="text-sm font-medium text-carbon-950">
+              <span className="text-sm font-semibold text-[#141414]">
                 WhatsApp · {n.pretty}
               </span>
             </a>
@@ -44,12 +43,12 @@ export default function FloatingActions() {
 
           <a
             href={mail}
-            className="group inline-flex items-center gap-3 rounded-full border border-carbon-950/15 bg-white px-4 py-3 shadow-depth transition hover:border-carbon-950"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#ece9e1] bg-white px-4 py-3 shadow-xl transition hover:border-primary"
           >
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-orange-600 text-white">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#141414] text-white">
               <Mail size={15} />
             </span>
-            <span className="text-sm font-medium text-carbon-950">
+            <span className="text-sm font-semibold text-[#141414]">
               Email us
             </span>
           </a>
@@ -58,12 +57,12 @@ export default function FloatingActions() {
             href={CAL_LINK.startsWith("http") ? CAL_LINK : "/contact"}
             target={CAL_LINK.startsWith("http") ? "_blank" : undefined}
             rel={CAL_LINK.startsWith("http") ? "noreferrer" : undefined}
-            className="group inline-flex items-center gap-3 rounded-full border border-carbon-950/15 bg-white px-4 py-3 shadow-depth transition hover:border-carbon-950"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#ece9e1] bg-white px-4 py-3 shadow-xl transition hover:border-primary"
           >
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-orange-600 text-white">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-white">
               <Calendar size={15} />
             </span>
-            <span className="text-sm font-medium text-carbon-950">
+            <span className="text-sm font-semibold text-[#141414]">
               Book a call
             </span>
           </Link>
@@ -75,9 +74,9 @@ export default function FloatingActions() {
         aria-label={open ? "Close contact options" : "Open contact options"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="pointer-events-auto grid h-14 w-14 place-items-center rounded-full bg-orange-600 text-white shadow-depth transition hover:bg-orange-700"
+        className="pointer-events-auto grid h-14 w-14 place-items-center rounded-full bg-[#141414] hover:bg-black text-white shadow-2xl transition-all hover:scale-105 active:scale-95 border-2 border-primary"
       >
-        {open ? <X size={18} /> : <MessageCircle size={20} />}
+        {open ? <X size={18} /> : <MessageCircle size={22} className="text-primary" />}
       </button>
     </div>
   );

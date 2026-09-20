@@ -41,22 +41,27 @@ export default function PageHeader({ eyebrow, title, description }: Props) {
   return (
     <section
       ref={ref}
-      className="relative pt-10 pb-10 sm:pt-14 sm:pb-12 lg:pt-20 lg:pb-16"
+      className="relative pt-32 pb-12 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 bg-[#efebe5] text-[#141414]"
     >
-      <div className="container-x">
+      <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
         {eyebrow && (
-          <span data-page-eyebrow className="eyebrow">
-            <span className="h-px w-8 bg-carbon-500" />
-            {eyebrow}
-          </span>
+          <div data-page-eyebrow className="inline-flex items-center gap-2 bg-[#f7f2ea] border border-[#d8d3ce] px-3.5 py-1.5 rounded-full mb-6">
+            <span className="w-2 h-2 rounded-full bg-primary" />
+            <span className="text-xs font-bold uppercase tracking-[0.1em] text-primary">
+              {eyebrow}
+            </span>
+          </div>
         )}
-        <h1 data-page-title className="heading-xl mt-5 max-w-5xl sm:mt-7">
+        <h1
+          data-page-title
+          className="font-montserrat font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-[-0.04em] text-[#141414] leading-[1.05] max-w-4xl"
+        >
           {title}
         </h1>
         {description && (
           <p
             data-page-desc
-            className="lede mt-5 max-w-2xl sm:mt-7"
+            className="mt-6 text-base sm:text-lg text-[#7d7b77] font-medium leading-relaxed max-w-2xl"
           >
             {description}
           </p>

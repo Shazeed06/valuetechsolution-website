@@ -6,12 +6,12 @@ import { sendContact } from "@/app/actions/contact";
 import { CONTACT, whatsappLink } from "@/lib/contact-config";
 
 const services = [
-  "AI Automation",
-  "Web Development",
-  "SEO Optimization",
-  "n8n / GHL / Zapier",
-  "Python automation",
-  "Design Systems",
+  "Custom Web Development",
+  "Next.js Website Rebuild",
+  "UI/UX & Product Design",
+  "Technical SEO & Speed",
+  "E-Commerce Storefront",
+  "Web Application & SaaS",
   "Not sure yet",
 ];
 
@@ -83,29 +83,28 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-3xl border border-orange-700 bg-orange-600 p-10 text-center text-white shadow-depth">
-        <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-white text-carbon-950">
-          <Check size={24} />
+      <div className="rounded-3xl border border-primary/40 bg-[#141414] p-10 text-center text-white shadow-xl">
+        <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary text-[#141414]">
+          <Check size={26} className="stroke-[3]" />
         </div>
-        <h3 className="mt-4 font-display text-3xl font-bold tracking-[-0.025em]">
+        <h3 className="mt-4 font-montserrat text-3xl font-bold tracking-tight">
           Message received.
         </h3>
-        <p className="mt-3 text-white/65">
-          Thanks — we&apos;ll reply within one business day with next steps and
-          a few discovery questions.
+        <p className="mt-3 text-white/70">
+          Thanks — we&apos;ll reply within one business day with next steps and a fixed-price scope.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
             href={whatsappForCurrent()}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-400"
+            className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-400"
           >
-            <MessageCircle size={14} /> WhatsApp us too
+            <MessageCircle size={16} /> WhatsApp us too
           </a>
           <a
             href={`mailto:${CONTACT.email}`}
-            className="text-sm text-white/70 underline-offset-[6px] hover:text-white hover:underline"
+            className="text-sm text-white/70 underline-offset-4 hover:text-white hover:underline"
           >
             {CONTACT.email}
           </a>
@@ -117,9 +116,9 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="rounded-3xl border border-carbon-950/[0.08] bg-white p-7 shadow-ring sm:p-9"
+      className="rounded-3xl border border-[#d8d3ce] bg-white p-7 shadow-sm sm:p-9"
     >
-      {/* Honeypot — visually hidden, off-screen. Bots fill it; humans don't. */}
+      {/* Honeypot — visually hidden, off-screen */}
       <div
         aria-hidden="true"
         style={{
@@ -179,7 +178,7 @@ export default function ContactForm() {
       </div>
 
       <div className="mt-6">
-        <label className="mb-2 block text-[11px] font-medium uppercase tracking-widest text-carbon-500">
+        <label className="mb-2 block text-[11px] font-bold uppercase tracking-wider text-[#7d7b77]">
           Service
         </label>
         <div className="flex flex-wrap gap-2">
@@ -188,10 +187,10 @@ export default function ContactForm() {
               key={s}
               type="button"
               onClick={() => setService(s)}
-              className={`rounded-full px-4 py-2 text-sm transition ${
+              className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
                 service === s
-                  ? "bg-orange-600 text-white"
-                  : "border border-carbon-950/15 bg-white text-carbon-700 hover:border-orange-600"
+                  ? "bg-[#141414] text-white shadow-sm"
+                  : "border border-[#d8d3ce] bg-[#f7f2ea] text-[#141414] hover:border-primary"
               }`}
             >
               {s}
@@ -201,7 +200,7 @@ export default function ContactForm() {
       </div>
 
       <div className="mt-6">
-        <label className="mb-2 block text-[11px] font-medium uppercase tracking-widest text-carbon-500">
+        <label className="mb-2 block text-[11px] font-bold uppercase tracking-wider text-[#7d7b77]">
           Budget
         </label>
         <div className="flex flex-wrap gap-2">
@@ -210,10 +209,10 @@ export default function ContactForm() {
               key={b}
               type="button"
               onClick={() => setBudget(b)}
-              className={`rounded-full px-4 py-2 text-sm transition ${
+              className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
                 budget === b
-                  ? "bg-orange-600 text-white"
-                  : "border border-carbon-950/15 bg-white text-carbon-700 hover:border-orange-600"
+                  ? "bg-primary text-white shadow-sm"
+                  : "border border-[#d8d3ce] bg-[#f7f2ea] text-[#141414] hover:border-primary"
               }`}
             >
               {b}
@@ -223,7 +222,7 @@ export default function ContactForm() {
       </div>
 
       <div className="mt-6">
-        <label className="mb-2 block text-[11px] font-medium uppercase tracking-widest text-carbon-500">
+        <label className="mb-2 block text-[11px] font-bold uppercase tracking-wider text-[#7d7b77]">
           Project details
         </label>
         <textarea
@@ -233,7 +232,7 @@ export default function ContactForm() {
           value={form.message}
           onChange={(e) => update("message", e.currentTarget.value)}
           placeholder="What are you trying to build, and what does success look like in 90 days?"
-          className="w-full rounded-xl border border-carbon-950/15 bg-white px-4 py-3 text-sm text-carbon-950 placeholder:text-carbon-300 focus:border-carbon-950 focus:outline-none"
+          className="w-full rounded-2xl border border-[#d8d3ce] bg-[#f7f2ea] px-4 py-3 text-sm text-[#141414] placeholder:text-[#7d7b77]/60 focus:border-primary focus:bg-white focus:outline-none transition-colors"
         />
       </div>
 
@@ -248,31 +247,26 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={pending}
-          className="btn-primary disabled:opacity-60"
+          className="inline-flex items-center gap-2 rounded-full bg-[#141414] hover:bg-black text-white px-7 py-3.5 text-sm font-semibold transition-all disabled:opacity-60 shadow-md active:scale-95"
         >
-          {pending ? "Sending…" : "Send via email"} <Send size={14} />
+          {pending ? "Sending…" : "Send Message"} <Send size={14} className="text-primary" />
         </button>
         <a
           href={whatsappForCurrent()}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-emerald-500 bg-white px-5 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
+          className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-[#f7f2ea] px-6 py-3.5 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-50"
         >
-          <MessageCircle size={14} /> Send via WhatsApp
+          <MessageCircle size={16} className="text-emerald-600" /> WhatsApp Us
         </a>
       </div>
 
-      <p className="mt-4 text-xs text-carbon-300">
-        Lead lands in our inbox at{" "}
-        <a href={`mailto:${CONTACT.email}`} className="underline">
+      <p className="mt-4 text-xs text-[#7d7b77]">
+        Lead lands directly in our founder inbox at{" "}
+        <a href={`mailto:${CONTACT.email}`} className="underline text-[#141414]">
           {CONTACT.email}
         </a>
-        {" "}or directly on WhatsApp at {CONTACT.whatsappNumbers[0].pretty}. By submitting, you
-        agree to our{" "}
-        <a href="/privacy" className="underline">
-          privacy policy
-        </a>
-        .
+        {" "}or WhatsApp at {CONTACT.whatsappNumbers[0].pretty}.
       </p>
     </form>
   );
@@ -284,12 +278,12 @@ function Field(
   const { label, ...rest } = props;
   return (
     <div>
-      <label className="mb-2 block text-[11px] font-medium uppercase tracking-widest text-carbon-500">
+      <label className="mb-2 block text-[11px] font-bold uppercase tracking-wider text-[#7d7b77]">
         {label}
       </label>
       <input
         {...rest}
-        className="w-full rounded-xl border border-carbon-950/15 bg-white px-4 py-3 text-sm text-carbon-950 placeholder:text-carbon-300 focus:border-carbon-950 focus:outline-none"
+        className="w-full rounded-2xl border border-[#d8d3ce] bg-[#f7f2ea] px-4 py-3 text-sm text-[#141414] placeholder:text-[#7d7b77]/60 focus:border-primary focus:bg-white focus:outline-none transition-colors"
       />
     </div>
   );

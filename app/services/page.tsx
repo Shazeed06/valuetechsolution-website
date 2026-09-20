@@ -2,180 +2,158 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  Bot,
   Globe,
-  BarChart3,
   Palette,
-  Zap,
-  GitBranch,
-  MessageSquare,
+  Search,
   Code2,
-  LayoutGrid,
+  Rocket,
+  ShieldCheck,
   CheckCircle,
+  Sparkles,
+  Layers
 } from "lucide-react";
 import CTA from "@/components/CTA";
 import { BreadcrumbSchema } from "@/components/Schema";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI Automation & Web Dev Services — Value Tech Solution",
+    absolute: "Web Development & Digital Services — Value Tech Solution",
   },
   description:
-    "AI automation, web development, SEO, and design systems — fixed-scope sprints by senior engineers. Serving Delhi, Bangalore, Mumbai, Dubai, and beyond.",
+    "Custom Next.js web development, UI/UX design, technical SEO, and conversion optimization — fixed-scope sprints by senior engineers.",
   keywords: [
-    "AI automation services India",
-    "web development agency India",
-    "SEO services India",
-    "n8n automation India",
-    "GoHighLevel agency India",
+    "web development services India",
+    "Next.js web agency",
+    "UI UX design studio",
+    "technical SEO audit",
     "Value Tech Solution services",
   ],
   alternates: { canonical: "https://valuetechsolution.com/services" },
-  openGraph: {
-    title: "AI Automation & Web Dev Services — Value Tech Solution",
-    description:
-      "Fixed-scope AI automation, web development, and SEO sprints. Senior engineers. No juniors.",
-    url: "https://valuetechsolution.com/services",
-    siteName: "Value Tech Solution",
-    type: "website",
-    locale: "en_IN",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "AI Automation & Web Dev Services — Value Tech Solution",
-    description:
-      "Fixed-scope AI automation, web development, and SEO sprints. Senior engineers only.",
-  },
 };
 
 const coreServices = [
   {
-    n: "S.01",
-    icon: Bot,
-    title: "AI Automation",
-    href: "/services/ai-automation",
-    price: "from ₹10,000",
-    timeline: "4–6 weeks",
-    summary:
-      "Production-grade AI agents with evals, observability, and human-in-the-loop gates. Built on Claude, GPT-4, or Gemini — whichever fits.",
-    bullets: ["Custom AI agents + RAG systems", "Multi-agent orchestration", "Eval suites + monitoring", "Lead capture, ops, support bots"],
-    accent: "bg-orange-600/10 border-orange-500/20",
-    iconBg: "bg-orange-600/15",
-    iconColor: "text-orange-500",
-  },
-  {
-    n: "S.02",
+    n: "01",
     icon: Globe,
     title: "Web Development",
     href: "/services/web-development",
-    price: "from ₹41,500",
-    timeline: "4–6 weeks",
+    price: "from ₹40,000 / $500",
+    timeline: "2–4 weeks",
     summary:
-      "Next.js websites engineered for speed, SEO, and conversions. 95+ Lighthouse score guaranteed and enforced in CI.",
-    bullets: ["Next.js 15+, App Router, TypeScript", "95+ Lighthouse guaranteed", "Headless CMS integration", "Edge runtime + Core Web Vitals"],
-    accent: "bg-blue-600/10 border-blue-500/20",
-    iconBg: "bg-blue-600/15",
-    iconColor: "text-blue-400",
+      "Custom Next.js 16 websites engineered for peak performance, smooth animations, and top-tier search visibility.",
+    bullets: [
+      "Next.js 16 App Router & TypeScript",
+      "98+ Google Lighthouse guaranteed",
+      "Headless CMS integration (Sanity / Strapi)",
+      "Edge caching & Core Web Vitals",
+    ],
+    badgeColor: "text-primary bg-primary/10",
+    accent: "hover:border-primary/50 hover:shadow-[0_0_30px_rgba(26,185,162,0.15)]",
   },
   {
-    n: "S.03",
-    icon: LayoutGrid,
-    title: "Starter Website",
-    href: "/services/starter-website",
-    price: "from ₹25,000 / $300",
+    n: "02",
+    icon: Palette,
+    title: "UI/UX & Design Systems",
+    href: "/services/design-systems",
+    price: "from ₹35,000 / $450",
     timeline: "2–3 weeks",
     summary:
-      "Professional websites for small businesses and founders. SEO-ready, mobile-first, and delivered fast — not a template.",
-    bullets: ["Up to 8 pages, fully responsive", "SEO + schema markup included", "Contact form + WhatsApp integration", "Delivered in 2–3 weeks"],
-    accent: "bg-emerald-600/10 border-emerald-500/20",
-    iconBg: "bg-emerald-600/15",
-    iconColor: "text-emerald-400",
+      "Tailor-made Figma design systems, responsive typography, wireframes, and interactive prototypes built for conversions.",
+    bullets: [
+      "Bespoke Figma UI component library",
+      "Interactive high-fidelity prototypes",
+      "Design tokens & brand guidelines",
+      "Responsive desktop, tablet & mobile",
+    ],
+    badgeColor: "text-secondary bg-secondary/10",
+    accent: "hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(251,114,204,0.15)]",
   },
   {
-    n: "S.04",
-    icon: BarChart3,
-    title: "SEO Optimization",
+    n: "03",
+    icon: Rocket,
+    title: "Landing Pages & CRO",
+    href: "/services/starter-website",
+    price: "from ₹25,000 / $300",
+    timeline: "1–2 weeks",
+    summary:
+      "Laser-focused landing pages engineered for paid advertising, product launches, and high conversion capture.",
+    bullets: [
+      "Conversion-first copywriting & layout",
+      "Interactive forms & WhatsApp connect",
+      "Analytics & pixel tracking setup",
+      "A/B testing architecture ready",
+    ],
+    badgeColor: "text-tertiary bg-tertiary/10",
+    accent: "hover:border-tertiary/50 hover:shadow-[0_0_30px_rgba(254,168,0,0.15)]",
+  },
+  {
+    n: "04",
+    icon: Search,
+    title: "Technical SEO & Speed",
     href: "/services/seo",
-    price: "from ₹63,900 / mo",
+    price: "from ₹30,000 / mo",
     timeline: "Ongoing",
     summary:
-      "Technical SEO, schema markup, AEO for AI search (Perplexity, ChatGPT), and content that compounds over time.",
-    bullets: ["Technical audit + Core Web Vitals", "Schema.org markup", "AI search (AEO) optimisation", "Content calendar + editorial"],
-    accent: "bg-violet-600/10 border-violet-500/20",
-    iconBg: "bg-violet-600/15",
-    iconColor: "text-violet-400",
+      "Comprehensive technical audits, structured schema.org markup, Core Web Vitals optimization, and keyword architecture.",
+    bullets: [
+      "Full technical crawl & site audit",
+      "JSON-LD structured data implementation",
+      "Page speed & performance optimization",
+      "Search Console & indexing monitoring",
+    ],
+    badgeColor: "text-primary bg-primary/10",
+    accent: "hover:border-primary/50 hover:shadow-[0_0_30px_rgba(26,185,162,0.15)]",
   },
   {
-    n: "S.05",
-    icon: Palette,
-    title: "Design Systems",
-    href: "/services/design-systems",
-    price: "from ₹1,04,000",
-    timeline: "4–6 weeks",
+    n: "05",
+    icon: Layers,
+    title: "Web Applications & SaaS",
+    href: "/services/web-development",
+    price: "from ₹80,000 / $1,000",
+    timeline: "4–8 weeks",
     summary:
-      "Token-driven design systems that scale across launches. Figma, code tokens, component docs — the full stack.",
-    bullets: ["Figma component library", "Design tokens + theming", "Storybook documentation", "Brand + typography system"],
-    accent: "bg-pink-600/10 border-pink-500/20",
-    iconBg: "bg-pink-600/15",
-    iconColor: "text-pink-400",
-  },
-];
-
-const platforms = [
-  {
-    icon: GitBranch,
-    title: "n8n Development",
-    href: "/services/n8n",
-    desc: "Complex logic, self-hosted, privacy-first workflows. Our preferred automation tool for sensitive data.",
-    badge: "Self-hosted",
-    badgeColor: "bg-orange-500/10 text-orange-400 border-orange-500/20",
+      "Custom client portals, internal dashboards, and SaaS frontends built with robust state management and modern APIs.",
+    bullets: [
+      "Authentication & role management",
+      "REST & GraphQL API integrations",
+      "Database schema & backend connections",
+      "Real-time state & reactive UI",
+    ],
+    badgeColor: "text-secondary bg-secondary/10",
+    accent: "hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(251,114,204,0.15)]",
   },
   {
-    icon: LayoutGrid,
-    title: "GoHighLevel",
-    href: "/services/gohighlevel",
-    desc: "Agency snapshots, CRM pipelines, WhatsApp automations, sub-account onboarding and dashboards.",
-    badge: "CRM + Funnels",
-    badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-  },
-  {
-    icon: Zap,
-    title: "Zapier",
-    href: "/services/zapier",
-    desc: "6,000+ app integrations with no-code logic. Best for teams that need speed over customisation.",
-    badge: "6k+ Integrations",
-    badgeColor: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
-  },
-  {
-    icon: Code2,
-    title: "Python Automation",
-    href: "/services/python-automation",
-    desc: "Custom data pipelines, scraping, API bridges, and AI integrations for teams with complex requirements.",
-    badge: "Custom pipelines",
-    badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-  },
-  {
-    icon: MessageSquare,
-    title: "Claude AI Integration",
-    href: "/services/claude-automation",
-    desc: "Anthropic Claude API integration into your product — RAG systems, agents, prompt engineering, guardrails.",
-    badge: "Anthropic",
-    badgeColor: "bg-violet-500/10 text-violet-400 border-violet-500/20",
+    n: "06",
+    icon: ShieldCheck,
+    title: "Ongoing Maintenance",
+    href: "/contact",
+    price: "from ₹15,000 / mo",
+    timeline: "Retainer",
+    summary:
+      "Dedicated monthly engineering care: 24/7 uptime monitoring, security patches, regular speed tune-ups, and feature updates.",
+    bullets: [
+      "24/7 automated uptime alerts",
+      "Monthly security & dependency updates",
+      "Continuous Core Web Vitals checks",
+      "Direct founder Slack/WhatsApp access",
+    ],
+    badgeColor: "text-tertiary bg-tertiary/10",
+    accent: "hover:border-tertiary/50 hover:shadow-[0_0_30px_rgba(254,168,0,0.15)]",
   },
 ];
 
 const guarantees = [
-  "Written scope before any work starts",
-  "Fixed price — no billing surprises",
-  "Senior engineers from kickoff to launch",
-  "30-day post-launch tuning window",
-  "95+ Lighthouse score on every web build",
-  "Eval suite on every AI agent shipped",
+  "Written scope & itemized deliverables before kickoff",
+  "Fixed price quotes — zero unexpected hourly surprises",
+  "Senior engineers assigned from day one to launch",
+  "30-day post-launch warranty & bug-fix guarantee",
+  "98+ Google Lighthouse score on every web release",
+  "100% code ownership handed over upon launch",
 ];
 
 export default function ServicesPage() {
   return (
-    <>
+    <div className="bg-[#efebe5] text-[#141414] min-h-screen">
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://valuetechsolution.com/" },
@@ -183,181 +161,159 @@ export default function ServicesPage() {
         ]}
       />
 
-      {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-carbon-950 pt-20 pb-16 sm:pt-24 sm:pb-20">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/3 rounded-full opacity-25 blur-[120px]"
-          style={{ background: "radial-gradient(circle, #c2410c, transparent 65%)" }}
-        />
-        <div className="container-x relative">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-orange-500">
-            · What we build
-          </p>
-          <h1 className="mt-5 max-w-3xl font-display text-5xl font-black leading-[0.92] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
-            Every service
-            <br />
-            <span className="text-white/30 italic">senior-led, fixed-price.</span>
+      {/* Hero Header */}
+      <section className="relative pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden border-b border-[#d8d3ce]">
+        <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="inline-flex items-center gap-2 bg-[#f7f2ea] border border-[#d8d3ce] px-3.5 py-1.5 rounded-full mb-6">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <span className="text-xs font-bold uppercase tracking-[0.1em] text-primary">
+              What We Build
+            </span>
+          </div>
+
+          <h1 className="font-montserrat font-black text-4xl sm:text-5xl lg:text-7xl tracking-[-0.04em] text-[#141414] leading-[0.98] max-w-4xl mb-6">
+            Every service<br />
+            <span className="font-sourceSerif italic font-normal text-primary">
+              senior-led, fixed-price.
+            </span>
           </h1>
-          <p className="mt-7 max-w-xl text-base leading-relaxed text-white/55 sm:text-lg">
-            Five disciplines, one studio. From the first AI agent to the last SEO sprint — every engagement gets a written scope, a fixed price, and a dedicated senior engineer.
+
+          <p className="text-base sm:text-lg text-[#7d7b77] font-medium leading-relaxed max-w-2xl mb-10">
+            From your primary marketing website to custom web apps and ongoing SEO — every project is executed by senior engineers with guaranteed speed and transparent pricing.
           </p>
-          <div className="mt-10 flex flex-wrap gap-8 border-t border-white/[0.08] pt-10">
+
+          <div className="flex flex-wrap gap-8 pt-8 border-t border-[#d8d3ce]">
             {[
-              { n: "60+", l: "projects shipped" },
-              { n: "₹10k", l: "AI agent starting price" },
-              { n: "4 wk", l: "average delivery" },
-              { n: "95+", l: "Lighthouse score" },
+              { n: "50+", l: "Websites Launched" },
+              { n: "98+", l: "Avg. Lighthouse Speed" },
+              { n: "2–4 wk", l: "Typical Delivery" },
+              { n: "100%", l: "Client Satisfaction" },
             ].map((s) => (
               <div key={s.l}>
-                <p className="font-display text-2xl font-black text-white sm:text-3xl">{s.n}</p>
-                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-white/30">{s.l}</p>
+                <p className="font-montserrat font-black text-2xl sm:text-3xl text-[#141414]">{s.n}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-[#7d7b77] mt-1">{s.l}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Core services ────────────────────────────────── */}
-      <section className="section bg-[rgb(250,250,250)]">
-        <div className="container-x">
-          <div className="mb-12 flex items-end justify-between gap-4">
+      {/* Core Services Grid */}
+      <section className="py-20 lg:py-28">
+        <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
-              <p className="eyebrow">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-600" />
-                Core services
-              </p>
-              <h2 className="heading-md mt-5">What we ship</h2>
+              <div className="inline-flex items-center gap-2 bg-[#f7f2ea] border border-[#d8d3ce] px-3.5 py-1.5 rounded-full mb-3">
+                <span className="text-xs font-bold uppercase tracking-[0.1em] text-primary">
+                  Core Offerings
+                </span>
+              </div>
+              <h2 className="font-montserrat font-black text-3xl sm:text-4xl text-[#141414] tracking-tight">
+                Services engineered for growth
+              </h2>
             </div>
-            <Link href="/pricing" className="btn-link hidden text-sm sm:inline-flex">
-              See pricing <ArrowUpRight size={13} />
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-black transition-colors"
+            >
+              <span>View Pricing Plans</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {coreServices.map((s) => (
-              <Link
-                key={s.n}
-                href={s.href}
-                className={`group flex flex-col rounded-2xl border p-7 transition-all hover:shadow-[0_8px_32px_-8px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 ${s.accent} bg-white`}
-              >
-                {/* Top row */}
-                <div className="flex items-start justify-between gap-4">
-                  <span className={`grid h-11 w-11 place-items-center rounded-xl ${s.iconBg}`}>
-                    <s.icon size={20} className={s.iconColor} />
-                  </span>
-                  <span className="font-mono text-[10px] text-carbon-400">{s.n}</span>
-                </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {coreServices.map((s) => {
+              const Icon = s.icon;
+              return (
+                <div
+                  key={s.n}
+                  className={`bg-white rounded-3xl p-8 border border-[#ece9e1] flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md ${s.accent}`}
+                >
+                  <div>
+                    {/* Top row */}
+                    <div className="flex items-start justify-between gap-4 mb-6">
+                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${s.badgeColor}`}>
+                        <Icon size={22} />
+                      </div>
+                      <span className="font-montserrat font-bold text-xs text-[#7d7b77]/50">{s.n}</span>
+                    </div>
 
-                {/* Title + price */}
-                <div className="mt-5">
-                  <h3 className="font-display text-xl font-bold tracking-[-0.025em] text-carbon-950 sm:text-2xl">
-                    {s.title}
-                  </h3>
-                  <div className="mt-2 flex items-center gap-3">
-                    <span className="font-display text-sm font-bold text-carbon-950">{s.price}</span>
-                    <span className="font-mono text-[10px] text-carbon-400">· {s.timeline}</span>
+                    {/* Title + price */}
+                    <h3 className="font-montserrat font-bold text-xl text-[#141414] mb-2 tracking-tight">
+                      {s.title}
+                    </h3>
+                    <div className="flex items-center gap-2 text-xs font-semibold text-primary mb-4">
+                      <span>{s.price}</span>
+                      <span className="text-[#7d7b77]">· {s.timeline}</span>
+                    </div>
+
+                    {/* Summary */}
+                    <p className="text-sm text-[#7d7b77] font-medium leading-relaxed mb-6">
+                      {s.summary}
+                    </p>
+
+                    {/* Bullets */}
+                    <ul className="space-y-2 mb-6">
+                      {s.bullets.map((b) => (
+                        <li key={b} className="flex items-start gap-2 text-xs font-medium text-[#141414]/80">
+                          <CheckCircle size={13} className="mt-0.5 shrink-0 text-primary" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA link */}
+                  <div className="pt-4 border-t border-[#ece9e1]">
+                    <Link
+                      href={s.href}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#141414] hover:text-primary transition-colors"
+                    >
+                      <span>Explore service</span>
+                      <ArrowUpRight size={13} />
+                    </Link>
                   </div>
                 </div>
-
-                {/* Summary */}
-                <p className="mt-4 text-sm leading-relaxed text-carbon-500">{s.summary}</p>
-
-                {/* Bullets */}
-                <ul className="mt-5 flex-1 space-y-2">
-                  {s.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-xs text-carbon-600">
-                      <CheckCircle size={12} className="mt-0.5 shrink-0 text-carbon-400" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA row */}
-                <div className="mt-6 flex items-center gap-1.5 text-sm font-semibold text-carbon-950 transition group-hover:gap-2.5">
-                  View service
-                  <ArrowUpRight size={13} className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </div>
-              </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ── Automation platforms ──────────────────────────── */}
-      <section className="section bg-white">
-        <div className="container-x">
-          <p className="eyebrow">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-600" />
-            Automation platforms
-          </p>
-          <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="heading-md max-w-lg">
-              We pick the right tool.{" "}
-              <span className="italic-accent text-carbon-400">You just get the outcome.</span>
-            </h2>
-            <p className="max-w-sm text-sm leading-relaxed text-carbon-500">
-              Every platform has a sweet spot. We map your workflow to the best fit — not the one we happen to know.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {platforms.map((p) => (
-              <Link
-                key={p.title}
-                href={p.href}
-                className="group flex flex-col rounded-2xl border border-carbon-950/[0.07] bg-[rgb(250,250,250)] p-7 transition-all hover:border-orange-600/25 hover:bg-white hover:shadow-[0_8px_32px_-8px_rgba(234,88,12,0.12)]"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-orange-600/10">
-                    <p.icon size={18} className="text-orange-600" />
-                  </span>
-                  <span className={`rounded-full border px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] ${p.badgeColor}`}>
-                    {p.badge}
-                  </span>
-                </div>
-                <h3 className="mt-5 font-display text-lg font-bold tracking-[-0.02em] text-carbon-950">
-                  {p.title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-carbon-500">{p.desc}</p>
-                <div className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-carbon-950 transition group-hover:gap-2.5">
-                  Learn more
-                  <ArrowUpRight size={13} className="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Guarantees strip ─────────────────────────────── */}
-      <section className="section border-y border-carbon-950/[0.06] bg-[rgb(250,250,250)]">
-        <div className="container-x">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+      {/* Guarantees Section */}
+      <section className="py-20 bg-[#f7f2ea] border-t border-[#d8d3ce]">
+        <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
-              <p className="eyebrow">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-600" />
-                Our standard
-              </p>
-              <h2 className="heading-md mt-5">
+              <div className="inline-flex items-center gap-2 bg-white border border-[#d8d3ce] px-3.5 py-1.5 rounded-full mb-4">
+                <span className="text-xs font-bold uppercase tracking-[0.1em] text-primary">
+                  Our Standard
+                </span>
+              </div>
+              <h2 className="font-montserrat font-black text-3xl sm:text-4xl text-[#141414] tracking-tight leading-tight mb-4">
                 Same guarantee.{" "}
-                <span className="italic-accent text-carbon-400">Every engagement.</span>
+                <span className="font-sourceSerif italic font-normal text-primary">Every project.</span>
               </h2>
-              <p className="lede mt-5 max-w-md">
-                We don&apos;t do retainers that grow forever or invoices that surprise you. Every project runs the same way.
+              <p className="text-sm sm:text-base text-[#7d7b77] font-medium leading-relaxed mb-8 max-w-md">
+                We believe in straightforward partnerships. Every engagement follows a disciplined development protocol with zero surprise invoices.
               </p>
-              <Link href="/pricing" className="btn-primary mt-8 inline-flex">
-                See pricing <ArrowUpRight size={14} />
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-[#141414] text-white hover:bg-black px-7 py-3.5 rounded-full font-semibold text-sm transition-all shadow-md active:scale-95"
+              >
+                <span>Book a Discovery Call</span>
+                <ArrowUpRight size={14} className="text-primary" />
               </Link>
             </div>
-            <ul className="grid gap-3 sm:grid-cols-2">
+
+            <ul className="grid gap-4 sm:grid-cols-2">
               {guarantees.map((g) => (
                 <li
                   key={g}
-                  className="flex items-center gap-3 rounded-xl border border-carbon-950/[0.07] bg-white px-5 py-4 text-sm text-carbon-700"
+                  className="flex items-start gap-3 rounded-2xl border border-[#ece9e1] bg-white p-5 text-xs font-semibold text-[#141414] shadow-sm"
                 >
-                  <CheckCircle size={14} className="shrink-0 text-orange-600" />
-                  {g}
+                  <CheckCircle size={16} className="shrink-0 text-primary mt-0.5" />
+                  <span>{g}</span>
                 </li>
               ))}
             </ul>
@@ -366,6 +322,6 @@ export default function ServicesPage() {
       </section>
 
       <CTA />
-    </>
+    </div>
   );
 }
