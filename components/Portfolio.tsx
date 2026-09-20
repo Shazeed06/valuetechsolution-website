@@ -1,79 +1,62 @@
+"use client";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    n: "01",
-    title: "Mosaic Labs",
-    tag: "AI Automation",
-    metric: "42 hrs / week saved",
+    id: 1,
+    name: "E-commerce Platform",
+    tags: ["Next.js", "Shopify", "SEO"],
+    href: "/work/ecommerce",
   },
   {
-    n: "02",
-    title: "Northwind Foods",
-    tag: "E-Commerce",
-    metric: "+218% organic",
+    id: 2,
+    name: "SaaS Dashboard",
+    tags: ["React", "Design System", "API"],
+    href: "/work/saas",
   },
   {
-    n: "03",
-    title: "Lumen Health",
-    tag: "Patient Portal",
-    metric: "−62% support load",
-  },
-  {
-    n: "04",
-    title: "Forge AI",
-    tag: "SaaS marketing site",
-    metric: "Lighthouse 99",
+    id: 3,
+    name: "Agency Website",
+    tags: ["Next.js", "Animation", "CMS"],
+    href: "/work/agency",
   },
 ];
 
 export default function Portfolio() {
   return (
-    <section className="section">
-      <div className="container-x">
-        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end">
-          <div>
-            <span className="eyebrow">
-              <span className="h-px w-8 bg-carbon-500" />
-              Selected work
-            </span>
-            <h2 className="heading-lg mt-8">
-              Real businesses.
-              <br />
-              <span className="italic-accent text-carbon-500">Real outcomes.</span>
-            </h2>
-          </div>
-          <Link href="/portfolio" className="btn-link">
-            View all projects <ArrowUpRight size={14} />
-          </Link>
+    <section className="py-24 bg-bodyBg text-darkBg overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-16">
+          <span className="text-primary text-sm font-bold tracking-widest uppercase mb-4 block">Our Work</span>
+          <h2 className="font-montserrat font-bold text-5xl md:text-6xl tracking-tight">Recent Projects</h2>
         </div>
 
-        <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-carbon-950/[0.08] bg-carbon-950/[0.08] sm:grid-cols-2">
-          {projects.map((p) => (
-            <Link
-              key={p.title}
-              href="/portfolio"
-              className="group relative flex flex-col bg-[rgb(252,251,249)] p-10 transition-colors duration-500 hover:bg-carbon-950 hover:text-white sm:p-14"
-            >
-              <div className="flex items-start justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-carbon-400 group-hover:text-white/60">
-                  ({p.n}) {p.tag}
-                </span>
-                <span className="grid h-10 w-10 place-items-center rounded-full border border-carbon-950/15 transition group-hover:border-white group-hover:bg-white group-hover:text-carbon-950">
-                  <ArrowUpRight size={14} />
-                </span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          {projects.map((project) => (
+            <div key={project.id} className="group">
+              <div className="aspect-[16/11] w-full rounded-2xl overflow-hidden relative mb-6">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1ab9a2]/20 to-[#141414] group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute bottom-4 left-4 text-white/80 text-sm font-medium z-10">{project.name}</div>
               </div>
-
-              <h3 className="mt-16 font-display text-4xl font-bold tracking-[-0.04em] sm:mt-24 sm:text-5xl lg:text-6xl">
-                {p.title}
-              </h3>
-
-              <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.24em] text-carbon-500 group-hover:text-white/60">
-                Outcome — <span className="text-carbon-950 group-hover:text-white">{p.metric}</span>
-              </p>
-            </Link>
+              <h3 className="font-montserrat font-bold text-2xl mb-3">{project.name}</h3>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="text-xs font-medium bg-gray-200 text-gray-800 px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <Link href={project.href} className="text-primary font-medium hover:underline inline-flex items-center">
+                View Project &rarr;
+              </Link>
+            </div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <Link href="/work" className="inline-flex items-center justify-center border border-darkBg text-darkBg px-8 py-4 rounded-full font-medium hover:bg-darkBg hover:text-white transition-all">
+            See all projects &rarr;
+          </Link>
         </div>
       </div>
     </section>

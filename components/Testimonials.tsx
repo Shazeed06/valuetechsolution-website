@@ -1,214 +1,55 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Quote, Star } from "lucide-react";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
 const testimonials = [
   {
-    n: "T.01",
-    quote:
-      "Their AI agent handles our entire lead routing and onboarding flow. We didn't hire two ops people we'd planned to — that's the whole story.",
-    name: "Daniel Okafor",
-    role: "Founder · Coastline Exports",
-    tag: "AI Automation",
-    metric: "26 hrs / week saved",
-    accent: "from-emerald-400/30 to-emerald-400/0",
+    id: 1,
+    quote: "Value Tech delivered our website in 3 weeks. The performance scores blew us away — 98 on Lighthouse!",
+    author: "Rahul M.",
+    company: "Founder, StartupX",
   },
   {
-    n: "T.02",
-    quote:
-      "Senior team, sane process, no fluff. They flagged trade-offs we hadn't even thought to ask about and shipped on the date they promised.",
-    name: "Priya Subramanian",
-    role: "CTO · Lumen Health",
-    tag: "Web Development",
-    metric: "Lighthouse 99 in CI",
-    accent: "from-sky-400/30 to-sky-400/0",
+    id: 2,
+    quote: "They understood our brand instantly. The design is stunning and our leads doubled in the first month.",
+    author: "Sarah K.",
+    company: "CEO, London SaaS",
   },
   {
-    n: "T.03",
-    quote:
-      "We came in expecting a Webflow rebuild. We left with a Next.js site, a content engine, and a measurable pipeline. Different studio, different outcome.",
-    name: "Aanya Mehta",
-    role: "Head of Growth · Forge AI",
-    tag: "SEO + Web",
-    metric: "+3.2× sign-up rate",
-    accent: "from-violet-400/30 to-violet-400/0",
-  },
-  {
-    n: "T.04",
-    quote:
-      "The n8n workflows they built quietly run our backoffice now. I forget they exist — which is the highest compliment I can pay an automation.",
-    name: "Rohan Iyer",
-    role: "Operations Lead · Mosaic Labs",
-    tag: "Automation",
-    metric: "42 hrs / week saved",
-    accent: "from-amber-400/30 to-amber-400/0",
+    id: 3,
+    quote: "Best investment we made. Our Google rankings jumped within 60 days of launch.",
+    author: "Amit P.",
+    company: "CTO, Delhi PropTech",
   },
 ];
 
 export default function Testimonials() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const cards = ref.current?.querySelectorAll("[data-card]") ?? [];
-      gsap.fromTo(
-        cards,
-        { y: 32, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "expo.out",
-          stagger: 0.1,
-          scrollTrigger: { trigger: ref.current, start: "top 80%", once: true },
-        }
-      );
-    });
-    return () => ctx.revert();
-  }, []);
-
-  // AggregateRating JSON-LD was removed: the on-page testimonials are
-  // illustrative personas, not verifiable reviews. Shipping fake review
-  // markup is a Google rich-results policy violation. Restore once real
-  // attributed reviews exist on the page.
-
   return (
-    <section className="section">
-      <div ref={ref} className="container-x">
-        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-          <div>
-            <span className="eyebrow">
-              <span className="h-px w-8 bg-carbon-500" />
-              (testimonials)
-            </span>
-            <h2 className="heading-lg gap-eyebrow-heading">
-              Founders we&apos;ve{" "}
-              <span className="italic-accent text-carbon-500">shipped with.</span>
-            </h2>
-
-            {/* Visible aggregate rating */}
-            <div className="mt-6 flex items-center gap-3">
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    size={15}
-                    className="fill-carbon-950 text-carbon-950"
-                  />
-                ))}
-              </div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-carbon-500">
-                4.9 / 5 · {testimonials.length} reviews
-              </p>
-            </div>
-          </div>
-          <p className="max-w-sm text-sm text-carbon-500">
-            Anonymous client names available on request — these are the lines
-            we keep hearing back.
-          </p>
+    <section className="py-24 bg-bodyBg text-darkBg overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <span className="text-primary text-sm font-bold tracking-widest uppercase mb-4 block">What Clients Say</span>
+          <h2 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight">Loved by Founders &amp; Startups</h2>
         </div>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-carbon-950/[0.08] bg-carbon-950/[0.08] sm:grid-cols-2">
-          {testimonials.map((t, i) => (
-            <article
-              key={t.n}
-              data-card
-              className={`group relative flex flex-col p-7 transition-colors duration-500 sm:p-10 ${
-                i % 3 === 0
-                  ? "bg-carbon-950 text-white hover:bg-carbon-700"
-                  : "bg-[rgb(252,251,249)] hover:bg-white"
-              }`}
-            >
-              {/* Accent glow on dark cards */}
-              {i % 3 === 0 && (
-                <div
-                  aria-hidden
-                  className={`pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-gradient-to-br ${t.accent} blur-3xl`}
-                />
-              )}
-
-              <div className="relative flex items-center justify-between">
-                <span
-                  className={`font-mono text-[10px] uppercase tracking-[0.28em] ${
-                    i % 3 === 0 ? "text-white/55" : "text-carbon-400"
-                  }`}
-                >
-                  {t.n} · {t.tag}
-                </span>
-                <Quote
-                  size={22}
-                  strokeWidth={1.5}
-                  className={i % 3 === 0 ? "text-white/30" : "text-carbon-950/25"}
-                />
-              </div>
-
-              <p
-                className={`relative mt-8 font-display text-xl font-medium leading-[1.32] tracking-[-0.015em] sm:text-2xl ${
-                  i % 3 === 0 ? "text-white/90" : "text-carbon-950"
-                }`}
-              >
-                <span
-                  className={`italic-accent ${
-                    i % 3 === 0 ? "text-white/55" : "text-carbon-500"
-                  }`}
-                >
-                  &ldquo;
-                </span>
-                {t.quote}
-                <span
-                  className={`italic-accent ${
-                    i % 3 === 0 ? "text-white/55" : "text-carbon-500"
-                  }`}
-                >
-                  &rdquo;
-                </span>
-              </p>
-
-              <div
-                className={`relative mt-auto flex items-end justify-between gap-4 border-t pt-5 ${
-                  i % 3 === 0 ? "border-white/15" : "border-carbon-950/[0.08]"
-                } mt-10`}
-              >
-                <div>
-                  <p
-                    className={`font-display text-base font-bold tracking-[-0.01em] sm:text-lg ${
-                      i % 3 === 0 ? "text-white" : "text-carbon-950"
-                    }`}
-                  >
-                    {t.name}
-                  </p>
-                  <p
-                    className={`mt-1 text-xs ${
-                      i % 3 === 0 ? "text-white/55" : "text-carbon-500"
-                    }`}
-                  >
-                    {t.role}
-                  </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((t) => (
+            <div key={t.id} className="bg-white rounded-2xl p-8 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex gap-1 mb-6 text-tertiary">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
                 </div>
-                <span
-                  className={`shrink-0 rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] ${
-                    i % 3 === 0
-                      ? "border-white/20 bg-white/5 text-white/85"
-                      : "border-carbon-950/15 bg-snow-50 text-carbon-700"
-                  }`}
-                >
-                  {t.metric}
-                </span>
+                <p className="text-lg text-gray-700 font-medium mb-8">"{t.quote}"</p>
               </div>
-            </article>
+              <div>
+                <div className="font-bold text-darkBg">{t.author}</div>
+                <div className="text-sm text-gray-500">{t.company}</div>
+              </div>
+            </div>
           ))}
         </div>
-
-        <p className="mt-10 text-center font-mono text-[11px] uppercase tracking-[0.24em] text-carbon-400">
-          ↳ NDAs and reference calls available on request
-        </p>
       </div>
     </section>
   );

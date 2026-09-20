@@ -139,7 +139,7 @@ gtag('js', new Date());
 gtag('config', '${GA_ID}');`}
         </Script>
       </head>
-      <body className="min-h-screen bg-[rgb(252,251,249)] text-carbon-950 antialiased">
+      <body className="min-h-screen bg-[#efebe5] text-[#141414] antialiased">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
