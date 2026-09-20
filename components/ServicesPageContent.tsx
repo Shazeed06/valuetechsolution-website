@@ -41,7 +41,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Custom Next.js websites that convert visitors into customers with cutting-edge performance, clean code, and modern design.",
     badgeBg: "bg-[#1ab9a2]",
     textColor: "text-[#1ab9a2]",
-    icon: Globe,
+    icon: "/images/globle-icon.svg",
     href: "/services/web-development",
   },
   {
@@ -50,7 +50,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Maximize ROI with strategic, high-intent paid advertising campaigns across Google Search, Meta, Instagram, and LinkedIn.",
     badgeBg: "bg-[#fb72cc]",
     textColor: "text-[#fb72cc]",
-    icon: TrendingUp,
+    icon: "/images/ppc-icon.svg",
     href: "/contact",
   },
   {
@@ -59,7 +59,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Create memorable digital brand identities, scalable Figma design systems, and visual assets that resonate and stand out.",
     badgeBg: "bg-[#fea800]",
     textColor: "text-[#fea800]",
-    icon: Palette,
+    icon: "/images/design-icon.svg",
     href: "/services/design-systems",
   },
   {
@@ -68,7 +68,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Streamline operations with intelligent AI triage bots, n8n automated pipelines, and lead routers that save hours every week.",
     badgeBg: "bg-[#1ab9a2]",
     textColor: "text-[#1ab9a2]",
-    icon: Bot,
+    icon: "/images/Ai-icon.svg",
     href: "/services/ai-automation",
   },
   {
@@ -77,7 +77,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Dominate search engine rankings and AI answer engines (ChatGPT, Perplexity) with deep technical schema and Core Web Vitals.",
     badgeBg: "bg-[#fea800]",
     textColor: "text-[#fea800]",
-    icon: Search,
+    icon: "/images/seo-icon.svg",
     href: "/services/seo",
   },
   {
@@ -86,7 +86,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Engage your audience across all major social platforms with scroll-stopping short-form content, reels, and growth strategy.",
     badgeBg: "bg-[#fb72cc]",
     textColor: "text-[#fb72cc]",
-    icon: Share2,
+    icon: "/images/speaker-icon.svg",
     href: "/contact",
   },
   {
@@ -95,7 +95,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Custom full-stack web applications, interactive client portals, and SaaS dashboards built for scale and security.",
     badgeBg: "bg-[#1ab9a2]",
     textColor: "text-[#1ab9a2]",
-    icon: Code2,
+    icon: "/images/setting-icon.svg",
     href: "/services/web-development",
   },
   {
@@ -104,7 +104,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Attract more high-value patients and grow your medical practice with targeted local SEO and seamless booking funnels.",
     badgeBg: "bg-[#fb72cc]",
     textColor: "text-[#fb72cc]",
-    icon: Stethoscope,
+    icon: "/images/package-icon.svg",
     href: "/services",
   },
   {
@@ -113,7 +113,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Compliant, trust-building digital solutions designed to establish deep institutional credibility and accelerate client acquisition.",
     badgeBg: "bg-[#fea800]",
     textColor: "text-[#fea800]",
-    icon: Building2,
+    icon: "/images/chart-icon.svg",
     href: "/services",
   },
   {
@@ -122,7 +122,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Drive direct sales and maximize customer lifetime value with lightning-fast headless Shopify and Next.js store experiences.",
     badgeBg: "bg-[#1ab9a2]",
     textColor: "text-[#1ab9a2]",
-    icon: ShoppingBag,
+    icon: "/images/rocket-white.svg",
     href: "/services",
   },
   {
@@ -131,7 +131,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Compliant SEO, physician directories, and conversion-focused web architecture that help healthcare providers thrive online.",
     badgeBg: "bg-[#fb72cc]",
     textColor: "text-[#fb72cc]",
-    icon: Award,
+    icon: "/images/trophy.svg",
     href: "/services",
   },
   {
@@ -140,7 +140,7 @@ const servicesGrid: ServiceItem[] = [
     desc: "Build market authority, executive presence, and organic inbound deal flow with strategic personal branding and content systems.",
     badgeBg: "bg-[#fea800]",
     textColor: "text-[#fea800]",
-    icon: UserCheck,
+    icon: "/images/heart-icon-yellow.svg",
     href: "/portfolio",
   },
 ];
@@ -245,13 +245,24 @@ export default function ServicesPageContent() {
   return (
     <div className="bg-[#141414] text-white min-h-screen font-montserrat antialiased selection:bg-[#fb72cc] selection:text-white">
       
-      {/* 1. HERO BANNER - Exact GUD Agency Dark Atmosphere with Floating 3D Orbs */}
-      <section className="relative pt-32 sm:pt-40 lg:pt-48 pb-20 sm:pb-24 lg:pb-32 overflow-hidden text-center">
-        {/* Floating Colorful 3D Gradient Orbs matching GUD Agency */}
-        <div className="absolute top-12 left-[10%] w-[160px] sm:w-[220px] h-[160px] sm:h-[220px] bg-[#1ab9a2] rounded-full blur-[70px] sm:blur-[90px] opacity-60 pointer-events-none -z-10" />
-        <div className="absolute top-16 right-[8%] w-[190px] sm:w-[260px] h-[190px] sm:h-[260px] bg-[#fb72cc] rounded-full blur-[80px] sm:blur-[100px] opacity-65 pointer-events-none -z-10" />
-        <div className="absolute top-[45%] left-[5%] w-[100px] h-[100px] bg-[#fea800] rounded-full blur-[60px] opacity-50 pointer-events-none -z-10" />
-        <div className="absolute top-[35%] right-[18%] w-[110px] h-[110px] bg-[#fea800] rounded-full blur-[60px] opacity-45 pointer-events-none -z-10" />
+      {/* 1. HERO BANNER - Exact GUD Agency Dark Atmosphere with Floating 3D Bubbles */}
+      <section className="relative w-full pt-36 sm:pt-44 lg:pt-56 pb-24 sm:pb-28 lg:pb-36 overflow-hidden text-center bg-[#141414] md:bg-[url('/images/hero-banner.png')] bg-[url('/images/hero-mobile.jpg')] bg-no-repeat bg-[50%_90%] bg-cover">
+        
+        {/* Floating 3D Bubbles matching GUD Agency Screenshot */}
+        {/* Big Teal Bubble (Top Left) */}
+        <div className="absolute top-[14%] sm:top-[18%] left-[6%] sm:left-[10%] lg:left-[14%] w-[100px] sm:w-[140px] lg:w-[170px] h-[100px] sm:h-[140px] lg:h-[170px] rounded-full bg-[radial-gradient(circle_at_35%_35%,#3af7d9_0%,#1ab9a2_55%,#0b5f53_100%)] shadow-[0_12px_45px_rgba(26,185,162,0.5)] pointer-events-none -z-10 animate-bounce [animation-duration:6s]" />
+
+        {/* Big Pink/Magenta Bubble (Top Right) */}
+        <div className="absolute top-[12%] sm:top-[15%] right-[5%] sm:right-[8%] lg:right-[12%] w-[110px] sm:w-[150px] lg:w-[190px] h-[110px] sm:h-[150px] lg:h-[190px] rounded-full bg-[radial-gradient(circle_at_35%_35%,#ffb4e8_0%,#fb72cc_55%,#9e2175_100%)] shadow-[0_12px_45px_rgba(251,114,204,0.5)] pointer-events-none -z-10 animate-bounce [animation-duration:7s] [animation-delay:1s]" />
+
+        {/* Medium Purple Bubble (Far Left) */}
+        <div className="absolute top-[8%] sm:top-[12%] left-[1%] sm:left-[3%] w-[50px] sm:w-[70px] h-[50px] sm:h-[70px] rounded-full bg-[radial-gradient(circle_at_35%_35%,#e895ff_0%,#b24bf3_60%,#6918a0_100%)] shadow-[0_8px_30px_rgba(178,75,243,0.45)] pointer-events-none -z-10 animate-bounce [animation-duration:8s]" />
+
+        {/* Small Amber/Gold Bubble (Left Mid) */}
+        <div className="absolute top-[55%] left-[3%] sm:left-[5%] w-[32px] sm:w-[44px] h-[32px] sm:h-[44px] rounded-full bg-[radial-gradient(circle_at_35%_35%,#ffe48a_0%,#fea800_60%,#9c6400_100%)] shadow-[0_6px_22px_rgba(254,168,0,0.55)] pointer-events-none -z-10 animate-bounce [animation-duration:5s] [animation-delay:2s]" />
+
+        {/* Small Amber/Gold Bubble (Right Mid) */}
+        <div className="absolute top-[20%] right-[22%] sm:right-[25%] w-[26px] sm:w-[36px] h-[26px] sm:h-[36px] rounded-full bg-[radial-gradient(circle_at_35%_35%,#ffe48a_0%,#fea800_60%,#9c6400_100%)] shadow-[0_6px_20px_rgba(254,168,0,0.55)] pointer-events-none -z-10 animate-bounce [animation-duration:4.5s]" />
 
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
@@ -309,7 +320,6 @@ export default function ServicesPageContent() {
           {/* The 12-Card Grid (3 Columns x 4 Rows) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {servicesGrid.map((item) => {
-              const Icon = item.icon;
               return (
                 <Link
                   key={item.id}
@@ -321,7 +331,7 @@ export default function ServicesPageContent() {
                     <div>
                       {/* Top Row: Squircle Vibrant Icon Badge */}
                       <div className={`w-[58px] h-[58px] sm:w-[64px] sm:h-[64px] rounded-[14px] ${item.badgeBg} flex items-center justify-center mb-6 shadow-md transition-transform duration-300 group-hover:scale-110`}>
-                        <Icon className="w-7 h-7 text-white" />
+                        <img src={item.icon} alt={item.title} className="w-7 h-7" />
                       </div>
 
                       {/* Card Title - Uppercase Bold Montserrat */}
