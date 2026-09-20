@@ -1,88 +1,153 @@
+"use client";
+
 import Link from "next/link";
-import { CONTACT } from "@/lib/contact-config";
+import { contactConfig } from "@/lib/contact-config";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-darkBg text-white border-t border-primary/20 pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8 mb-16">
-          <div className="lg:col-span-2">
-            <Link href="/" className="font-montserrat font-bold text-2xl tracking-tight block mb-4">
-              Value Tech Solution
+    <footer className="bg-[#efebe5] text-[#141414] border-t border-[#d8d3ce] pt-16 pb-12">
+      <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Main Footer Row */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-[#d8d3ce]">
+          
+          {/* Brand Info */}
+          <div className="md:col-span-5">
+            <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
+              <span className="w-8 h-8 rounded-full bg-[#141414] text-white flex items-center justify-center font-montserrat font-black text-sm group-hover:bg-primary transition-colors">
+                V
+              </span>
+              <span className="font-montserrat font-bold text-xl text-[#141414] tracking-tight">
+                Value Tech<span className="text-primary font-serif italic text-xl ml-0.5">.</span>
+              </span>
             </Link>
-            <p className="text-gray-400 mb-8 max-w-sm">
-              Building the web, one project at a time.
+
+            <p className="text-sm text-[#7d7b77] font-medium leading-relaxed max-w-sm mb-6">
+              A bespoke web engineering studio creating lightning-fast, high-converting websites and modern digital products for ambitious brands.
             </p>
-            <div className="flex gap-4">
-              {/* LinkedIn */}
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-2.5">
+              <a
+                href={contactConfig.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white border border-[#d8d3ce] flex items-center justify-center text-[#141414] hover:bg-[#141414] hover:text-white transition-all text-xs font-bold"
+                aria-label="LinkedIn"
+              >
+                In
               </a>
-              {/* WhatsApp */}
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.477 0 1.461 1.064 2.873 1.213 3.071.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                </svg>
+              <a
+                href={`https://wa.me/${contactConfig.whatsapp.e164}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white border border-[#d8d3ce] flex items-center justify-center text-[#141414] hover:bg-[#141414] hover:text-white transition-all text-xs font-bold"
+                aria-label="WhatsApp"
+              >
+                Wa
               </a>
-              {/* Email */}
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
+              <a
+                href={`mailto:${contactConfig.email.primary}`}
+                className="w-9 h-9 rounded-full bg-white border border-[#d8d3ce] flex items-center justify-center text-[#141414] hover:bg-[#141414] hover:text-white transition-all text-xs font-bold"
+                aria-label="Email"
+              >
+                @
               </a>
             </div>
           </div>
-          
-          <div>
-            <h4 className="font-bold mb-6 text-lg">Studio</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/work" className="hover:text-primary transition-colors">Our Work</Link></li>
-              <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold mb-6 text-lg">Services</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li><Link href="/services/web-development" className="hover:text-primary transition-colors">Web Development</Link></li>
-              <li><Link href="/services/ui-ux" className="hover:text-primary transition-colors">UI/UX Design</Link></li>
-              <li><Link href="/services/seo" className="hover:text-primary transition-colors">SEO &amp; Performance</Link></li>
-              <li><Link href="/services/ecommerce" className="hover:text-primary transition-colors">E-commerce</Link></li>
+
+          {/* Quick Links Column */}
+          <div className="md:col-span-2 col-span-6">
+            <h4 className="font-montserrat font-bold text-xs uppercase tracking-[0.1em] text-[#141414] mb-5">
+              Navigation
+            </h4>
+            <ul className="space-y-3 text-sm font-medium text-[#7d7b77]">
+              <li>
+                <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-primary transition-colors">About Us</Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-primary transition-colors">Services</Link>
+              </li>
+              <li>
+                <Link href="/work" className="hover:text-primary transition-colors">Case Studies</Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
+              </li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-bold mb-6 text-lg">Platforms</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li><Link href="#" className="hover:text-primary transition-colors">Next.js</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Shopify</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Webflow</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">WordPress</Link></li>
+          {/* Services Column */}
+          <div className="md:col-span-2 col-span-6">
+            <h4 className="font-montserrat font-bold text-xs uppercase tracking-[0.1em] text-[#141414] mb-5">
+              Services
+            </h4>
+            <ul className="space-y-3 text-sm font-medium text-[#7d7b77]">
+              <li>
+                <Link href="/services" className="hover:text-primary transition-colors">Web Development</Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-primary transition-colors">UI/UX Design</Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-primary transition-colors">E-Commerce</Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-primary transition-colors">Technical SEO</Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-primary transition-colors">Speed Audit</Link>
+              </li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-bold mb-6 text-lg">Resources</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li><Link href="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
-              <li><Link href="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
-              <li><Link href="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
-              <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-            </ul>
+          {/* Direct Contact Column */}
+          <div className="md:col-span-3">
+            <h4 className="font-montserrat font-bold text-xs uppercase tracking-[0.1em] text-[#141414] mb-5">
+              Get in Touch
+            </h4>
+            <p className="text-sm text-[#7d7b77] mb-3">
+              Have a project in mind? We&apos;d love to hear from you.
+            </p>
+            <div className="space-y-1.5 text-sm font-semibold text-[#141414]">
+              <div>
+                <a href={`mailto:${contactConfig.email.primary}`} className="hover:text-primary transition-colors">
+                  {contactConfig.email.primary}
+                </a>
+              </div>
+              <div>
+                <a href={`tel:${contactConfig.phone.e164}`} className="hover:text-primary transition-colors">
+                  {contactConfig.phone.display}
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-5">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-black transition-colors"
+              >
+                <span>Book a Discovery Call</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-[#7d7b77]">
+          <p>© {new Date().getFullYear()} Value Tech Solution. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="hover:text-black transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-black transition-colors">Terms of Service</Link>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Value Tech Solution. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-          </div>
-        </div>
       </div>
     </footer>
   );

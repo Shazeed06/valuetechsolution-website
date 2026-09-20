@@ -1,73 +1,98 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, HelpCircle } from "lucide-react";
+import Link from "next/link";
 
 const faqs = [
   {
-    q: "What does an 'AI automation' project actually look like?",
-    a: "We map your repeat workflows, identify the ones an LLM can do reliably, and ship agents that connect your tools. Typical wins: lead qualification, content drafting, support triage, and ops reporting. Most clients see 30–50 hours/week saved within 6 weeks.",
+    q: "How long does a typical website project take from start to finish?",
+    a: "Most custom marketing and corporate websites take between 2 to 4 weeks to design, develop, test, and launch. More complex web applications, client portals, or large headless e-commerce stores typically take 4 to 8 weeks depending on exact integrations.",
   },
   {
-    q: "How long does a typical website project take?",
-    a: "Most marketing sites ship in 4–6 weeks. Web apps take 8–14 weeks depending on scope. We send a fixed timeline with the proposal so there are no surprises.",
+    q: "What tech stack do you build websites with?",
+    a: "We build primarily with Next.js 16, React, TypeScript, and Tailwind CSS. For backend and content management, we integrate headless CMS platforms like Sanity, Strapi, or Shopify Storefront, and deploy to Vercel or AWS for sub-second global load times.",
   },
   {
-    q: "Do you offer fixed pricing or hourly billing?",
-    a: "Both, but we default to fixed-scope, fixed-price engagements. It forces us to be precise about scope and removes the incentive to drag work out.",
+    q: "Can you migrate our existing site without hurting our Google SEO rankings?",
+    a: "Absolutely. We conduct a complete pre-migration SEO crawl, preserve your existing URL structures, configure 301 redirects, implement structured JSON-LD schema, and ensure your new site scores 98+ on Core Web Vitals to boost your search rankings.",
   },
   {
-    q: "Can you take over an existing website?",
-    a: "Yes. We do a free 1-hour audit of the current codebase, infrastructure, and SEO health, then propose either incremental fixes or a clean rebuild — whichever serves you better.",
+    q: "How does your pricing work? Are there any hidden fees?",
+    a: "We work on a fixed-scope, fixed-price model. After our initial discovery call, we provide a transparent, itemized proposal detailing all deliverables, timelines, and payment milestones. What you see is what you pay — zero unexpected surprises.",
   },
   {
-    q: "Do you handle hosting and ongoing maintenance?",
-    a: "We deploy to Vercel, Netlify, or your cloud of choice and offer monthly retainers covering uptime, security patches, content updates, and SEO performance.",
+    q: "What happens after the website is launched?",
+    a: "Every project comes with a 30-day post-launch warranty covering bug fixes and minor adjustments. We also offer monthly care plans that include 24/7 uptime monitoring, security updates, regular speed optimizations, and ongoing feature development.",
   },
 ];
 
 export default function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
-  return (
-    <section className="section">
-      <div className="container-x">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <span className="eyebrow">FAQ</span>
-            <h2 className="heading-lg mt-3">Common questions, answered.</h2>
-            <p className="mt-4 text-carbon-400">
-              Don't see yours? Drop us a line — we reply within a business day.
-            </p>
-          </div>
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-          <div className="lg:col-span-8">
-            <div className="overflow-hidden rounded-2xl border border-carbon-950/[0.08] bg-white shadow-ring">
-              {faqs.map((f, i) => (
-                <button
-                  key={i}
-                  onClick={() => setOpen(open === i ? null : i)}
-                  className={`w-full p-6 text-left transition ${
-                    i !== 0 ? "border-t border-carbon-950/[0.08]" : ""
-                  } ${open === i ? "bg-snow-50" : "hover:bg-snow-50/60"}`}
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <h3 className="font-display text-lg text-carbon-950 sm:text-xl">
-                      {f.q}
-                    </h3>
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-carbon-950/15 bg-white text-carbon-950">
-                      {open === i ? <Minus size={14} /> : <Plus size={14} />}
-                    </span>
-                  </div>
-                  {open === i && (
-                    <p className="mt-3 text-sm leading-relaxed text-carbon-500">
-                      {f.a}
-                    </p>
-                  )}
-                </button>
-              ))}
-            </div>
+  return (
+    <section id="faq" className="py-24 lg:py-32 bg-[#efebe5] text-[#141414] overflow-hidden">
+      <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+          <div className="inline-flex items-center gap-2 bg-[#f7f2ea] border border-[#d8d3ce] px-3.5 py-1.5 rounded-full mb-4">
+            <HelpCircle className="w-3.5 h-3.5 text-primary" />
+            <span className="text-xs font-bold uppercase tracking-[0.1em] text-primary">
+              FAQs
+            </span>
           </div>
+          <h2 className="font-montserrat font-black text-4xl sm:text-5xl lg:text-6xl tracking-[-0.04em] text-[#141414] leading-[1.05]">
+            Frequently Asked<br />
+            <span className="font-sourceSerif italic font-normal text-primary">Questions</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-[#7d7b77] font-medium">
+            Everything you need to know about partnering with our studio. Have more questions?{" "}
+            <Link href="/contact" className="text-primary underline hover:text-black">
+              Let&apos;s talk
+            </Link>
+            .
+          </p>
         </div>
+
+        {/* Accordion List */}
+        <div className="max-w-3xl mx-auto space-y-4">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div
+                key={i}
+                className="bg-[#f7f2ea] rounded-2xl sm:rounded-3xl border border-[#d8d3ce] overflow-hidden transition-all duration-300"
+              >
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="w-full p-6 sm:p-7 text-left flex items-center justify-between gap-4 focus:outline-none"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-montserrat font-bold text-base sm:text-lg text-[#141414] tracking-tight">
+                    {faq.q}
+                  </span>
+                  <span
+                    className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
+                      isOpen
+                        ? "bg-[#141414] text-white"
+                        : "bg-white border border-[#d8d3ce] text-[#141414]"
+                    }`}
+                  >
+                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-0 text-sm sm:text-base text-[#7d7b77] font-medium leading-relaxed border-t border-[#d8d3ce]/40">
+                    <p className="mt-3">{faq.a}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );

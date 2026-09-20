@@ -29,6 +29,18 @@ export const CONTACT = {
   github: "https://github.com/valuetechsolution",
 };
 
+export const contactConfig = {
+  email: { primary: CONTACT.email },
+  phone: { display: CONTACT.phone, e164: "+918810650579" },
+  whatsapp: { e164: CONTACT.whatsappE164, pretty: CONTACT.phone },
+  socials: {
+    linkedin: CONTACT.linkedin,
+    twitter: CONTACT.twitter,
+    github: CONTACT.github,
+  },
+};
+
+
 export function whatsappLink(text?: string) {
   return `https://wa.me/${CONTACT.whatsappE164}?text=${encodeURIComponent(
     text ?? CONTACT.whatsappGreeting
