@@ -7,7 +7,7 @@ import { contactConfig } from "@/lib/contact-config";
 export default function CTA() {
   return (
     <section className="py-20 lg:py-28 bg-[#efebe5] text-[#141414] overflow-hidden">
-      <div className="max-w-[1136px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Rounded Banner Card */}
         <div className="relative bg-white rounded-[40px] sm:rounded-[50px] p-8 sm:p-14 lg:p-16 border border-[#ece9e1] shadow-lg overflow-hidden">
@@ -74,42 +74,87 @@ export default function CTA() {
 
             </div>
 
-            {/* Right 3D Phone / Mockup Visual */}
+            {/* Right 3D Phone / Mockup Visual with Rich Animations & Motion Inside */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-[260px] sm:w-[290px] h-[480px] sm:h-[520px] bg-gradient-to-b from-[#141414] to-[#202020] rounded-[48px] p-3 shadow-2xl border-4 border-[#2d2d2d] rotate-[4deg] hover:rotate-0 transition-transform duration-500 overflow-hidden flex flex-col justify-between">
+              <div className="relative group">
                 
-                {/* Dynamic notch */}
-                <div className="w-24 h-3.5 bg-black rounded-full mx-auto mt-2" />
+                {/* Floating Motion Badge 1: Top Right */}
+                <div className="absolute -top-3 -right-3 sm:-right-6 z-30 bg-white/95 backdrop-blur-md rounded-2xl px-3.5 py-2 shadow-lg border border-[#ece9e1] flex items-center gap-2 animate-float-slow transition-transform group-hover:scale-105">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                  <span className="text-[11px] font-bold text-[#141414]">Live Visitors: 1,480+</span>
+                </div>
 
-                {/* Inner screen */}
-                <div className="w-full h-full my-3 bg-[#f7f2ea] rounded-[38px] p-5 flex flex-col justify-between overflow-hidden relative">
+                {/* Floating Motion Badge 2: Bottom Left */}
+                <div className="absolute -bottom-3 -left-3 sm:-left-6 z-30 bg-white/95 backdrop-blur-md rounded-2xl px-3.5 py-2 shadow-lg border border-[#ece9e1] flex items-center gap-2 animate-bounce-simple transition-transform group-hover:scale-105">
+                  <Sparkles className="w-3.5 h-3.5 text-tertiary" />
+                  <span className="text-[11px] font-bold text-[#141414]">⚡ 98+ Speed Score</span>
+                </div>
+
+                {/* Smartphone Frame with 3D hover physics & White Apple Bezel */}
+                <div className="relative w-[275px] sm:w-[310px] h-[510px] sm:h-[550px] bg-[#141414] rounded-[48px] p-2.5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.22)] border-[8px] border-white rotate-[3deg] group-hover:rotate-0 group-hover:scale-[1.02] transition-all duration-500 overflow-hidden flex flex-col justify-between">
                   
-                  {/* Glowing graphic backdrop */}
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-primary to-amber-300 blur-xl opacity-60 absolute -top-4 -right-4" />
-
-                  {/* Header in phone */}
-                  <div>
-                    <div className="flex items-center justify-between text-[11px] font-bold text-[#141414] mb-3">
-                      <span>valuetechsolution.com</span>
-                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    </div>
-
-                    <div className="bg-white rounded-2xl p-3.5 shadow-sm border border-[#ece9e1] mb-3">
-                      <div className="text-[10px] uppercase font-bold text-primary tracking-wider">Ready to launch</div>
-                      <div className="font-montserrat font-bold text-sm text-[#141414] mt-0.5">Custom Next.js Studio</div>
-                      <div className="text-[10px] text-[#7d7b77] mt-1">98+ Core Web Vitals Guaranteed</div>
-                    </div>
-
-                    <div className="bg-white rounded-2xl p-3 shadow-sm border border-[#ece9e1] space-y-1.5">
-                      <div className="h-2 w-3/4 bg-gray-200 rounded-full" />
-                      <div className="h-2 w-1/2 bg-gray-200 rounded-full" />
-                      <div className="h-2 w-2/3 bg-primary/30 rounded-full mt-2" />
-                    </div>
+                  {/* Dynamic Notch */}
+                  <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-20 h-4 bg-black rounded-full z-30 flex items-center justify-end pr-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#222]" />
                   </div>
 
-                  {/* Bottom button in phone */}
-                  <div className="w-full bg-[#141414] text-white py-2.5 rounded-full text-center text-[11px] font-bold">
-                    Start a Project ✦
+                  {/* Inner screen with Live 3D Motion Video Loop & Interactive UI */}
+                  <div className="w-full h-full bg-[#f7f2ea] rounded-[38px] p-4 pt-8 flex flex-col justify-between overflow-hidden relative">
+                    
+                    {/* Animated ambient background glow */}
+                    <div className="w-32 h-32 rounded-full bg-gradient-to-tr from-primary/30 to-secondary/30 blur-2xl absolute -top-8 -right-8 animate-pulse pointer-events-none" />
+
+                    {/* Status Header */}
+                    <div className="relative z-10 flex items-center justify-between text-[10px] font-bold text-[#141414] pb-2 border-b border-black/5">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                        <span>valuetechsolution.com</span>
+                      </div>
+                      <span className="text-[9px] font-bold text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded-full">
+                        ONLINE
+                      </span>
+                    </div>
+
+                    {/* Center: High-Impact 3D Motion Video Loop */}
+                    <div className="relative my-auto w-full aspect-square max-h-[235px] rounded-2xl overflow-hidden flex items-center justify-center bg-white/70 border border-black/5 shadow-inner group-hover:shadow-md transition-shadow">
+                      <video
+                        src="/videos/services/social-management.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          target.src = "https://framerusercontent.com/assets/64ZMhO5aQtuzPw6cPEGQKIEos.mp4";
+                        }}
+                      />
+                      
+                      {/* Floating interactive badge inside screen */}
+                      <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-white/95 backdrop-blur-md rounded-xl p-2.5 border border-white/80 shadow-md flex items-center justify-between text-left">
+                        <div>
+                          <div className="text-[9px] uppercase font-bold text-primary tracking-wider">Next.js Studio</div>
+                          <div className="text-[11px] font-bold text-[#141414]">Ready to Launch</div>
+                        </div>
+                        <div className="w-6 h-6 rounded-full bg-primary text-[#141414] flex items-center justify-center text-xs font-black shrink-0">
+                          ✓
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Animated Bottom Interactive Pill */}
+                    <div className="relative z-10 pt-2">
+                      <Link
+                        href="/contact"
+                        className="w-full bg-[#141414] hover:bg-black text-white py-2.5 rounded-full flex items-center justify-center gap-1.5 text-xs font-bold transition-all shadow-md group-hover:shadow-lg active:scale-95"
+                      >
+                        <span>Start a Project</span>
+                        <span className="text-primary text-sm">✦</span>
+                      </Link>
+                      <div className="w-20 h-1 bg-black/20 rounded-full mx-auto mt-2" />
+                    </div>
+
                   </div>
 
                 </div>
