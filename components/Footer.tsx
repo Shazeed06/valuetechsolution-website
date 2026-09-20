@@ -1,150 +1,204 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { contactConfig } from "@/lib/contact-config";
-import { ArrowUpRight } from "lucide-react";
 import Logo from "@/components/Logo";
+import { Linkedin, Mail, MessageCircle, Github } from "lucide-react";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubscribed(true);
+      setTimeout(() => setSubscribed(false), 4000);
+      setEmail("");
+    }
+  };
+
   return (
-    <footer className="w-full bg-[#141414] bg-[url('/images/footer-bg.png')] bg-cover bg-no-repeat text-white pt-16 sm:pt-20 pb-12 border-t border-white/10 font-montserrat">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="w-full bg-[#141414] bg-[url('/images/footer-bg.png')] bg-cover bg-no-repeat md:pt-[100px] md:pb-[60px] py-14 font-montserrat text-white border-t border-white/10">
+      <div className="max-w-[1262px] px-5 sm:px-8 mx-auto">
         
-        {/* Main Footer Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-white/10">
+        {/* Main Footer Content Row */}
+        <div className="flex lg:flex-nowrap flex-wrap md:mb-[80px] mb-12 md:gap-8 gap-10">
           
-          {/* Brand Info */}
-          <div className="md:col-span-4">
-            <Link href="/" className="inline-block mb-5" aria-label="Value Tech Solution Home">
-              <Logo size="md" theme="light" />
+          {/* Column 1: Logo & Studio Info (lg:w-3/12) */}
+          <div className="lg:w-3/12 md:w-[45%] w-full md:text-start text-center">
+            <Link href="/" className="inline-block mb-6" aria-label="Value Tech Solution Home">
+              <Logo size="lg" theme="light" />
             </Link>
-
-            <p className="text-sm text-white/70 font-medium leading-relaxed max-w-sm mb-6">
-              A bespoke web engineering studio creating lightning-fast, high-converting Next.js websites and AI automated workflows for ambitious brands.
+            <p className="text-white/70 text-sm font-medium leading-relaxed max-w-[280px] md:mx-0 mx-auto">
+              A bespoke web engineering studio creating lightning-fast Next.js websites and AI workflows.
             </p>
-
-            {/* Social Links */}
-            <div className="flex items-center gap-3">
-              <a
-                href={contactConfig.socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary hover:text-white border border-white/10 flex items-center justify-center text-white transition-all text-xs font-bold"
-                aria-label="LinkedIn"
-              >
-                In
-              </a>
-              <a
-                href={`https://wa.me/${contactConfig.whatsapp.e164}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-emerald-500 hover:text-white border border-white/10 flex items-center justify-center text-white transition-all text-xs font-bold"
-                aria-label="WhatsApp"
-              >
-                Wa
-              </a>
-              <a
-                href={`mailto:${contactConfig.email.primary}`}
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#fb72cc] hover:text-white border border-white/10 flex items-center justify-center text-white transition-all text-xs font-bold"
-                aria-label="Email"
-              >
-                @
-              </a>
-            </div>
           </div>
 
-          {/* Quick Links Column */}
-          <div className="md:col-span-2 col-span-6">
-            <h4 className="font-montserrat font-bold text-sm uppercase tracking-wider text-[#1ab9a2] mb-5">
+          {/* Column 2: Quick Links (lg:w-2/12) - Teal Accent Header */}
+          <div className="lg:w-2/12 md:w-[45%] w-full">
+            <h4 className="text-lg sm:text-xl font-bold text-[#1ab9a2] mb-6 capitalize tracking-tight">
               Quick Links
             </h4>
-            <ul className="space-y-3 text-sm font-medium text-white/70">
+            <ul className="space-y-3">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                <Link
+                  href="/services"
+                  className="text-white font-bold text-base sm:text-lg hover:text-[#1ab9a2] transition-colors block"
+                >
+                  Services
+                </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
+                <Link
+                  href="/work"
+                  className="text-white font-bold text-base sm:text-lg hover:text-[#1ab9a2] transition-colors block"
+                >
+                  Case Studies
+                </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-white transition-colors">Our Services</Link>
+                <Link
+                  href="/about"
+                  className="text-white font-bold text-base sm:text-lg hover:text-[#1ab9a2] transition-colors block"
+                >
+                  About Us
+                </Link>
               </li>
               <li>
-                <Link href="/work" className="hover:text-white transition-colors">Case Studies</Link>
+                <Link
+                  href="/pricing"
+                  className="text-white font-bold text-base sm:text-lg hover:text-[#1ab9a2] transition-colors block"
+                >
+                  Pricing
+                </Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Services Column */}
-          <div className="md:col-span-3 col-span-6">
-            <h4 className="font-montserrat font-bold text-sm uppercase tracking-wider text-[#1ab9a2] mb-5">
-              Services
-            </h4>
-            <ul className="space-y-3 text-sm font-medium text-white/70">
-              <li>
-                <Link href="/services/web-development" className="hover:text-white transition-colors">Website Development</Link>
-              </li>
-              <li>
-                <Link href="/services/design-systems" className="hover:text-white transition-colors">UI/UX & Branding</Link>
-              </li>
-              <li>
-                <Link href="/services/ai-automation" className="hover:text-white transition-colors">AI Automation & Workflows</Link>
-              </li>
-              <li>
-                <Link href="/services/seo" className="hover:text-white transition-colors">Technical SEO & AEO</Link>
-              </li>
-              <li>
-                <Link href="/services/starter-website" className="hover:text-white transition-colors">Landing Pages & CRO</Link>
+                <Link
+                  href="/contact"
+                  className="text-white font-bold text-base sm:text-lg hover:text-[#1ab9a2] transition-colors block"
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Direct Contact Column */}
-          <div className="md:col-span-3">
-            <h4 className="font-montserrat font-bold text-sm uppercase tracking-wider text-[#1ab9a2] mb-5">
-              Get in Touch
-            </h4>
-            <p className="text-sm text-white/70 mb-4 font-normal">
-              Have a project in mind? We'd love to scope your goals and quote a fixed price.
-            </p>
-            <div className="space-y-2 text-sm font-semibold text-white">
-              <div>
-                <a href={`mailto:${contactConfig.email.primary}`} className="hover:text-[#1ab9a2] transition-colors">
-                  {contactConfig.email.primary}
-                </a>
-              </div>
-              <div>
-                <a href={`tel:${contactConfig.phone.e164}`} className="hover:text-[#1ab9a2] transition-colors">
-                  {contactConfig.phone.display}
-                </a>
-              </div>
+          {/* Column 3: Legal & Policies (lg:w-3/12) - Pink Accent Header */}
+          <div className="lg:w-3/12 md:w-[45%] w-full">
+            <div className="w-fit lg:mx-auto">
+              <h4 className="text-lg sm:text-xl font-bold text-[#fb72cc] mb-6 capitalize tracking-tight">
+                Legal
+              </h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    href="/privacy"
+                    className="text-white font-bold text-base sm:text-lg hover:text-[#fb72cc] transition-colors block"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/terms"
+                    className="text-white font-bold text-base sm:text-lg hover:text-[#fb72cc] transition-colors block"
+                  >
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/security"
+                    className="text-white font-bold text-base sm:text-lg hover:text-[#fb72cc] transition-colors block"
+                  >
+                    Security Standard
+                  </Link>
+                </li>
+              </ul>
             </div>
+          </div>
 
-            <div className="mt-6">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1ab9a2] hover:text-white transition-colors"
-              >
-                <span>Book a Discovery Call</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
+          {/* Column 4: Newsletter & Direct Socials (lg:w-4/12) - Amber Accent Header */}
+          <div className="lg:w-4/12 md:w-[45%] w-full">
+            <div className="max-w-[380px] md:ml-auto">
+              <h4 className="text-lg sm:text-xl font-bold text-[#fea800] mb-3 capitalize tracking-tight">
+                Get in Touch
+              </h4>
+              <p className="text-white/80 text-sm font-medium leading-relaxed mb-5">
+                Sign up for case studies, performance insights, and engineering updates.
+              </p>
+
+              {/* GUD Agency Style Capsule Input Form */}
+              <form onSubmit={handleSubmit} className="flex items-center my-5">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email address"
+                  className="text-white text-sm font-medium w-full flex-1 px-5 bg-white/10 rounded-l-full h-[48px] placeholder:text-white/50 border border-r-0 border-white/20 focus:outline-none focus:border-[#fea800] focus:ring-1 focus:ring-[#fea800]"
+                />
+                <button
+                  type="submit"
+                  className="text-black font-bold text-sm h-[48px] px-6 flex items-center justify-center bg-[#fea800] hover:bg-[#e09400] rounded-r-full transition-colors shrink-0 cursor-pointer shadow-md"
+                >
+                  {subscribed ? "Done!" : "Subscribe"}
+                </button>
+              </form>
+
+              {/* Social Icons */}
+              <div className="flex items-center gap-3 mt-6">
+                <a
+                  href={contactConfig.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#1ab9a2] hover:text-white border border-white/15 flex items-center justify-center text-white/80 transition-all hover:scale-110"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a
+                  href={`https://wa.me/${contactConfig.whatsapp.e164}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#25D366] hover:text-white border border-white/15 flex items-center justify-center text-white/80 transition-all hover:scale-110"
+                  aria-label="WhatsApp"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                </a>
+                <a
+                  href={`mailto:${contactConfig.email.primary}`}
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#fb72cc] hover:text-white border border-white/15 flex items-center justify-center text-white/80 transition-all hover:scale-110"
+                  aria-label="Email"
+                >
+                  <Mail className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://github.com/Shazeed06"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#fea800] hover:text-black border border-white/15 flex items-center justify-center text-white/80 transition-all hover:scale-110"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-4 h-4" />
+                </a>
+              </div>
+
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-white/60">
-          <p>© {new Date().getFullYear()} Value Tech Solution. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-          </div>
+        {/* Bottom Tagline & Copyright Bar matching GUD Agency */}
+        <div className="pt-8 border-t border-white/10 text-center">
+          <h5 className="text-base font-bold text-white mb-1.5 tracking-tight">
+            High Performance Websites · Engineered for Growth
+          </h5>
+          <p className="text-xs text-white/50 font-medium">
+            © {new Date().getFullYear()} Value Tech Solution · All rights reserved.
+          </p>
         </div>
 
       </div>
