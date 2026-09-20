@@ -17,35 +17,34 @@ const GA_ID = "G-2E1KGCSRBL";
 export const metadata: Metadata = {
   metadataBase: new URL("https://valuetechsolution.com"),
   title: {
-    default: "Value Tech Solution — AI Automation, Web & Growth",
+    default: "Value Tech Solution — Web Development Studio",
     template: "%s · Value Tech Solution",
   },
   description:
-    "Value Tech Solution is an AI startup of engineers shipping n8n, GHL, Zapier, and Python automations alongside Next.js websites and SEO programs that compound.",
+    "Value Tech Solution is a web development studio crafting high-performance websites for startups and growing businesses — beautifully designed, fast, and built to rank.",
   keywords: [
-    "AI automation",
-    "n8n agency",
-    "GoHighLevel agency",
-    "Zapier automation",
-    "Python automation",
-    "web development",
+    "web development agency India",
+    "Next.js agency",
+    "UI/UX design",
     "SEO services",
+    "website design",
+    "startup website",
     "Value Tech Solution",
   ],
   authors: [{ name: "Value Tech Solution" }],
   openGraph: {
-    title: "Value Tech Solution — AI Automation, Web & Growth",
+    title: "Value Tech Solution — Web Development Studio",
     description:
-      "Engineers shipping automations on n8n, GHL, Zapier, Python — plus websites and SEO that actually rank.",
+      "High-performance websites for startups and growing businesses. Next.js, UI/UX, SEO.",
     url: "https://valuetechsolution.com",
     siteName: "Value Tech Solution",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Value Tech Solution — AI Automation, Web & Growth",
+    title: "Value Tech Solution — Web Development Studio",
     description:
-      "n8n · GHL · Zapier · Python · Next.js · SEO. Built by engineers, not marketers.",
+      "Next.js · UI/UX · SEO · Performance. Built to convert.",
   },
   robots: { index: true, follow: true },
 };
@@ -55,8 +54,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbf8f0" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    { media: "(prefers-color-scheme: light)", color: "#efebe5" },
+    { media: "(prefers-color-scheme: dark)",  color: "#141414" },
   ],
   colorScheme: "light",
 };
