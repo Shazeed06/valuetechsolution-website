@@ -1,178 +1,283 @@
-/* ─── GUD Agency Exact Font Stack ──────────────────────────────────────── */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Annie+Use+Your+Telescope&display=swap");
+/* ═══════════════════════════════════════════════════════════════════════
+   GUD Agency — EXACT CSS Design System
+   Extracted directly from: https://www.thegudagency.com/
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── Fonts (exact same stack as GUD Agency) ─────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Annie+Use+Your+Telescope&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ─── GUD Agency CSS Variables (exact match) ─────────────────────────── */
+/* ─── GUD Agency CSS Custom Properties (@layer theme equivalent) ────── */
 :root {
-  /* Accent palette */
+  /* Core accent palette — GUD exact values */
   --color-primary:    #1ab9a2;
   --color-secondary:  #fb72cc;
   --color-tertiary:   #fea800;
 
   /* Dark backgrounds */
-  --color-body-bg:    #141414;  /* GUD uses this for dark sections */
+  --color-body-bg:    #141414;
   --color-black-1:    #141414;
   --color-black-1000: #191919;
   --color-black-1200: #151515;
   --color-red-1200:   #d52a2a;
 
-  /* Page surface (warm beige) */
-  --page-bg:          #efebe5;
-  --surface-100:      #f7f2ea;
-  --surface-200:      #ece9e1;
-  --surface-300:      #d8d3ce;
-  --muted-text:       #7d7b77;
+  /* Warm neutral surfaces */
+  --page-bg:   #efebe5;
+  --gray-10:   #e7e2dc;
+  --gray-20:   #f7f2ea;
+  --gray-50:   #7d7b77;   /* GUD muted text color */
 
-  /* Fonts */
-  --font-montserrat:  "Montserrat", "sans-serif";
-  --font-inter:       "Inter", "sans-serif";
-  --font-source-serif:"Source Serif 4", "Georgia", serif;
-  --font-annie:       "Annie Use Your Telescope", cursive;
+  /* Font variables — matches GUD's CSS variable naming */
+  --font-montserrat:   "Montserrat", "Montserrat Fallback";
+  --font-inter:        "Inter", "Inter Fallback";
+  --font-source-serif: "Source Serif 4", "Source Serif 4 Fallback";
+  --font-annie:        "Annie Use Your Telescope", cursive;
+
+  /* GUD custom text sizes */
+  --text-size-30:  30px;
+  --text-size-50:  50px;
+  --text-size-120: 120px;
+
+  /* GUD container */
+  --container-max-width: 1136px;
+
+  /* GUD border radius */
+  --radius-5xl: 50px;
+
+  /* Foreground / background defaults */
+  --background: 239 235 229;   /* #efebe5 as RGB */
+  --foreground:  20  20  20;   /* #141414 as RGB */
 }
 
-/* ─── Global Base ────────────────────────────────────────────────────── */
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ─── Base Reset (matches GUD Agency exactly) ────────────────────────── */
+*, ::before, ::after {
   box-sizing: border-box;
 }
 
-html,
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Body — exact match to GUD Agency ──────────────────────────────── */
 body {
-  background-color: #efebe5;           /* GUD beige page bg */
-  color: #141414;                      /* GUD dark text */
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  background-color: #efebe5;           /* GUD page bg */
+  color: #141414;                      /* GUD text color */
+  font-family: "Inter", "Inter Fallback", sans-serif;
   font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.04em;            /* GUD tight letter spacing */
   line-height: 1.5;
-  scroll-behavior: smooth;
+  letter-spacing: -0.04em;            /* GUD exact tracking */
   -webkit-text-size-adjust: 100%;
 }
 
-/* Text selection — teal like GUD */
+/* ─── Selection — GUD teal ───────────────────────────────────────────── */
 ::selection {
   background: #1ab9a2;
   color: #ffffff;
 }
 
+/* ─── Marquee animations (GUD exact keyframes) ───────────────────────── */
+@keyframes marquee {
+  0%   { left: 0; }
+  100% { left: -100%; }
+}
+@keyframes marquee2 {
+  0%   { left: -100%; }
+  100% { left: 0; }
+}
+@keyframes bounceSimple {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-55px); }
+  45%  { transform: translateY(-35px); }
+  60%  { transform: translateY(-45px); }
+  75%  { transform: translateY(-40px); }
+  90%  { transform: translateY(-45px); }
+  100% { transform: translateY(-45px); }
+}
+
+.marquee div  { width: 200%; animation: marquee 50s linear infinite; }
+.marquee2 div { width: 200%; animation: marquee2 50s linear infinite; }
+.marquee3 div { width: 220%; }
+
+/* ─── Bubble hover (used in GUD service icons) ───────────────────────── */
+.bubble-on-hover {
+  transition: transform 0.5s ease-in-out;
+}
+.bubble-on-hover:hover {
+  animation: bounceSimple 0.7s ease-in-out;
+  transform: translateY(-45px);
+}
+
 /* ─── GUD Agency Component Classes ──────────────────────────────────── */
 @layer components {
 
-  /* Container */
+  /* Container — 1136px max (GUD exact) */
   .container-x {
-    @apply mx-auto w-full max-w-[1136px] px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full px-4 sm:px-6 lg:px-8;
+    max-width: 1136px;
   }
 
-  /* ── Buttons ─────────────────────────────────────────── */
+  /* ── Buttons ─────────────────────────────────────────────────────── */
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full
            font-medium transition-all duration-300 cursor-pointer;
+    font-family: var(--font-montserrat);
+    letter-spacing: -0.02em;
   }
 
-  /* Primary — teal fill */
+  /* Primary — teal fill (GUD exact) */
   .btn-primary {
     @apply btn bg-primary text-white px-6 py-3
-           hover:bg-opacity-80;
+           hover:bg-opacity-80 active:scale-95;
   }
 
   /* Dark fill */
   .btn-dark {
     @apply btn bg-[#141414] text-white px-6 py-3
-           hover:bg-black;
+           hover:bg-black active:scale-95;
   }
 
-  /* Ghost — teal border */
+  /* Ghost — dark border/text */
   .btn-ghost {
     @apply btn border border-[#141414] text-[#141414] px-6 py-3
-           hover:bg-[#141414] hover:text-white;
+           hover:bg-[#141414] hover:text-white active:scale-95;
   }
 
-  /* Ghost white (for dark sections) */
+  /* Ghost white — for dark sections */
   .btn-ghost-white {
     @apply btn border border-white/30 text-white px-6 py-3
-           hover:border-white/60 hover:bg-white/10;
+           hover:border-white/60 hover:bg-white/10 active:scale-95;
   }
 
-  /* Link style */
+  /* Link arrow */
   .btn-link {
-    @apply inline-flex items-center gap-2 text-primary font-medium
-           underline-offset-4 hover:underline;
+    @apply inline-flex items-center gap-2 font-medium text-primary
+           underline-offset-4 hover:underline transition-all;
   }
 
-  /* ── Cards ───────────────────────────────────────────── */
+  /* ── Cards ───────────────────────────────────────────────────────── */
+  /* GUD light card on beige bg */
   .card-light {
-    @apply bg-[#f7f2ea] rounded-2xl p-7 border border-[#ece9e1]
+    background-color: #f7f2ea;
+    @apply rounded-2xl p-7 border border-[#ece9e1]
            transition-all duration-300 hover:border-[#d8d3ce];
   }
 
+  /* White card */
   .card-white {
-    @apply bg-white rounded-2xl p-8 shadow-sm border border-[#ece9e1]
-           transition-all duration-300 hover:shadow-md;
+    @apply bg-white rounded-2xl p-8 border border-[#ece9e1]
+           shadow-sm transition-all duration-300 hover:shadow-lg;
   }
 
+  /* Dark card */
   .card-dark {
-    @apply bg-[#191919] rounded-2xl p-7 border border-white/10
+    background-color: #191919;
+    @apply rounded-2xl p-7 border border-white/10
            transition-all duration-300 hover:border-white/20;
   }
 
-  /* ── Section Spacing ─────────────────────────────────── */
+  /* GUD hover glow effects */
+  .card-glow-primary {
+    @apply transition-all duration-300
+           hover:shadow-[0_0_30px_rgba(26,185,162,0.3)];
+  }
+  .card-glow-secondary {
+    @apply transition-all duration-300
+           hover:shadow-[0_0_30px_rgba(251,114,204,0.3)];
+  }
+  .card-glow-tertiary {
+    @apply transition-all duration-300
+           hover:shadow-[0_0_30px_rgba(254,168,0,0.3)];
+  }
+
+  /* ── Sections ─────────────────────────────────────────────────────── */
   .section-light {
-    @apply py-20 lg:py-28 bg-[#efebe5] overflow-hidden;
+    background-color: #efebe5;
+    @apply py-20 lg:py-28 overflow-hidden;
   }
 
   .section-dark {
-    @apply py-20 lg:py-28 bg-[#141414] overflow-hidden;
+    background-color: #141414;
+    @apply py-20 lg:py-28 overflow-hidden;
   }
 
-  /* ── Typography ──────────────────────────────────────── */
+  /* GUD rounded-top sections */
+  .section-rounded-top {
+    @apply rounded-t-[70px];
+  }
+
+  /* ── Typography ──────────────────────────────────────────────────── */
+
+  /* Small label — GUD eyebrow pattern */
   .eyebrow {
-    @apply text-primary text-xs font-bold tracking-[0.12em] uppercase
-           block mb-4;
+    @apply inline-block text-primary text-xs font-bold
+           tracking-[0.08em] uppercase mb-4;
   }
 
+  /* Montserrat display headings */
   .heading-display {
-    @apply font-montserrat font-black tracking-[-0.04em] leading-[0.95]
-           text-[#141414];
+    font-family: var(--font-montserrat);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: #141414;
   }
 
   .heading-xl {
-    @apply heading-display text-5xl sm:text-7xl lg:text-[120px];
+    @apply heading-display;
+    font-size: clamp(56px, 8vw, 120px);
   }
 
   .heading-lg {
-    @apply heading-display text-4xl sm:text-5xl lg:text-6xl;
+    @apply heading-display;
+    font-size: clamp(40px, 6vw, 80px);
   }
 
   .heading-md {
-    @apply heading-display text-3xl sm:text-4xl lg:text-5xl;
+    @apply heading-display;
+    font-size: clamp(30px, 4vw, 56px);
   }
 
   .heading-sm {
-    @apply font-montserrat font-bold text-2xl tracking-[-0.03em]
-           text-[#141414];
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-size: clamp(22px, 2.5vw, 30px);
+    color: #141414;
   }
 
-  /* White variant for dark sections */
+  /* White heading for dark sections */
   .heading-white {
-    @apply font-montserrat font-black tracking-[-0.04em] leading-[0.95]
-           text-white;
+    @apply heading-display;
+    color: #ffffff;
   }
 
+  /* Body text */
   .lede {
-    @apply text-lg leading-relaxed text-[#7d7b77];
+    font-size: 18px;
+    line-height: 1.6;
+    color: #7d7b77;
+    font-weight: 500;
   }
 
   .lede-dark {
-    @apply text-lg leading-relaxed text-white/60;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
   }
 
-  /* Source Serif italic accent */
+  /* Source Serif italic accent — like GUD's italic words */
   .italic-accent {
-    font-family: "Source Serif 4", Georgia, serif;
+    font-family: "Source Serif 4", "Source Serif 4 Fallback", Georgia, serif;
     font-style: italic;
     font-weight: 400;
     color: var(--color-primary);
@@ -180,7 +285,7 @@ body {
   }
 
   .italic-accent-secondary {
-    font-family: "Source Serif 4", Georgia, serif;
+    font-family: "Source Serif 4", "Source Serif 4 Fallback", Georgia, serif;
     font-style: italic;
     font-weight: 400;
     color: var(--color-secondary);
@@ -188,14 +293,19 @@ body {
   }
 
   .italic-accent-tertiary {
-    font-family: "Source Serif 4", Georgia, serif;
+    font-family: "Source Serif 4", "Source Serif 4 Fallback", Georgia, serif;
     font-style: italic;
     font-weight: 400;
     color: var(--color-tertiary);
     letter-spacing: 0.01em;
   }
 
-  /* ── Gradient Text ───────────────────────────────────── */
+  /* Annie — GUD's handwriting font */
+  .font-annie {
+    font-family: var(--font-annie);
+  }
+
+  /* ── Gradients / Text effects ────────────────────────────────────── */
   .gradient-text-primary {
     background: linear-gradient(135deg, #1ab9a2 0%, #0d8f7d 100%);
     -webkit-background-clip: text;
@@ -203,53 +313,43 @@ body {
     background-clip: text;
   }
 
-  .gradient-text-secondary {
-    background: linear-gradient(135deg, #fb72cc 0%, #e04daa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* ── Borders ─────────────────────────────────────────────────────── */
+  .rule-light { @apply h-px w-full bg-[#ece9e1]; }
+  .rule-dark  { @apply h-px w-full bg-white/10; }
+
+  /* Left accent border — used in GUD content blocks */
+  .border-l-accent {
+    @apply border-l-[6px] border-l-primary pl-5;
   }
 
-  /* ── Borders / Dividers ──────────────────────────────── */
-  .rule-light {
-    @apply h-px w-full bg-[#ece9e1];
-  }
-
-  .rule-dark {
-    @apply h-px w-full bg-white/10;
-  }
-
-  /* ── Glow effects ────────────────────────────────────── */
-  .glow-primary {
-    box-shadow: 0 0 60px rgba(26, 185, 162, 0.25);
-  }
-
-  .glow-secondary {
-    box-shadow: 0 0 60px rgba(251, 114, 204, 0.25);
-  }
-
-  .glow-tertiary {
-    box-shadow: 0 0 60px rgba(254, 168, 0, 0.25);
-  }
-
-  /* ── Badge / Tag chips ───────────────────────────────── */
+  /* ── Badges ──────────────────────────────────────────────────────── */
   .badge-primary {
     @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1
            bg-primary/10 text-primary text-xs font-semibold;
   }
-
   .badge-secondary {
     @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1
            bg-secondary/10 text-secondary text-xs font-semibold;
   }
-
   .badge-tertiary {
     @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1
            bg-tertiary/10 text-tertiary text-xs font-semibold;
   }
-
   .badge-dark {
     @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1
            bg-white/10 text-white text-xs font-semibold;
+  }
+
+  /* ── Portfolio / Work theme (from GUD source) ────────────────────── */
+  .portfolio-theme {
+    --pw-text-primary:   #111;
+    --pw-text-secondary: #6b6b6b;
+    --pw-text-muted:     #7a7a7a;
+    --pw-border-light:   #e0e0e0;
+    --pw-bg:             #ebe8e2;
+    background-color: var(--pw-bg);
+    color: var(--pw-text-primary);
+    font-family: var(--font-inter), "Inter", sans-serif;
+    letter-spacing: -0.01em;
   }
 }
