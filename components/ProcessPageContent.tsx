@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowUpRight,
   CheckCircle2,
@@ -25,44 +24,54 @@ import {
   Check,
   Lock,
   ExternalLink,
+  ChevronDown,
+  Layers3,
+  Server,
+  Globe,
+  Database,
+  ArrowRight,
+  Sliders,
+  Eye,
+  MousePointer2,
 } from "lucide-react";
 import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   3D GLOSSY BUBBLE COMPONENT (Hyper-Realistic Spherical Gradients & Sheen)
+   PROFESSIONAL FROSTED GLASS BUBBLE (Luxury Translucent Refraction & Iridescence)
 ───────────────────────────────────────────────────────────────────────────── */
-type BubbleColor = "teal" | "pink" | "amber" | "purple" | "cyan";
+type BubbleTint = "teal" | "pink" | "amber" | "purple" | "cyan";
 
-interface BubbleProps {
+interface GlassBubbleProps {
   size?: number;
-  color?: BubbleColor;
+  tint?: BubbleTint;
   className?: string;
   floatVariant?: 1 | 2 | 3;
   delay?: string;
 }
 
-function GlossyBubble({
+function ProfessionalGlassBubble({
   size = 120,
-  color = "teal",
+  tint = "teal",
   className = "",
   floatVariant = 1,
   delay = "0s",
-}: BubbleProps) {
-  const gradients: Record<BubbleColor, string> = {
-    teal: "radial-gradient(circle at 30% 26%, #79fff3 0%, #3af7d9 22%, #1ab9a2 50%, #0c7263 78%, #03362e 100%)",
-    pink: "radial-gradient(circle at 30% 26%, #ffe0f6 0%, #ff9ce1 22%, #fb72cc 50%, #c42691 78%, #520739 100%)",
-    amber: "radial-gradient(circle at 30% 26%, #fff7b8 0%, #ffd45e 22%, #fea800 50%, #c27600 78%, #523000 100%)",
-    purple: "radial-gradient(circle at 30% 26%, #f8caff 0%, #db7fff 22%, #ba49f5 50%, #7614b0 78%, #360352 100%)",
-    cyan: "radial-gradient(circle at 30% 26%, #b5f7ff 0%, #52e5ff 22%, #00b4d8 50%, #0077b6 78%, #021f45 100%)",
+}: GlassBubbleProps) {
+  // Translucent, frosted luxury glass gradients with subtle color refraction
+  const glassGradients: Record<BubbleTint, string> = {
+    teal: "radial-gradient(circle at 35% 25%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.3) 18%, rgba(121,255,243,0.22) 42%, rgba(26,185,162,0.18) 70%, rgba(12,114,99,0.32) 100%)",
+    pink: "radial-gradient(circle at 35% 25%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.3) 18%, rgba(255,180,232,0.22) 42%, rgba(251,114,204,0.18) 70%, rgba(196,38,145,0.32) 100%)",
+    amber: "radial-gradient(circle at 35% 25%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.3) 18%, rgba(255,232,153,0.22) 42%, rgba(254,168,0,0.18) 70%, rgba(194,118,0,0.32) 100%)",
+    purple: "radial-gradient(circle at 35% 25%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.3) 18%, rgba(248,202,255,0.22) 42%, rgba(186,73,245,0.18) 70%, rgba(118,20,176,0.32) 100%)",
+    cyan: "radial-gradient(circle at 35% 25%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.3) 18%, rgba(181,247,255,0.22) 42%, rgba(0,180,216,0.18) 70%, rgba(0,119,182,0.32) 100%)",
   };
 
-  const glowShadows: Record<BubbleColor, string> = {
-    teal: "0 22px 50px rgba(26,185,162,0.42), inset 0 8px 16px rgba(255,255,255,0.75), inset 0 -10px 22px rgba(0,0,0,0.35)",
-    pink: "0 22px 50px rgba(251,114,204,0.42), inset 0 8px 16px rgba(255,255,255,0.75), inset 0 -10px 22px rgba(0,0,0,0.35)",
-    amber: "0 22px 50px rgba(254,168,0,0.42), inset 0 8px 16px rgba(255,255,255,0.75), inset 0 -10px 22px rgba(0,0,0,0.35)",
-    purple: "0 22px 50px rgba(186,73,245,0.42), inset 0 8px 16px rgba(255,255,255,0.75), inset 0 -10px 22px rgba(0,0,0,0.35)",
-    cyan: "0 22px 50px rgba(0,180,216,0.42), inset 0 8px 16px rgba(255,255,255,0.75), inset 0 -10px 22px rgba(0,0,0,0.35)",
+  const glassShadows: Record<BubbleTint, string> = {
+    teal: "inset 0 4px 10px rgba(255,255,255,0.85), inset 0 -6px 14px rgba(12,114,99,0.25), inset -2px 0 6px rgba(255,255,255,0.3), 0 20px 45px -12px rgba(26,185,162,0.22)",
+    pink: "inset 0 4px 10px rgba(255,255,255,0.85), inset 0 -6px 14px rgba(196,38,145,0.25), inset -2px 0 6px rgba(255,255,255,0.3), 0 20px 45px -12px rgba(251,114,204,0.22)",
+    amber: "inset 0 4px 10px rgba(255,255,255,0.85), inset 0 -6px 14px rgba(194,118,0,0.25), inset -2px 0 6px rgba(255,255,255,0.3), 0 20px 45px -12px rgba(254,168,0,0.22)",
+    purple: "inset 0 4px 10px rgba(255,255,255,0.85), inset 0 -6px 14px rgba(118,20,176,0.25), inset -2px 0 6px rgba(255,255,255,0.3), 0 20px 45px -12px rgba(186,73,245,0.22)",
+    cyan: "inset 0 4px 10px rgba(255,255,255,0.85), inset 0 -6px 14px rgba(0,119,182,0.25), inset -2px 0 6px rgba(255,255,255,0.3), 0 20px 45px -12px rgba(0,180,216,0.22)",
   };
 
   const animClass =
@@ -74,22 +83,22 @@ function GlossyBubble({
 
   return (
     <div
-      className={`rounded-full relative pointer-events-none select-none z-20 transition-transform duration-500 hover:scale-110 ${animClass} ${className}`}
+      className={`rounded-full relative pointer-events-none select-none backdrop-blur-[6px] border border-white/60 transition-transform duration-700 hover:scale-105 ${animClass} ${className}`}
       style={{
         width: `${size}px`,
         height: `${size}px`,
-        background: gradients[color],
-        boxShadow: glowShadows[color],
+        background: glassGradients[tint],
+        boxShadow: glassShadows[tint],
         animationDelay: delay,
       }}
       aria-hidden="true"
     >
-      {/* Specular high-gloss highlight reflection */}
-      <div className="absolute w-[36%] h-[24%] rounded-[50%] bg-gradient-to-b from-white/95 to-white/10 top-[12%] left-[16%] rotate-[-30deg] blur-[0.6px]" />
-      {/* Secondary pin-point glint */}
-      <div className="absolute w-[10%] h-[10%] rounded-full bg-white/90 top-[28%] left-[32%] blur-[0.4px]" />
-      {/* Bottom ambient rim bounce light */}
-      <div className="absolute w-[46%] h-[18%] rounded-[50%] bg-white/35 bottom-[9%] right-[14%] blur-[2.5px]" />
+      {/* Specular high-gloss light crescent */}
+      <div className="absolute w-[36%] h-[22%] rounded-[50%] bg-gradient-to-b from-white/95 via-white/50 to-transparent top-[10%] left-[16%] rotate-[-32deg] blur-[0.4px]" />
+      {/* Secondary micro light glint */}
+      <div className="absolute w-[8%] h-[8%] rounded-full bg-white/95 top-[25%] left-[30%] blur-[0.2px]" />
+      {/* Bottom subtle ambient rim bounce light */}
+      <div className="absolute w-[44%] h-[16%] rounded-[50%] bg-white/40 bottom-[10%] right-[14%] blur-[2px]" />
     </div>
   );
 }
@@ -103,7 +112,6 @@ const steps = [
     phase: "Phase 1",
     tag: "Days 1–3",
     color: "#1ab9a2",
-    bubbleColor: "teal" as BubbleColor,
     icon: Compass,
     title: "Technical Discovery & Scope Lockdown",
     subtitle: "Architecture blueprint, edge sitemap & written SLA.",
@@ -116,9 +124,9 @@ const steps = [
       "Private GitHub repository initialized with CI/CD rules",
     ],
     highlightMetric: {
-      label: "Scoping Turnaround",
-      val: "72 Hours",
-      badge: "SLA Guaranteed",
+      label: "Scope Clarity",
+      val: "100%",
+      badge: "Zero Budget Creep",
     },
   },
   {
@@ -126,12 +134,11 @@ const steps = [
     phase: "Phase 2",
     tag: "Week 1–2",
     color: "#fb72cc",
-    bubbleColor: "pink" as BubbleColor,
     icon: Palette,
     title: "Bespoke Figma System & Prototype",
     subtitle: "Zero generic templates. 100% custom brand design tokens.",
-    assurance: "Unlimited Design Iterations Until 100% Delight Guarantee",
-    desc: "Our senior design leads craft bespoke Figma prototypes from scratch. We establish strict design token variables for typography scales, dark/light contrast ratios, fluid spacing grids, and stateful micro-interactions. You receive a clickable, interactive prototype matching your exact brand vision to test and approve before engineering begins.",
+    assurance: "100% Bespoke Craft · Interactive Figma Prototyping",
+    desc: "We never touch off-the-shelf WordPress or Webflow themes. Our product designers craft a bespoke design system in Figma with responsive typography scales, dark/light contrast rules, and interactive micro-interactions. You test a clickable prototype on both mobile and desktop screens before engineering commences.",
     deliverables: [
       "Clickable desktop & mobile interactive Figma prototypes",
       "Custom design token library (colors, typography, grid tokens)",
@@ -139,9 +146,9 @@ const steps = [
       "Collaborative feedback rounds with same-day Figma updates",
     ],
     highlightMetric: {
-      label: "Component System",
-      val: "40+ Tokens",
-      badge: "Production Ready",
+      label: "Custom Assets",
+      val: "100%",
+      badge: "No Templates",
     },
   },
   {
@@ -149,7 +156,6 @@ const steps = [
     phase: "Phase 3",
     tag: "Week 2–3",
     color: "#fea800",
-    bubbleColor: "amber" as BubbleColor,
     icon: Code2,
     title: "Pure Next.js 16 & Motion Engineering",
     subtitle: "Strict TypeScript, server components & edge rendering.",
@@ -172,7 +178,6 @@ const steps = [
     phase: "Phase 4",
     tag: "Week 3–4",
     color: "#1ab9a2",
-    bubbleColor: "teal" as BubbleColor,
     icon: Zap,
     title: "98+ Lighthouse Audit & Technical SEO Rig",
     subtitle: "Sub-second load times, schema injection & search authority.",
@@ -195,7 +200,6 @@ const steps = [
     phase: "Phase 5",
     tag: "Days 24–28",
     color: "#ba49f5",
-    bubbleColor: "purple" as BubbleColor,
     icon: Rocket,
     title: "Edge Deployment & Full Repository Handover",
     subtitle: "DNS propagation, cloud CDN & 30-day Hypercare warranty.",
@@ -250,249 +254,237 @@ const bentoDeliverables = [
 ];
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   FAQS
+   FREQUENTLY ASKED QUESTIONS
 ───────────────────────────────────────────────────────────────────────────── */
 const faqs = [
   {
-    q: "How fast can we realistically launch our website?",
-    a: "Our standard sprint delivers fully custom, production-ready websites in 2 to 4 weeks. High-converting 3-page landing sites can be delivered in 10 to 14 days, while complex platforms with custom CMS or database logic take 3 to 5 weeks. Every timeline is locked in writing before kickoff.",
+    q: "How long does a typical sprint take from start to finish?",
+    a: "Standard bespoke studio websites take between 2 to 4 weeks. High-complexity platforms or applications take 4 to 6 weeks. Every milestone date is contractually locked in our statement of work before kickoff.",
   },
   {
-    q: "Who actually designs and engineers our website?",
-    a: "Every project is architected, designed, and coded exclusively by senior software engineers with 6+ years of production experience. We maintain a strict zero-intern and zero-outsourcing policy. You communicate directly with the engineers building your site.",
+    q: "What do you need from us before the sprint starts?",
+    a: "We only require your branding guidelines (if any), your product/service copy, and a 45-minute discovery interview. If you don't have copy, our editorial team handles copywriting as part of the sprint.",
   },
   {
-    q: "What happens if our Lighthouse score drops below 98?",
-    a: "We contractually guarantee 98+ Google Lighthouse performance on production launch. If your production site scores below 95 on Core Web Vitals, our engineering team optimizes scripts, assets, and server components on our own dime until it passes.",
+    q: "Do we get full access to the source code and Figma files?",
+    a: "Yes, 100%. We transfer full admin rights of the private GitHub repository and editable Figma production files directly to your team upon launch. You retain total intellectual property sovereignty.",
   },
   {
-    q: "How do revisions and collaborative feedback work during the sprint?",
-    a: "We share interactive Figma prototypes during Week 1 and live Vercel edge staging links during Weeks 2–3. You can leave pin comments directly on the design or staging site. Revisions are executed with same-day turnaround until you are completely thrilled.",
+    q: "How do you guarantee a 98+ Google Lighthouse score?",
+    a: "We engineer directly in Next.js 16 App Router using React 19 Server Components, zero third-party bloated libraries, next/image compression, critical CSS extraction, and global Edge CDN caching.",
   },
   {
-    q: "Do we own the code and design files after launch?",
-    a: "Yes, 100%. We transfer the private GitHub repository to your organization, export all master Figma files, and provide full environment documentation. You have total sovereign ownership with zero licensing fees or platform lock-ins.",
+    q: "What happens after launch? Are we left on our own?",
+    a: "Every project comes standard with 30 days of comprehensive Hypercare warranty. Our senior architects monitor production telemetry, error logs, and user flows to resolve any issues immediately at zero extra cost.",
   },
 ];
 
 const marqueeItems = [
-  "✦ STEP 01: TECHNICAL SCOPE LOCKDOWN",
-  "✦ STEP 02: BESPOKE FIGMA DESIGN SYSTEM",
-  "✦ STEP 03: PURE NEXT.JS 16 CODEBASE",
-  "✦ STEP 04: 98+ LIGHTHOUSE PERFORMANCE SLA",
-  "✦ STEP 05: 100% REPO HANDOVER & HYPERCARE",
-  "✦ 2–4 WEEK FIXED SPRINT GUARANTEE",
+  "NEXT.JS 16 APP ROUTER",
+  "REACT 19 SERVER COMPONENTS",
+  "98+ GOOGLE LIGHTHOUSE",
+  "CORE WEB VITALS OPTIMIZED",
+  "TAILWIND CSS & GSAP MOTION",
+  "100% REPO SOVEREIGNTY",
+  "ZERO SCOPE CREEP SLA",
+  "30-DAY HYPERCARE WARRANTY",
 ];
 
 export default function ProcessPageContent() {
+  const [activeTab, setActiveTab] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [activeSprintTab, setActiveSprintTab] = useState(0);
 
   return (
-    <div className="bg-[#efebe5] text-[#141414] overflow-hidden font-montserrat relative selection:bg-[#1ab9a2] selection:text-white">
+    <div className="relative bg-[#efebe5] text-[#141414] overflow-hidden selection:bg-[#1ab9a2] selection:text-white min-h-screen">
       
+      {/* ── AMBIENT RADIAL LIGHTING (Soft Warm Accents) ── */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#1ab9a2]/15 via-[#fb72cc]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-[40%] left-[-200px] w-[650px] h-[650px] bg-gradient-to-tr from-[#fea800]/12 via-[#ba49f5]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+
       {/* ─────────────────────────────────────────────────────────────
-          1. HERO SECTION: Epic Warm Beige + Crisp 3D Floating Bubbles
+          1. HERO SECTION: High Energy, Refined Glass Bubbles
       ─────────────────────────────────────────────────────────────── */}
-      <section className="relative pt-36 sm:pt-44 lg:pt-48 pb-20 sm:pb-28 lg:pb-32 overflow-hidden text-center">
+      <section className="relative pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-28">
         
-        {/* PROMINENT 3D GLOSSY FLOATING BUBBLES (Foreground z-20 with real specular shine) */}
-        
-        {/* Giant Teal Bubble (Left Upper) */}
-        <div className="absolute top-[14%] sm:top-[18%] left-[2%] sm:left-[6%] lg:left-[8%] z-20">
-          <GlossyBubble size={170} color="teal" floatVariant={1} delay="0s" />
-        </div>
-
-        {/* Giant Magenta/Pink Bubble (Right Upper) */}
-        <div className="absolute top-[12%] sm:top-[16%] right-[2%] sm:right-[5%] lg:right-[7%] z-20">
-          <GlossyBubble size={185} color="pink" floatVariant={2} delay="1.2s" />
-        </div>
-
-        {/* Medium Purple Bubble (Left Mid) */}
-        <div className="absolute top-[48%] sm:top-[52%] left-[1%] sm:left-[3%] z-20 hidden sm:block">
-          <GlossyBubble size={80} color="purple" floatVariant={3} delay="2.4s" />
-        </div>
-
-        {/* Small Amber Bubble (Right Mid) */}
-        <div className="absolute top-[46%] sm:top-[50%] right-[3%] sm:right-[5%] z-20">
-          <GlossyBubble size={65} color="amber" floatVariant={1} delay="0.8s" />
-        </div>
-
-        {/* Micro Cyan Bubble (Floating Near Headline) */}
-        <div className="absolute top-[28%] left-[22%] z-20 hidden lg:block">
-          <GlossyBubble size={42} color="cyan" floatVariant={2} delay="1.8s" />
-        </div>
-
-        {/* Micro Pink Bubble (Floating Near CTA) */}
-        <div className="absolute top-[72%] right-[18%] z-20 hidden md:block">
-          <GlossyBubble size={38} color="pink" floatVariant={3} delay="3s" />
-        </div>
+        {/* Refined Frosted Glass Bubbles in Open Negative Space */}
+        <ProfessionalGlassBubble
+          size={140}
+          tint="teal"
+          floatVariant={1}
+          className="hidden lg:block absolute top-24 right-[10%] opacity-90"
+        />
+        <ProfessionalGlassBubble
+          size={95}
+          tint="pink"
+          floatVariant={2}
+          delay="1.2s"
+          className="hidden md:block absolute top-44 left-[6%] opacity-90"
+        />
+        <ProfessionalGlassBubble
+          size={65}
+          tint="amber"
+          floatVariant={3}
+          delay="2.4s"
+          className="hidden lg:block absolute bottom-8 right-[24%] opacity-85"
+        />
 
         <div className="max-w-[1262px] mx-auto px-5 sm:px-8 relative z-10">
           
-          {/* Live Production Availability Eyebrow */}
-          <div className="inline-flex items-center gap-2.5 bg-[#f7f2ea] border border-[#d8d3ce] px-4 py-1.5 rounded-full mb-6 shadow-xs">
+          {/* Eyebrow badge with live pulse */}
+          <div className="inline-flex items-center gap-2.5 bg-white/80 backdrop-blur-md border border-[#d8d3ce] px-4 py-1.5 rounded-full shadow-xs mb-6">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1ab9a2] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1ab9a2]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
             <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#141414]">
               Web Engineering Sprints · 2 to 4 Weeks Delivery SLA
             </span>
           </div>
 
-          {/* Main Huge Montserrat Headline */}
-          <h1 className="font-montserrat font-black text-4xl sm:text-6xl md:text-7xl lg:text-[84px] leading-[1.02] tracking-[-0.04em] text-[#141414] max-w-5xl mx-auto mb-6">
-            From concept to flagship in{" "}
-            <span className="font-sourceSerif italic font-normal text-primary relative inline-block">
-              4 structured weeks.
-              {/* Hand-drawn SVG wavy underline */}
-              <svg
-                className="absolute -bottom-2 sm:-bottom-3 left-0 w-full h-3 sm:h-4 text-[#1ab9a2] opacity-70"
-                viewBox="0 0 300 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 12C60 4 120 18 180 8C220 1 260 14 295 10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
+          {/* Huge Montserrat Black Display Headline */}
+          <h1 className="font-montserrat font-black text-4xl sm:text-6xl md:text-7xl lg:text-[84px] tracking-[-0.04em] text-[#141414] leading-[0.98] max-w-5xl">
+            How We Build{" "}
+            <span className="font-sourceSerif italic font-normal text-primary">
+              High-Performance
+            </span>{" "}
+            Websites That Convert.
           </h1>
 
-          {/* High-Ticket Agency Subheading */}
-          <p className="max-w-3xl mx-auto text-base sm:text-xl text-[#7d7b77] leading-relaxed mb-10 font-medium">
-            Zero endless meetings. Zero junior handoffs. Just clear technical milestones, direct senior software architect collaboration, and a 98+ Google Lighthouse performance score guaranteed in contract.
+          {/* Subtitle & Value Proposition */}
+          <p className="mt-8 text-lg sm:text-xl md:text-2xl text-[#666460] font-medium leading-relaxed max-w-3xl">
+            A production-grade, 5-phase engineering protocol engineered for fast-moving startups and scale-ups.
+            Zero fluff, zero template shortcuts, and contractual guarantees on performance.
           </p>
 
-          {/* Floating Sticker Chips */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-[#ece9e1] shadow-sm text-xs font-bold text-[#141414] rotate-[-2deg] hover:rotate-0 transition-transform cursor-default">
-              <span className="w-2 h-2 rounded-full bg-[#1ab9a2]" />
-              <span>⚡ 98+ Lighthouse Guaranteed in Writing</span>
-            </div>
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-[#ece9e1] shadow-sm text-xs font-bold text-[#141414] rotate-[2deg] hover:rotate-0 transition-transform cursor-default">
-              <span className="w-2 h-2 rounded-full bg-[#fb72cc]" />
-              <span>⏱️ Fixed 2 to 4 Week Sprint SLA</span>
-            </div>
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-[#ece9e1] shadow-sm text-xs font-bold text-[#141414] rotate-[-1deg] hover:rotate-0 transition-transform cursor-default">
-              <span className="w-2 h-2 rounded-full bg-[#fea800]" />
-              <span>🛡️ 100% Git Repository & IP Sovereignty</span>
-            </div>
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-[#ece9e1] shadow-sm text-xs font-bold text-[#141414] rotate-[1.5deg] hover:rotate-0 transition-transform cursor-default">
-              <span className="w-2 h-2 rounded-full bg-[#ba49f5]" />
-              <span>👨‍💻 Senior Engineers Only · Zero Juniors</span>
-            </div>
-          </div>
-
-          {/* Call to Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          {/* Quick Metrics & CTA Strip */}
+          <div className="mt-10 flex flex-wrap items-center gap-4 pt-2">
             <Link
               href="/contact"
-              className="btn bg-primary text-white text-base font-bold px-8 py-4 rounded-full shadow-[0_12px_32px_rgba(26,185,162,0.35)] hover:bg-[#159a86] hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2"
+              className="inline-flex items-center gap-2 bg-[#141414] hover:bg-black text-white px-8 py-4 rounded-full text-sm sm:text-base font-bold transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
             >
               <span>Book a 15-Min Discovery Call</span>
-              <ArrowUpRight className="w-5 h-5" />
+              <ArrowUpRight size={18} className="text-primary" />
             </Link>
+
             <a
               href="#process-breakdown"
-              className="btn bg-[#f7f2ea] text-[#141414] border border-[#d8d3ce] text-base font-bold px-8 py-4 rounded-full hover:bg-white transition-all flex items-center gap-2"
+              className="inline-flex items-center gap-2 bg-white/90 hover:bg-white border border-[#d8d3ce] text-[#141414] px-6 py-4 rounded-full text-sm sm:text-base font-bold transition-all shadow-xs hover:border-primary"
             >
-              <span>Explore The 5-Step Process</span>
-              <span className="text-[#7d7b77]">↓</span>
+              <span>Explore The 5 Steps</span>
+              <span className="text-xs text-[#7d7b77]">↓</span>
             </a>
+
+            <div className="flex items-center gap-6 ml-auto pl-2 py-2 border-l border-[#d8d3ce] hidden xl:flex">
+              <div>
+                <p className="font-montserrat font-black text-xl text-[#141414]">98+</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#7d7b77]">Avg. Lighthouse</p>
+              </div>
+              <div>
+                <p className="font-montserrat font-black text-xl text-[#141414]">2–4 Wks</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#7d7b77]">Delivery SLA</p>
+              </div>
+              <div>
+                <p className="font-montserrat font-black text-xl text-[#141414]">100%</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-[#7d7b77]">IP Sovereignty</p>
+              </div>
+            </div>
           </div>
 
-          {/* ─────────────────────────────────────────────────────────
-              INTERACTIVE SPRINT CONSOLE / ROADMAP PREVIEW
-          ─────────────────────────────────────────────────────────── */}
-          <div className="max-w-4xl mx-auto rounded-3xl border border-[#d8d3ce] bg-white p-4 sm:p-6 shadow-xl text-left relative overflow-hidden">
-            <div className="flex items-center justify-between border-b border-[#ece9e1] pb-4 mb-5">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-                <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-                <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
-                <span className="ml-2 font-mono text-xs font-bold text-[#7d7b77]">
-                  sprint-lifecycle · production-engine v16.2
-                </span>
+          {/* ── INTERACTIVE SPRINT LIFECYCLE CONSOLE ── */}
+          <div className="mt-16 bg-[#141414] rounded-3xl p-6 sm:p-8 md:p-10 text-white shadow-2xl border border-white/10 relative overflow-hidden">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
+              <div>
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-primary mb-1">
+                  <Terminal size={14} />
+                  <span>Sprint Lifecycle Console</span>
+                </div>
+                <h3 className="font-montserrat font-bold text-xl sm:text-2xl text-white">
+                  Interactive Phase Breakdown
+                </h3>
               </div>
-              <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 font-mono text-[11px] font-bold text-emerald-700">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Live Engineering Pipeline
-              </span>
+              <div className="flex items-center gap-2 text-xs font-mono text-white/60">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Next Available Sprint Kickoff: Monday</span>
+              </div>
             </div>
 
-            {/* Interactive Sprint Tabs */}
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-6">
-              {steps.map((s, idx) => (
-                <button
-                  key={s.num}
-                  onClick={() => setActiveSprintTab(idx)}
-                  className={`px-3 py-2.5 rounded-xl text-left transition-all cursor-pointer border ${
-                    activeSprintTab === idx
-                      ? "bg-[#141414] text-white border-[#141414] shadow-md"
-                      : "bg-[#f7f2ea] text-[#141414] border-[#ece9e1] hover:bg-white"
-                  }`}
-                >
-                  <div className="flex items-center justify-between text-[11px] font-bold mb-1 opacity-80">
-                    <span>{s.phase}</span>
-                    <span className="font-mono">{s.tag}</span>
-                  </div>
-                  <p className="font-bold text-xs truncate">{s.title.split(" ")[0]} {s.title.split(" ")[1]}</p>
-                </button>
-              ))}
-            </div>
-
-            {/* Active Sprint Detail Box */}
-            <div className="bg-[#f7f2ea] rounded-2xl p-5 sm:p-6 border border-[#ece9e1]">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-                <div>
-                  <span
-                    className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md"
-                    style={{ backgroundColor: `${steps[activeSprintTab].color}20`, color: steps[activeSprintTab].color }}
+            {/* Interactive Timeline Tabs */}
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-3 mb-8">
+              {steps.map((s, idx) => {
+                const isActive = activeTab === idx;
+                return (
+                  <button
+                    key={s.num}
+                    onClick={() => setActiveTab(idx)}
+                    className={`p-4 rounded-2xl text-left transition-all relative select-none cursor-pointer ${
+                      isActive
+                        ? "bg-white/15 border-2 border-primary shadow-lg"
+                        : "bg-white/5 border border-white/10 hover:bg-white/10"
+                    }`}
                   >
-                    {steps[activeSprintTab].tag} · {steps[activeSprintTab].phase}
-                  </span>
-                  <h3 className="font-montserrat font-black text-xl text-[#141414] mt-1">
-                    {steps[activeSprintTab].title}
-                  </h3>
-                  <p className="text-xs font-semibold text-primary">
-                    {steps[activeSprintTab].assurance}
-                  </p>
+                    <div className="flex items-center justify-between mb-2">
+                      <span
+                        className="font-montserrat font-black text-sm px-2 py-0.5 rounded-md"
+                        style={{
+                          backgroundColor: `${s.color}25`,
+                          color: s.color,
+                        }}
+                      >
+                        {s.num}
+                      </span>
+                      <span className="text-[10px] font-mono text-white/50">{s.tag}</span>
+                    </div>
+                    <p className="font-montserrat font-bold text-xs sm:text-sm text-white line-clamp-1">
+                      {s.phase}
+                    </p>
+                    <p className="text-[11px] text-white/60 line-clamp-1 mt-0.5">
+                      {s.title}
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Active Tab Showcase Panel */}
+            <div className="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10 flex flex-col lg:flex-row gap-8 items-start justify-between">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold font-mono uppercase tracking-wider mb-3 bg-white/10 text-white/90">
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: steps[activeTab].color }} />
+                  {steps[activeTab].assurance}
                 </div>
-
-                <div className="bg-white rounded-xl px-4 py-2 border border-[#ece9e1] shrink-0 text-center sm:text-right">
-                  <p className="font-mono text-[10px] uppercase text-[#7d7b77] font-bold">
-                    {steps[activeSprintTab].highlightMetric.label}
-                  </p>
-                  <p className="font-montserrat font-black text-lg text-[#141414]">
-                    {steps[activeSprintTab].highlightMetric.val}
-                  </p>
-                  <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full inline-block">
-                    ✓ {steps[activeSprintTab].highlightMetric.badge}
-                  </span>
-                </div>
-              </div>
-
-              <p className="text-sm text-[#7d7b77] font-medium leading-relaxed mb-4">
-                {steps[activeSprintTab].desc}
-              </p>
-
-              <div className="border-t border-[#ece9e1] pt-3">
-                <p className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#141414] mb-2 flex items-center gap-1.5">
-                  <FileCheck className="w-3.5 h-3.5 text-primary" /> Key Milestone Deliverables:
+                <h4 className="font-montserrat font-black text-2xl sm:text-3xl text-white tracking-tight mb-2">
+                  {steps[activeTab].title}
+                </h4>
+                <p className="text-primary font-bold text-sm mb-4">
+                  {steps[activeTab].subtitle}
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-medium text-[#141414]">
-                  {steps[activeSprintTab].deliverables.slice(0, 2).map((d, i) => (
-                    <div key={i} className="flex items-start gap-1.5">
-                      <Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
-                      <span>{d}</span>
+                <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-6">
+                  {steps[activeTab].desc}
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {steps[activeTab].deliverables.map((del, dIdx) => (
+                    <div key={dIdx} className="flex items-center gap-2 text-xs sm:text-sm text-white/90 font-medium">
+                      <CheckCircle2 size={16} className="text-primary shrink-0" />
+                      <span>{del}</span>
                     </div>
                   ))}
                 </div>
+              </div>
+
+              <div className="w-full lg:w-72 bg-white/10 rounded-2xl p-6 border border-white/10 text-center flex flex-col justify-center items-center shrink-0">
+                <p className="text-xs font-mono uppercase tracking-widest text-white/50 mb-1">
+                  {steps[activeTab].highlightMetric.label}
+                </p>
+                <p className="font-montserrat font-black text-5xl sm:text-6xl text-white my-2">
+                  {steps[activeTab].highlightMetric.val}
+                </p>
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono">
+                  {steps[activeTab].highlightMetric.badge}
+                </span>
+                <p className="text-[11px] text-white/60 mt-4 leading-normal">
+                  Turnaround: <span className="text-white font-bold">{steps[activeTab].tag}</span>
+                </p>
               </div>
             </div>
 
@@ -532,24 +524,10 @@ export default function ProcessPageContent() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          3. THE 5-STEP TIMELINE: Rich Visuals, Animations & Assurance
+          3. THE 5-STEP TIMELINE: High-Fidelity Custom Visuals
       ─────────────────────────────────────────────────────────────── */}
       <section id="process-breakdown" className="py-24 lg:py-32 max-w-[1262px] mx-auto px-5 sm:px-8 relative">
         
-        {/* Floating Accent Bubbles Along Timeline (Z-20 Foreground) */}
-        <div className="absolute top-[8%] -left-8 z-20 hidden lg:block">
-          <GlossyBubble size={110} color="teal" floatVariant={1} />
-        </div>
-        <div className="absolute top-[28%] -right-10 z-20 hidden lg:block">
-          <GlossyBubble size={125} color="pink" floatVariant={2} />
-        </div>
-        <div className="absolute top-[52%] -left-6 z-20 hidden lg:block">
-          <GlossyBubble size={95} color="amber" floatVariant={3} />
-        </div>
-        <div className="absolute top-[75%] -right-8 z-20 hidden lg:block">
-          <GlossyBubble size={115} color="purple" floatVariant={1} />
-        </div>
-
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 bg-[#f7f2ea] border border-[#d8d3ce] px-4 py-1.5 rounded-full mb-4">
@@ -564,14 +542,14 @@ export default function ProcessPageContent() {
             </span>
           </h2>
           <p className="mt-5 text-base sm:text-lg text-[#7d7b77] font-medium leading-relaxed">
-            We don't do vague agile hand-waving. Each phase has a strict technical definition of done, contractual quality gates, and verified deliverables.
+            We don&apos;t do vague agile hand-waving. Each phase has a strict technical definition of done, contractual quality gates, and verified deliverables.
           </p>
         </div>
 
-        {/* Vertical Step Cards with Rich Interactive Visuals */}
+        {/* Vertical Step Cards */}
         <div className="space-y-16 relative">
 
-          {/* ── STEP 01 ─────────────────────────────────────────────── */}
+          {/* ── STEP 01: ARCHITECTURE BLUEPRINT & TOPOLOGY SPEC ── */}
           <div className="relative bg-white rounded-3xl p-8 sm:p-12 border border-[#ece9e1] shadow-sm hover:shadow-xl transition-all duration-300 border-l-[8px] border-l-[#1ab9a2] group">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -618,72 +596,89 @@ export default function ProcessPageContent() {
                 </div>
               </div>
 
-              {/* Right Visual Graphic: Tech Blueprint Architecture Mockup */}
-              <div className="lg:col-span-6 bg-[#141414] rounded-2xl p-6 sm:p-8 text-white border border-white/10 shadow-lg relative overflow-hidden">
-                <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+              {/* Right Visual Showcase: Production Architecture Blueprint & Flow */}
+              <div className="lg:col-span-6 bg-[#141414] rounded-2xl p-6 sm:p-7 text-white border border-white/10 shadow-xl relative overflow-hidden">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
                   <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#1ab9a2]" />
-                    <span className="font-mono text-xs font-bold tracking-wider uppercase text-white/80">
-                      Architecture Blueprint Spec
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#1ab9a2] animate-pulse" />
+                    <span className="font-mono text-xs font-bold tracking-wider uppercase text-white/90">
+                      blueprint · edge-routing-topology.spec
                     </span>
                   </div>
-                  <span className="font-mono text-[10px] bg-white/10 px-2.5 py-0.5 rounded-full text-white/70">
-                    Status: Locked
+                  <span className="font-mono text-[10px] bg-emerald-500/20 text-emerald-400 px-2.5 py-0.5 rounded-full font-bold">
+                    Scope Signed ✓
                   </span>
                 </div>
 
-                {/* Tech Node Hierarchy */}
-                <div className="space-y-4 font-mono text-xs">
+                {/* Visual Architecture Flow Diagram */}
+                <div className="space-y-3 font-mono text-xs">
+                  {/* Step A: Global Edge & CDN */}
                   <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#1ab9a2]/20 flex items-center justify-center text-[#1ab9a2]">
+                      <div className="w-9 h-9 rounded-lg bg-[#1ab9a2]/20 flex items-center justify-center text-[#1ab9a2]">
+                        <Globe className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <p className="font-bold text-white text-xs sm:text-sm">Global Anycast Edge CDN</p>
+                        <p className="text-white/50 text-[11px]">Vercel Edge Network · &lt; 15ms Worldwide</p>
+                      </div>
+                    </div>
+                    <span className="text-emerald-400 text-[11px] font-bold">8ms Latency</span>
+                  </div>
+
+                  {/* Flow Arrow */}
+                  <div className="flex justify-center -my-1 text-white/30">
+                    <ArrowRight className="w-4 h-4 rotate-90" />
+                  </div>
+
+                  {/* Step B: Next.js 16 App Router Core */}
+                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-[#fb72cc]/20 flex items-center justify-center text-[#fb72cc]">
                         <Cpu className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="font-bold text-white text-sm">Next.js 16 App Router</p>
-                        <p className="text-white/50 text-[11px]">React 19 Server Components + Edge Cache</p>
+                        <p className="font-bold text-white text-xs sm:text-sm">Next.js 16 App Router Core</p>
+                        <p className="text-white/50 text-[11px]">React 19 Server Components · Dynamic Streaming</p>
                       </div>
                     </div>
-                    <span className="text-emerald-400 font-bold text-xs">Active Node</span>
+                    <span className="text-emerald-400 text-[11px] font-bold">RSC Stream</span>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#fb72cc]/20 flex items-center justify-center text-[#fb72cc]">
-                        <Activity className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <p className="font-bold text-white text-sm">TypeScript Strict Core</p>
-                        <p className="text-white/50 text-[11px]">Zero any types · Strict Null Checking</p>
-                      </div>
-                    </div>
-                    <span className="text-emerald-400 font-bold text-xs">Strict Mode</span>
+                  {/* Flow Arrow */}
+                  <div className="flex justify-center -my-1 text-white/30">
+                    <ArrowRight className="w-4 h-4 rotate-90" />
                   </div>
 
+                  {/* Step C: Database & CMS with ISR Cache */}
                   <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#fea800]/20 flex items-center justify-center text-[#fea800]">
-                        <ShieldCheck className="w-4 h-4" />
+                      <div className="w-9 h-9 rounded-lg bg-[#fea800]/20 flex items-center justify-center text-[#fea800]">
+                        <Database className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="font-bold text-white text-sm">Written Milestone SLA</p>
-                        <p className="text-white/50 text-[11px]">Guaranteed Launch Date & Scope Signed</p>
+                        <p className="font-bold text-white text-xs sm:text-sm">Headless Data &amp; Caching</p>
+                        <p className="text-white/50 text-[11px]">ISR Tagged Revalidation · 100% Type-Safe</p>
                       </div>
                     </div>
-                    <span className="text-emerald-400 font-bold text-xs">100% Locked</span>
+                    <span className="text-emerald-400 text-[11px] font-bold">Instant Cache</span>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/60 font-mono">
-                  <span>Scope Creep Protection: Active</span>
-                  <span className="text-[#1ab9a2] font-bold">Milestone Verified ✓</span>
+                {/* Bottom Assurance Card */}
+                <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/70 font-mono">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-[#1ab9a2]" />
+                    <span>Fixed Scope Contract: 21 Days</span>
+                  </div>
+                  <span className="text-[#1ab9a2] font-bold">Zero Scope Creep SLA</span>
                 </div>
               </div>
 
             </div>
           </div>
 
-          {/* ── STEP 02 ─────────────────────────────────────────────── */}
+          {/* ── STEP 02: FIGMA DESIGN SYSTEM & PROTOTYPE CANVAS ── */}
           <div className="relative bg-white rounded-3xl p-8 sm:p-12 border border-[#ece9e1] shadow-sm hover:shadow-xl transition-all duration-300 border-l-[8px] border-l-[#fb72cc] group">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -703,14 +698,14 @@ export default function ProcessPageContent() {
                   </div>
 
                   <h3 className="font-montserrat font-black text-2xl sm:text-3xl lg:text-4xl text-[#141414] tracking-tight mb-2">
-                    Bespoke Figma System & Prototype
+                    Bespoke Figma System &amp; Prototype
                   </h3>
                   <p className="text-sm font-bold text-primary mb-4">
                     Zero generic templates. 100% custom brand design tokens.
                   </p>
 
                   <p className="text-base text-[#7d7b77] font-medium leading-relaxed mb-6">
-                    We don't touch off-the-shelf WordPress or Webflow templates. Our designers craft high-fidelity Figma prototypes with responsive typography, dark/light contrast scales, and micro-interactions. You get an interactive prototype to test on mobile and desktop before any code is written.
+                    We don&apos;t touch off-the-shelf WordPress or Webflow templates. Our designers craft high-fidelity Figma prototypes with responsive typography, dark/light contrast scales, and micro-interactions. You get an interactive prototype to test on mobile and desktop before any code is written.
                   </p>
                 </div>
 
@@ -729,52 +724,96 @@ export default function ProcessPageContent() {
                 </div>
               </div>
 
-              {/* Right Visual Graphic: Live Looping Figma & Design System Preview */}
-              <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-[#ece9e1] shadow-lg bg-[#141414] relative">
-                {/* Browser Title Bar */}
-                <div className="bg-[#1e1e1e] px-4 py-3 flex items-center justify-between border-b border-white/10 text-xs font-mono text-white/70">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-                    <span className="ml-2 font-bold text-white">figma-prototype · master-tokens</span>
-                  </div>
-                  <span className="text-[10px] bg-[#fb72cc]/20 text-[#fb72cc] px-2 py-0.5 rounded-full font-bold">
-                    Interactive Preview
-                  </span>
-                </div>
-
-                {/* Looping Design Video Animation */}
-                <div className="relative aspect-video w-full overflow-hidden">
-                  <video
-                    src="/videos/services/web-design.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
-                  
-                  {/* Floating Token Chips */}
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                    <div className="flex items-center gap-2 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-bold text-[#141414] shadow-md">
-                      <span className="w-3 h-3 rounded-full bg-[#1ab9a2]" />
-                      <span className="w-3 h-3 rounded-full bg-[#fb72cc]" />
-                      <span className="w-3 h-3 rounded-full bg-[#fea800]" />
-                      <span className="font-mono text-[11px] ml-1">Design Tokens Locked</span>
-                    </div>
-                    <span className="bg-emerald-500 text-white font-mono text-[10px] font-bold px-2.5 py-1 rounded-full shadow-xs">
-                      100% Custom Layout
+              {/* Right Visual Showcase: Authentic Figma Design System Workspace */}
+              <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-[#ece9e1] shadow-xl bg-[#1e1e1e] text-white">
+                {/* Figma Window Chrome */}
+                <div className="bg-[#2c2c2c] px-4 py-3 flex items-center justify-between border-b border-white/10 text-xs font-sans">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+                    <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+                    <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
+                    <span className="font-bold text-white/90 text-xs ml-2">
+                      ❖ Design-System / v2.4 (Master Tokens)
                     </span>
                   </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-[#fb72cc] text-white text-[10px] font-bold flex items-center justify-center">
+                      AD
+                    </span>
+                    <span className="w-6 h-6 rounded-full bg-[#1ab9a2] text-white text-[10px] font-bold flex items-center justify-center">
+                      CL
+                    </span>
+                    <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold">
+                      Live Collab
+                    </span>
+                  </div>
+                </div>
+
+                {/* Figma Canvas Area */}
+                <div className="p-4 sm:p-6 bg-[#181818] relative">
+                  
+                  {/* Figma Selection & Inspection Mockup */}
+                  <div className="rounded-xl bg-[#222222] border border-[#0d99ff] p-4 relative shadow-2xl">
+                    {/* Measurement chip */}
+                    <div className="absolute -top-3 left-4 bg-[#0d99ff] text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded">
+                      Frame: Desktop (1280px × 800px)
+                    </div>
+
+                    {/* Simulated High-End Website Preview Inside Figma */}
+                    <div className="space-y-3 pt-2">
+                      <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#1ab9a2]" />
+                          <span className="font-montserrat font-bold text-xs text-white">Value Tech Studio</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-[10px] text-white/60">
+                          <span>Services</span>
+                          <span>Work</span>
+                          <span className="bg-[#1ab9a2] text-white px-2 py-0.5 rounded-full font-bold">Start Project</span>
+                        </div>
+                      </div>
+
+                      {/* Display headline inside prototype */}
+                      <div className="py-2">
+                        <div className="text-[9px] uppercase tracking-widest text-[#1ab9a2] font-bold">HIGH PERFORMANCE WEB</div>
+                        <div className="text-base sm:text-lg font-montserrat font-black text-white leading-tight">
+                          Websites Engineered for Massive Conversions.
+                        </div>
+                      </div>
+
+                      {/* Mockup Buttons */}
+                      <div className="flex gap-2">
+                        <span className="px-3 py-1 rounded-full bg-[#1ab9a2] text-white text-[10px] font-bold">
+                          Interactive CTA
+                        </span>
+                        <span className="px-3 py-1 rounded-full bg-white/10 text-white text-[10px] font-medium border border-white/20">
+                          View Work →
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Design Tokens Palette Bar */}
+                  <div className="mt-4 flex flex-wrap items-center justify-between gap-2 p-3 rounded-xl bg-[#222222] border border-white/10 font-mono text-[11px]">
+                    <div className="flex items-center gap-2">
+                      <span className="text-white/50 text-[10px]">TOKENS:</span>
+                      <span className="w-3.5 h-3.5 rounded-full bg-[#1ab9a2] shadow-xs" title="#1ab9a2" />
+                      <span className="w-3.5 h-3.5 rounded-full bg-[#fb72cc] shadow-xs" title="#fb72cc" />
+                      <span className="w-3.5 h-3.5 rounded-full bg-[#fea800] shadow-xs" title="#fea800" />
+                      <span className="w-3.5 h-3.5 rounded-full bg-[#141414] border border-white/30" title="#141414" />
+                    </div>
+                    <span className="text-[#fb72cc] font-bold text-[10px]">
+                      100% Bespoke Tokens · Zero Templates
+                    </span>
+                  </div>
+
                 </div>
               </div>
 
             </div>
           </div>
 
-          {/* ── STEP 03 ─────────────────────────────────────────────── */}
+          {/* ── STEP 03: SENIOR ENGINEER IDE & NEXT.JS 16 CODE RIG ── */}
           <div className="relative bg-white rounded-3xl p-8 sm:p-12 border border-[#ece9e1] shadow-sm hover:shadow-xl transition-all duration-300 border-l-[8px] border-l-[#fea800] group">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -794,10 +833,10 @@ export default function ProcessPageContent() {
                   </div>
 
                   <h3 className="font-montserrat font-black text-2xl sm:text-3xl lg:text-4xl text-[#141414] tracking-tight mb-2">
-                    Pure Next.js 16 & Motion Engineering
+                    Pure Next.js 16 &amp; Motion Engineering
                   </h3>
                   <p className="text-sm font-bold text-primary mb-4">
-                    Strict TypeScript, server components & edge rendering.
+                    Strict TypeScript, server components &amp; edge rendering.
                   </p>
 
                   <p className="text-base text-[#7d7b77] font-medium leading-relaxed mb-6">
@@ -820,41 +859,74 @@ export default function ProcessPageContent() {
                 </div>
               </div>
 
-              {/* Right Visual Graphic: Live Code Terminal & Video Mockup */}
-              <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-[#ece9e1] shadow-lg bg-[#141414] relative">
-                <div className="bg-[#1e1e1e] px-4 py-3 flex items-center justify-between border-b border-white/10 text-xs font-mono text-white/70">
+              {/* Right Visual Showcase: Authentic VS Code / Turbopack Senior IDE */}
+              <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-[#ece9e1] shadow-xl bg-[#141414] text-white">
+                {/* IDE Tab Bar */}
+                <div className="bg-[#1e1e1e] px-4 py-2.5 flex items-center justify-between border-b border-white/10 text-xs font-mono">
                   <div className="flex items-center gap-2">
                     <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
                     <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
                     <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-                    <span className="ml-2 font-bold text-white">turbopack · edge-compiler</span>
+                    <span className="ml-2 bg-[#2d2d2d] px-3 py-1 rounded-t text-white text-xs font-bold border-t-2 border-[#fea800]">
+                      page.tsx (Next.js 16)
+                    </span>
+                    <span className="text-white/40 text-xs hidden sm:inline">layout.tsx</span>
                   </div>
-                  <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold">
-                    ✓ Turbopack Active
+                  <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/15 px-2 py-0.5 rounded">
+                    git: main (synced)
                   </span>
                 </div>
 
-                {/* Looping Code Video */}
-                <div className="relative aspect-video w-full overflow-hidden">
-                  <video
-                    src="/videos/services/software-dev.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/20 pointer-events-none" />
+                {/* Code Syntax Highlighting */}
+                <div className="p-4 sm:p-5 font-mono text-[11px] sm:text-xs leading-relaxed bg-[#141414] text-white/90 overflow-x-auto">
+                  <p className="text-white/40">// Senior Engineer Authored · Zero Junior Outsourcing</p>
+                  <p>
+                    <span className="text-[#fb72cc]">import</span> &#123; Suspense &#125;{" "}
+                    <span className="text-[#fb72cc]">from</span>{" "}
+                    <span className="text-[#1ab9a2]">&quot;react&quot;</span>;
+                  </p>
+                  <p>
+                    <span className="text-[#fb72cc]">import</span> &#123; EdgeStreamingCore &#125;{" "}
+                    <span className="text-[#fb72cc]">from</span>{" "}
+                    <span className="text-[#1ab9a2]">&quot;@/lib/edge-runtime&quot;</span>;
+                  </p>
+                  <br />
+                  <p>
+                    <span className="text-[#fea800]">export default async function</span>{" "}
+                    <span className="text-[#79fff3]">FlagshipSprint</span>():{" "}
+                    <span className="text-emerald-400">Promise&lt;JSX.Element&gt;</span> &#123;
+                  </p>
+                  <p className="pl-4">
+                    <span className="text-[#fb72cc]">const</span> data ={" "}
+                    <span className="text-[#fb72cc]">await</span> getEdgeData(&#123; cache:{" "}
+                    <span className="text-[#1ab9a2]">&quot;force-cache&quot;</span> &#125;);
+                  </p>
+                  <p className="pl-4">
+                    <span className="text-[#fb72cc]">return</span> (
+                  </p>
+                  <p className="pl-8 text-white/80">
+                    &lt;<span className="text-[#fb72cc]">Suspense</span> fallback=&#123;&lt;
+                    <span className="text-[#fea800]">FastSkeleton</span> /&gt;&#125;&gt;
+                  </p>
+                  <p className="pl-12 text-[#1ab9a2]">
+                    &lt;<span className="text-[#79fff3]">HighPerformanceHero</span> metrics=&#123;data&#125; /&gt;
+                  </p>
+                  <p className="pl-8 text-white/80">
+                    &lt;/<span className="text-[#fb72cc]">Suspense</span>&gt;
+                  </p>
+                  <p className="pl-4">);</p>
+                  <p>&#125;</p>
+                </div>
 
-                  {/* Terminal Output Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-black/75 backdrop-blur-md p-3 rounded-xl border border-white/10 font-mono text-[11px] text-white/90">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-emerald-400 font-bold">▲ Next.js 16.2.6 (Turbopack)</span>
-                      <span className="text-white/50">Compiled in 312ms</span>
-                    </div>
-                    <div className="text-white/70 text-[10px]">
-                      ✓ 0 TypeScript errors · Server Components streaming
-                    </div>
+                {/* Docked Turbopack Terminal Output */}
+                <div className="bg-[#0c0c0c] p-3.5 border-t border-white/10 font-mono text-[11px] text-white/90">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-emerald-400 font-bold">▲ Next.js 16.2.6 (Turbopack)</span>
+                    <span className="text-white/50 text-[10px]">Compiled in 184ms</span>
+                  </div>
+                  <div className="text-white/70 text-[10px] flex items-center gap-2">
+                    <span className="text-emerald-400">✓</span>
+                    <span>0 TypeScript errors · 100% strict type coverage</span>
                   </div>
                 </div>
               </div>
@@ -862,7 +934,7 @@ export default function ProcessPageContent() {
             </div>
           </div>
 
-          {/* ── STEP 04 ─────────────────────────────────────────────── */}
+          {/* ── STEP 04: GOOGLE LIGHTHOUSE 99 SCORE RIG ── */}
           <div className="relative bg-white rounded-3xl p-8 sm:p-12 border border-[#ece9e1] shadow-sm hover:shadow-xl transition-all duration-300 border-l-[8px] border-l-[#1ab9a2] group">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -882,10 +954,10 @@ export default function ProcessPageContent() {
                   </div>
 
                   <h3 className="font-montserrat font-black text-2xl sm:text-3xl lg:text-4xl text-[#141414] tracking-tight mb-2">
-                    98+ Lighthouse Audit & Technical SEO Rig
+                    98+ Lighthouse Audit &amp; Technical SEO Rig
                   </h3>
                   <p className="text-sm font-bold text-primary mb-4">
-                    Sub-second load times, schema injection & search authority.
+                    Sub-second load times, schema injection &amp; search authority.
                   </p>
 
                   <p className="text-base text-[#7d7b77] font-medium leading-relaxed mb-6">
@@ -908,8 +980,8 @@ export default function ProcessPageContent() {
                 </div>
               </div>
 
-              {/* Right Visual Graphic: Google Lighthouse 99 Score Dashboard */}
-              <div className="lg:col-span-6 bg-[#141414] rounded-2xl p-6 sm:p-8 text-white border border-white/10 shadow-lg relative overflow-hidden">
+              {/* Right Visual Showcase: Google Lighthouse 99 Telemetry Dashboard */}
+              <div className="lg:col-span-6 bg-[#141414] rounded-2xl p-6 sm:p-8 text-white border border-white/10 shadow-xl relative overflow-hidden">
                 <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -949,24 +1021,24 @@ export default function ProcessPageContent() {
                     <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto rounded-full border-4 border-emerald-400 flex items-center justify-center font-montserrat font-black text-lg sm:text-2xl text-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.35)]">
                       100
                     </div>
-                    <p className="font-mono text-[10px] sm:text-xs font-bold mt-2 text-white/80">SEO & AEO</p>
+                    <p className="font-mono text-[10px] sm:text-xs font-bold mt-2 text-white/80">SEO &amp; AEO</p>
                   </div>
                 </div>
 
                 {/* Real Metric Telemetry */}
                 <div className="grid grid-cols-3 gap-3 font-mono text-xs">
                   <div className="bg-white/5 p-3 rounded-xl border border-white/5">
-                    <p className="text-white/40 text-[10px]">LCP</p>
+                    <p className="text-white/40 text-[10px]">LCP (Largest Contentful Paint)</p>
                     <p className="text-emerald-400 font-bold text-sm">0.62s</p>
                     <span className="text-[10px] text-emerald-400/80">Sub-second</span>
                   </div>
                   <div className="bg-white/5 p-3 rounded-xl border border-white/5">
-                    <p className="text-white/40 text-[10px]">CLS</p>
+                    <p className="text-white/40 text-[10px]">CLS (Layout Shift)</p>
                     <p className="text-emerald-400 font-bold text-sm">0.000</p>
                     <span className="text-[10px] text-emerald-400/80">Zero Shift</span>
                   </div>
                   <div className="bg-white/5 p-3 rounded-xl border border-white/5">
-                    <p className="text-white/40 text-[10px]">INP</p>
+                    <p className="text-white/40 text-[10px]">INP (Interaction Speed)</p>
                     <p className="text-emerald-400 font-bold text-sm">18ms</p>
                     <span className="text-[10px] text-emerald-400/80">Instant</span>
                   </div>
@@ -976,7 +1048,7 @@ export default function ProcessPageContent() {
             </div>
           </div>
 
-          {/* ── STEP 05 ─────────────────────────────────────────────── */}
+          {/* ── STEP 05: GLOBAL EDGE DEPLOYMENT & GITHUB HANDOVER ── */}
           <div className="relative bg-white rounded-3xl p-8 sm:p-12 border border-[#ece9e1] shadow-sm hover:shadow-xl transition-all duration-300 border-l-[8px] border-l-[#ba49f5] group">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
@@ -996,10 +1068,10 @@ export default function ProcessPageContent() {
                   </div>
 
                   <h3 className="font-montserrat font-black text-2xl sm:text-3xl lg:text-4xl text-[#141414] tracking-tight mb-2">
-                    Edge Deployment & Full Repository Handover
+                    Edge Deployment &amp; Full Repository Handover
                   </h3>
                   <p className="text-sm font-bold text-primary mb-4">
-                    DNS propagation, cloud CDN & 30-day Hypercare warranty.
+                    DNS propagation, cloud CDN &amp; 30-day Hypercare warranty.
                   </p>
 
                   <p className="text-base text-[#7d7b77] font-medium leading-relaxed mb-6">
@@ -1022,9 +1094,9 @@ export default function ProcessPageContent() {
                 </div>
               </div>
 
-              {/* Right Visual Graphic: GitHub Repo & Production Live Status */}
-              <div className="lg:col-span-6 bg-[#141414] rounded-2xl p-6 sm:p-8 text-white border border-white/10 shadow-lg relative overflow-hidden">
-                <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+              {/* Right Visual Showcase: Production Live Deployment & Sovereignty Handover */}
+              <div className="lg:col-span-6 bg-[#141414] rounded-2xl p-6 sm:p-8 text-white border border-white/10 shadow-xl relative overflow-hidden">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
                   <div className="flex items-center gap-2">
                     <GitBranch className="w-4 h-4 text-[#ba49f5]" />
                     <span className="font-mono text-xs font-bold tracking-wider uppercase text-white/90">
@@ -1032,57 +1104,74 @@ export default function ProcessPageContent() {
                     </span>
                   </div>
                   <span className="font-mono text-[10px] bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full font-bold">
-                    Transferred
+                    Transferred ✓
                   </span>
                 </div>
 
                 {/* Production Live Card */}
-                <div className="space-y-4 font-mono text-xs">
+                <div className="space-y-3 font-mono text-xs">
+                  {/* Live URL */}
                   <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-white/60">Live Production URL:</span>
-                      <span className="flex items-center gap-1.5 text-emerald-400 font-bold">
-                        <Lock className="w-3.5 h-3.5" /> SSL Secured
+                      <span className="text-white/60 text-[11px]">Live Production URL:</span>
+                      <span className="flex items-center gap-1.5 text-emerald-400 font-bold text-[11px]">
+                        <Lock className="w-3 h-3" /> SSL Active (TLS 1.3)
                       </span>
                     </div>
-                    <div className="bg-black/50 p-3 rounded-lg border border-white/10 flex items-center justify-between text-white font-bold text-sm">
-                      <span>https://yourdomain.com</span>
-                      <span className="text-[10px] bg-emerald-500 text-black px-2 py-0.5 rounded font-bold uppercase">
-                        Active 200 OK
+                    <div className="flex items-center justify-between bg-black/60 px-3.5 py-2.5 rounded-lg border border-white/10">
+                      <span className="text-white font-bold text-xs sm:text-sm">https://yourdomain.com</span>
+                      <span className="bg-emerald-500 text-white font-bold text-[10px] px-2 py-0.5 rounded">
+                        200 OK
                       </span>
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-white/60">Repository Sovereignty:</span>
-                      <span className="text-[#1ab9a2] font-bold">Private GitHub Repo</span>
+                  {/* Multi-Region Edge Latencies */}
+                  <div className="grid grid-cols-3 gap-2 text-center text-[10px] pt-1">
+                    <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-white/50">US-East (iad1)</p>
+                      <p className="text-emerald-400 font-bold mt-0.5">11ms</p>
                     </div>
-                    <p className="text-white/90 font-bold text-sm">
-                      org / flagship-web-platform
-                    </p>
-                    <p className="text-[11px] text-white/50 mt-1">
-                      100% full admin ownership transferred · 0 vendor lock-in
-                    </p>
+                    <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-white/50">EU-Central (fra1)</p>
+                      <p className="text-emerald-400 font-bold mt-0.5">16ms</p>
+                    </div>
+                    <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-white/50">AP-South (bom1)</p>
+                      <p className="text-emerald-400 font-bold mt-0.5">8ms</p>
+                    </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-between">
+                  {/* Repository Ownership */}
+                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-white/60 text-[11px]">Organization Transfer:</span>
+                      <span className="text-[#ba49f5] font-bold text-[11px]">Private GitHub Repo</span>
+                    </div>
+                    <p className="text-white font-bold text-xs">@client-org / flagship-web-platform</p>
+                    <p className="text-white/50 text-[10px] mt-1">100% full admin ownership transferred · 0 vendor lock-in</p>
+                  </div>
+
+                  {/* 30-Day Hypercare Warranty */}
+                  <div className="p-3.5 rounded-xl bg-[#ba49f5]/15 border border-[#ba49f5]/30 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <ShieldCheck className="w-6 h-6 text-[#ba49f5] shrink-0" />
+                      <div className="w-8 h-8 rounded-lg bg-[#ba49f5] text-white flex items-center justify-center font-bold">
+                        <ShieldCheck className="w-4 h-4" />
+                      </div>
                       <div>
                         <p className="font-bold text-white text-xs">30-Day Hypercare Warranty</p>
-                        <p className="text-white/60 text-[11px]">Free bug fixes & priority architect support</p>
+                        <p className="text-white/70 text-[10px]">Free bug fixes &amp; priority architect support</p>
                       </div>
                     </div>
-                    <span className="text-purple-300 font-bold text-[10px] uppercase bg-purple-500/20 px-2 py-1 rounded-md">
-                      Active SLA
+                    <span className="bg-[#ba49f5] text-white text-[10px] font-bold px-2 py-0.5 rounded">
+                      ACTIVE SLA
                     </span>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/60 font-mono">
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-white/60 font-mono">
                   <span>DNS Propagation: Global Edge</span>
-                  <span className="text-[#ba49f5] font-bold">Live Worldwide 🚀</span>
+                  <span className="text-emerald-400 font-bold">Live Worldwide 🚀</span>
                 </div>
               </div>
 
@@ -1090,96 +1179,70 @@ export default function ProcessPageContent() {
           </div>
 
         </div>
-
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          4. CLIENT SOVEREIGNTY BENTO GRID
+          4. CLIENT SOVEREIGNTY BENTO: Total Ownership & Guarantee
       ─────────────────────────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-[#f7f2ea] border-y border-[#d8d3ce] relative overflow-hidden">
-        
-        {/* Floating Bubble Accent in Bento (z-20) */}
-        <div className="absolute top-[12%] right-[4%] z-20 hidden md:block">
-          <GlossyBubble size={130} color="amber" floatVariant={2} />
-        </div>
-        <div className="absolute bottom-[10%] left-[3%] z-20 hidden md:block">
-          <GlossyBubble size={90} color="teal" floatVariant={3} />
-        </div>
-
-        <div className="max-w-[1262px] mx-auto px-5 sm:px-8 relative z-10">
+      <section className="py-20 lg:py-28 bg-[#141414] text-white font-montserrat">
+        <div className="max-w-[1262px] mx-auto px-5 sm:px-8">
           
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 bg-white border border-[#d8d3ce] px-4 py-1.5 rounded-full mb-4">
-              <span className="text-xs font-bold uppercase tracking-[0.12em] text-primary">
-                Client Guarantees & Handover
-              </span>
-            </div>
-            <h2 className="font-montserrat font-black text-3xl sm:text-4xl lg:text-5xl text-[#141414] tracking-tight leading-[1.1]">
-              What you walk away with upon{" "}
-              <span className="font-sourceSerif italic font-normal text-primary">
-                sprint completion.
-              </span>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">
+              Client Sovereignty Guarantee
+            </span>
+            <h2 className="font-black text-3xl sm:text-5xl tracking-tight mt-3 text-white">
+              You own every pixel and every line of code.
             </h2>
-            <p className="mt-4 text-base text-[#7d7b77] font-medium leading-relaxed">
-              Total code and asset sovereignty. You own every pixel, every line of TypeScript, and every cloud configuration asset.
+            <p className="mt-4 text-white/70 text-sm sm:text-base leading-relaxed">
+              We never hold clients hostage. Our engineering standards ensure your internal team can take over, deploy, and scale effortlessly.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {bentoDeliverables.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={i}
-                  className="bg-white rounded-3xl p-8 border border-[#ece9e1] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div
-                        className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-xs"
-                        style={{ backgroundColor: `${item.color}15`, color: item.color }}
-                      >
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f7f2ea] text-[#7d7b77]">
-                        {item.tag}
-                      </span>
-                    </div>
-
-                    <h3 className="font-montserrat font-black text-xl text-[#141414] tracking-tight mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-[#7d7b77] font-medium leading-relaxed">
-                      {item.desc}
-                    </p>
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {bentoDeliverables.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white/5 rounded-3xl p-7 border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-sm"
+                    style={{ backgroundColor: `${item.color}20`, color: item.color }}
+                  >
+                    <item.icon size={22} />
                   </div>
+                  <span
+                    className="text-[10px] font-bold uppercase tracking-widest font-mono px-2.5 py-0.5 rounded-full"
+                    style={{ backgroundColor: `${item.color}20`, color: item.color }}
+                  >
+                    {item.tag}
+                  </span>
+                  <h3 className="font-bold text-xl text-white mt-3 mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-white/70 text-xs sm:text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
 
         </div>
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          5. PROCESS FAQS: Clearing Ambiguity
+          5. FAQ ACCORDION SECTION
       ─────────────────────────────────────────────────────────────── */}
-      <section className="py-24 lg:py-32 max-w-[1000px] mx-auto px-5 sm:px-8 relative">
-        
-        {/* Floating Accent Bubble near FAQ */}
-        <div className="absolute top-[20%] -right-12 z-20 hidden lg:block">
-          <GlossyBubble size={100} color="pink" floatVariant={1} />
-        </div>
-
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#f7f2ea] border border-[#d8d3ce] px-4 py-1.5 rounded-full mb-4">
-            <span className="text-xs font-bold uppercase tracking-[0.12em] text-primary">
-              Sprint FAQs
-            </span>
-          </div>
-          <h2 className="font-montserrat font-black text-4xl sm:text-5xl text-[#141414] tracking-tight">
-            Sprint & workflow{" "}
-            <span className="font-sourceSerif italic font-normal text-primary">answers plainly.</span>
+      <section className="py-20 lg:py-28 max-w-[950px] mx-auto px-5 sm:px-8">
+        <div className="text-center mb-14">
+          <span className="text-xs font-bold uppercase tracking-widest text-primary">
+            Clear Answers
+          </span>
+          <h2 className="font-montserrat font-black text-3xl sm:text-4xl lg:text-5xl text-[#141414] tracking-tight mt-2">
+            Frequently Asked Questions
           </h2>
         </div>
 
@@ -1189,19 +1252,23 @@ export default function ProcessPageContent() {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-2xl border border-[#ece9e1] shadow-xs overflow-hidden transition-all"
+                className="bg-white rounded-2xl border border-[#ece9e1] overflow-hidden transition-all duration-200"
               >
                 <button
+                  type="button"
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between font-montserrat font-bold text-base sm:text-lg text-[#141414] hover:text-primary transition-colors cursor-pointer"
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-montserrat font-bold text-base sm:text-lg text-[#141414] hover:text-primary transition-colors"
                 >
                   <span>{faq.q}</span>
-                  <span className="text-primary text-xl font-bold ml-4 w-6 h-6 rounded-full bg-[#f7f2ea] flex items-center justify-center shrink-0">
-                    {isOpen ? "−" : "+"}
-                  </span>
+                  <ChevronDown
+                    size={20}
+                    className={`transition-transform duration-300 text-primary shrink-0 ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-6 text-sm sm:text-base text-[#7d7b77] font-medium leading-relaxed border-t border-[#f7f2ea] pt-4">
+                  <div className="px-6 pb-6 text-sm sm:text-base text-[#7d7b77] leading-relaxed border-t border-[#f5f2eb] pt-4">
                     {faq.a}
                   </div>
                 )}
@@ -1212,14 +1279,42 @@ export default function ProcessPageContent() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          6. STATS / NUMBERS: Dynamic Counter Section
+          6. HIGH CONVERSION CTA: Pink Accent Transition Arch
       ─────────────────────────────────────────────────────────────── */}
-      <Stats />
+      <section className="w-full bg-[#fb72cc] text-[#141414] rounded-t-[70px] sm:rounded-t-[100px] md:rounded-t-[140px] pt-20 pb-24 sm:pt-28 sm:pb-32 px-5 sm:px-8 text-center relative overflow-hidden">
+        <div className="max-w-[950px] mx-auto relative z-10">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#141414]/80 bg-white/40 px-4 py-1.5 rounded-full inline-block mb-6">
+            Fixed Scope · Guaranteed Launch Date
+          </span>
+          
+          <h2 className="font-montserrat font-black text-4xl sm:text-6xl md:text-7xl tracking-tight text-[#141414] leading-[1.04]">
+            Ready to build a website that leaves competitors behind?
+          </h2>
 
-      {/* ─────────────────────────────────────────────────────────────
-          7. SEAMLESS PINK ARCH CTA BLOCK
-      ─────────────────────────────────────────────────────────────── */}
-      <CTA />
+          <p className="mt-6 text-base sm:text-xl text-[#141414]/85 font-medium max-w-2xl mx-auto leading-relaxed">
+            Book a free 20-minute discovery call with our founding engineers. We will review your goals and deliver an itemized fixed-price sprint roadmap.
+          </p>
+
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#141414] hover:bg-black text-white px-9 py-4 rounded-full text-base font-bold transition shadow-xl hover:scale-105 active:scale-95"
+            >
+              <span>Book Your Discovery Call</span>
+              <ArrowUpRight size={18} className="text-primary" />
+            </Link>
+            
+            <a
+              href="https://wa.me/918810650579?text=Hi%20Value%20Tech%20Solution,%20I'd%20like%20to%20discuss%20a%20website%20sprint."
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-[#f7f2ea] text-[#141414] border border-[#141414]/20 px-8 py-4 rounded-full text-base font-bold transition"
+            >
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
     </div>
   );
