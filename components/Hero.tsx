@@ -151,16 +151,16 @@ export default function Hero() {
 
               </div>
 
-              {/* Tilted Smartphone positioned on Bottom-Left exactly like Reference Image */}
-              <div className="absolute -bottom-4 sm:-bottom-6 -left-2 sm:-left-6 w-[145px] sm:w-[175px] md:w-[190px] h-[270px] sm:h-[325px] md:h-[350px] bg-[#141414] rounded-[34px] sm:rounded-[40px] p-2 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-[5px] sm:border-[6px] border-[#141414] z-20 overflow-hidden flex flex-col rotate-[-5deg] group-hover:rotate-0 transition-transform duration-500">
+              {/* Tilted Smartphone positioned on Bottom-Left with minimal overlap so all desktop code is visible */}
+              <div className="absolute bottom-1 sm:bottom-2 -left-6 sm:-left-12 lg:-left-16 w-[125px] sm:w-[145px] md:w-[160px] h-[245px] sm:h-[285px] md:h-[310px] bg-[#141414] rounded-[28px] sm:rounded-[34px] p-1.5 shadow-[0_18px_40px_rgba(0,0,0,0.24)] border-[4px] border-[#141414] z-20 overflow-hidden flex flex-col rotate-[-6deg] group-hover:rotate-0 transition-transform duration-500">
                 
                 {/* iPhone Dynamic Notch */}
-                <div className="w-14 h-2.5 bg-black rounded-full mx-auto mb-1.5 flex items-center justify-end pr-1 z-20">
+                <div className="w-10 sm:w-12 h-2 bg-black rounded-full mx-auto mb-1 flex items-center justify-end pr-1 z-20">
                   <div className="w-1 h-1 rounded-full bg-[#222]" />
                 </div>
                 
                 {/* Inner Screen with Live Interactive Motion Loop Video */}
-                <div className="w-full h-full bg-[#191919] rounded-[26px] sm:rounded-[30px] overflow-hidden relative flex flex-col justify-between p-2">
+                <div className="w-full h-full bg-[#191919] rounded-[22px] sm:rounded-[28px] overflow-hidden relative flex flex-col justify-between p-2">
                   <video
                     src="/videos/services/social-management.mp4"
                     autoPlay
@@ -176,23 +176,15 @@ export default function Hero() {
                   />
                   
                   {/* Status Bar */}
-                  <div className="relative z-10 flex items-center justify-between text-[8px] font-bold text-white/90 px-1 pt-0.5">
+                  <div className="relative z-10 flex items-center justify-between text-[7.5px] sm:text-[8px] font-bold text-white/90 px-1 pt-0.5">
                     <span>9:41</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   </div>
 
                   {/* Bottom Home Indicator */}
-                  <div className="relative z-10 w-16 h-1 bg-white/40 rounded-full mx-auto mb-0.5" />
+                  <div className="relative z-10 w-14 sm:w-16 h-1 bg-white/40 rounded-full mx-auto mb-0.5" />
                 </div>
 
-              </div>
-
-              {/* Minimalist 3D Plant Accent on Bottom Right matching Reference Scene */}
-              <div className="absolute -bottom-2 -right-2 sm:-right-4 z-10 flex items-end gap-1.5 pointer-events-none opacity-90">
-                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-tertiary to-amber-200 shadow-md transform translate-y-1" />
-                <div className="w-8 h-10 sm:w-10 sm:h-12 bg-white rounded-2xl shadow-md border border-[#d8d3ce]/60 flex items-center justify-center p-1">
-                  <span className="text-base sm:text-lg">🪴</span>
-                </div>
               </div>
 
             </div>
