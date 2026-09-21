@@ -139,67 +139,167 @@ export default function BlogPageContent({ initialPosts }: { initialPosts: Post[]
       {/* ─────────────────────────────────────────────────────────────
           1. EDITORIAL HERO SECTION: Elevated Studio Display
       ─────────────────────────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-12 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20">
+      {/* ─────────────────────────────────────────────────────────────
+          1. EDITORIAL HERO SECTION: Elevated 2-Column Studio Stage
+      ─────────────────────────────────────────────────────────────── */}
+      <section className="relative pt-20 sm:pt-24 lg:pt-28 pb-10 sm:pb-12">
         
-        {/* Floating Frosted Glass Bubbles in Negative Space */}
+        {/* Floating Frosted Glass Bubbles with Safe Viewport Margins */}
         <ProfessionalGlassBubble
-          size={135}
+          size={120}
           tint="teal"
           floatVariant={1}
-          className="hidden lg:block absolute top-24 right-[8%] opacity-90"
+          className="hidden lg:block absolute top-16 right-[38%] opacity-80"
         />
         <ProfessionalGlassBubble
-          size={90}
+          size={80}
           tint="pink"
           floatVariant={2}
-          delay="1.4s"
-          className="hidden md:block absolute top-40 left-[5%] opacity-90"
+          delay="1.2s"
+          className="hidden md:block absolute top-28 left-[2%] opacity-75"
         />
         <ProfessionalGlassBubble
-          size={60}
+          size={55}
           tint="amber"
           floatVariant={3}
-          delay="2.6s"
-          className="hidden xl:block absolute bottom-4 right-[25%] opacity-80"
+          delay="2.5s"
+          className="hidden xl:block absolute bottom-6 left-[42%] opacity-75"
         />
 
         <div className="max-w-[1262px] mx-auto px-5 sm:px-8 relative z-10">
           
-          {/* Eyebrow badge */}
-          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-[#d8d3ce] px-4 py-1.5 rounded-full shadow-xs mb-6">
-            <span className="w-2 h-2 rounded-full bg-primary" />
-            <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#141414]">
-              Engineering Field Notes · 100% In-House Insights
-            </span>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* ── LEFT COLUMN: HEADLINE & TOPIC MATRIX (7 cols) ── */}
+            <div className="lg:col-span-7">
+              {/* Eyebrow badge with live beacon */}
+              <div className="inline-flex items-center gap-2.5 bg-white/90 backdrop-blur-md border border-[#d8d3ce] px-4 py-1.5 rounded-full shadow-xs mb-5">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                </span>
+                <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#141414]">
+                  Engineering Field Notes · Weekly Architectural Dispatches
+                </span>
+              </div>
 
-          {/* Large Editorial Headline */}
-          <h1 className="font-montserrat font-black text-4xl sm:text-6xl md:text-7xl lg:text-[80px] tracking-[-0.04em] text-[#141414] leading-[0.98] max-w-4xl">
-            Architecture, Web Speed &amp;{" "}
-            <span className="font-sourceSerif italic font-normal text-primary underline decoration-primary/40 decoration-wavy decoration-2 underline-offset-8">
-              Digital Craft.
-            </span>
-          </h1>
+              {/* Large Editorial Headline */}
+              <h1 className="font-montserrat font-black text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] tracking-[-0.04em] text-[#141414] leading-[1.01] mb-5">
+                Architecture, Web Speed &amp;{" "}
+                <span className="font-sourceSerif italic font-normal text-primary underline decoration-primary/40 decoration-wavy decoration-2 underline-offset-8">
+                  Digital Craft.
+                </span>
+              </h1>
 
-          {/* Subtitle */}
-          <p className="mt-8 text-lg sm:text-xl text-[#666460] font-medium leading-relaxed max-w-2xl">
-            Unfiltered engineering essays, architecture teardowns, and growth principles from our senior developers — covering Next.js 16, Core Web Vitals, conversion design, and AI automation.
-          </p>
+              {/* Subtitle */}
+              <p className="text-base sm:text-lg text-[#666460] font-medium leading-relaxed max-w-xl mb-6">
+                Unfiltered engineering essays, architecture teardowns, and growth principles from our senior developers — covering Next.js 16, Core Web Vitals, conversion design, and AI automation.
+              </p>
 
-          {/* Stat Badges */}
-          <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
-            <div className="inline-flex items-center gap-2 bg-white/90 border border-[#d8d3ce] px-4 py-2 rounded-full text-xs font-bold text-[#141414] shadow-xs">
-              <BookOpen size={14} className="text-primary" />
-              <span>{initialPosts.length} Published Field Notes</span>
+              {/* Quick Topic Jump Tags */}
+              <div className="flex flex-wrap items-center gap-2 mb-6">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#7d7b77] mr-1">
+                  Topics:
+                </span>
+                {[
+                  { label: "⚡ Web Vitals", cat: "Web Performance" },
+                  { label: "🚀 Next.js 16", cat: "Web Development" },
+                  { label: "🤖 AI Agents", cat: "AI Engineering" },
+                  { label: "⚙️ Automation", cat: "Automation" },
+                  { label: "🔍 SEO & GEO", cat: "SEO + GEO" },
+                ].map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => setSelectedCategory(item.cat)}
+                    className={`text-xs font-semibold px-3 py-1 rounded-full border transition-all cursor-pointer ${
+                      selectedCategory === item.cat
+                        ? "bg-[#141414] text-white border-[#141414]"
+                        : "bg-white/80 hover:bg-white text-[#141414] border-[#d8d3ce] hover:border-primary"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Stat Badges Row */}
+              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#d8d3ce]">
+                <div className="inline-flex items-center gap-2 bg-white/80 border border-[#d8d3ce] px-3.5 py-1.5 rounded-full text-xs font-bold text-[#141414]">
+                  <BookOpen size={13} className="text-primary" />
+                  <span>{initialPosts.length} Field Notes</span>
+                </div>
+                <div className="inline-flex items-center gap-2 bg-white/80 border border-[#d8d3ce] px-3.5 py-1.5 rounded-full text-xs font-bold text-[#141414]">
+                  <Zap size={13} className="text-[#fea800]" />
+                  <span>98+ Lighthouse SLA</span>
+                </div>
+                <div className="inline-flex items-center gap-2 bg-white/80 border border-[#d8d3ce] px-3.5 py-1.5 rounded-full text-xs font-bold text-[#141414]">
+                  <User size={13} className="text-[#fb72cc]" />
+                  <span>Senior Engineers Only</span>
+                </div>
+              </div>
             </div>
-            <div className="inline-flex items-center gap-2 bg-white/90 border border-[#d8d3ce] px-4 py-2 rounded-full text-xs font-bold text-[#141414] shadow-xs">
-              <Zap size={14} className="text-[#fea800]" />
-              <span>98+ Lighthouse Performance Standard</span>
+
+            {/* ── RIGHT COLUMN: EDITORIAL SPOTLIGHT CARD (5 cols) ── */}
+            <div className="lg:col-span-5">
+              {featuredPost && (
+                <div className="bg-[#141414] rounded-3xl p-5 sm:p-6 text-white border border-white/10 shadow-2xl relative overflow-hidden group">
+                  {/* Top Bar */}
+                  <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="font-mono text-xs font-bold uppercase tracking-wider text-white/90">
+                        Editorial Spotlight
+                      </span>
+                    </div>
+                    <span className="font-mono text-[10px] bg-white/10 text-white/70 px-2.5 py-0.5 rounded-full font-bold">
+                      {featuredPost.n}
+                    </span>
+                  </div>
+
+                  {/* Thumbnail Image */}
+                  <Link href={`/blog/${featuredPost.slug}`} className="block relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-black/40 mb-4">
+                    <Image
+                      src={featuredPost.cover}
+                      alt={featuredPost.coverAlt}
+                      fill
+                      priority
+                      sizes="(min-width: 1024px) 35vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                    <span className="absolute bottom-3 left-3 bg-[#141414]/90 backdrop-blur-md text-white border border-white/20 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                      {featuredPost.category}
+                    </span>
+                  </Link>
+
+                  {/* Post Title & Excerpt */}
+                  <Link href={`/blog/${featuredPost.slug}`} className="block">
+                    <h3 className="font-montserrat font-bold text-lg sm:text-xl text-white leading-snug tracking-tight group-hover:text-primary transition-colors line-clamp-2">
+                      {featuredPost.title}
+                    </h3>
+                    <p className="mt-2 text-xs sm:text-sm text-white/70 font-medium leading-relaxed line-clamp-2">
+                      {featuredPost.description}
+                    </p>
+                  </Link>
+
+                  {/* Footer Strip */}
+                  <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-2 text-white/60">
+                      <Clock size={12} className="text-primary" />
+                      <span>{featuredPost.readMinutes} min read</span>
+                    </div>
+                    <Link
+                      href={`/blog/${featuredPost.slug}`}
+                      className="inline-flex items-center gap-1 font-bold text-primary group-hover:text-[#3af7d9] transition-colors"
+                    >
+                      <span>Read Essay</span>
+                      <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="inline-flex items-center gap-2 bg-white/90 border border-[#d8d3ce] px-4 py-2 rounded-full text-xs font-bold text-[#141414] shadow-xs">
-              <User size={14} className="text-[#fb72cc]" />
-              <span>Senior Engineers Only</span>
-            </div>
+
           </div>
 
         </div>
