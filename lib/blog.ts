@@ -29,7 +29,7 @@ export const posts: Post[] = [
     readMinutes: 6,
     publishedAt: "2026-04-22",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -263,7 +263,7 @@ export const posts: Post[] = [
     readMinutes: 11,
     publishedAt: "",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -282,7 +282,7 @@ export const posts: Post[] = [
     readMinutes: 4,
     publishedAt: "",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -301,7 +301,7 @@ export const posts: Post[] = [
     readMinutes: 9,
     publishedAt: "2026-05-09",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -383,7 +383,7 @@ export const posts: Post[] = [
     readMinutes: 8,
     publishedAt: "2026-05-10",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -467,7 +467,7 @@ export const posts: Post[] = [
     readMinutes: 10,
     publishedAt: "2026-05-11",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -551,7 +551,7 @@ export const posts: Post[] = [
     readMinutes: 9,
     publishedAt: "2026-05-13",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -641,7 +641,7 @@ export const posts: Post[] = [
     readMinutes: 11,
     publishedAt: "2026-05-14",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -759,7 +759,7 @@ export const posts: Post[] = [
     readMinutes: 7,
     publishedAt: "2026-07-01",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -831,7 +831,7 @@ export const posts: Post[] = [
     readMinutes: 6,
     publishedAt: "2026-07-08",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -890,7 +890,7 @@ export const posts: Post[] = [
     readMinutes: 6,
     publishedAt: "2026-07-15",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -956,7 +956,7 @@ export const posts: Post[] = [
     readMinutes: 5,
     publishedAt: "2026-07-22",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:
@@ -1025,7 +1025,7 @@ export const posts: Post[] = [
     readMinutes: 8,
     publishedAt: "2026-07-29",
     author: {
-      name: "Shazeed Ahmad",
+      name: "Varghese Joshy",
       url: "https://valuetechsolution.com/team",
     },
     cover:

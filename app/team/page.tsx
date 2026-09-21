@@ -49,7 +49,7 @@ export type Member = {
 export const team: Member[] = [
   {
     n: "T.01",
-    name: "Shazeed Ahmad",
+    name: "Varghese Joshy",
     role: "Founder · AI engineering lead",
     bio: "Builds the agents that survive contact with production traffic. Eight years across distributed systems, applied LLMs, and product engineering. Leads diagnostics, scoping, and technical review on every engagement.",
     stack: ["Python", "TypeScript", "OpenAI", "Anthropic", "n8n", "Postgres", "AWS"],

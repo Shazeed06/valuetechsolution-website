@@ -196,45 +196,19 @@ export default function BlogPageContent({ initialPosts }: { initialPosts: Post[]
                 Unfiltered engineering essays, architecture teardowns, and growth principles from our senior developers — covering Next.js 16, Core Web Vitals, conversion design, and AI automation.
               </p>
 
-              {/* Quick Topic Jump Tags */}
-              <div className="flex flex-wrap items-center gap-2 mb-6">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#7d7b77] mr-1">
-                  Topics:
-                </span>
-                {[
-                  { label: "⚡ Web Vitals", cat: "Web Performance" },
-                  { label: "🚀 Next.js 16", cat: "Web Development" },
-                  { label: "🤖 AI Agents", cat: "AI Engineering" },
-                  { label: "⚙️ Automation", cat: "Automation" },
-                  { label: "🔍 SEO & GEO", cat: "SEO + GEO" },
-                ].map((item) => (
-                  <button
-                    key={item.label}
-                    onClick={() => setSelectedCategory(item.cat)}
-                    className={`text-xs font-semibold px-3 py-1 rounded-full border transition-all cursor-pointer ${
-                      selectedCategory === item.cat
-                        ? "bg-[#141414] text-white border-[#141414]"
-                        : "bg-white/80 hover:bg-white text-[#141414] border-[#d8d3ce] hover:border-primary"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-
               {/* Stat Badges Row */}
               <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#d8d3ce]">
-                <div className="inline-flex items-center gap-2 bg-white/80 border border-[#d8d3ce] px-3.5 py-1.5 rounded-full text-xs font-bold text-[#141414]">
+                <div className="inline-flex items-center gap-2 bg-white/90 border border-[#d8d3ce] px-3.5 py-1.5 rounded-full text-xs font-bold text-[#141414] shadow-2xs">
                   <BookOpen size={13} className="text-primary" />
                   <span>{initialPosts.length} Field Notes</span>
                 </div>
-                <div className="inline-flex items-center gap-2 bg-white/80 border border-[#d8d3ce] px-3.5 py-1.5 rounded-full text-xs font-bold text-[#141414]">
+                <div className="inline-flex items-center gap-2 bg-white/90 border border-[#d8d3ce] px-3.5 py-1.5 rounded-full text-xs font-bold text-[#141414] shadow-2xs">
                   <Zap size={13} className="text-[#fea800]" />
                   <span>98+ Lighthouse SLA</span>
                 </div>
-                <div className="inline-flex items-center gap-2 bg-white/80 border border-[#d8d3ce] px-3.5 py-1.5 rounded-full text-xs font-bold text-[#141414]">
+                <div className="inline-flex items-center gap-2 bg-white/90 border border-[#d8d3ce] px-3.5 py-1.5 rounded-full text-xs font-bold text-[#141414] shadow-2xs">
                   <User size={13} className="text-[#fb72cc]" />
-                  <span>Senior Engineers Only</span>
+                  <span>Lead Architect: Varghese Joshy</span>
                 </div>
               </div>
             </div>
@@ -306,49 +280,29 @@ export default function BlogPageContent({ initialPosts }: { initialPosts: Post[]
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          2. INTERACTIVE FILTER & SEARCH CONSOLE
+          2. INTERACTIVE FILTER & SEARCH CONSOLE (No horizontal scrollbar)
       ─────────────────────────────────────────────────────────────── */}
-      <section className="sticky top-20 z-30 bg-[#efebe5]/95 backdrop-blur-md border-y border-[#d8d3ce] py-4 transition-all">
+      <section className="sticky top-20 z-30 bg-[#efebe5]/95 backdrop-blur-md border-y border-[#d8d3ce] py-4 transition-all shadow-xs">
         <div className="max-w-[1262px] mx-auto px-5 sm:px-8">
-          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
-            
-            {/* Category Pills (Horizontal Scroll on Mobile) */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
-              {allCategories.map((cat) => {
-                const isSelected = selectedCategory === cat;
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`rounded-full px-4 py-2 text-xs font-bold transition-all whitespace-nowrap active:scale-95 cursor-pointer ${
-                      isSelected
-                        ? "bg-[#141414] text-white shadow-md"
-                        : "bg-white/80 hover:bg-white text-[#666460] hover:text-[#141414] border border-[#d8d3ce]"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                );
-              })}
-            </div>
-
+          {/* Header Row: Search Input + Result Counter */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pb-3 border-b border-[#d8d3ce]/60">
             {/* Search Input Box */}
-            <div className="relative w-full md:w-72 shrink-0">
+            <div className="relative w-full sm:max-w-md">
               <Search
                 size={16}
                 className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#7d7b77] pointer-events-none"
               />
               <input
                 type="text"
-                placeholder="Search field notes..."
+                placeholder="Search architectural field notes, Next.js, AI, SEO..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-full border border-[#d8d3ce] bg-white pl-9 pr-8 py-2 text-xs sm:text-sm text-[#141414] placeholder:text-[#8a8781] focus:border-primary focus:outline-none transition-all shadow-xs"
+                className="w-full rounded-full border border-[#d8d3ce] bg-white pl-9 pr-8 py-2 text-xs sm:text-sm text-[#141414] placeholder:text-[#8a8781] focus:border-primary focus:outline-none transition-all shadow-2xs"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#7d7b77] hover:text-[#141414]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#7d7b77] hover:text-[#141414] cursor-pointer"
                   aria-label="Clear search"
                 >
                   <X size={14} />
@@ -356,27 +310,48 @@ export default function BlogPageContent({ initialPosts }: { initialPosts: Post[]
               )}
             </div>
 
+            {/* Results Count & Reset */}
+            <div className="flex items-center justify-between sm:justify-end gap-3 text-xs">
+              <span className="font-mono text-[#666460] font-semibold">
+                Showing <strong className="text-[#141414]">{filteredPosts.length}</strong> {filteredPosts.length === 1 ? "article" : "articles"}
+              </span>
+              {(selectedCategory !== "All" || searchQuery) && (
+                <button
+                  onClick={() => {
+                    setSelectedCategory("All");
+                    setSearchQuery("");
+                  }}
+                  className="inline-flex items-center gap-1 font-bold text-primary hover:text-[#0e8a77] cursor-pointer"
+                >
+                  <X size={12} />
+                  <span>Reset filters</span>
+                </button>
+              )}
+            </div>
           </div>
 
-          {/* Active Filter Status */}
-          {(selectedCategory !== "All" || searchQuery) && (
-            <div className="mt-3 flex items-center justify-between text-xs text-[#7d7b77] pt-2 border-t border-[#e2ddd6]">
-              <span>
-                Found <strong className="text-[#141414]">{filteredPosts.length}</strong> {filteredPosts.length === 1 ? "article" : "articles"}
-                {selectedCategory !== "All" && <> in <strong className="text-primary">{selectedCategory}</strong></>}
-                {searchQuery && <> matching &quot;<strong className="text-[#141414]">{searchQuery}</strong>&quot;</>}
-              </span>
-              <button
-                onClick={() => {
-                  setSelectedCategory("All");
-                  setSearchQuery("");
-                }}
-                className="text-xs font-bold text-primary hover:underline cursor-pointer"
-              >
-                Reset filters
-              </button>
-            </div>
-          )}
+          {/* Category Filter Pills: flex-wrap prevents any horizontal scrollbar on any device */}
+          <div className="flex flex-wrap items-center gap-2 pt-3">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#7d7b77] mr-1 hidden sm:inline-block">
+              Categories:
+            </span>
+            {allCategories.map((cat) => {
+              const isSelected = selectedCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-all whitespace-nowrap active:scale-95 cursor-pointer ${
+                    isSelected
+                      ? "bg-[#141414] text-white shadow-sm ring-1 ring-[#141414]"
+                      : "bg-white/90 hover:bg-white text-[#55534e] hover:text-[#141414] border border-[#d8d3ce] hover:border-[#141414]/40"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </section>
 
