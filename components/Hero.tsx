@@ -75,11 +75,11 @@ const techStack = [
 
 export default function Hero() {
   return (
-    <section className="relative pt-24 sm:pt-28 lg:pt-28 pb-8 sm:pb-10 lg:pb-12 bg-[#efebe5] text-[#141414] overflow-hidden flex flex-col justify-center min-h-[calc(100vh-60px)]">
+    <section className="relative z-0 isolate pt-24 sm:pt-28 lg:pt-28 pb-8 sm:pb-10 lg:pb-12 bg-[#efebe5] text-[#141414] overflow-hidden flex flex-col justify-center min-h-[calc(100vh-60px)]">
       {/* Haikei-Style Organic Layered SVG Waves in Brand Colors */}
       <HeroHaikeiBackground />
 
-      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
+      <div className="relative z-10 max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* Left Column: High-Converting Headline & Value Proposition */}
