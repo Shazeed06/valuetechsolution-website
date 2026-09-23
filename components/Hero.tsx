@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowUpRight, Star, CheckCircle2, Laptop } from "lucide-react";
+import HeroHaikeiBackground from "@/components/HeroHaikeiBackground";
 
 const techStack = [
   {
@@ -75,9 +76,8 @@ const techStack = [
 export default function Hero() {
   return (
     <section className="relative pt-24 sm:pt-28 lg:pt-28 pb-8 sm:pb-10 lg:pb-12 bg-[#efebe5] text-[#141414] overflow-hidden flex flex-col justify-center min-h-[calc(100vh-60px)]">
-      {/* Ambient background glow */}
-      <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-[#1ab9a2]/15 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute top-1/3 left-[-100px] w-[450px] h-[450px] bg-[#fb72cc]/10 rounded-full blur-[130px] pointer-events-none -z-10" />
+      {/* Haikei-Style Organic Layered SVG Waves in Brand Colors */}
+      <HeroHaikeiBackground />
 
       <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
